@@ -1,9 +1,10 @@
 ﻿
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 /// <summary>
-/// version aplha-1
+/// version aplha-2
 /// 
 /// Tile container class
 /// 
@@ -26,9 +27,21 @@ public class Tile {
     Iso Coord;
     public Iso coord { get { return Coord; } }
 
-    public Tile (Iso coord, GameObject graphic)
+    public Tile (Iso coord)
     {
         Coord = coord;
-        Graphic = graphic;
+
+        //Create Tile with no assigned map so push to main Map
+        onCreate(this);
+    }
+
+    static Action<Tile> onCreate;
+
+    /// <summary>
+    /// On create call
+    /// </summary>
+    public static void registerOnCreate(Action<Tile> funct)
+    {
+        onCreate += funct;
     }
 }

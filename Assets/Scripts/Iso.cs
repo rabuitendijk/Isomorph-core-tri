@@ -48,7 +48,7 @@ public class Iso{
     /// </summary>
     private void calcDepth()
     {
-        Depth = 200000-(X + Y - Z);
+        Depth = 20000-(X + Y - Z);
     }
 
     public Vector3 toPos()
