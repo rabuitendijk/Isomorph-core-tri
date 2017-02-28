@@ -75,6 +75,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\AssetLoading\SplicingScript.cs" />
     <Compile Include="Assets\Scripts\AssetLoading\StreamingSpriteLoader.cs" />
     <Compile Include="Assets\Scripts\AssetLoading\StreamingSpriteXMLCell.cs" />
     <Compile Include="Assets\Scripts\AssetLoading\StreamingSpriteXMLObject.cs" />

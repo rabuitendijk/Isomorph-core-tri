@@ -1,7 +1,10 @@
 # Isomorph-core-tri
 Isomorph, Third iteration, Unity 5, Flat sprite based approach. Goals: proper sorting algorithm, unit sprite slicing and clean sprite finishing.
 
-ESSENTIAL: gain understanding how projection to screen and object depth and coordinates relate.
+ESSENTIAL: 
+
+	- Gain understanding how projection to screen and object depth and coordinates relate.
+	- 264 is not a multiple of 2, 256 is...
 
 TO BE ADDED:
 
@@ -9,7 +12,7 @@ TO BE ADDED:
 		* Functioning hover selector and mouse click Tile return
 		* Allow translation of object independent of coordinate.
 
-	[Under concideration]- Compatibillity for multiple heights of slab projection (at least [1] and [srt2_srt3]).
+	- [Under concideration] Compatibillity for multiple heights of slab projection (at least [1] and [srt2_srt3]).
 
 	- XML based text importer, competable with microsoft excel xml export.
 
@@ -59,7 +62,7 @@ IN OK STATE:
 		* {apha-1} Map storage, concider normal x by x by x grid storage. Map class with main return Map, height witdh and depth
 		* {alpha-1} Ingame object builder.
 
-	[May be solved?]- A way to sort the sprites without using to lagre a numeric width.
+	- [May be solved?] A way to sort the sprites without using to lagre a numeric width.
 
 	- How to clean to graphics edges
 		* Pogress has been made by using 15x compession from source.

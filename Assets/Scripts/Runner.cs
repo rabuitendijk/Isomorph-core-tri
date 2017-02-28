@@ -9,11 +9,15 @@ public class Runner : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        new SplicingScript();
+
         temp_loader.onStartup();
         Map map = new Map(8, 8, 8);
         new GraphicsControl(temp_loader);
 
         map.makeLevel();
+
+
     }
 
 
