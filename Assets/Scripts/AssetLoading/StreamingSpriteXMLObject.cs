@@ -23,6 +23,8 @@ public class StreamingSpriteXMLObject : IXmlSerializable
 	public int rows {get; protected set;}
 	public int cellHeight {get; protected set;}
 	public int cellWidth {get; protected set;}
+
+    public int offset { get; protected set; }
 	List<StreamingSpriteXMLCell> cells;
 	
 	
@@ -30,12 +32,13 @@ public class StreamingSpriteXMLObject : IXmlSerializable
 	public StreamingSpriteXMLObject()
 	{
 		pixelsPerUnit = 32;
-		pivotPoint = new Vector2(0f, 0f);
+		pivotPoint = new Vector2(0.5f, 0.5f);
 		multiSprite = false;
 		columns = 1;
 		rows = 1;
 		cellHeight = 32;
 		cellWidth = 32;
+        offset = 0;
 		
 		cells = new List<StreamingSpriteXMLCell>();
 	}
@@ -115,7 +118,12 @@ public class StreamingSpriteXMLObject : IXmlSerializable
 					case "pivotY":
 						pivotPoint.y = reader.ReadContentAsFloat();
 						break;
-					
+
+                    case "offset":
+                        offset = reader.ReadContentAsInt();
+                        break; 
+
+
 					default:
 						Debug.Log("Warning switch: "+reader.Name);
 						break;

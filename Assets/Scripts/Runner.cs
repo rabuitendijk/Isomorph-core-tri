@@ -3,21 +3,26 @@ using UnityEngine;
 
 public class Runner : MonoBehaviour {
 
-    public SpriteHashLoader temp_loader;
 
 
     // Use this for initialization
     void Start()
     {
-        new SplicingScript();
+        //new SplicingScript();
+        new StreamingSpriteLoader();
 
-        temp_loader.onStartup();
         Map map = new Map(8, 8, 8);
-        new GraphicsControl(temp_loader);
+        new GraphicsControl();
 
         map.makeLevel();
 
-
+        /*
+        for (int i = 0; i < 8; i++)
+        {
+            Debug.Log("Mip "+i+": " + (512 >> i));
+        }
+        */
+       
     }
 
 

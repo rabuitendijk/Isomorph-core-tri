@@ -55,4 +55,18 @@ public class Iso{
     {
         return new Vector3(WX, WY, 0);
     }
+
+    public void add(Iso other)
+    {
+        X += other.x;
+        Y += other.y;
+        Z += other.Z;
+        calcWorldCoord();
+        calcDepth();
+    }
+
+    public override string ToString()
+    {
+        return "Iso<"+x+", "+y+", "+z+">";
+    }
 }

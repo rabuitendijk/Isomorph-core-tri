@@ -76,6 +76,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AssetLoading\SplicingScript.cs" />
+    <Compile Include="Assets\Scripts\AssetLoading\SplicingXMLObject.cs" />
     <Compile Include="Assets\Scripts\AssetLoading\StreamingSpriteLoader.cs" />
     <Compile Include="Assets\Scripts\AssetLoading\StreamingSpriteXMLCell.cs" />
     <Compile Include="Assets\Scripts\AssetLoading\StreamingSpriteXMLObject.cs" />
@@ -88,7 +89,9 @@
     <Compile Include="Assets\Scripts\Tile.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\StreamingAssets\Images\buttons.png.xml" />
+    <None Include="Assets\StreamingAssets\Images\Spliced\bigBlock.png.xml" />
+    <None Include="Assets\StreamingAssets\Images\unitBlock.png.xml" />
+    <None Include="Assets\StreamingAssets\UnsplicedSource\2by2by2.png.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

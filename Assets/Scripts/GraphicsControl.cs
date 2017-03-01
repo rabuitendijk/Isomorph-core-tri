@@ -12,12 +12,11 @@ using UnityEngine;
 /// </summary>
 public class GraphicsControl {
 
-    SpriteHashLoader sprites;
     public static GraphicsControl main;
     Material mat, redMat;
     Transform tileFolder;
 
-    public GraphicsControl(SpriteHashLoader sprites)
+    public GraphicsControl()
     {
         main = this;
 
@@ -26,28 +25,49 @@ public class GraphicsControl {
         redMat.color = new Color(1f, 0f, 0f);
         tileFolder = new GameObject() { name = "TileFolder" }.transform;
 
-        this.sprites = sprites;
 
         Tile.registerOnCreate(onTileCreate);
+
+        testob(new Iso(0,0,1));
     }
 
     void onTileCreate(Tile t)
     {
-        t.graphic = newOb(t.coord, sprites.getSprite("stoneBlock"), mat);
+        t.graphic = newOb(t.coord, "unitBlock", mat);
     }
 
-    GameObject newOb(Iso coord, Sprite sp, Material mat)
+    GameObject newOb(Iso coord, string name, Material mat)
     {
-        GameObject ret = new GameObject() { name = "isotile(" + coord.x + ", " + coord.y + ", " + coord.z + ")" };
+        GameObject ret = new GameObject() { name = name+"(" + coord.x + ", " + coord.y + ", " + coord.z + ")" };
         ret.transform.position = coord.toPos();
         ret.transform.parent = tileFolder;
 
         SpriteRenderer sr = ret.AddComponent<SpriteRenderer>() as SpriteRenderer;
-        sr.sprite = sp;
+        sr.sprite = StreamingSpriteLoader.Main.getSprite(name);
         sr.material = mat;
         sr.sortingLayerName = "DepthSort";
         sr.sortingOrder = coord.depth;
 
         return ret;
+    }
+
+    void testob(Iso offset)
+    {
+        Iso t;
+
+        t = new Iso(0, 0, 0); t.add(offset);
+        newOb(t, "bigBlock[" + 0 + "_" + 0 + "_" + 0 + "]", mat);
+        t = new Iso(1, 0, 0); t.add(offset);
+        newOb(t, "bigBlock[" + 1 + "_" + 0 + "_" + 0 + "]", mat);
+        t = new Iso(0, 0, 1); t.add(offset);
+        newOb(t, "bigBlock[" + 0 + "_" + 0 + "_" + 1 + "]", mat);
+        t = new Iso(1, 0, 1); t.add(offset);
+        newOb(t, "bigBlock[" + 1 + "_" + 0 + "_" + 1 + "]", mat);
+        t = new Iso(0, 1, 0); t.add(offset);
+        newOb(t, "bigBlock[" + 0 + "_" + 1 + "_" + 0 + "]", mat);
+        t = new Iso(0, 1, 1); t.add(offset);
+        newOb(t, "bigBlock[" + 0 + "_" + 1 + "_" + 1 + "]", mat);
+        t = new Iso(1, 1, 1); t.add(offset);
+        newOb(t, "bigBlock[" + 1 + "_" + 1 + "_" + 1 + "]", mat);
     }
 }

@@ -107,10 +107,11 @@ public class StreamingSpriteLoader
 		
 		byte[] imageBytes = File.ReadAllBytes( filePath );
 
-		Texture2D imageTexture = new Texture2D(2, 2);	// Create some kind of dummy instance of Texture2D
+		Texture2D imageTexture = new Texture2D(2, 2, TextureFormat.ARGB32, false);	// Create some kind of dummy instance of Texture2D
 		imageTexture.filterMode = FilterMode.Point;
-		imageTexture.LoadImage(imageBytes);	// This will correctly resize the texture based on the image file
-		
+        imageTexture.wrapMode = TextureWrapMode.Clamp;
+        imageTexture.LoadImage(imageBytes); // This will correctly resize the texture based on the image file
+        //imageTexture.Compress(false);
 		
 		if (xml.multiSprite)
 		{
@@ -143,18 +144,19 @@ public class StreamingSpriteLoader
 					{
 						if (!cell.disable)
 						{
-							if (!cell.name.Equals(""))
+							if (!cell.name.Equals("NULL"))
 								trueName = cell.name;
 							else
 								trueName = spriteName+"("+i+"_"+j+")"; //Cosider alerations
 							
-							spriteCoordinates = new Rect(i*xml.cellWidth, j*xml.cellHeight, xml.cellWidth, xml.cellHeight);	// In pixels!
+							spriteCoordinates = new Rect(i*(xml.cellWidth+2*xml.offset)+xml.offset, j*(xml.cellHeight+2*xml.offset)+xml.offset, xml.cellWidth, xml.cellHeight);	// In pixels!
 							addSprite(imageTexture, spriteCoordinates, trueName, xml.pivotPoint, xml.pixelsPerUnit);
+                            //Debug.Log(cell.name);
 						}
 					}
 					else
 					{
-						spriteCoordinates = new Rect(i*xml.cellWidth, j*xml.cellHeight, xml.cellWidth, xml.cellHeight);	// In pixels!
+						spriteCoordinates = new Rect(i * (xml.cellWidth + 2 * xml.offset) + xml.offset, j * (xml.cellHeight + 2 * xml.offset) + xml.offset, xml.cellWidth, xml.cellHeight);	// In pixels!
 						addSprite(imageTexture, spriteCoordinates, spriteName+"("+i+"_"+j+")", xml.pivotPoint, xml.pixelsPerUnit);
 					}
 
@@ -168,7 +170,7 @@ public class StreamingSpriteLoader
 	void addSprite(Texture2D imageTexture, Rect spriteCoordinates, string spriteName, Vector2 pivotPoint, int pixelsPerUnit)
 	{
 		Sprite s = Sprite.Create(imageTexture, spriteCoordinates, pivotPoint, pixelsPerUnit);
-		
+	    
 		try
 		{
 			sprites.Add(spriteName, s);

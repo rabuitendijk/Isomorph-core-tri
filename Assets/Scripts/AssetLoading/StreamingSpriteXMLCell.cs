@@ -23,7 +23,7 @@ public class StreamingSpriteXMLCell : IXmlSerializable
 	
 	public StreamingSpriteXMLCell()
 	{
-		name = "";
+		name = "NULL";
 		disable = false;
 		x=-1;
 		y=-1;
