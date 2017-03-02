@@ -4,7 +4,6 @@ Isomorph, Third iteration, Unity 5, Flat sprite based approach. Goals: proper so
 ESSENTIAL: 
 
 	- Gain understanding how projection to screen and object depth and coordinates relate.
-	- 264 is not a multiple of 2, 256 is...
 
 TO BE ADDED:
 
@@ -22,9 +21,9 @@ TO BE ADDED:
 		* Find appropriate selectable object on vertical stack.
 
 	- Proper sprite slicing
-		* Sprite slicing will be hendland before XMLSpriteLoader call building sprites into a custem directionairy (for rule splitting)
-		* 32bit RGBA import and export.
-		* Automatic xml file generation for XMLSpriteLoader.
+		* Generate objects from xml containing data binding sprites together.
+		* Autogenerate object xml for alias.
+		* Mip level overides for below standard resolution zooming.
 
 
 TO BE UPDATED:
@@ -61,7 +60,12 @@ IN OK STATE:
 		* {alpha-2} Iso classes 
 		* {apha-1} Map storage, concider normal x by x by x grid storage. Map class with main return Map, height witdh and depth
 		* {alpha-1} Ingame object builder.
-
+		
+	- Proper sprite slicing
+		* Sprite slicing will be hendland before XMLSpriteLoader call building sprites into a custem directionairy (for rule splitting)
+		* 32bit RGBA import and export.
+		* Automatic xml file generation for XMLSpriteLoader.
+		
 	- [May be solved?] A way to sort the sprites without using to lagre a numeric width.
 
 	- How to clean to graphics edges

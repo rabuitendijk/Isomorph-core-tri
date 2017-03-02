@@ -33,7 +33,7 @@ public class GraphicsControl {
 
     void onTileCreate(Tile t)
     {
-        t.graphic = newOb(t.coord, "unitBlock", mat);
+        t.graphic = newOb(t.coord, "unit", mat);
     }
 
     GameObject newOb(Iso coord, string name, Material mat)
@@ -43,7 +43,7 @@ public class GraphicsControl {
         ret.transform.parent = tileFolder;
 
         SpriteRenderer sr = ret.AddComponent<SpriteRenderer>() as SpriteRenderer;
-        sr.sprite = StreamingSpriteLoader.Main.getSprite(name);
+        sr.sprite = AliasXMLLoader.main.getSprite(name);
         sr.material = mat;
         sr.sortingLayerName = "DepthSort";
         sr.sortingOrder = coord.depth;

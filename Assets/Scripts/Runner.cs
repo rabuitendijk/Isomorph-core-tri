@@ -8,8 +8,8 @@ public class Runner : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        //new SplicingScript();
-        new StreamingSpriteLoader();
+        //new BuildAliasTextures();
+        new AliasXMLLoader();
 
         Map map = new Map(8, 8, 8);
         new GraphicsControl();
