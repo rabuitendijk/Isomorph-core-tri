@@ -76,6 +76,8 @@ public class Map {
             for (int j = 0; j < Map.main.height; j++)
             {
                 new Tile(new Iso(i, j, Mathf.FloorToInt((i + j) / 3f)));
+                if (i % (j+1) == 2)
+                    new Tile(new Iso(i, j, Mathf.FloorToInt((i + j) / 3f)+1), "tree");
             }
         }
         for (int i = 0; i < 5; i++)

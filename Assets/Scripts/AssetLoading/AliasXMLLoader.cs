@@ -20,13 +20,17 @@ public class AliasXMLLoader {
     static public AliasXMLLoader main;
     int count = 0;
     Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
+    string mipPath;
 
     public AliasXMLLoader()
     {
         main = this;
         string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "Alias");
+        mipPath = System.IO.Path.Combine(Application.streamingAssetsPath, "AliasMip");
         RecersiveDirectoryCrawler(filePath);
         Debug.Log("Alias Loader: " + count + ", sprites loaded");
+
+        Resources.UnloadUnusedAssets();
     }
 
     /// <summary>
@@ -74,17 +78,60 @@ public class AliasXMLLoader {
 
         byte[] imageBytes = File.ReadAllBytes(filePath);
 
-        Texture2D imageTexture = new Texture2D(2, 2, TextureFormat.ARGB32, false);  
+        //Texture2D imageTexture = new Texture2D(2, 2, TextureFormat.ARGB32, false);  
+        Texture2D imageTexture = new Texture2D(2, 2);
         imageTexture.filterMode = FilterMode.Point;
         imageTexture.wrapMode = TextureWrapMode.Clamp;
-        imageTexture.LoadImage(imageBytes); 
+        imageTexture.LoadImage(imageBytes);
         //imageTexture.Compress(false);
+        overrideMips(imageTexture, filePath.Substring(filePath.LastIndexOf('\\') + 1, filePath.Length - filePath.LastIndexOf('\\') - 5));
 
+        /*
+        for (int i = 0; i < imageTexture.mipmapCount; i++)
+        {
+            Debug.Log("Mip level: "+i+", Expect: "+(2048>>i)*(2048>>i)+", got: "+ imageTexture.GetPixels32(i).Length);
+        }
+        */
         if (xml.multiSprite)
         {
             processAlias(xml, imageTexture);
         }
 
+    }
+
+    void overrideMips(Texture2D tex, string fileName)
+    {
+        byte[] imageBytes;
+        Texture2D imageTexture;
+
+        if (File.Exists(mipPath + "\\" + fileName + ".m1.png"))
+        {
+            imageBytes = File.ReadAllBytes(mipPath + "\\" + fileName + ".m1.png");
+            imageTexture = new Texture2D(2, 2);
+            imageTexture.LoadImage(imageBytes);
+
+            tex.SetPixels32(imageTexture.GetPixels32(), 1);
+            
+        }
+        else
+        {
+            Debug.Log("Mip not found: "+ mipPath + "\\" + fileName + ".m1.png");
+        }
+
+        if (File.Exists(mipPath + "\\" + fileName + ".m2.png")) {
+            imageBytes = File.ReadAllBytes(mipPath + "\\" + fileName + ".m2.png");
+            imageTexture = new Texture2D(2, 2);
+            imageTexture.LoadImage(imageBytes);
+
+            tex.SetPixels32(imageTexture.GetPixels32(), 2);
+        }
+        else
+        {
+            Debug.Log("Mip not found: " + mipPath + "\\" + fileName + ".m2.png");
+        }
+        tex.Apply(false);
+
+        
     }
 
 

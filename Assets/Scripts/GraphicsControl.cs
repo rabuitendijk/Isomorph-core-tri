@@ -33,7 +33,7 @@ public class GraphicsControl {
 
     void onTileCreate(Tile t)
     {
-        t.graphic = newOb(t.coord, "unit", mat);
+        t.graphic = newOb(t.coord, t.obj, mat);
     }
 
     GameObject newOb(Iso coord, string name, Material mat)

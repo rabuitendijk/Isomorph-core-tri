@@ -4,11 +4,14 @@ using UnityEngine;
 public class Runner : MonoBehaviour {
 
 
+    public bool rebuildAliasses = false;
 
     // Use this for initialization
     void Start()
     {
-        //new BuildAliasTextures();
+        if (rebuildAliasses)
+            new BuildAliasTextures();
+
         new AliasXMLLoader();
 
         Map map = new Map(8, 8, 8);

@@ -20,9 +20,9 @@ public class SplicingScript{
 
     public static SplicingScript main;
     int count = 0;
-    Texture2D unitTexture;
-    //string targetDir;
-    int offset = 2;
+    Texture2D unitTexture, mip1Texture, mip2Texture;
+    string source, sourceMip;
+
 
     public SplicingScript()
     {
@@ -31,61 +31,84 @@ public class SplicingScript{
 
     public List<ProcessingObject> Splice()
     {
-        //targetDir = System.IO.Path.Combine(Application.streamingAssetsPath, "Images\\Spliced");
-        string sourceDir = System.IO.Path.Combine(Application.streamingAssetsPath, "UnsplicedSource");
 
-        /*
-        if (!Directory.Exists(targetDir))
-        {
-            try {
-                Directory.CreateDirectory(targetDir);
-            }catch(Exception e)
-            {
-                Debug.Log(e);
-            }
-        }
-        */
-
-        //Attempt load unit sprite
-        if (!File.Exists(sourceDir+"\\UnitDefinition.png"))
-        {
-            Debug.Log("SplicingScript: UnitDefinition not found!!!, "+ sourceDir + "\\UnitDefinition.png");
-            return new List<ProcessingObject>();
-        }
-
-        byte[] imageBytes = File.ReadAllBytes(sourceDir + "\\UnitDefinition.png");
-
-        unitTexture = new Texture2D(2, 2);   // Create some kind of dummy instance of Texture2D
-        unitTexture.LoadImage(imageBytes); // This will correctly resize the texture based on the image file
-        Debug.Log("UnitDefinition loaded{width: "+unitTexture.width+", height: "+unitTexture.height+"}");
+        if (!loadUnitDefinitions())
+            return new List<ProcessingObject>(); 
 
         //Start actual splicing
         List<ProcessingObject> ret = new List<ProcessingObject>();
-        RecersiveDirectoryCrawler(sourceDir, ret);
+        RecersiveDirectoryCrawler(ret);
 
         Debug.Log("Splicing sprites: " + count + ", sprites spliced");
 
         return ret;
     }
 
+    bool loadUnitDefinitions()
+    {
+        source = System.IO.Path.Combine(Application.streamingAssetsPath, "UnsplicedSource");
+        sourceMip = System.IO.Path.Combine(Application.streamingAssetsPath, "MipOverride");
+
+        //Attempt load unit sprite
+        if (!File.Exists(source + "\\UnitDefinition.png"))
+        {
+            Debug.Log("SplicingScript: UnitDefinition not found!!!, " + source + "\\UnitDefinition.png");
+            return false;
+        }
+
+        byte[] imageBytes = File.ReadAllBytes(source + "\\UnitDefinition.png");
+
+        unitTexture = new Texture2D(2, 2);   // Create some kind of dummy instance of Texture2D
+        unitTexture.LoadImage(imageBytes); // This will correctly resize the texture based on the image file
+        Debug.Log("UnitDefinition loaded{width: " + unitTexture.width + ", height: " + unitTexture.height + "}");
+
+        //Attempt load mip1
+        if (!File.Exists(sourceMip + "\\UnitDefinition.m1.png"))
+        {
+            Debug.Log("SplicingScript: UnitDefinition not found!!!, " + sourceMip + "\\UnitDefinition.m1.png");
+            return false;
+        }
+
+        imageBytes = File.ReadAllBytes(sourceMip + "\\UnitDefinition.m1.png");
+
+        mip1Texture = new Texture2D(2, 2);   // Create some kind of dummy instance of Texture2D
+        mip1Texture.LoadImage(imageBytes); // This will correctly resize the texture based on the image file
+        Debug.Log("UnitDefinition.m1 loaded{width: " + mip1Texture.width + ", height: " + mip1Texture.height + "}");
+
+        //Attempt load mip1
+        if (!File.Exists(sourceMip + "\\UnitDefinition.m2.png"))
+        {
+            Debug.Log("SplicingScript: UnitDefinition not found!!!, " + sourceMip + "\\UnitDefinition.m2.png");
+            return false;
+        }
+
+        imageBytes = File.ReadAllBytes(sourceMip + "\\UnitDefinition.m2.png");
+
+        mip2Texture = new Texture2D(2, 2);   // Create some kind of dummy instance of Texture2D
+        mip2Texture.LoadImage(imageBytes); // This will correctly resize the texture based on the image file
+        Debug.Log("UnitDefinition.m2 loaded{width: " + mip2Texture.width + ", height: " + mip2Texture.height + "}");
+
+        return true;
+    }
+
     /// <summary>
     /// Recersive first load later
     /// </summary>
-    void RecersiveDirectoryCrawler(string path, List<ProcessingObject> sprites)
+    void RecersiveDirectoryCrawler(List<ProcessingObject> sprites)
     {
 
         //Debug.Log("RecersiveDirectoryCrawler: "+path);
 
         //Recieve
-        string[] subDirs = Directory.GetDirectories(path);
+        string[] subDirs = Directory.GetDirectories(source);
 
         foreach (string s in subDirs)
         {
-            RecersiveDirectoryCrawler(s, sprites);
+            RecersiveDirectoryCrawler(sprites);
         }
 
         //Load
-        string[] subFiles = Directory.GetFiles(path);
+        string[] subFiles = Directory.GetFiles(source);
 
         foreach (string f in subFiles)
         {
@@ -101,7 +124,7 @@ public class SplicingScript{
     /// <summary>
     /// Quills sprite loader, with modifications
     /// </summary>
-    void LoadSprite(string spriteName, string filePath, List<ProcessingObject> sprites)
+    void LoadSprite(string fileName, string filePath, List<ProcessingObject> sprites)
     {
         SplicingXMLObject xml;
 
@@ -120,69 +143,112 @@ public class SplicingScript{
 
         byte[] imageBytes = File.ReadAllBytes(filePath);
 
-        Texture2D imageTexture = new Texture2D(2, 2);   // Create some kind of dummy instance of Texture2D
+        Texture2D imageTexture = new Texture2D(2, 2, TextureFormat.ARGB32, false);   // Create some kind of dummy instance of Texture2D
         imageTexture.LoadImage(imageBytes); // This will correctly resize the texture based on the image file
 
         //Recover name if needed
+        string spriteName = fileName;
         if (xml.setName)
             spriteName = xml.name;
 
 
-        processTexture(imageTexture, xml, spriteName, sprites);
+        List<ProcessingImage> images = processTexture(imageTexture, xml, spriteName, unitTexture.width, unitTexture);
+        List<ProcessingImage> mip1, mip2;
+
+        //Fetch mips
+        string mip = sourceMip + "\\" + fileName + ".m1.png";
+        if (!File.Exists(mip))
+        {
+            mip1 = null;
+            Debug.Log("SpriteSplicer, Sprite without mip1: "+mip);
+        }
+        else
+        {
+            imageBytes = File.ReadAllBytes(mip);
+            imageTexture = new Texture2D(2, 2, TextureFormat.ARGB32, false);   // Create some kind of dummy instance of Texture2D
+            imageTexture.LoadImage(imageBytes); // This will correctly resize the texture based on the image file
+            mip1 = processTexture(imageTexture, xml, spriteName, mip1Texture.width, mip1Texture);
+        }
+
+        mip = sourceMip + "\\" + fileName + ".m2.png";
+        if (!File.Exists(mip))
+        {
+            mip2 = null;
+            Debug.Log("SpriteSplicer, Sprite without mip2: " + mip);
+        }
+        else
+        {
+            imageBytes = File.ReadAllBytes(mip);
+            imageTexture = new Texture2D(2, 2, TextureFormat.ARGB32, false);   // Create some kind of dummy instance of Texture2D
+            imageTexture.LoadImage(imageBytes); // This will correctly resize the texture based on the image file
+            mip2 = processTexture(imageTexture, xml, spriteName, mip2Texture.width, mip2Texture);
+        }
+
+
+        ProcessingObject export = new ProcessingObject(spriteName, images, boxCoords(xml.width, xml.depth, xml.height), mip1, mip2);
+        sprites.Add(export);
+        count++;
     }
 
-
-    void processTexture(Texture2D tex, SplicingXMLObject xml, string name, List<ProcessingObject> sprites)
+    /// <summary>
+    /// Needs replacing
+    /// xml size parameters <Net needed anyway>
+    /// UnitTexture parameters
+    /// </summary>
+    List<ProcessingImage> processTexture(Texture2D tex, SplicingXMLObject xml, string name, int size, Texture2D unit)
     {
-        int expectedWidth = Mathf.RoundToInt(.5f * unitTexture.width * (xml.depth + xml.width));
-        int expectedHeight = Mathf.RoundToInt(.25f * unitTexture.width * (xml.depth + xml.width+2*xml.height));
+        int expectedWidth = Mathf.RoundToInt(.5f * size * (xml.depth + xml.width));
+        int expectedHeight = Mathf.RoundToInt(.25f * size * (xml.depth + xml.width+2*xml.height));
 
-        int originX = Mathf.RoundToInt(.5f * unitTexture.width * (xml.width) -.5f * unitTexture.width);
+        int originX = Mathf.RoundToInt(.5f * size * (xml.width) -.5f * size);
         int originY = 0;
 
         if (!(expectedHeight == tex.height) || !(expectedWidth == tex.width))
         {
             Debug.Log("SpriteSlicer: source image dimentions [" + name + "] do not match expected dimentions. source<" + tex.width + ", " + tex.height + "> expected<" + expectedWidth + ", " + expectedHeight + ">.");
-            return;
+            return new List<ProcessingImage>();
         }
 
         List<Iso> coords = getOrder(xml.width, xml.depth, xml.height);
         List<ProcessingImage> images = new List<ProcessingImage>();
-        ProcessingImage temp;
 
-        int x, y;
+        
         for (int i = 0; i < coords.Count; i++)
         {
-            x = originX + Mathf.RoundToInt(.5f * unitTexture.width * (-coords[i].x + coords[i].y));
-            y = originY + Mathf.RoundToInt(.25f * unitTexture.width * (coords[i].x + coords[i].y + 2 * coords[i].z));
-            temp = new ProcessingImage(unitTexture.width, unitTexture.height, name + "[" + coords[i].x + "_" + coords[i].y + "_" + coords[i].z + "]", coords[i]);
-
-            for (int j = 0; j < (unitTexture.width); j++)
-            {
-                for (int k = 0; k < (unitTexture.height); k++)
-                {
-
-                    if (unitTexture.GetPixel(j, k).a > .5)
-                    {
-                        //Copy pixel
-                        temp.set(j, k, tex.GetPixel(x + j, y + k));
-                    }
-                    else
-                    {
-                        //Ignore pixel
-                        temp.set(j, k, new Color(0f, 0f, 0f, 0f));
-                    }
-    
-
-                }
-            }
-            images.Add(temp);
-            
+            images.Add(getImage(tex, coords[i], originX, originY, name, size, unit));
         }
 
-        ProcessingObject export = new ProcessingObject(name, images, boxCoords(xml.width, xml.depth, xml.height));
-        sprites.Add(export);
-        count++;
+        return images;
+    }
+
+    /// <summary>
+    /// Loads the desired fragment of the image
+    /// </summary>
+    ProcessingImage getImage(Texture2D tex, Iso coord, int originX, int originY, string name, int size, Texture2D unit) {
+        int x = originX + Mathf.RoundToInt(.5f * size * (-coord.x + coord.y));
+        int y = originY + Mathf.RoundToInt(.25f * size * (coord.x + coord.y + 2 * coord.z));
+        ProcessingImage temp = new ProcessingImage(size, size, name + "[" + coord.x + "_" + coord.y + "_" + coord.z + "]", coord);
+
+        for (int j = 0; j < (size); j++)
+        {
+            for (int k = 0; k < (size); k++)
+            {
+
+                if (unit.GetPixel(j, k).a > .5)
+                {
+                    //Copy pixel
+                    temp.set(j, k, tex.GetPixel(x + j, y + k));
+                }
+                else
+                {
+                    //Ignore pixel
+                    temp.set(j, k, new Color(0f, 0f, 0f, 0f));
+                }
+
+
+            }
+        }
+        return temp;
     }
 
     /// <summary>
@@ -228,6 +294,9 @@ public class SplicingScript{
         return ret;
     }
 
+    /// <summary>
+    /// Returns a width by depth by height box of Iso coordinates.
+    /// </summary>
     List<Iso> boxCoords(int width, int depth, int height)
     {
         List<Iso> ret = new List<Iso>();
@@ -246,74 +315,6 @@ public class SplicingScript{
         return ret;
     }
 
-    /// <summary>
-    /// Needs alteration
-    /// </summary>
-    void writeSpriteloaderXML(string name, List<Iso> list)
-    {
-        string xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-
-        xml += "<StreamingSpriteXMLObject multiSprite = \"1\" rows = \""+1+"\" columns = \""+list.Count+ "\" pixelsPerUnit=\""+unitTexture.width+"\" cellHeight=\""+unitTexture.height+"\" cellWidth=\""+unitTexture.width+"\" offset=\""+offset+"\">\n";
-        xml += "<cells>\n";
-        for (int i = 0; i < list.Count; i++)
-        {
-            xml += "\t<StreamingSpriteXMLCell x = \""+i+"\" y = \""+0+"\" name = \""+name+"["+list[i].x+"_"+list[i].y+"_"+list[i].z+"]\">\n";
-            xml += "\t</StreamingSpriteXMLCell>\n";
-        }
-        xml += "</cells>\n";
-        xml += "</StreamingSpriteXMLObject>";
-
-        //File.WriteAllText(targetDir+"\\"+name+".png.xml", xml);
-    }
+  
 }
 
-/*
-if (!(expectedHeight == tex.height) || !(expectedWidth == tex.width))
-{
-    Debug.Log("SpriteSlicer: source image dimentions ["+name+"] do not match expected dimentions. source<"+tex.width+", "+tex.height+"> expected<"+expectedWidth+", "+expectedHeight+">.");
-    return null;
-}
-
-List<Iso> coords = getOrder(xml.width, xml.depth, xml.height);
-Texture2D export = new Texture2D((unitTexture.width+2*offset) * coords.Count, unitTexture.height + 2 * offset);
-int x, y;
-for (int i = 0; i < coords.Count; i++)
-{
-    x = originX + Mathf.RoundToInt(.5f * unitTexture.width * (-coords[i].x+ coords[i].y));
-    y = originY + Mathf.RoundToInt(.25f * unitTexture.width * (coords[i].x + coords[i].y + 2 * coords[i].z));
-
-    for (int j = 0; j < (unitTexture.width + 2 * offset); j++)
-    {
-        for (int k = 0; k < (unitTexture.height + 2 * offset); k++)
-        {
-            if (!(j < offset) && !(j >= unitTexture.width + offset) && !(k < offset) && !(k >= unitTexture.height + offset))
-            {   //Oudside offset
-                if (unitTexture.GetPixel(j-offset, k-offset).a > .5)
-                {
-                    //Copy pixel
-                    export.SetPixel(i * (unitTexture.width + 2 * offset) + j, k, tex.GetPixel(x + j - offset, y + k - offset));
-                }
-                else
-                {
-                    //Ignore pixel
-                    export.SetPixel(i * (unitTexture.width + 2 * offset) + j, k, new Color(0f, 0f, 0f, 0f));
-                }
-            }
-            else
-            {   //In offset
-                //Ignore pixel
-                export.SetPixel(i * (unitTexture.width + 2 * offset) + j, k, new Color(0f, 0f, 0f, 0f));
-            }
-
-        }
-    }
-}
-
-export.Apply();
-
-byte[] bytes = export.EncodeToPNG();
-File.WriteAllBytes(targetDir+"\\"+name+".png", bytes);
-count++;
-
-writeSpriteloaderXML(name, coords);
-*/

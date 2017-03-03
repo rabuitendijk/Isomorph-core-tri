@@ -96,7 +96,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StreamingAssets\Alias\0.png.xml" />
-    <None Include="Assets\StreamingAssets\UnsplicedSource\2by2by2.png.xml" />
+    <None Include="Assets\StreamingAssets\UnsplicedSource\BigBlock.png.xml" />
+    <None Include="Assets\StreamingAssets\UnsplicedSource\Stones.png.xml" />
+    <None Include="Assets\StreamingAssets\UnsplicedSource\Tree.png.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\UnitDefinition.png.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
