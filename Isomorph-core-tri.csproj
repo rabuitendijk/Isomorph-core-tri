@@ -77,6 +77,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AssetLoading\AliasXMLLoader.cs" />
     <Compile Include="Assets\Scripts\AssetLoading\BuildAliasTextures.cs" />
+    <Compile Include="Assets\Scripts\AssetLoading\RegularContainers\IsoObject.cs" />
     <Compile Include="Assets\Scripts\AssetLoading\RegularContainers\ProcessingImage.cs" />
     <Compile Include="Assets\Scripts\AssetLoading\RegularContainers\ProcessingObject.cs" />
     <Compile Include="Assets\Scripts\AssetLoading\SplicingScript.cs" />
@@ -96,6 +97,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StreamingAssets\Alias\0.png.xml" />
+    <None Include="Assets\StreamingAssets\Alias\Objects\bigBlock.obj.xml" />
+    <None Include="Assets\StreamingAssets\Alias\Objects\stones.obj.xml" />
+    <None Include="Assets\StreamingAssets\Alias\Objects\tree.obj.xml" />
+    <None Include="Assets\StreamingAssets\Alias\Objects\unit.obj.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\BigBlock.png.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\Stones.png.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\Tree.png.xml" />

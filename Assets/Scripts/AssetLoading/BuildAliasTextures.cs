@@ -67,6 +67,18 @@ public class BuildAliasTextures {
                 Debug.Log(e);
             }
         }
+
+        if (!Directory.Exists(target+"\\Objects"))
+        {
+            try
+            {
+                Directory.CreateDirectory(target + "\\Objects");
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+            }
+        }
     }
 
     void build()
@@ -93,6 +105,7 @@ public class BuildAliasTextures {
                 currenctMip2 = new Texture2D(aliasSize / 4, aliasSize / 4, TextureFormat.ARGB32, false);
 
                 writeXML(inAlias);
+                writeObjXML(inAlias);
                 number++;
                 inAlias = new List<ProcessingObject>();
                 count = 0;
@@ -128,6 +141,7 @@ public class BuildAliasTextures {
 
         exportAlias(currenctAlias, currenctMip1, currenctMip2);
         writeXML(inAlias);
+        writeObjXML(inAlias);
     }
 
     bool fitInTexture(int count, ProcessingObject o)
@@ -219,5 +233,43 @@ public class BuildAliasTextures {
         xml += "</StreamingSpriteXMLObject>";
 
         File.WriteAllText(target+"\\"+number+".png.xml", xml);
+    }
+
+    void writeObjXML(List<ProcessingObject> objects)
+    {
+        string xml;
+
+        
+        foreach (ProcessingObject o in objects)
+        {
+            xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+            xml += "<XMLObject name=\""+o.name+"\">\n";
+            xml += "<coords>\n";
+
+
+            foreach (ProcessingImage i in o.images)
+            {
+
+                if (o.images.Count != 1)
+                    xml += "\t<XMLCoord x=\""+i.coord.x+"\" y=\""+i.coord.y+"\" z=\""+i.coord.z+"\" name = \"" + o.name + "[" + i.coord.x + "_" + i.coord.y + "_" + i.coord.z + "]\">\n";
+                else
+                    xml += "\t<XMLCoord x=\"" + i.coord.x + "\" y=\"" + i.coord.y + "\" z=\"" + i.coord.z + "\" name = \"" + o.name + "\">\n";
+                xml += "\t</XMLCoord>\n";
+
+            }
+            foreach (Iso i in o.voids)
+            {
+                xml += "\t<XMLCoord x=\"" + i.x + "\" y=\"" + i.y + "\" z=\"" + i.z + "\" name = \"VOID\">\n";
+                xml += "\t</XMLCoord>\n";
+            }
+
+            xml += "</coords>\n";
+            xml += "</XMLObject>";
+            File.WriteAllText(target + "\\Objects\\" + o.name + ".obj.xml", xml);
+        }
+        
+
+
+       
     }
 }

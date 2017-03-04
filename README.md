@@ -23,7 +23,6 @@ TO BE ADDED:
 	- Proper sprite slicing
 		* Generate objects from xml containing data binding sprites together.
 		* Autogenerate object xml for alias.
-		* Mip level overides for below standard resolution zooming.
 
 
 TO BE UPDATED:
@@ -65,6 +64,7 @@ IN OK STATE:
 		* Sprite slicing will be hendland before XMLSpriteLoader call building sprites into a custem directionairy (for rule splitting)
 		* 32bit RGBA import and export.
 		* Automatic xml file generation for XMLSpriteLoader.
+		* Mip level overides for below standard resolution zooming.
 		
 	- [May be solved?] A way to sort the sprites without using to lagre a numeric width.
 

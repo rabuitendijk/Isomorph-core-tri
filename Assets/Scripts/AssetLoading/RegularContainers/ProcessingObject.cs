@@ -18,15 +18,17 @@ public class ProcessingObject {
     public List<ProcessingImage> mip2 { get; protected set; }
 
     public List<Iso> coords { get; protected set; }
+    public List<Iso> voids { get; protected set; }
     public string name { get; protected set; }
 
-    public ProcessingObject(string name, List<ProcessingImage> images, List<Iso> coords, List<ProcessingImage> mip1 =null, List<ProcessingImage> mip2=null)
+    public ProcessingObject(string name, List<ProcessingImage> images, List<Iso> coords, List<ProcessingImage> mip1 =null, List<ProcessingImage> mip2=null, List<Iso> voids = null)
     {
         this.name = name;
         this.images = images;
         this.coords = coords;
         this.mip1 = mip1;
         this.mip2 = mip2;
+        this.voids = voids;
 
         if (images.Count > 49)
             Debug.Log("ProcessingObject: Image has to many pieces (>49), horrible crash imminent.");

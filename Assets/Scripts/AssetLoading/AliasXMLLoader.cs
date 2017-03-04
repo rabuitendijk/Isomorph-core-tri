@@ -7,7 +7,7 @@ using System.Xml;
 using System.Xml.Serialization;
 
 /// <summary>
-/// aplha-1
+/// aplha-2
 /// 
 /// Modification of the streaming Sprite loader.
 /// Sefifically made to load isometric tile alias with obj.xml files and mip (.mx) overrides.
@@ -18,8 +18,9 @@ using System.Xml.Serialization;
 public class AliasXMLLoader {
 
     static public AliasXMLLoader main;
-    int count = 0;
+    int count = 0, objCount = 0;
     Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
+    Dictionary<string, IsoObject> prototypes = new Dictionary<string, IsoObject>();
     string mipPath;
 
     public AliasXMLLoader()
@@ -28,7 +29,8 @@ public class AliasXMLLoader {
         string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "Alias");
         mipPath = System.IO.Path.Combine(Application.streamingAssetsPath, "AliasMip");
         RecersiveDirectoryCrawler(filePath);
-        Debug.Log("Alias Loader: " + count + ", sprites loaded");
+        loadObjects(filePath+"\\Objects");
+        Debug.Log("Alias Loader: " + count + ", sprites loaded. "+objCount+", Objects loaded.");
 
         Resources.UnloadUnusedAssets();
     }
@@ -184,6 +186,36 @@ public class AliasXMLLoader {
     }
 
 
+    void loadObjects(string path)
+    {
+        string[] subFiles = Directory.GetFiles(path);
+
+        foreach (string f in subFiles)
+        {
+            if (f.ToLower().EndsWith(".obj.xml"))
+                loadObject(f);
+        }
+    }
+
+    void loadObject(string filePath)
+    {
+        XMLObject xml;
+
+        XmlSerializer serializer = new XmlSerializer(typeof(XMLObject));
+        XmlReader reader = XmlReader.Create(filePath);
+        xml = (XMLObject)serializer.Deserialize(reader);
+
+        try
+        {
+            prototypes.Add(xml.name, IsoObject.prototype(xml));
+            objCount++;
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+    }
+
     /// <summary>
     /// Trys to get Sprite or returns null
     /// </summary>
@@ -198,6 +230,21 @@ public class AliasXMLLoader {
         }
 
         Debug.Log("Sprite: " + name + ", not found");
+        return null;
+    }
+
+    /// <summary>
+    /// Trys to get IsoObject or returns null
+    /// </summary>
+    public IsoObject getObject(string name)
+    {
+        IsoObject ob;
+        if (prototypes.TryGetValue(name, out ob))
+        {
+            return ob;
+        }
+
+        Debug.Log("Object: " + name + ", not found");
         return null;
     }
 }

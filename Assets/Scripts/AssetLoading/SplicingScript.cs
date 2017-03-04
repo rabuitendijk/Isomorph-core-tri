@@ -185,7 +185,7 @@ public class SplicingScript{
         }
 
 
-        ProcessingObject export = new ProcessingObject(spriteName, images, boxCoords(xml.width, xml.depth, xml.height), mip1, mip2);
+        ProcessingObject export = new ProcessingObject(spriteName, images, boxCoords(xml.width, xml.depth, xml.height), mip1, mip2, getVoids(xml.width, xml.depth, xml.height));
         sprites.Add(export);
         count++;
     }
@@ -291,6 +291,24 @@ public class SplicingScript{
             Debug.Log(i.ToString());
         }
         */
+        return ret;
+    }
+
+    List<Iso> getVoids(int width, int depth, int height)
+    {
+        List<Iso> ret = new List<Iso>();
+        for (int i = 1; i < width; i++)
+        {
+            for (int j = 1; j < depth; j++)
+            {
+                for (int k = 0; k < height-1; k++)
+                {
+                    ret.Add(new Iso(i, j, k));
+
+                }
+            }
+        }
+
         return ret;
     }
 

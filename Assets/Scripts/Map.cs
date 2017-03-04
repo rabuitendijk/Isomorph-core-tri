@@ -56,6 +56,24 @@ public class Map {
     }
 
     /// <summary>
+    /// Unprotected get
+    /// </summary>
+    public Tile get(Iso i)
+    {
+        return grid[i.x, i.y, i.z];
+    }
+
+    /// <summary>
+    /// Check exists
+    /// </summary>
+    public bool exists(Iso i)
+    {
+        if (grid[i.x, i.y, i.z] == null)
+            return true;
+
+        return false;
+    }
+    /// <summary>
     /// Checks if an coord is inside the Map
     /// </summary>
     public bool inGrid(Iso i)

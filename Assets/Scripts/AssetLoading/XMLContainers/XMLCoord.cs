@@ -24,7 +24,7 @@ public class XMLCoord : IXmlSerializable
 
     public XMLCoord()
     {
-        spriteName = "NULL";
+        spriteName = "VOID";
         x = -1;
         y = -1;
         z = -1;

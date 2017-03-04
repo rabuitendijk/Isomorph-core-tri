@@ -27,17 +27,21 @@ public class Tile {
     Iso Coord;
     public Iso coord { get { return Coord; } }
 
-    public Tile (Iso coord, string obj = "Stones")
+    public string obj { get; protected set; }
+    public IsoObject isoObject { get; protected set; }
+
+    public Tile (Iso coord, string obj = "unit", IsoObject isoObject = null)
     {
         Coord = coord;
         this.obj = obj;
+        this.isoObject = isoObject;
 
         //Create Tile with no assigned map so push to main Map
         onCreate(this);
     }
 
 
-    public string obj { get; protected set; }
+    
 
     static Action<Tile> onCreate;
 

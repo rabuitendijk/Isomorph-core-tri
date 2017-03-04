@@ -38,6 +38,9 @@ public class GraphicsControl {
 
     GameObject newOb(Iso coord, string name, Material mat)
     {
+        if (name == "VOID")
+            return null;
+
         GameObject ret = new GameObject() { name = name+"(" + coord.x + ", " + coord.y + ", " + coord.z + ")" };
         ret.transform.position = coord.toPos();
         ret.transform.parent = tileFolder;

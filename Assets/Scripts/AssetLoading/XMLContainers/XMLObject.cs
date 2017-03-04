@@ -20,13 +20,14 @@ public class XMLObject : IXmlSerializable
 {
 
     public List<XMLCoord> coords { get; protected set; }
-
+    public string name { get; protected set; }
 
 
     public XMLObject()
     {
         
         coords = new List<XMLCoord>();
+        name = "NULL";
     }
 
     public XmlSchema GetSchema()
@@ -75,6 +76,9 @@ public class XMLObject : IXmlSerializable
         {
             switch (reader.Name)
             {
+                case "name":
+                    name = reader.ReadContentAsString();
+                    break;
 
                 default:
                     Debug.Log("Warning switch: " + reader.Name);
