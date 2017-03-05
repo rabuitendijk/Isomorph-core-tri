@@ -15,7 +15,7 @@ public class IsoObject {
     public bool singular { get; protected set; }
     public List<Iso> coords { get; protected set; }
     public List<bool> isVisable { get; protected set; }
-    public List<string> spriteName { get; protected set; }
+    public List<Sprite> sprites { get; protected set; }
     public string name { get; protected set; }
 
     public Iso origin { get; protected set; }
@@ -26,15 +26,18 @@ public class IsoObject {
     public static IsoObject prototype(XMLObject obj)
     {
         List<Iso> coords = new List<Iso>();
-        List<string> spriteName = new List<string>();
+        List<Sprite> sprites = new List<Sprite>();
 
         foreach (XMLCoord x in obj.coords)
         {
             coords.Add(new Iso(x.x, x.y, x.z));
-            spriteName.Add(x.spriteName);
+            if (x.spriteName == "VOID")
+                sprites.Add(null);
+            else
+                sprites.Add(AliasXMLLoader.main.getSprite( x.spriteName ));
         }
 
-        return new IsoObject(obj.name, coords, spriteName);
+        return new IsoObject(obj.name, coords, sprites);
     }
 
     /// <summary>
@@ -42,7 +45,7 @@ public class IsoObject {
     /// Offsets coordinats by origin.
     /// Shares sprite stringlist with prototype
     /// </summary>
-    public IsoObject(IsoObject prototype, Iso origin) : this(prototype.name, prototype.coords, prototype.spriteName)
+    public IsoObject(IsoObject prototype, Iso origin) : this(prototype.name, prototype.coords, prototype.sprites)
     {
         this.origin = origin;
 
@@ -79,8 +82,9 @@ public class IsoObject {
 
         for(int i=0; i<coords.Count; i++)
         {
-            new Tile(coords[i], spriteName[i], this);
+            new Tile(coords[i], sprites[i], this);
         }
+        //Debug.Log("Construction did run.");
 
         return true;
     }
@@ -92,6 +96,7 @@ public class IsoObject {
     {
         foreach(Iso i in coords)
         {
+            //Debug.Log("..., "+i.ToString());
             if (Map.main.exists(i))
                 return true;
         }
@@ -100,15 +105,15 @@ public class IsoObject {
     }
 
     //Proteced constructor
-    private IsoObject(string name, List<Iso> coords, List<string> spriteName)
+    private IsoObject(string name, List<Iso> coords, List<Sprite> sprites)
     {
-        this.coords = new List<Iso>(coords);
-        this.spriteName = spriteName;
+        this.coords = clone(coords);
+        this.sprites = sprites;
         isVisable = new List<bool>();
 
-        foreach (string s in spriteName)
+        foreach (Sprite s in sprites)
         {
-            isVisable.Add((s != "VOID"));
+            isVisable.Add((s != null));
         }
         this.name = name;
 
@@ -116,5 +121,17 @@ public class IsoObject {
         if (coords.Count == 1)
             singular = true;
 
+    }
+
+    List<Iso> clone(List<Iso> list)
+    {
+        List<Iso> ret = new List<Iso>();
+
+        foreach(Iso i in list)
+        {
+            ret.Add(new Iso(i.x, i.y, i.z));
+        }
+
+        return ret;
     }
 }

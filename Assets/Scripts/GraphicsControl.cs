@@ -28,49 +28,30 @@ public class GraphicsControl {
 
         Tile.registerOnCreate(onTileCreate);
 
-        testob(new Iso(0,0,1));
+        //testob(new Iso(0,0,1));
     }
 
     void onTileCreate(Tile t)
     {
-        t.graphic = newOb(t.coord, t.obj, mat);
+        t.graphic = newOb(t, mat);
     }
 
-    GameObject newOb(Iso coord, string name, Material mat)
+    GameObject newOb(Tile t, Material mat)
     {
-        if (name == "VOID")
+        if (t.sprite == null)
             return null;
 
-        GameObject ret = new GameObject() { name = name+"(" + coord.x + ", " + coord.y + ", " + coord.z + ")" };
-        ret.transform.position = coord.toPos();
+        GameObject ret = new GameObject() { name = t.isoObject.name+ "(" + t.coord.x + ", " + t.coord.y + ", " + t.coord.z + ")" };
+        ret.transform.position = t.coord.toPos();
         ret.transform.parent = tileFolder;
 
         SpriteRenderer sr = ret.AddComponent<SpriteRenderer>() as SpriteRenderer;
-        sr.sprite = AliasXMLLoader.main.getSprite(name);
+        sr.sprite = t.sprite;
         sr.material = mat;
         sr.sortingLayerName = "DepthSort";
-        sr.sortingOrder = coord.depth;
+        sr.sortingOrder = t.coord.depth;
 
         return ret;
     }
 
-    void testob(Iso offset)
-    {
-        Iso t;
-
-        t = new Iso(0, 0, 0); t.add(offset);
-        newOb(t, "bigBlock[" + 0 + "_" + 0 + "_" + 0 + "]", mat);
-        t = new Iso(1, 0, 0); t.add(offset);
-        newOb(t, "bigBlock[" + 1 + "_" + 0 + "_" + 0 + "]", mat);
-        t = new Iso(0, 0, 1); t.add(offset);
-        newOb(t, "bigBlock[" + 0 + "_" + 0 + "_" + 1 + "]", mat);
-        t = new Iso(1, 0, 1); t.add(offset);
-        newOb(t, "bigBlock[" + 1 + "_" + 0 + "_" + 1 + "]", mat);
-        t = new Iso(0, 1, 0); t.add(offset);
-        newOb(t, "bigBlock[" + 0 + "_" + 1 + "_" + 0 + "]", mat);
-        t = new Iso(0, 1, 1); t.add(offset);
-        newOb(t, "bigBlock[" + 0 + "_" + 1 + "_" + 1 + "]", mat);
-        t = new Iso(1, 1, 1); t.add(offset);
-        newOb(t, "bigBlock[" + 1 + "_" + 1 + "_" + 1 + "]", mat);
-    }
 }

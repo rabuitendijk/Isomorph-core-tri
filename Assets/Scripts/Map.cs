@@ -52,7 +52,7 @@ public class Map {
             grid[t.coord.x, t.coord.y, t.coord.z] = t;
             return;
         }
-        Debug.Log("[Map].set: Tile position invalid.");
+        //Debug.Log("[Map].set: Tile position invalid.");
     }
 
     /// <summary>
@@ -69,9 +69,9 @@ public class Map {
     public bool exists(Iso i)
     {
         if (grid[i.x, i.y, i.z] == null)
-            return true;
+            return false;
 
-        return false;
+        return true;
     }
     /// <summary>
     /// Checks if an coord is inside the Map
@@ -93,15 +93,17 @@ public class Map {
         {
             for (int j = 0; j < Map.main.height; j++)
             {
-                new Tile(new Iso(i, j, Mathf.FloorToInt((i + j) / 3f)));
+                new IsoObject(AliasXMLLoader.main.getObject("unit"), new Iso(i, j, Mathf.FloorToInt((i + j) / 3f)));
                 if (i % (j+1) == 2)
-                    new Tile(new Iso(i, j, Mathf.FloorToInt((i + j) / 3f)+1), "tree");
+                    new IsoObject(AliasXMLLoader.main.getObject("tree"), new Iso(i, j, Mathf.FloorToInt((i + j) / 3f)+1));
             }
         }
         for (int i = 0; i < 5; i++)
         {
-            new Tile(new Iso(0, 3, i + 2));
+            new IsoObject(AliasXMLLoader.main.getObject("unit"), new Iso(0, 3, i + 2));
         }
+
+        new IsoObject(AliasXMLLoader.main.getObject("bigBlock"), new Iso(3,3,3));
     }
 
     void onTileCreate(Tile t)

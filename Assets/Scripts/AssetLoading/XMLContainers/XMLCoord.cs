@@ -51,7 +51,7 @@ public class XMLCoord : IXmlSerializable
             y = reader.ReadContentAsInt();
             reader.MoveToAttribute("z");
             z = reader.ReadContentAsInt();
-            reader.MoveToAttribute("spriteName");
+            reader.MoveToAttribute("name");
             spriteName = reader.ReadContentAsString();
 
             if (spriteName == "VOID")

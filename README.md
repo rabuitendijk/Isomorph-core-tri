@@ -20,15 +20,8 @@ TO BE ADDED:
 		* wirte a scripts that efficiently goes trough them to find first collision.
 		* Find appropriate selectable object on vertical stack.
 
-	- Proper sprite slicing
-		* Generate objects from xml containing data binding sprites together.
-		* Autogenerate object xml for alias.
-
 
 TO BE UPDATED:
-
-	- Multi part object loader
-		* Extend XMLSpriteLoader to generate an multi obeject type
 
 	- Object Rotation script
 		* Extend XMLSpriteLoader to generate an obeject type
@@ -61,6 +54,8 @@ IN OK STATE:
 		* {alpha-1} Ingame object builder.
 		
 	- Proper sprite slicing
+		* Generate objects from xml containing data binding sprites together.
+		* Autogenerate object xml for alias.
 		* Sprite slicing will be hendland before XMLSpriteLoader call building sprites into a custem directionairy (for rule splitting)
 		* 32bit RGBA import and export.
 		* Automatic xml file generation for XMLSpriteLoader.
