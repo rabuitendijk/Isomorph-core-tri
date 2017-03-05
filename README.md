@@ -27,6 +27,11 @@ TO BE UPDATED:
 		* Extend XMLSpriteLoader to generate an obeject type
 
 
+BUGS:
+
+	- Graphics giltches after zoom that dissabpear after camera movement, might be because camera Transform does not snap to pixels.
+
+
 IN LATER UPDATES:
 
 	- Map edditor

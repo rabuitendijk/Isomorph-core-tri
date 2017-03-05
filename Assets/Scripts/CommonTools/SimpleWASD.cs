@@ -11,6 +11,10 @@ using System.Collections;
  * Also need update for outdated reloading code.
  * Add somthing to make the camera not spazz with controler config.
  *
+ *
+ * POSSIBLE BUG:
+ * Camera transform not snapping to nearest pixel might be causing graphics glitches.
+ *
  * Robin Apollo Buitendijk
  * Late Febuary 2017
  **/

@@ -93,9 +93,11 @@ public class Map {
         {
             for (int j = 0; j < Map.main.height; j++)
             {
-                new IsoObject(AliasXMLLoader.main.getObject("unit"), new Iso(i, j, Mathf.FloorToInt((i + j) / 3f)));
+                new IsoObject(AliasXMLLoader.main.getObject("stones"), new Iso(i, j, Mathf.FloorToInt((i + j) / 3f)));
                 if (i % (j+1) == 2)
                     new IsoObject(AliasXMLLoader.main.getObject("tree"), new Iso(i, j, Mathf.FloorToInt((i + j) / 3f)+1));
+                if (i % (j + 1) == 5)
+                    new IsoObject(AliasXMLLoader.main.getObject("roseRock"), new Iso(i, j, Mathf.FloorToInt((i + j) / 3f) + 1));
             }
         }
         for (int i = 0; i < 5; i++)

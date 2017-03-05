@@ -98,10 +98,12 @@
   <ItemGroup>
     <None Include="Assets\StreamingAssets\Alias\0.png.xml" />
     <None Include="Assets\StreamingAssets\Alias\Objects\bigBlock.obj.xml" />
+    <None Include="Assets\StreamingAssets\Alias\Objects\roseRock.obj.xml" />
     <None Include="Assets\StreamingAssets\Alias\Objects\stones.obj.xml" />
     <None Include="Assets\StreamingAssets\Alias\Objects\tree.obj.xml" />
     <None Include="Assets\StreamingAssets\Alias\Objects\unit.obj.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\BigBlock.png.xml" />
+    <None Include="Assets\StreamingAssets\UnsplicedSource\RoseRock.png.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\Stones.png.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\Tree.png.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\UnitDefinition.png.xml" />
