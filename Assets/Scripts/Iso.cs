@@ -39,7 +39,7 @@ public class Iso{
     private void calcWorldCoord()
     {
         WX = (-x + y) * 0.5f;
-        WY = (x + y +2*z) * 0.25f;
+        WY = (x + y +z) * 0.25f;
     }
 
     /// <summary>
@@ -48,7 +48,7 @@ public class Iso{
     /// </summary>
     private void calcDepth()
     {
-        Depth = 20000-(X + Y - Z);
+        Depth = 20000-(2*X + 2*Y - Z);
     }
 
     public Vector3 toPos()

@@ -89,23 +89,83 @@ public class Map {
 
     public void makeLevel()
     {
-        for (int i = 0; i < Map.main.width; i++)
+        for (int i = 0; i < width; i++)
         {
-            for (int j = 0; j < Map.main.height; j++)
+            for (int j = 0; j < depth; j++)
             {
-                new IsoObject(AliasXMLLoader.main.getObject("stones"), new Iso(i, j, Mathf.FloorToInt((i + j) / 3f)));
+                new IsoObject("stones", new Iso(i, j, 2*Mathf.FloorToInt((i + j) / 3f)));
                 if (i % (j+1) == 2)
-                    new IsoObject(AliasXMLLoader.main.getObject("tree"), new Iso(i, j, Mathf.FloorToInt((i + j) / 3f)+1));
+                    new IsoObject("tree", new Iso(i, j, 2*(Mathf.FloorToInt((i + j) / 3f)+1)));
                 if (i % (j + 1) == 5)
-                    new IsoObject(AliasXMLLoader.main.getObject("roseRock"), new Iso(i, j, Mathf.FloorToInt((i + j) / 3f) + 1));
+                    new IsoObject("roseRock", new Iso(i, j, 2*(Mathf.FloorToInt((i + j) / 3f) + 1)));
             }
         }
         for (int i = 0; i < 5; i++)
         {
-            new IsoObject(AliasXMLLoader.main.getObject("unit"), new Iso(0, 3, i + 2));
+            new IsoObject("unit", new Iso(0, 3, 2*(i + 2)));
         }
 
-        new IsoObject(AliasXMLLoader.main.getObject("bigBlock"), new Iso(3,3,3));
+        new IsoObject("bigBlock", new Iso(3,3,6));
+    }
+
+    public void makeLevelBox()
+    {
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < depth; j++)
+            {
+                for (int k = 0; k < height; k++)
+                {
+                    new IsoObject("stones", new Iso(i, j, k));
+                }
+            }
+        }
+    }
+
+    public void makeSlabTest()
+    {
+        
+        for (int i = 0; i < width; i++)
+        {
+            for (int j = 0; j < depth; j++)
+            {
+                if (i < 3 || j < 3 || i > width - 4 || j > depth - 4)
+                    new IsoObject("half", new Iso(i, j, 0));
+
+            }
+        }
+
+        for (int i = 1; i < width-1; i++)
+        {
+            for (int j = 1; j < depth-1; j++)
+            {
+                if (i < 3 || j < 3 || i > width - 4 || j > depth - 4)
+                    new IsoObject("unit", new Iso(i, j, 1));
+
+            }
+        }
+
+        for (int i = 2; i < width - 2; i++)
+        {
+            for (int j = 2; j < depth - 2; j++)
+            {
+
+                if (i < 3 || j < 3 || i > width - 4 || j > depth - 4)
+                    new IsoObject("half", new Iso(i, j, 3));
+
+            }
+        }
+        
+
+        new IsoObject("bigBlock", new Iso(4, 4, 0));
+        new IsoObject("bigBlock", new Iso(6, 4, 0));
+        new IsoObject("bigBlock", new Iso(4, 6, 0));
+        new IsoObject("bigBlock", new Iso(6, 6, 0));
+
+        for (int i = 0; i < height; i++)
+        {
+            new IsoObject("half", new Iso(3,4,i));
+        }
     }
 
     void onTileCreate(Tile t)

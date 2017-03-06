@@ -3,5 +3,7 @@
 <coords>
 	<XMLCoord x="0" y="0" z="0" name = "tree">
 	</XMLCoord>
+	<XMLCoord x="0" y="0" z="1" name = "VOID">
+	</XMLCoord>
 </coords>
 </XMLObject>

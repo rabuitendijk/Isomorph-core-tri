@@ -45,11 +45,13 @@ public class IsoObject {
     /// Offsets coordinats by origin.
     /// Shares sprite stringlist with prototype
     /// </summary>
-    public IsoObject(IsoObject prototype, Iso origin) : this(prototype.name, prototype.coords, prototype.sprites)
+    public IsoObject(string prototype, Iso origin) : this(AliasXMLLoader.main.getObject(prototype), origin) { }
+
+    private IsoObject(IsoObject prototype, Iso origin):this(prototype.name, prototype.coords, prototype.sprites)
     {
         this.origin = origin;
 
-        foreach(Iso i in coords)
+        foreach (Iso i in coords)
         {
             i.add(origin);
         }

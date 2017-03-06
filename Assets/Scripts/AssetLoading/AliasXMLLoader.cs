@@ -28,36 +28,19 @@ public class AliasXMLLoader {
         main = this;
         string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "Alias");
         mipPath = System.IO.Path.Combine(Application.streamingAssetsPath, "AliasMip");
-        RecersiveDirectoryCrawler(filePath);
-        loadObjects(filePath+"\\Objects");
-        Debug.Log("Alias Loader: " + count + ", sprites loaded. "+objCount+", Objects loaded.");
 
-        Resources.UnloadUnusedAssets();
-    }
-
-    /// <summary>
-    /// Recersive first load later sprite loader
-    /// </summary>
-    void RecersiveDirectoryCrawler(string path)
-    {
-
-        //Debug.Log("RecersiveDirectoryCrawler: "+path);
-
-
-        string[] subDirs = Directory.GetDirectories(path);
-
-        foreach (string s in subDirs)
-        {
-            RecersiveDirectoryCrawler(s);
-        }
-
-        string[] subFiles = Directory.GetFiles(path);
+        string[] subFiles = Directory.GetFiles(filePath);
 
         foreach (string f in subFiles)
         {
             if (f.ToLower().EndsWith(".png"))
                 LoadSprite(f);
         }
+
+        loadObjects(filePath+"\\Objects");
+        Debug.Log("Alias Loader: " + count + ", sprites loaded. "+objCount+", Objects loaded.");
+
+        Resources.UnloadUnusedAssets();
     }
 
 

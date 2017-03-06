@@ -185,7 +185,7 @@ public class SplicingScript{
         }
 
 
-        ProcessingObject export = new ProcessingObject(spriteName, images, boxCoords(xml.width, xml.depth, xml.height), mip1, mip2, getVoids(xml.width, xml.depth, xml.height));
+        ProcessingObject export = new ProcessingObject(spriteName, images, boxCoords(xml.width, xml.depth, xml.trueHeight), mip1, mip2, getVoids(xml.width, xml.depth, xml.trueHeight));
         sprites.Add(export);
         count++;
     }
@@ -227,7 +227,7 @@ public class SplicingScript{
     ProcessingImage getImage(Texture2D tex, Iso coord, int originX, int originY, string name, int size, Texture2D unit) {
         int x = originX + Mathf.RoundToInt(.5f * size * (-coord.x + coord.y));
         int y = originY + Mathf.RoundToInt(.25f * size * (coord.x + coord.y + 2 * coord.z));
-        ProcessingImage temp = new ProcessingImage(size, size, name + "[" + coord.x + "_" + coord.y + "_" + coord.z + "]", coord);
+        ProcessingImage temp = new ProcessingImage(size, size, name + "[" + coord.x + "_" + coord.y + "_" + coord.z + "]", new Iso(coord.x, coord.y, coord.z*2));
 
         for (int j = 0; j < (size); j++)
         {
@@ -294,19 +294,29 @@ public class SplicingScript{
         return ret;
     }
 
+    /// <summary>
+    /// Second true height coord always added in voids
+    /// </summary>
     List<Iso> getVoids(int width, int depth, int height)
     {
         List<Iso> ret = new List<Iso>();
-        for (int i = 1; i < width; i++)
+        for (int i = 0; i < width; i++)
         {
-            for (int j = 1; j < depth; j++)
+
+            for (int j = 0; j < depth; j++)
             {
-                for (int k = 0; k < height-1; k++)
+                for (int k = 0; k < height; k++)
                 {
-                    ret.Add(new Iso(i, j, k));
+                    if (i!=1 && j!=1 && k != (height+height%2)-2)
+                        ret.Add(new Iso(i, j, k));
+                    else if (k%2 == 1 && (i == 1 || j == 1 || k == (height + height % 2) - 2))
+                    {
+                        ret.Add(new Iso(i, j, k));
+                    }
 
                 }
             }
+
         }
 
         return ret;
@@ -322,7 +332,7 @@ public class SplicingScript{
         {
             for (int j = 0; j < depth; j++)
             {
-                for (int k = 0; k < height; k++)
+                for (int k = 0; k < height; k+=2)
                 {
                     ret.Add(new Iso(i, j, k));
                     

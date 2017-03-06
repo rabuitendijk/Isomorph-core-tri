@@ -20,9 +20,7 @@ TO BE ADDED:
 		* wirte a scripts that efficiently goes trough them to find first collision.
 		* Find appropriate selectable object on vertical stack.
 
-
-TO BE UPDATED:
-
+		
 	- Object Rotation script
 		* Extend XMLSpriteLoader to generate an obeject type
 
@@ -57,6 +55,7 @@ IN OK STATE:
 		* {alpha-2} Iso classes 
 		* {apha-1} Map storage, concider normal x by x by x grid storage. Map class with main return Map, height witdh and depth
 		* {alpha-1} Ingame object builder.
+		* Half tile support added.
 		
 	- Proper sprite slicing
 		* Generate objects from xml containing data binding sprites together.

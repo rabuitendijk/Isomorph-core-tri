@@ -12,19 +12,13 @@ public class Runner : MonoBehaviour {
         if (rebuildAliasses)
             new BuildAliasTextures();
 
+        
         new AliasXMLLoader();
 
-        Map map = new Map(8, 8, 8);
+        Map map = new Map(12, 12, 24);
         new GraphicsControl();
 
-        map.makeLevel();
-
-        /*
-        for (int i = 0; i < 8; i++)
-        {
-            Debug.Log("Mip "+i+": " + (512 >> i));
-        }
-        */
+        map.makeSlabTest();
        
     }
 

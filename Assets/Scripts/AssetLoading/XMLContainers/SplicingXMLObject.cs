@@ -20,6 +20,7 @@ public class SplicingXMLObject : IXmlSerializable
     public int width { get; protected set; }
     public int depth { get; protected set; }
     public int height { get; protected set; }
+    public int trueHeight { get; protected set; }
     public string name { get; protected set; }
     public bool setName { get; protected set; }
 
@@ -27,6 +28,7 @@ public class SplicingXMLObject : IXmlSerializable
     {
         width = 0;
         height = 0;
+        trueHeight = 0;
         depth = 0;
         name = "NULL";
         setName = false;
@@ -70,6 +72,8 @@ public class SplicingXMLObject : IXmlSerializable
 
                 case "height":
                     height = reader.ReadContentAsInt();
+                    trueHeight = height;
+                    height = (height + height % 2)/2;
                     break;
 
                 case "depth":
