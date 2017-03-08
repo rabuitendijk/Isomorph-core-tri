@@ -18,7 +18,7 @@ public class Runner : MonoBehaviour {
         Map map = new Map(12, 12, 24);
         new GraphicsControl();
 
-        map.makeSlabTest();
+        map.makeLevel();
        
     }
 

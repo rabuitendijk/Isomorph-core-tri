@@ -93,19 +93,23 @@ public class Map {
         {
             for (int j = 0; j < depth; j++)
             {
-                new IsoObject("stones", new Iso(i, j, 2*Mathf.FloorToInt((i + j) / 3f)));
+                new IsoObject("half", new Iso(i, j, 2 * Mathf.FloorToInt((i + j) / 3f)));
+                if (i%(j+1)==0)
+                    new IsoObject("stones", new Iso(i, j, 2 * Mathf.FloorToInt((i + j) / 3f) + 1));
+                else
+                    new IsoObject("roughStone", new Iso(i, j, 2*Mathf.FloorToInt((i + j) / 3f)+1));
                 if (i % (j+1) == 2)
-                    new IsoObject("tree", new Iso(i, j, 2*(Mathf.FloorToInt((i + j) / 3f)+1)));
+                    new IsoObject("tree", new Iso(i, j, 2*(Mathf.FloorToInt((i + j) / 3f)+1)+1));
                 if (i % (j + 1) == 5)
-                    new IsoObject("roseRock", new Iso(i, j, 2*(Mathf.FloorToInt((i + j) / 3f) + 1)));
+                    new IsoObject("roseRock", new Iso(i, j, 2*(Mathf.FloorToInt((i + j) / 3f) + 1)+1));
             }
         }
         for (int i = 0; i < 5; i++)
         {
-            new IsoObject("unit", new Iso(0, 3, 2*(i + 2)));
+            new IsoObject("unit", new Iso(0, 3, 2*(i + 2)+1));
         }
 
-        new IsoObject("bigBlock", new Iso(3,3,6));
+        
     }
 
     public void makeLevelBox()

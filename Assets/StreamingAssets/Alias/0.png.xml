@@ -19,13 +19,13 @@
 	</StreamingSpriteXMLCell>
 	<StreamingSpriteXMLCell x = "1" y = "1" name = "roseRock">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "1" name = "stones">
+	<StreamingSpriteXMLCell x = "2" y = "1" name = "roughStone">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "1" name = "tree">
+	<StreamingSpriteXMLCell x = "3" y = "1" name = "stones">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "1" name = "unit">
+	<StreamingSpriteXMLCell x = "4" y = "1" name = "tree">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "1" disable = "1">
+	<StreamingSpriteXMLCell x = "5" y = "1" name = "unit">
 	</StreamingSpriteXMLCell>
 	<StreamingSpriteXMLCell x = "6" y = "1" disable = "1">
 	</StreamingSpriteXMLCell>
