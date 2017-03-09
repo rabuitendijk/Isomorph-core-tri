@@ -109,6 +109,7 @@ public class Map {
             new IsoObject("unit", new Iso(0, 3, (2*i)+4));
         }
 
+        new IsoObject("bigBlock", new Iso(3,0,4));
         
     }
 

@@ -90,6 +90,7 @@
     <Compile Include="Assets\Scripts\CommonTools\SimpleWASD.cs" />
     <Compile Include="Assets\Scripts\CommonTools\SpriteHashLoader.cs" />
     <Compile Include="Assets\Scripts\GraphicsControl.cs" />
+    <Compile Include="Assets\Scripts\InputController.cs" />
     <Compile Include="Assets\Scripts\Iso.cs" />
     <Compile Include="Assets\Scripts\Map.cs" />
     <Compile Include="Assets\Scripts\Runner.cs" />

@@ -15,6 +15,7 @@ public class GraphicsControl {
     public static GraphicsControl main;
     Material mat, redMat;
     Transform tileFolder;
+    public GameObject selector;
 
     public GraphicsControl()
     {
@@ -27,7 +28,8 @@ public class GraphicsControl {
 
 
         Tile.registerOnCreate(onTileCreate);
-
+        selector = newOb("Selector", new Iso(0, 0, 0, 1), AliasXMLLoader.main.getSprite("selector"), mat);
+        selector.SetActive(false);
         //testob(new Iso(0,0,1));
     }
 
@@ -50,6 +52,24 @@ public class GraphicsControl {
         sr.material = mat;
         sr.sortingLayerName = "DepthSort";
         sr.sortingOrder = t.coord.depth;
+
+        return ret;
+    }
+
+    GameObject newOb(string objName, Iso i, Sprite sprite, Material mat)
+    {
+        if (sprite == null)
+            return null;
+
+        GameObject ret = new GameObject() { name = objName + "(" + i.x + ", " + i.y + ", " + i.z + ")" };
+        ret.transform.position = i.toPos();
+        ret.transform.parent = tileFolder;
+
+        SpriteRenderer sr = ret.AddComponent<SpriteRenderer>() as SpriteRenderer;
+        sr.sprite = sprite;
+        sr.material = mat;
+        sr.sortingLayerName = "DepthSort";
+        sr.sortingOrder = i.depth;
 
         return ret;
     }

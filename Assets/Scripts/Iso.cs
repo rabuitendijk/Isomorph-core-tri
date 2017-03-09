@@ -23,15 +23,17 @@ public class Iso{
 
     int Depth;      //For drawing order
     public int depth { get { return Depth; } }
+    int depthModifier = 0;
 
     /// <summary>
     /// Constructor from isometric coordinates
     /// </summary>
-    public Iso(int x, int y, int z)
+    public Iso(int x, int y, int z, int depthModifier = 0)
     {
         X = x;
         Y = y;
         Z = z;
+        this.depthModifier = depthModifier;
         calcWorldCoord();
         calcDepth();
     }
@@ -58,7 +60,7 @@ public class Iso{
     /// </summary>
     private void calcDepth()
     {
-        Depth = 20000-(2*X + 2*Y - Z);
+        Depth = 20000-2*(2*X + 2*Y - Z)+depthModifier;
     }
 
     public Vector3 toPos()

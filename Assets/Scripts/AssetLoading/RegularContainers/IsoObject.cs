@@ -17,6 +17,7 @@ public class IsoObject {
     public List<bool> isVisable { get; protected set; }
     public List<Sprite> sprites { get; protected set; }
     public string name { get; protected set; }
+    public List<Tile> tiles { get; protected set; }
 
     public Iso origin { get; protected set; }
 
@@ -59,26 +60,13 @@ public class IsoObject {
         safeTileConstruction();
     }
 
-    /// <summary>
-    /// Return tiles held in object
-    /// </summary>
-    public List<Tile> getTiles()
-    {
-        List<Tile> ret = new List<Tile>();
-
-        foreach(Iso i in coords)
-        {
-            ret.Add(Map.main.get(i));
-        }
-
-        return ret;
-    }
 
     /// <summary>
     /// Checks for conflics and then build tiles using object data
     /// </summary>
     bool safeTileConstruction()
     {
+        tiles = new List<Tile>();
         if (checkCoordsOccupied())
         {
             Debug.Log("IsoObject["+name+", "+origin.ToString()+"]: one or more tiles blocked during construction.");
@@ -88,7 +76,7 @@ public class IsoObject {
 
         for(int i=0; i<coords.Count; i++)
         {
-            new Tile(coords[i], sprites[i], this);
+            tiles.Add(new Tile(coords[i], sprites[i], this));
         }
         //Debug.Log("Construction did run.");
 

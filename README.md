@@ -20,7 +20,7 @@ TO BE ADDED:
 BUGS:
 
 	- Graphics giltches after zoom that dissabpear after camera movement, might be because camera Transform does not snap to pixels.
-
+	- BigBlock fisrt Iso in coords[] might be wandering.
 
 IN LATER UPDATES:
 
