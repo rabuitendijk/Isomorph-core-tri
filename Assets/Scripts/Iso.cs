@@ -24,6 +24,9 @@ public class Iso{
     int Depth;      //For drawing order
     public int depth { get { return Depth; } }
 
+    /// <summary>
+    /// Constructor from isometric coordinates
+    /// </summary>
     public Iso(int x, int y, int z)
     {
         X = x;
@@ -32,6 +35,13 @@ public class Iso{
         calcWorldCoord();
         calcDepth();
     }
+
+    /// <summary>
+    /// Constructor from world coordinates
+    /// (and isometric z)
+    /// </summary>
+    public Iso(float x, float y, int z) : this(Mathf.FloorToInt(2f * y - x - .5f * z +1), Mathf.FloorToInt(2f * y + x - .5f * z +1), z) { }
+
 
     /// <summary>
     /// Sets wx, wy trough reference to static class.
@@ -65,8 +75,17 @@ public class Iso{
         calcDepth();
     }
 
+    public void addUnsafe(int x, int y, int z)
+    {
+        X += x;
+        Y += y;
+        Z += z;
+    }
+
     public override string ToString()
     {
         return "Iso<"+x+", "+y+", "+z+">";
     }
+
+
 }

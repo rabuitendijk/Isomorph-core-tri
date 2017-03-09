@@ -1,23 +1,15 @@
 # Isomorph-core-tri
 Isomorph, Third iteration, Unity 5, Flat sprite based approach. Goals: proper sorting algorithm, unit sprite slicing and clean sprite finishing.
 
-ESSENTIAL: 
-
-	- Gain understanding how projection to screen and object depth and coordinates relate.
-
 TO BE ADDED:
 
 	- Basic functionallity
 		* Functioning hover selector and mouse click Tile return
 		* Allow translation of object independent of coordinate.
 
-	- [Under concideration] Compatibillity for multiple heights of slab projection (at least [1] and [srt2_srt3]).
-
 	- XML based text importer, competable with microsoft excel xml export.
 
 	- A mouse click even collision checker using math and stuff.
-		* find a way to obtain all coordinates object in a  simulated "raycast" in order.
-		* wirte a scripts that efficiently goes trough them to find first collision.
 		* Find appropriate selectable object on vertical stack.
 
 		
@@ -47,6 +39,8 @@ IN LATER UPDATES:
 		* Basic text display and carecter portraits
 		* Fading annimation and translation
 		* Scaling effects and transitions
+		
+	- Compatibillity for multiple heights of slab projection (at least [1] and [s2s3]).
 
 
 IN OK STATE:
@@ -64,6 +58,10 @@ IN OK STATE:
 		* 32bit RGBA import and export.
 		* Automatic xml file generation for XMLSpriteLoader.
 		* Mip level overides for below standard resolution zooming.
+		
+	- A mouse click even collision checker using math and stuff.
+		* find a way to obtain all coordinates object in a  simulated "raycast" in order.
+		* wirte a scripts that efficiently goes trough them to find first collision.
 		
 	- [May be solved?] A way to sort the sprites without using to lagre a numeric width.
 

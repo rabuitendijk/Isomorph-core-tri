@@ -80,7 +80,11 @@ public class IsoObject {
     bool safeTileConstruction()
     {
         if (checkCoordsOccupied())
+        {
+            Debug.Log("IsoObject["+name+", "+origin.ToString()+"]: one or more tiles blocked during construction.");
             return false;
+        }
+        
 
         for(int i=0; i<coords.Count; i++)
         {

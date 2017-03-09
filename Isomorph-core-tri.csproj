@@ -101,6 +101,8 @@
     <None Include="Assets\StreamingAssets\Alias\Objects\half.obj.xml" />
     <None Include="Assets\StreamingAssets\Alias\Objects\roseRock.obj.xml" />
     <None Include="Assets\StreamingAssets\Alias\Objects\roughStone.obj.xml" />
+    <None Include="Assets\StreamingAssets\Alias\Objects\selector.obj.xml" />
+    <None Include="Assets\StreamingAssets\Alias\Objects\slabSelector.obj.xml" />
     <None Include="Assets\StreamingAssets\Alias\Objects\stones.obj.xml" />
     <None Include="Assets\StreamingAssets\Alias\Objects\tree.obj.xml" />
     <None Include="Assets\StreamingAssets\Alias\Objects\unit.obj.xml" />
@@ -108,6 +110,8 @@
     <None Include="Assets\StreamingAssets\UnsplicedSource\HalfCell.png.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\RoseRock.png.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\RoughStones.png.xml" />
+    <None Include="Assets\StreamingAssets\UnsplicedSource\Selector.png.xml" />
+    <None Include="Assets\StreamingAssets\UnsplicedSource\SlabSelector.png.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\Stones.png.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\Tree.png.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\UnitDefinition.png.xml" />
