@@ -75,26 +75,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AssetLoading\AliasXMLLoader.cs" />
-    <Compile Include="Assets\Scripts\AssetLoading\BuildAliasTextures.cs" />
-    <Compile Include="Assets\Scripts\AssetLoading\RegularContainers\IsoObject.cs" />
-    <Compile Include="Assets\Scripts\AssetLoading\RegularContainers\ProcessingImage.cs" />
-    <Compile Include="Assets\Scripts\AssetLoading\RegularContainers\ProcessingObject.cs" />
-    <Compile Include="Assets\Scripts\AssetLoading\SplicingScript.cs" />
-    <Compile Include="Assets\Scripts\AssetLoading\StreamingSpriteLoader.cs" />
-    <Compile Include="Assets\Scripts\AssetLoading\XMLContainers\SplicingXMLObject.cs" />
-    <Compile Include="Assets\Scripts\AssetLoading\XMLContainers\StreamingSpriteXMLCell.cs" />
-    <Compile Include="Assets\Scripts\AssetLoading\XMLContainers\StreamingSpriteXMLObject.cs" />
-    <Compile Include="Assets\Scripts\AssetLoading\XMLContainers\XMLCoord.cs" />
-    <Compile Include="Assets\Scripts\AssetLoading\XMLContainers\XMLObject.cs" />
-    <Compile Include="Assets\Scripts\CommonTools\SimpleWASD.cs" />
-    <Compile Include="Assets\Scripts\CommonTools\SpriteHashLoader.cs" />
-    <Compile Include="Assets\Scripts\GraphicsControl.cs" />
-    <Compile Include="Assets\Scripts\InputController.cs" />
-    <Compile Include="Assets\Scripts\Iso.cs" />
-    <Compile Include="Assets\Scripts\Map.cs" />
-    <Compile Include="Assets\Scripts\Runner.cs" />
-    <Compile Include="Assets\Scripts\Tile.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasXMLLoader.cs" />
+    <Compile Include="Assets\Code\AssetLoading\BuildAliasTextures.cs" />
+    <Compile Include="Assets\Code\AssetLoading\RegularContainers\ProcessingImage.cs" />
+    <Compile Include="Assets\Code\AssetLoading\RegularContainers\ProcessingObject.cs" />
+    <Compile Include="Assets\Code\AssetLoading\SplicingScript.cs" />
+    <Compile Include="Assets\Code\AssetLoading\StreamingSpriteLoader.cs" />
+    <Compile Include="Assets\Code\AssetLoading\XMLContainers\SplicingXMLObject.cs" />
+    <Compile Include="Assets\Code\AssetLoading\XMLContainers\StreamingSpriteXMLCell.cs" />
+    <Compile Include="Assets\Code\AssetLoading\XMLContainers\StreamingSpriteXMLObject.cs" />
+    <Compile Include="Assets\Code\AssetLoading\XMLContainers\XMLCoord.cs" />
+    <Compile Include="Assets\Code\AssetLoading\XMLContainers\XMLObject.cs" />
+    <Compile Include="Assets\Code\Controllers\BasicGraphicsControl.cs" />
+    <Compile Include="Assets\Code\Controllers\BasicInputControl.cs" />
+    <Compile Include="Assets\Code\Controllers\BasicLogicControl.cs" />
+    <Compile Include="Assets\Code\Controllers\GraphicsControl.cs" />
+    <Compile Include="Assets\Code\Controllers\InputControl.cs" />
+    <Compile Include="Assets\Code\Controllers\LogicControl.cs" />
+    <Compile Include="Assets\Code\DataContainers\Iso.cs" />
+    <Compile Include="Assets\Code\DataContainers\IsoObject.cs" />
+    <Compile Include="Assets\Code\DataContainers\Tile.cs" />
+    <Compile Include="Assets\Code\Outdated\SimpleWASD.cs" />
+    <Compile Include="Assets\Code\Outdated\SpriteHashLoader.cs" />
+    <Compile Include="Assets\Code\Runner.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StreamingAssets\Alias\0.png.xml" />

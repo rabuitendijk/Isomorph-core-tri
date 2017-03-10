@@ -4,40 +4,39 @@ using System;
 using UnityEngine;
 
 /// <summary>
-/// apha-1
+/// version apha-2
 /// Callback based graphics control system,
 /// 
 /// Robin Apollo Butiendijk
 /// Late Febrary 2017
 /// </summary>
-public class GraphicsControl {
+public class BasicGraphicsControl : GraphicsControl {
 
-    public static GraphicsControl main;
+
     Material mat, redMat;
-    Transform tileFolder;
-    public GameObject selector;
 
-    public GraphicsControl()
+    /// <summary>
+    /// Constructor that initialises references and materials,
+    /// </summary>
+    public BasicGraphicsControl() : base()
     {
-        main = this;
 
         mat = new Material(Shader.Find("Sprites/Default"));
         redMat = new Material(Shader.Find("Sprites/Default"));
         redMat.color = new Color(1f, 0f, 0f);
-        tileFolder = new GameObject() { name = "TileFolder" }.transform;
 
-
-        Tile.registerOnCreate(onTileCreate);
         selector = newOb("Selector", new Iso(0, 0, 0, 1), AliasXMLLoader.main.getSprite("selector"), mat);
         selector.SetActive(false);
-        //testob(new Iso(0,0,1));
     }
 
-    void onTileCreate(Tile t)
+    protected override void onTileCreate(Tile t)
     {
         t.graphic = newOb(t, mat);
     }
 
+    /// <summary>
+    /// Tile based sprite gameobject creator.
+    /// </summary>
     GameObject newOb(Tile t, Material mat)
     {
         if (t.sprite == null)
@@ -56,6 +55,9 @@ public class GraphicsControl {
         return ret;
     }
 
+    /// <summary>
+    /// Common sprtie gameobject creator.
+    /// </summary>
     GameObject newOb(string objName, Iso i, Sprite sprite, Material mat)
     {
         if (sprite == null)
@@ -75,3 +77,4 @@ public class GraphicsControl {
     }
 
 }
+

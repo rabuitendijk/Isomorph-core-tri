@@ -2,18 +2,43 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputController {
+/// <summary>
+/// version aplha-1
+/// 
+/// Currently test version for development.
+/// 
+/// POSSIBLE BUG:
+/// Camera transform not snapping to nearest pixel might be causing graphics glitches.
+/// 
+/// Robin Apollo Buitendijk
+/// Early March 2017
+/// </summary>
+public class BasicInputControl : InputControl{
     Tile currentTile;
     Material hoverMaterial, lastMaterial;
     IsoObject lastObject;
 
-    public InputController()
+    Camera camera;
+
+    float speed = 8;
+    int pixelPerUnit = 32, zoom = 1;
+
+
+    /// <summary>
+    /// Create the common level input controller
+    /// </summary>
+    public BasicInputControl() : base()
     {
         hoverMaterial = new Material(Shader.Find("Sprites/Default"));
         hoverMaterial.color = new Color(.7f, .7f, .7f);
+        camera = Camera.main;
+        cameraSnapMinimum();
     }
 
-    public void update()
+    /// <summary>
+    /// Input processing, run this once per frame
+    /// </summary>
+    public override void update()
     {
 
 
@@ -23,9 +48,33 @@ public class InputController {
         }
         else
             swapSelectedMaterial();
-        
+
+        if (Input.GetKey("up"))
+            camera.transform.position += new Vector3(0, Time.deltaTime * speed / zoom, 0);
+
+        if (Input.GetKey("down"))
+            camera.transform.position += new Vector3(0, -Time.deltaTime * speed / zoom, 0);
+
+        if (Input.GetKey("right"))
+            camera.transform.position += new Vector3(Time.deltaTime * speed / zoom, 0, 0);
+
+        if (Input.GetKey("left"))
+            camera.transform.position += new Vector3(-Time.deltaTime * speed / zoom, 0, 0);
+
+        if (Input.GetKey(KeyCode.R))
+            Application.LoadLevel(Application.loadedLevel);
+
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            cameraSnapIn();
+
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            cameraSnapOut();
     }
 
+    /// <summary>
+    /// Manages mouse hover graphics effects
+    /// </summary>
     void swapSelectedMaterial(Tile current = null)
     {
         GraphicsControl.main.selector.SetActive(false);
@@ -65,11 +114,14 @@ public class InputController {
         
     }
 
+    /// <summary>
+    /// finds first live Tile under mouseclick
+    /// </summary>
     bool raycastClick(out Tile tile)
     {
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-        float upper_z = Map.main.height + 1, delta;
+        float upper_z = LogicControl.main.height + 1, delta;
         float upper_x = (2f * pos.y - pos.x - .5f * upper_z + 1f), upper_y = (2f * pos.y + pos.x - .5f * upper_z + 1f);
         Iso target = new Iso(pos.x, pos.y, Mathf.FloorToInt(upper_z));
         target.addUnsafe(0, 0, -1); //Start correction
@@ -79,9 +131,9 @@ public class InputController {
         {
             delta = nextCell(upper_x, upper_y, upper_z, target);
             upper_z -= 2 * delta; upper_x += delta; upper_y += delta;
-            if (Map.main.inGrid(target) && Map.main.exists(target))
+            if (LogicControl.main.inGrid(target) && LogicControl.main.exists(target))
             {
-                tile = Map.main.get(target);
+                tile = LogicControl.main.get(target);
                 return true;
             }
             count++;
@@ -91,7 +143,9 @@ public class InputController {
         return false;
     }
 
-
+    /// <summary>
+    /// Finds next cell in simulated raycast for mouse click
+    /// </summary>
     float nextCell(float ox, float oy, float oz, Iso coord)
     {
         ox -= coord.x; ox = 1 - ox;
@@ -121,5 +175,38 @@ public class InputController {
         //y transition
         coord.addUnsafe(0, 1, 0);
         return oy;
+    }
+
+    /// <summary>
+    /// Snap to minimum zoom allowed
+    /// </summary>
+    void cameraSnapMinimum()
+    {
+        camera.orthographicSize = ((float)camera.pixelHeight / (float)pixelPerUnit) / (float)4;
+        zoom = 1;
+    }
+
+    /// <summary>
+    /// Snap camera in one level
+    /// </summary>
+    void cameraSnapIn()
+    {
+        if (zoom == 16)
+            return;
+
+        camera.orthographicSize /= 2;
+        zoom++;
+    }
+
+    /// <summary>
+    /// Snap camera out one level
+    /// </summary>
+    void cameraSnapOut()
+    {
+        if (zoom == 1)
+            return;
+
+        camera.orthographicSize *= 2;
+        zoom--;
     }
 }

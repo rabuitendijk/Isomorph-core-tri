@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// alpha-1
+/// version alpha-1
 /// 
 /// Container containing data for the construction of a 1 or multiple tile containing object.
 /// 
@@ -91,7 +91,7 @@ public class IsoObject {
         foreach(Iso i in coords)
         {
             //Debug.Log("..., "+i.ToString());
-            if (Map.main.exists(i))
+            if (LogicControl.main.exists(i))
                 return true;
         }
 

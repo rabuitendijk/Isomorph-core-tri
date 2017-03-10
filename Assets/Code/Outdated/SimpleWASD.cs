@@ -57,12 +57,18 @@ public class SimpleWASD : MonoBehaviour {
 			snapOut();
 	}
 
-	public void snapMinimum(){
+    /// <summary>
+    /// Snap to minimum zoom allowed
+    /// </summary>
+	void snapMinimum(){
 		cam.orthographicSize = ((float)cam.pixelHeight / (float)pixelPerUnit) / (float)4;
 		zoom = 1;
 	}
 	
-	public void snapIn(){
+    /// <summary>
+    /// Snap camera in one level
+    /// </summary>
+	void snapIn(){
 		if (zoom == 16)
 			return;
 
@@ -70,7 +76,10 @@ public class SimpleWASD : MonoBehaviour {
 		zoom++;
 	}
 
-	public void snapOut(){
+    /// <summary>
+    /// Snap camera out one level
+    /// </summary>
+	void snapOut(){
 		if (zoom == 1)
 			return;
 

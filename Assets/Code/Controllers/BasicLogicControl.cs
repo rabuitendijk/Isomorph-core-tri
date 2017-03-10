@@ -12,40 +12,29 @@ using UnityEngine;
 /// Robin Apollo Butiendijk
 /// Late February 2017
 /// </summary>
-public class Map {
+public class BasicLogicControl : LogicControl {
 
-    int Width, Depth, Height;
-    public int width { get { return Width; } }
-    public int depth { get { return Depth; } }
-    public int height { get { return Height; } }
-
-    public static Map main;
     Tile[,,] grid;
 
-	Map(){
-        main = this;
-        Tile.registerOnCreate(onTileCreate);
-    }
+	BasicLogicControl() : base(){}
 
     /// <summary>
     /// Constructs Map with given dimentions.
     /// Set action listeners
     /// Sets map as main Map
     /// </summary>
-    public Map(int width, int depth, int height) : this()
+    public BasicLogicControl(int width, int depth, int height) : this()
     {
         grid = new Tile[width, depth, height];
         Width = width;
         Depth = depth;
         Height = height;
-
-
     }
 
     /// <summary>
     /// Set a Tile in the grid corresponding with its coord
     /// </summary>
-    void set(Tile t)
+    public override void set(Tile t)
     {
         if (inGrid(t.coord))
         {
@@ -58,7 +47,7 @@ public class Map {
     /// <summary>
     /// Unprotected get
     /// </summary>
-    public Tile get(Iso i)
+    public override Tile get(Iso i)
     {
         return grid[i.x, i.y, i.z];
     }
@@ -66,17 +55,18 @@ public class Map {
     /// <summary>
     /// Check exists
     /// </summary>
-    public bool exists(Iso i)
+    public override bool exists(Iso i)
     {
         if (grid[i.x, i.y, i.z] == null)
             return false;
 
         return true;
     }
+
     /// <summary>
     /// Checks if an coord is inside the Map
     /// </summary>
-    public bool inGrid(Iso i)
+    public override bool inGrid(Iso i)
     {
         if (i.x < 0 || i.x >= Width)
             return false;
@@ -87,7 +77,30 @@ public class Map {
         return true;
     }
 
-    public void makeLevel()
+
+    public override void makeLevel(string name)
+    {
+        switch (name.ToLower())
+        {
+            case "box":
+                makeLevelBox();
+                break;
+
+            case "simple":
+                makeLevelSimple();
+                break;
+
+            case "test":
+                makeLevelTest();
+                break;
+
+            default:
+                Debug.Log("BasicLogicControl.makeLevel(string name): not found: "+name);
+                break;
+        }
+    }
+
+    void makeLevelSimple()
     {
         for (int i = 0; i < width; i++)
         {
@@ -113,7 +126,7 @@ public class Map {
         
     }
 
-    public void makeLevelBox()
+    void makeLevelBox()
     {
         for (int i = 0; i < width; i++)
         {
@@ -127,7 +140,7 @@ public class Map {
         }
     }
 
-    public void makeSlabTest()
+    void makeLevelTest()
     {
         
         for (int i = 0; i < width; i++)
@@ -173,7 +186,7 @@ public class Map {
         }
     }
 
-    void onTileCreate(Tile t)
+    protected override void onTileCreate(Tile t)
     {
         set(t);
 
