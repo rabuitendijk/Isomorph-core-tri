@@ -3,8 +3,11 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Imput control for level editor mode
+/// </summary>
 public class EditorInputControl : InputControl {
-    GameObject levelEditor, listPrototype;
+    EditorComponentUI ui;
 
     /// <summary>
     /// Create the common level input controller
@@ -13,11 +16,7 @@ public class EditorInputControl : InputControl {
     {
         componentCamera = new BasicComponentCamera();
         componentMouse = new BasicComponentMouse();
-        GameObject canvas = GameObject.Find("/Canvas");
-        levelEditor = getObjectFromObject(canvas, "LevelEditor");
-        levelEditor.SetActive(true);
-
-        listPrototype = getObjectFromObject(getObjectFromObject(getObjectFromObject(levelEditor, "LeftBox"), "ScrollList"), "Prototype");
+        ui = new EditorComponentUI();
     }
 
     /// <summary>
@@ -30,21 +29,10 @@ public class EditorInputControl : InputControl {
         componentMouse.update(out t);
     }
 
-    GameObject getObjectFromObject(GameObject parent, string name)
-    {
-        for (int i=0; i< parent.transform.childCount; i++)
-        {
-            if (parent.transform.GetChild(i).name == name)
-                return parent.transform.GetChild(i).gameObject;
-        }
-
-        Debug.Log("getObjectFromObject ob not found: "+name);
-        return null;
-    }
-
+    
     protected override void destructor()
     {
-        levelEditor.SetActive(false);
+        ui.destructor();
         return;
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class Runner : MonoBehaviour {
     public static Runner main;
 
+    public Font ariel; 
     public bool rebuildAliasses = false;
     public bool levelEditor = false;
 

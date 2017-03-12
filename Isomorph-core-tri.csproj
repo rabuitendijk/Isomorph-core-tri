@@ -97,6 +97,8 @@
     <Compile Include="Assets\Code\Controllers\InputComponents\BasicComponentMouse.cs" />
     <Compile Include="Assets\Code\Controllers\InputComponents\ComponentCamera.cs" />
     <Compile Include="Assets\Code\Controllers\InputComponents\ComponentMouse.cs" />
+    <Compile Include="Assets\Code\Controllers\InputComponents\EditorComponentUI.cs" />
+    <Compile Include="Assets\Code\Controllers\InputComponents\EditorComponentUIListNode.cs" />
     <Compile Include="Assets\Code\Controllers\InputControl.cs" />
     <Compile Include="Assets\Code\Controllers\LogicControl.cs" />
     <Compile Include="Assets\Code\DataContainers\Iso.cs" />

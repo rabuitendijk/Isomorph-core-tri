@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Logic control for level editor mode
+/// </summary>
 public class EditorLogicControl : LogicControl
 {
     Tile[,,] grid;

@@ -17,6 +17,9 @@ public abstract class GraphicsControl{
 
     protected Transform tileFolder;
 
+    /// <summary>
+    /// Sets common variable and registers callbacks
+    /// </summary>
     public GraphicsControl()
     {
         main = this;
@@ -26,14 +29,19 @@ public abstract class GraphicsControl{
         Tile.registerOnCreate(onTileCreate);
         Tile.registerOnDestroy(onTileDestroy);
 
-
     }
 
     protected abstract void onTileCreate(Tile t);
     protected abstract void onTileDestroy(Tile t);
 
+    /// <summary>
+    /// Destroy inhereting object, automatically called in base.destroy();
+    /// </summary>
     protected abstract void destructor();
 
+    /// <summary>
+    /// Destroy the controller so that it can be overwritten in the runner
+    /// </summary>
     public void destroy()
     {
         Tile.removeOnCreate(onTileCreate);

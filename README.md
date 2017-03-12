@@ -11,10 +11,30 @@ TO BE ADDED:
 
 	- A mouse click even collision checker using math and stuff.
 		* Find appropriate selectable object on vertical stack.
-
 		
 	- Object Rotation script
 		* Extend XMLSpriteLoader to generate an obeject type
+
+
+MAP EDITOR:
+		
+	- Functioning UI
+		* Build and destruct entrire UI?
+		* Gather stringlist of buildable objects.
+		* Select desired object from UI list.
+		* Folder structure in UI list?
+		
+	- Saving/Loading
+		* Generic save system that can also save Basic maps ingame.
+		* Loading directly into IsoObject?
+		* Devide referential and non-referential saving files
+	
+	- Switch between edit and play mode
+		* Test Controller cleanup.
+	
+	- Modefied mouse hover functionallity.
+		* Stack mode.
+		* Layer mode.
 
 
 BUGS:
@@ -23,9 +43,6 @@ BUGS:
 	- BigBlock fisrt Iso in coords[] might be wandering.
 
 IN LATER UPDATES:
-
-	- Map edditor
-		* Saving/Loading
 
 	- Map rotation.
 
@@ -63,7 +80,7 @@ IN OK STATE:
 		* find a way to obtain all coordinates object in a  simulated "raycast" in order.
 		* wirte a scripts that efficiently goes trough them to find first collision.
 		
-	- [May be solved?] A way to sort the sprites without using to lagre a numeric width.
+	- A way to sort the sprites without using to lagre a numeric width.
 
 	- How to clean to graphics edges
 		* Pogress has been made by using 15x compession from source.
