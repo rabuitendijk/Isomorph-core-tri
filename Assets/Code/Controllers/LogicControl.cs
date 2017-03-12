@@ -22,9 +22,11 @@ public abstract class LogicControl {
         main = this;
 
         Tile.registerOnCreate(onTileCreate);
+        Tile.registerOnDestroy(onTileDestroy);
     }
 
     protected abstract void onTileCreate(Tile t);
+    protected abstract void onTileDestroy(Tile t);
 
     /// <summary>
     /// Set a Tile in the grid corresponding with its coord
@@ -51,4 +53,15 @@ public abstract class LogicControl {
     /// Selectes a build is [not dinamic] level creator based on name.
     /// </summary>
     public abstract void makeLevel(string name);
+
+    protected abstract void destructor();
+
+    public void destroy()
+    {
+        destructor();
+
+        Tile.removeOnCreate(onTileCreate);
+        Tile.removeOnDestroy(onTileDestroy);
+
+    }
 }

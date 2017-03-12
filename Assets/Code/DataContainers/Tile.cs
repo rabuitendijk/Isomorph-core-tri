@@ -40,16 +40,22 @@ public class Tile {
         onCreate(this);
     }
 
-
+    /// <summary>
+    /// Destroy this tile
+    /// </summary>
+    public void destroy()
+    {
+        onDestroy(this);
+    }
     
 
     static Action<Tile> onCreate;
 
-    /// <summary>
-    /// On create call
-    /// </summary>
-    public static void registerOnCreate(Action<Tile> funct)
-    {
-        onCreate += funct;
-    }
+    public static void registerOnCreate(Action<Tile> funct){onCreate += funct;}
+    public static void removeOnCreate(Action<Tile> funct){onCreate -= funct;}
+
+    static Action<Tile> onDestroy;
+
+    public static void registerOnDestroy(Action<Tile> funct) { onDestroy += funct; }
+    public static void removeOnDestroy(Action<Tile> funct) { onDestroy -= funct; }
 }

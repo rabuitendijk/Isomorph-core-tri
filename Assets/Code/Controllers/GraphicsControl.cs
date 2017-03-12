@@ -24,9 +24,23 @@ public abstract class GraphicsControl{
         tileFolder = new GameObject() { name = "TileFolder" }.transform;
 
         Tile.registerOnCreate(onTileCreate);
+        Tile.registerOnDestroy(onTileDestroy);
+
 
     }
 
     protected abstract void onTileCreate(Tile t);
-	
+    protected abstract void onTileDestroy(Tile t);
+
+    protected abstract void destructor();
+
+    public void destroy()
+    {
+        Tile.removeOnCreate(onTileCreate);
+        Tile.removeOnDestroy(onTileDestroy);
+
+        destructor();
+        GameObject.Destroy(tileFolder);
+        tileFolder = null; ;
+    }
 }

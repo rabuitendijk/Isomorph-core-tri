@@ -2,7 +2,7 @@
 using UnityEngine;
 
 public class Runner : MonoBehaviour {
-
+    public static Runner main;
 
     public bool rebuildAliasses = false;
     public bool levelEditor = false;
@@ -13,17 +13,21 @@ public class Runner : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        main = this;
+
         if (rebuildAliasses)
             new BuildAliasTextures();
 
-        
         new AliasXMLLoader();
-
 
 
         if (levelEditor)
         {
-            Debug.Log("Editor not implimented.");
+            Debug.Log("Editor mode loaded.");
+
+            logicControl = new EditorLogicControl(16, 16, 16);
+            graphicsControl = new EditorGraphicsControl();
+            inputControl = new EditorInputControl();
         }
         else
         {
@@ -43,7 +47,5 @@ public class Runner : MonoBehaviour {
     {
         inputControl.update();
     }
-
-
 
 }

@@ -14,6 +14,8 @@ public abstract class InputControl {
 
     public static InputControl main;
 
+    protected ComponentCamera componentCamera;
+    protected ComponentMouse componentMouse;
 
 	public InputControl()
     {
@@ -21,4 +23,11 @@ public abstract class InputControl {
     }
 
     public abstract void update();
+
+    protected abstract void destructor();
+
+    public void destroy()
+    {
+        destructor();
+    }
 }
