@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<XMLObject name="limestone_4">
+<coords>
+	<XMLCoord x="0" y="0" z="0" name = "limestone_4[0_0_0]">
+	</XMLCoord>
+	<XMLCoord x="0" y="0" z="2" name = "limestone_4[0_0_2]">
+	</XMLCoord>
+	<XMLCoord x="0" y="0" z="1" name = "VOID">
+	</XMLCoord>
+	<XMLCoord x="0" y="0" z="3" name = "VOID">
+	</XMLCoord>
+</coords>
+</XMLObject>

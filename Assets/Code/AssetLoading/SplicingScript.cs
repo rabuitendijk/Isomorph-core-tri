@@ -307,13 +307,17 @@ public class SplicingScript{
             {
                 for (int k = 0; k < height; k++)
                 {
-                    if (i!=1 && j!=1 && k != (height+height%2)-2)
-                        ret.Add(new Iso(i, j, k));
-                    else if (k%2 == 1 && (i == 1 || j == 1 || k == (height + height % 2) - 2))
+                    
+                    if (k%2 == 1) //Offest height
                     {
-                        ret.Add(new Iso(i, j, k));
+                        ret.Add(new Iso(i, j, k));  //Always add in offset
                     }
-
+                    else if (!(k == height - 2) && !(i == 0) && !(j == 0)) // If now sides or top, ?dont know why -2?
+                    {
+                        ret.Add(new Iso(i, j, k));  //Add
+                    }
+                         
+                    
                 }
             }
 

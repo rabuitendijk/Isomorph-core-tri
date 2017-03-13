@@ -17,31 +17,31 @@
 	</StreamingSpriteXMLCell>
 	<StreamingSpriteXMLCell x = "0" y = "1" name = "half">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "1" name = "roseRock">
+	<StreamingSpriteXMLCell x = "1" y = "1" name = "limestone_1">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "1" name = "roughStone">
+	<StreamingSpriteXMLCell x = "2" y = "1" name = "limestone_2">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "1" name = "selector">
+	<StreamingSpriteXMLCell x = "3" y = "1" name = "limestone_3[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "1" name = "slabSelector">
+	<StreamingSpriteXMLCell x = "4" y = "1" name = "limestone_3[0_0_2]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "1" name = "stones">
+	<StreamingSpriteXMLCell x = "5" y = "1" name = "limestone_4[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "1" name = "tree">
+	<StreamingSpriteXMLCell x = "6" y = "1" name = "limestone_4[0_0_2]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "2" name = "unit">
+	<StreamingSpriteXMLCell x = "0" y = "2" name = "roseRock">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "2" disable = "1">
+	<StreamingSpriteXMLCell x = "1" y = "2" name = "roughStone">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "2" disable = "1">
+	<StreamingSpriteXMLCell x = "2" y = "2" name = "selector">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "2" disable = "1">
+	<StreamingSpriteXMLCell x = "3" y = "2" name = "slabSelector">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "2" disable = "1">
+	<StreamingSpriteXMLCell x = "4" y = "2" name = "stones">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "2" disable = "1">
+	<StreamingSpriteXMLCell x = "5" y = "2" name = "tree">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "2" disable = "1">
+	<StreamingSpriteXMLCell x = "6" y = "2" name = "unit">
 	</StreamingSpriteXMLCell>
 	<StreamingSpriteXMLCell x = "0" y = "3" disable = "1">
 	</StreamingSpriteXMLCell>

@@ -15,8 +15,6 @@
 	</XMLCoord>
 	<XMLCoord x="1" y="1" z="2" name = "bigBlock[1_1_2]">
 	</XMLCoord>
-	<XMLCoord x="0" y="0" z="0" name = "VOID">
-	</XMLCoord>
 	<XMLCoord x="0" y="0" z="1" name = "VOID">
 	</XMLCoord>
 	<XMLCoord x="0" y="0" z="3" name = "VOID">
@@ -28,6 +26,8 @@
 	<XMLCoord x="1" y="0" z="1" name = "VOID">
 	</XMLCoord>
 	<XMLCoord x="1" y="0" z="3" name = "VOID">
+	</XMLCoord>
+	<XMLCoord x="1" y="1" z="0" name = "VOID">
 	</XMLCoord>
 	<XMLCoord x="1" y="1" z="1" name = "VOID">
 	</XMLCoord>
