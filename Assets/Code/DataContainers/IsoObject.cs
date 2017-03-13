@@ -66,15 +66,16 @@ public class IsoObject {
     /// </summary>
     bool safeTileConstruction()
     {
-        tiles = new List<Tile>();
         if (checkCoordsOccupied())
         {
             Debug.Log("IsoObject["+name+", "+origin.ToString()+"]: one or more tiles blocked during construction.");
             return false;
         }
-        
 
-        for(int i=0; i<coords.Count; i++)
+        tiles = new List<Tile>();
+
+
+        for (int i=0; i<coords.Count; i++)
         {
             tiles.Add(new Tile(coords[i], sprites[i], this));
         }

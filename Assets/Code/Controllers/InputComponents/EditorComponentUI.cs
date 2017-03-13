@@ -124,8 +124,14 @@ public class EditorComponentUI {
         rect.offsetMin = new Vector2(0f, 0f);
     }
 
-    public void registerOnClick(Action funct){mouse.registerOnClick(funct);}
-    public void removeOnClick(Action funct) { mouse.registerOnClick(funct); }
+    public void registerOnClick(Action<string> funct){mouse.registerOnClick(funct);}
+    public void removeOnClick(Action<string> funct) { mouse.registerOnClick(funct); }
+    public string getSelectedObject()
+    {
+        if (selected == null)
+            return "VOID";
+        return selected.name;
+    }
 
     /// <summary>
     /// Destroy this object

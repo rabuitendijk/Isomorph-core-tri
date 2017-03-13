@@ -13,7 +13,7 @@ public class EditorComponentUIListNode {
     public Text textComponent { get; protected set; }
     public Image image { get; protected set; }
     GameObject Graphic;
-
+    public string name { get; protected set; }
     public static Color basicColor = new Color(1f, 1f, 1f, .5f), selectedColor = new Color(.5f, .5f, 1f, .8f);
 
     public GameObject graphic
@@ -29,7 +29,6 @@ public class EditorComponentUIListNode {
             Graphic = value;
         }
     }
-    string text;
 
     /// <summary>
     /// Set text
@@ -37,7 +36,7 @@ public class EditorComponentUIListNode {
 	public EditorComponentUIListNode(EditorComponentUI control, string text)
     {
         this.control = control;
-        this.text = text;
+        this.name = text;
     }
 
     /// <summary>
@@ -59,7 +58,7 @@ public class EditorComponentUIListNode {
         GameObject textOb = new GameObject() { name = "text" };
         RectTransform textRect = textOb.AddComponent<RectTransform>() as RectTransform;
         textComponent = textOb.AddComponent<Text>() as Text;
-        textComponent.text = text;
+        textComponent.text = name;
         textComponent.raycastTarget = false;
         textComponent.alignment = TextAnchor.MiddleLeft;
         textComponent.fontSize = 32;

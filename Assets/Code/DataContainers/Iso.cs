@@ -42,7 +42,7 @@ public class Iso{
     /// Constructor from world coordinates
     /// (and isometric z)
     /// </summary>
-    public Iso(float x, float y, int z) : this(Mathf.FloorToInt(2f * y - x - .5f * z +1), Mathf.FloorToInt(2f * y + x - .5f * z +1), z) { }
+    public Iso(float x, float y, int z, int depthModifier = 0) : this(Mathf.FloorToInt(2f * y - x - .5f * z +1), Mathf.FloorToInt(2f * y + x - .5f * z +1), z, depthModifier) { }
 
 
     /// <summary>
@@ -68,6 +68,9 @@ public class Iso{
         return new Vector3(WX, WY, 0);
     }
 
+    /// <summary>
+    /// Add contends of other vector to this one and reaclculates depth and world coords.
+    /// </summary>
     public void add(Iso other)
     {
         X += other.x;
@@ -77,6 +80,9 @@ public class Iso{
         calcDepth();
     }
 
+    /// <summary>
+    /// Add without updates
+    /// </summary>
     public void addUnsafe(int x, int y, int z)
     {
         X += x;
@@ -84,6 +90,34 @@ public class Iso{
         Z += z;
     }
 
+    /// <summary>
+    /// Moves this iso to other and recalculates
+    /// </summary>
+    public static void moveTo(Iso i, GameObject graphic)
+    {
+
+        if (graphic == null)
+            return;
+
+        graphic.transform.position = i.toPos();
+        graphic.GetComponent<SpriteRenderer>().sortingOrder = i.depth;
+    }
+
+    public void set(Iso other)
+    {
+        X = other.x;
+        Y = other.y;
+        Z = other.z;
+        calcWorldCoord();
+        calcDepth();
+    }
+
+    public void unsafeSet(Iso other)
+    {
+        X = other.x;
+        Y = other.y;
+        Z = other.z;
+    }
     public override string ToString()
     {
         return "Iso<"+x+", "+y+", "+z+">";

@@ -136,7 +136,7 @@ public class BasicComponentMouse : ComponentMouse {
     }
 
 
-    public override void callbackClick()
+    public override void callbackClick(string mode)
     {
         Debug.Log("BasicComponentMouse.callbackClick: No callback");
     }

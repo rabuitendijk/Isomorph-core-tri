@@ -15,8 +15,8 @@ public class EditorInputControl : InputControl {
     public EditorInputControl() : base()
     {
         componentCamera = new BasicComponentCamera();
-        componentMouse = new EditorComponentMouse();
         ui = new EditorComponentUI();
+        componentMouse = new EditorComponentMouseStack(ui);
 
         ui.registerOnClick(componentMouse.callbackClick);
     }

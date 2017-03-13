@@ -22,5 +22,5 @@ public abstract class ComponentMouse {
     /// <summary>
     /// For UI Based callback with onClick
     /// </summary>
-    public abstract void callbackClick();
+    public abstract void callbackClick(string mode);
 }

@@ -8,18 +8,26 @@ public class MonoEditorMouseTrap : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (onClick != null)
-            onClick();
+        if (onClick == null)
+            return;
+
+        if (eventData.pointerId == -1)
+            onClick("left");
+        else if (eventData.pointerId == -3)
+            onClick("middle");
+        else if (eventData.pointerId == -2)
+            onClick("right");
+
     }
 
-    Action onClick;
+    Action<string> onClick;
 
-    public void registerOnClick(Action funct)
+    public void registerOnClick(Action<string> funct)
     {
         onClick += funct;
     }
 
-    public void removeOnClick(Action funct)
+    public void removeOnClick(Action<string> funct)
     {
         onClick -= funct;
     }
