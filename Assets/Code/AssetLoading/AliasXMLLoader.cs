@@ -21,11 +21,13 @@ public class AliasXMLLoader {
     int count = 0, objCount = 0;
     Dictionary<string, Sprite> sprites = new Dictionary<string, Sprite>();
     Dictionary<string, IsoObject> prototypes = new Dictionary<string, IsoObject>();
+    public SortedList<string, IsoObject> objects{ get; protected set; }
     string mipPath;
 
     public AliasXMLLoader()
     {
         main = this;
+        objects = new SortedList<string, IsoObject>();
         string filePath = System.IO.Path.Combine(Application.streamingAssetsPath, "Alias");
         mipPath = System.IO.Path.Combine(Application.streamingAssetsPath, "AliasMip");
 
@@ -187,10 +189,14 @@ public class AliasXMLLoader {
         XmlSerializer serializer = new XmlSerializer(typeof(XMLObject));
         XmlReader reader = XmlReader.Create(filePath);
         xml = (XMLObject)serializer.Deserialize(reader);
+        IsoObject ob;
 
         try
         {
-            prototypes.Add(xml.name, IsoObject.prototype(xml));
+            ob = IsoObject.prototype(xml);
+            prototypes.Add(xml.name, ob);
+            objects.Add(xml.name, ob);
+
             objCount++;
         }
         catch (Exception e)

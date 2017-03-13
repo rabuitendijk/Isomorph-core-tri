@@ -135,4 +135,10 @@ public class BasicComponentMouse : ComponentMouse {
         return oy;
     }
 
+
+    public override void callbackClick()
+    {
+        Debug.Log("BasicComponentMouse.callbackClick: No callback");
+    }
+
 }

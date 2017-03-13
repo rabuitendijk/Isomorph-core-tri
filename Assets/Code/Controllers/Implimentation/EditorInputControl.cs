@@ -15,8 +15,10 @@ public class EditorInputControl : InputControl {
     public EditorInputControl() : base()
     {
         componentCamera = new BasicComponentCamera();
-        componentMouse = new BasicComponentMouse();
+        componentMouse = new EditorComponentMouse();
         ui = new EditorComponentUI();
+
+        ui.registerOnClick(componentMouse.callbackClick);
     }
 
     /// <summary>
@@ -33,6 +35,7 @@ public class EditorInputControl : InputControl {
     protected override void destructor()
     {
         ui.destructor();
+        ui.removeOnClick(componentMouse.callbackClick);
         return;
     }
 }
