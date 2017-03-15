@@ -14,7 +14,7 @@ using UnityEngine.UI;
 /// </summary>
 public class EditorComponentUI {
 
-    public GameObject levelEditor, leftBox, scrollList;
+    public RectTransform levelEditor, scrollList;
     List<EditorComponentUIListNode> nodes = new List<EditorComponentUIListNode>();
     EditorComponentUIListNode selected = null;
     MonoEditorMouseTrap mouse;
@@ -69,59 +69,27 @@ public class EditorComponentUI {
         GameObject canvas = GameObject.Find("/Canvas");
 
         //Build rects
-        levelEditor = new GameObject() { name = "LevelEditor"};
-        RectTransform rectLE = levelEditor.AddComponent<RectTransform>() as RectTransform;
-        rectLE.SetParent(canvas.transform);
-        setRectFull(rectLE);
-
-        leftBox = new GameObject() { name = "LeftBox" };
-        RectTransform rectLB = leftBox.AddComponent<RectTransform>() as RectTransform;
-        rectLB.SetParent(levelEditor.transform);
-        setRectFull(rectLB);
-
-        scrollList = new GameObject() { name = "ScrollList" };
-        RectTransform rectSL = scrollList.AddComponent<RectTransform>() as RectTransform;
-        rectSL.SetParent(leftBox.transform);
-        setRectFull(rectSL);
+        levelEditor = UIHelp.buildUIObject("LevelEditor", canvas.transform);
+        RectTransform leftBox = UIHelp.buildUIObject("LeftBox", levelEditor, new Vector2(0f, .05f), new Vector2(.2f, 1f), new Vector2(.5f, .5f));
+        RectTransform inputField = UIHelp.buildUIObject("InputField", levelEditor, new Vector2(0f, .0f), new Vector2(.2f, 0.05f), new Vector2(.5f, .5f));
+        scrollList = UIHelp.buildUIObject("ScrollList", leftBox, new Vector2(0f, .0f), new Vector2(1f, 1f), new Vector2(0f, 1f));
 
         //Level Editor
-        Image i = levelEditor.AddComponent<Image>();
-        i.color = new Color(1f, 1f, 1f, 0f);
-        mouse = levelEditor.AddComponent<MonoEditorMouseTrap>();
+        UIHelp.addImage(levelEditor, new Color(1f, 1f, 1f, 0f));
+        mouse = levelEditor.gameObject.AddComponent<MonoEditorMouseTrap>();
 
         //LeftBox
-        rectLB.anchorMax = new Vector2(.2f, 1f);
-        i = leftBox.AddComponent<Image>() as Image;
-        i.color = new Color(.2f, .2f, .2f, .6f);
-        leftBox.AddComponent<Mask>();
-        ScrollRect sr = leftBox.AddComponent<ScrollRect>() as ScrollRect;
-        sr.horizontal = false;
-        sr.content = scrollList.GetComponent<RectTransform>();
-        sr.scrollSensitivity = 15f;
+        UIHelp.addImage(leftBox, new Color(.2f, .2f, .2f, .6f));
+        leftBox.gameObject.AddComponent<Mask>();
+        UIHelp.addScrollRect(leftBox, scrollList, false);
+
+        //InputField
+        UIHelp.addInputField(inputField, Color.white, Runner.main.ariel, "Enter filename here...");
 
         //ScrollList
-        rectSL.pivot = new Vector2(0f, 1f);
-        VerticalLayoutGroup vlg = scrollList.AddComponent<VerticalLayoutGroup>();
-        vlg.padding = new RectOffset(2, 2, 2, 2);
-        vlg.childControlHeight = false;
-        vlg.childForceExpandHeight = false;
-        vlg.childAlignment = TextAnchor.UpperLeft;
-        vlg.spacing = 2;
-        ContentSizeFitter csf = scrollList.AddComponent<ContentSizeFitter>();
-        csf.horizontalFit = ContentSizeFitter.FitMode.Unconstrained;
-        csf.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+        UIHelp.addVerticalLayoutGroup(scrollList, new RectOffset(2, 2, 2, 2), 2);
+        UIHelp.addContentSizeFitter(scrollList);
 
-    }
-
-    void setRectFull(RectTransform rect)
-    {
-        rect.anchorMin = new Vector2(0f, 0f);
-        rect.anchorMax = new Vector2(1f, 1f);
-        rect.pivot = new Vector2(.5f, .5f);
-        rect.sizeDelta = new Vector2(0f, 0f);
-        rect.position = new Vector3(0f, 0f, 0f);
-        rect.offsetMax = new Vector2(0f, 0f);
-        rect.offsetMin = new Vector2(0f, 0f);
     }
 
     public void registerOnClick(Action<string> funct){ mouse.registerOnClick(funct); }
@@ -139,14 +107,6 @@ public class EditorComponentUI {
     public void destructor()
     {
 
-        foreach (EditorComponentUIListNode n in nodes)
-        {
-            n.graphic = null;
-        }
-
-
-        GameObject.Destroy(scrollList);
-        GameObject.Destroy(leftBox);
         GameObject.Destroy(levelEditor);
 
         MonoUIListNodeClick.removeOnClick(onClick);

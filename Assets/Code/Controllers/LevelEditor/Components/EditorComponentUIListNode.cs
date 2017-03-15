@@ -44,30 +44,16 @@ public class EditorComponentUIListNode {
     /// </summary>
     public void construct()
     {
-        graphic = new GameObject() { name = "ListNode" };
-        RectTransform rect = graphic.AddComponent<RectTransform>() as RectTransform;
+        RectTransform rect = UIHelp.buildUIObject("ListNode", control.scrollList);
+        graphic = rect.gameObject;
         rect.sizeDelta = new Vector2(0, height);
-        rect.SetParent(control.scrollList.transform);
 
-        image = graphic.AddComponent<Image>();
-        image.color = basicColor;
+        image = UIHelp.addImage(rect, basicColor);
 
         MonoUIListNodeClick click = graphic.AddComponent<MonoUIListNodeClick>();
         click.node = this;
 
-        GameObject textOb = new GameObject() { name = "text" };
-        RectTransform textRect = textOb.AddComponent<RectTransform>() as RectTransform;
-        textComponent = textOb.AddComponent<Text>() as Text;
-        textComponent.text = name;
-        textComponent.raycastTarget = false;
-        textComponent.alignment = TextAnchor.MiddleLeft;
-        textComponent.fontSize = 32;
-        textComponent.font = Runner.main.ariel;
-        textComponent.color = Color.black;
-        textComponent.resizeTextForBestFit = true;
-        textOb.transform.SetParent(graphic.transform);
-        setRectFull(textRect);
-        textRect.anchorMin = new Vector2(.05f, 0f);
+        textComponent = UIHelp.addTextChild(rect, Color.black, Runner.main.ariel, 32, new Vector2(.05f, 0f), new Vector2(1f, 1f), name, true);
         
     }
 

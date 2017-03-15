@@ -113,6 +113,7 @@
     <Compile Include="Assets\Code\Outdated\SimpleWASD.cs" />
     <Compile Include="Assets\Code\Outdated\SpriteHashLoader.cs" />
     <Compile Include="Assets\Code\Runner.cs" />
+    <Compile Include="Assets\Code\UIHelp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StreamingAssets\Alias\0.png.xml" />
