@@ -92,7 +92,7 @@ public class IsoObject {
         foreach(Iso i in coords)
         {
             //Debug.Log("..., "+i.ToString());
-            if (LogicControl.main.exists(i))
+            if (!LogicControl.main.inGrid(i)    ||  LogicControl.main.exists(i))
                 return true;
         }
 

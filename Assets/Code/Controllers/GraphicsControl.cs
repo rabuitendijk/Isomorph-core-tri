@@ -16,7 +16,6 @@ public abstract class GraphicsControl{
     public GameObject selector;
 
     protected Transform tileFolder;
-
     /// <summary>
     /// Sets common variable and registers callbacks
     /// </summary>

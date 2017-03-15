@@ -8,6 +8,8 @@ using UnityEngine;
 /// </summary>
 public class EditorInputControl : InputControl {
     EditorComponentUI ui;
+    EditorComponentMouseLayer mouseLayer;
+    EditorComponentMouseStack mouseStack;
 
     /// <summary>
     /// Create the common level input controller
@@ -16,7 +18,8 @@ public class EditorInputControl : InputControl {
     {
         componentCamera = new BasicComponentCamera();
         ui = new EditorComponentUI();
-        componentMouse = new EditorComponentMouseStack(ui);
+        mouseStack = new EditorComponentMouseStack(ui);
+        componentMouse = mouseStack;
 
         ui.registerOnClick(componentMouse.callbackClick);
     }
@@ -27,11 +30,58 @@ public class EditorInputControl : InputControl {
     public override void update()
     {
         componentCamera.update();
+
+
+        if (mouseLayer != null)
+            shiftLayer();
+
+        if (Input.GetKeyDown(KeyCode.P))
+            switchMouseMode();
+
         Tile t;
         componentMouse.update(out t);
     }
 
-    
+    void switchMouseMode()
+    {
+        ui.removeOnClick(componentMouse.callbackClick);
+        //GraphicsControl.main.selector.SetActive(false);
+        if (mouseLayer == null) //Go to stack mode
+        {
+            mouseLayer = new EditorComponentMouseLayer(ui, mouseStack.getHeight());
+            componentMouse = mouseLayer;
+            mouseStack = null;
+            Debug.Log("Switch to Layer mouse mode.");
+            ui.registerOnClick(componentMouse.callbackClick);
+            return;
+        }
+
+        //Disable layer
+        if (EditorComponentMouseLayer.enableLayer != null)
+            EditorComponentMouseLayer.enableLayer(false, 0);
+
+        mouseStack = new EditorComponentMouseStack(ui);
+        componentMouse = mouseStack;
+        mouseLayer = null;
+        ui.registerOnClick(componentMouse.callbackClick);
+        Debug.Log("Switch to Stack mouse mode");
+
+    }
+
+    void shiftLayer()
+    {
+        if (Input.GetKeyDown(KeyCode.Q) && mouseLayer.layer > 0 && EditorComponentMouseLayer.moveLayer != null)
+        {
+            EditorComponentMouseLayer.moveLayer(false);
+            mouseLayer.layer--;
+        }
+        else if (Input.GetKeyDown(KeyCode.E) && mouseLayer.layer < LogicControl.main.height - 1 && EditorComponentMouseLayer.moveLayer != null)
+        {
+            EditorComponentMouseLayer.moveLayer(true);
+            mouseLayer.layer++;
+        }
+    }
+
     protected override void destructor()
     {
         ui.destructor();

@@ -95,12 +95,15 @@
     <Compile Include="Assets\Code\Controllers\InputComponents\ComponentCamera.cs" />
     <Compile Include="Assets\Code\Controllers\InputComponents\ComponentMouse.cs" />
     <Compile Include="Assets\Code\Controllers\InputControl.cs" />
+    <Compile Include="Assets\Code\Controllers\LevelEditor\Components\EditorComponentMouseLayer.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\Components\EditorComponentMouseStack.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\Components\EditorComponentUI.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\Components\EditorComponentUIListNode.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\EditorGraphicsControl.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\EditorInputControl.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\EditorLogicControl.cs" />
+    <Compile Include="Assets\Code\Controllers\LevelEditor\MonoComponents\GLDrawLoop.cs" />
+    <Compile Include="Assets\Code\Controllers\LevelEditor\MonoComponents\GLInstruction.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\MonoComponents\MonoEditorMouseTrap.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\MonoComponents\MonoUIListNodeClick.cs" />
     <Compile Include="Assets\Code\Controllers\LogicControl.cs" />

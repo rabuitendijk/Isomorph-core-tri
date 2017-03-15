@@ -31,8 +31,6 @@ public class BasicComponentCamera : ComponentCamera {
         if (Input.GetKey("left"))
             camera.transform.position += new Vector3(-Time.deltaTime * speed / zoom, 0, 0);
 
-        if (Input.GetKey(KeyCode.R))
-            Application.LoadLevel(Application.loadedLevel);
 
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0)

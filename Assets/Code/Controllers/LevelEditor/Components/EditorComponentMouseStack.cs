@@ -8,6 +8,7 @@ using UnityEngine;
 public class EditorComponentMouseStack : ComponentMouse {
 
     Iso selected;
+    Tile hit;
     IsoObject lastObject;
     EditorComponentUI ui;
 
@@ -38,7 +39,7 @@ public class EditorComponentMouseStack : ComponentMouse {
     bool catchHitFloor(out Iso i)
     {
         //?
-        
+        hit = null;
         if (raycastClick(out i))
             return true;
 
@@ -79,6 +80,7 @@ public class EditorComponentMouseStack : ComponentMouse {
             {
                 if (LogicControl.main.exists(target))
                 {
+                    hit = LogicControl.main.get(target);
                     if (!setFlag)
                         return false;
                     return true;
@@ -129,10 +131,28 @@ public class EditorComponentMouseStack : ComponentMouse {
 
     public override void callbackClick(string mode)
     {
+        //Remove at righth mouse click
+        if (mode == "right")
+        {
+            if (hit != null)
+            {
+                foreach (Tile t in hit.isoObject.tiles)
+                {
+                    t.destroy();
+                    hit = null;
+                }
+            }
+            else
+                Debug.Log("No tile selected for removal.");
+
+            return;
+        }
+
         string name = ui.getSelectedObject();
         if (name == "VOID")
             return;
 
+        //Add at left mouse click
         if (mode == "left")
         {
             if (selected != null)
@@ -145,5 +165,15 @@ public class EditorComponentMouseStack : ComponentMouse {
         }
 
         Debug.Log("You clicked:"+mode);
+    }
+
+    /// <summary>
+    /// Get height for switching
+    /// </summary>
+    public int getHeight()
+    {
+        if (selected != null)
+            return selected.z;
+        return 0;
     }
 }

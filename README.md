@@ -18,12 +18,6 @@ TO BE ADDED:
 
 MAP EDITOR:
 		
-	- Functioning UI
-		* Build and destruct entrire UI?
-		* Gather stringlist of buildable objects.
-		* Select desired object from UI list.
-		* Folder structure in UI list?
-		
 	- Saving/Loading
 		* Generic save system that can also save Basic maps ingame.
 		* Loading directly into IsoObject?
@@ -33,7 +27,6 @@ MAP EDITOR:
 		* Test Controller cleanup.
 	
 	- Modefied mouse hover functionallity.
-		* Stack mode.
 		* Layer mode.
 
 

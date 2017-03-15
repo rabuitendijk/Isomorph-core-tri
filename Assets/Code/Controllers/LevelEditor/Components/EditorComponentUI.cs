@@ -124,8 +124,8 @@ public class EditorComponentUI {
         rect.offsetMin = new Vector2(0f, 0f);
     }
 
-    public void registerOnClick(Action<string> funct){mouse.registerOnClick(funct);}
-    public void removeOnClick(Action<string> funct) { mouse.registerOnClick(funct); }
+    public void registerOnClick(Action<string> funct){ mouse.registerOnClick(funct); }
+    public void removeOnClick(Action<string> funct) { mouse.removeOnClick(funct); }
     public string getSelectedObject()
     {
         if (selected == null)
