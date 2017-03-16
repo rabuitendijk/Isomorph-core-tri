@@ -98,22 +98,27 @@
     <Compile Include="Assets\Code\Controllers\LevelEditor\Components\EditorComponentMouseLayer.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\Components\EditorComponentMouseStack.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\Components\EditorComponentUI.cs" />
-    <Compile Include="Assets\Code\Controllers\LevelEditor\Components\EditorComponentUIListNode.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\EditorGraphicsControl.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\EditorInputControl.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\EditorLogicControl.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\MonoComponents\GLDrawLoop.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\MonoComponents\GLInstruction.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\MonoComponents\MonoEditorMouseTrap.cs" />
-    <Compile Include="Assets\Code\Controllers\LevelEditor\MonoComponents\MonoUIListNodeClick.cs" />
     <Compile Include="Assets\Code\Controllers\LogicControl.cs" />
     <Compile Include="Assets\Code\DataContainers\Iso.cs" />
     <Compile Include="Assets\Code\DataContainers\IsoObject.cs" />
     <Compile Include="Assets\Code\DataContainers\Tile.cs" />
+    <Compile Include="Assets\Code\HUI_Toolbox\HUI.cs" />
+    <Compile Include="Assets\Code\HUI_Toolbox\HUI_Console.cs" />
+    <Compile Include="Assets\Code\HUI_Toolbox\HUI_InputField.cs" />
+    <Compile Include="Assets\Code\HUI_Toolbox\HUI_SelectorList.cs" />
+    <Compile Include="Assets\Code\HUI_Toolbox\HUI_TextBox.cs" />
+    <Compile Include="Assets\Code\HUI_Toolbox\MonoComponents\HUI_MouseTrap.cs" />
+    <Compile Include="Assets\Code\HUI_Toolbox\MonoComponents\HUI_NodeClick.cs" />
+    <Compile Include="Assets\Code\HUI_Toolbox\SubComponents\HUI_TextNode.cs" />
     <Compile Include="Assets\Code\Outdated\SimpleWASD.cs" />
     <Compile Include="Assets\Code\Outdated\SpriteHashLoader.cs" />
     <Compile Include="Assets\Code\Runner.cs" />
-    <Compile Include="Assets\Code\UIHelp.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\StreamingAssets\Alias\0.png.xml" />
