@@ -115,6 +115,11 @@
     <Compile Include="Assets\Code\HUI_Toolbox\HUI_TextBox.cs" />
     <Compile Include="Assets\Code\HUI_Toolbox\MonoComponents\HUI_MouseTrap.cs" />
     <Compile Include="Assets\Code\HUI_Toolbox\MonoComponents\HUI_NodeClick.cs" />
+    <Compile Include="Assets\Code\HUI_Toolbox\SubComponents\HUI_Command_Clear.cs" />
+    <Compile Include="Assets\Code\HUI_Toolbox\SubComponents\HUI_Command_Help.cs" />
+    <Compile Include="Assets\Code\HUI_Toolbox\SubComponents\HUI_ConsoleCommand.cs" />
+    <Compile Include="Assets\Code\HUI_Toolbox\SubComponents\HUI_ConsoleProcessor.cs" />
+    <Compile Include="Assets\Code\HUI_Toolbox\SubComponents\HUI_Prosessor_Basic.cs" />
     <Compile Include="Assets\Code\HUI_Toolbox\SubComponents\HUI_TextNode.cs" />
     <Compile Include="Assets\Code\Outdated\SimpleWASD.cs" />
     <Compile Include="Assets\Code\Outdated\SpriteHashLoader.cs" />

@@ -31,12 +31,16 @@ public class EditorInputControl : InputControl {
     {
         componentCamera.update();
 
+        if (!ui.beingEdited)
+        {   //Ignore common keyboard input when in input field
 
-        if (mouseLayer != null)
-            shiftLayer();
+            if (mouseLayer != null)
+                shiftLayer();
 
-        if (Input.GetKeyDown(KeyCode.P))
-            switchMouseMode();
+            if (Input.GetKeyDown(KeyCode.P))
+                switchMouseMode();
+        }
+
 
         Tile t;
         componentMouse.update(out t);

@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class HUI_InputField {
@@ -26,6 +27,15 @@ public class HUI_InputField {
         inputField = HUI.addInputField(root, textColor, font, "Enter filename here...", bestFit);
     }
 
+    public void registerOnEndEdit(UnityAction<string> call)
+    {
+        inputField.onEndEdit.AddListener(call);
+    }
+
+    public void clear()
+    {
+        inputField.text = "";
+    }
 
     public void destroy()
     {

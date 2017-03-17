@@ -18,6 +18,7 @@ public class EditorComponentMouseLayer : ComponentMouse
     public static void removeEnableLayer(Action<bool, int> funct) { enableLayer -= funct; }
 
     EditorComponentUI ui;
+    Iso selected;
 
     /// <summary>
     /// 
@@ -33,12 +34,79 @@ public class EditorComponentMouseLayer : ComponentMouse
 
     public override bool update(out Tile t)
     {
+        GraphicsControl.main.selector.SetActive(false);
+
+        if (catchHitFloor(out selected))
+        {   // Valid coordinate
+            GraphicsControl.main.selector.SetActive(true);
+            Iso.moveTo(selected, GraphicsControl.main.selector);
+        }
+
         t = null;
+        return false;
+
+
+    }
+
+
+    /// <summary>
+    /// Racasthit plus hitting empty floor functionallity
+    /// </summary>
+    bool catchHitFloor(out Iso i)
+    {
+        
+
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+
+        float upper_x = (2f * pos.y - pos.x - .5f * layer + 1f), upper_y = (2f * pos.y + pos.x - .5f * layer + 1f);
+        Iso target = new Iso(pos.x, pos.y, Mathf.FloorToInt(layer), 1);
+
+        if (LogicControl.main.inGrid(target))
+        {
+            i = target;
+            return true;
+        }
+        i = null;
         return false;
     }
 
     public override void callbackClick(string mode)
     {
-        throw new NotImplementedException();
+        //Remove at righth mouse click
+        if (mode == "right")
+        {
+            Tile hit;
+            if (selected != null && LogicControl.main.exists(selected))
+            {
+                hit = LogicControl.main.get(selected);
+                foreach (Tile t in hit.isoObject.tiles)
+                {
+                    t.destroy();
+                    hit = null;
+                }
+            }
+            else
+                Debug.Log("No tile selected for removal.");
+
+            return;
+        }
+
+        string name = ui.getSelectedObject();
+        if (name == "VOID")
+            return;
+
+        //Add at left mouse click
+        if (mode == "left")
+        {
+            if (selected != null)
+            {
+                new IsoObject(name, selected);
+            }
+            else
+                Debug.Log("No tile selected.");
+            return;
+        }
+
+        Debug.Log("You clicked:" + mode);
     }
 }

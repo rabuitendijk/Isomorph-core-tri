@@ -19,6 +19,7 @@ public class EditorComponentUI {
     HUI_InputField inputField;
     HUI_Console console;
     MonoEditorMouseTrap mouse;
+    public bool beingEdited { get { return console.beingEdited; } }
 
     /// <summary>
     /// Detects canvas and desired UI structure

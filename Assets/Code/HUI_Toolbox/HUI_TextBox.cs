@@ -8,6 +8,7 @@ public class HUI_TextBox  {
     RectTransform source, root;
     Scrollbar scrollbar;
     Text text;
+    RectTransform textRect;
 
     public HUI_TextBox(RectTransform source, Vector2 min, Vector2 max, Font font)
     {
@@ -19,9 +20,9 @@ public class HUI_TextBox  {
         RectTransform viewPort = HUI.buildUIObject("ViewPort", root);
         scrollbar = HUI.addVerticalScrollbarChild(root);
 
-        text = HUI.addTextChild(viewPort, Color.white, font, new Vector2(.02f, .02f), new Vector2(.98f, .98f), "Line 2\n<color=cyan>Line 2</color>\n<b>R-text?</b>", TextAnchor.UpperLeft);
-        RectTransform textRect = text.gameObject.GetComponent<RectTransform>();
-        textRect.pivot = new Vector2(0f, 1f);
+        text = HUI.addTextChild(viewPort, Color.white, font, new Vector2(.02f, .02f), new Vector2(.98f, .98f), "", TextAnchor.UpperLeft);
+        textRect = text.gameObject.GetComponent<RectTransform>();
+        textRect.pivot = new Vector2(1f, 0f);
         HUI.addContentSizeFitter(textRect);
 
         HUI.addScrollRect(root, textRect, viewPort, scrollbar, false, true);
@@ -35,8 +36,8 @@ public class HUI_TextBox  {
 
     public void append(string text)
     {
-        scrollbar.value = 0f;
         this.text.text += "\n" + text;
+        //textRect.anchoredPosition = new Vector2(0f, 0f);
     }
 
     public void destroy()
