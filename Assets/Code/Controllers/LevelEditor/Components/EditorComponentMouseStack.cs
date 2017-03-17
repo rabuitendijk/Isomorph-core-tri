@@ -135,13 +135,7 @@ public class EditorComponentMouseStack : ComponentMouse {
         if (mode == "right")
         {
             if (hit != null)
-            {
-                foreach (Tile t in hit.isoObject.tiles)
-                {
-                    t.destroy();
-                    hit = null;
-                }
-            }
+                hit.isoObject.destroy();
             else
                 Debug.Log("No tile selected for removal.");
 

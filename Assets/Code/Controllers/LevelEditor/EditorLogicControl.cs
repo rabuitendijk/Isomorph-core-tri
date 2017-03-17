@@ -9,8 +9,9 @@ using UnityEngine;
 public class EditorLogicControl : LogicControl
 {
     Tile[,,] grid;
+    EditorSaveControl save;
     
-    EditorLogicControl() : base(){ }
+    EditorLogicControl() : base(){ save = new EditorSaveControl(); }
 
     /// <summary>
     /// Constructs Map with given dimentions.
@@ -94,6 +95,8 @@ public class EditorLogicControl : LogicControl
 
     protected override void destructor()
     {
+        save.destroy();
+
         for (int i = 0; i < width; i++)
         {
             for (int j = 0; j < depth; j++)

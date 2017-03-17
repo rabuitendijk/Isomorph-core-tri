@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 /// <summary>
 /// version alpha-1
@@ -81,6 +82,9 @@ public class IsoObject {
         }
         //Debug.Log("Construction did run.");
 
+        if (onCreate != null)
+            onCreate(this);
+
         return true;
     }
 
@@ -129,4 +133,27 @@ public class IsoObject {
 
         return ret;
     }
+
+    /// <summary>
+    /// Destroy this object
+    /// </summary>
+    public void destroy()
+    {
+        if (onDestroy != null)
+            onDestroy(this);
+
+        foreach (Tile t in tiles)
+        {
+            t.destroy();
+        }
+    }
+
+    static Action<IsoObject> onCreate;
+    static Action<IsoObject> onDestroy;
+    public static void registerOnCreate(Action<IsoObject> funct) { onCreate += funct; }
+    public static void removeOnCreate(Action<IsoObject> funct) { onCreate -= funct; }
+    public static void registerOnDestroy(Action<IsoObject> funct) { onDestroy += funct; }
+    public static void removeOnDestroy(Action<IsoObject> funct) { onDestroy -= funct; }
+
+
 }

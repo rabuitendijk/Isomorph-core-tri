@@ -75,16 +75,9 @@ public class EditorComponentMouseLayer : ComponentMouse
         //Remove at righth mouse click
         if (mode == "right")
         {
-            Tile hit;
+            
             if (selected != null && LogicControl.main.exists(selected))
-            {
-                hit = LogicControl.main.get(selected);
-                foreach (Tile t in hit.isoObject.tiles)
-                {
-                    t.destroy();
-                    hit = null;
-                }
-            }
+                LogicControl.main.get(selected).destroy();
             else
                 Debug.Log("No tile selected for removal.");
 

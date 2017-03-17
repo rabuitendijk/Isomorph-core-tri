@@ -49,4 +49,15 @@ public class Runner : MonoBehaviour {
         inputControl.update();
     }
 
+    public void flush()
+    {
+        if (logicControl != null)
+            logicControl.destroy();
+        if (graphicsControl != null)
+            graphicsControl.destroy();
+        if (inputControl != null)
+            inputControl.destroy();
+    }
+
+
 }

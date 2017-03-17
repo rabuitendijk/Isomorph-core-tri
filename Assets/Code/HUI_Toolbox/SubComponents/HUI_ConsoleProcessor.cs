@@ -9,6 +9,7 @@ public abstract class HUI_ConsoleProcessor  {
 
     public List<HUI_ConsoleCommand> commands;
     public HUI_Console console;
+    public string filepath;
 
     /// <summary>
     /// Constructor, runs loadCommands.
@@ -16,11 +17,13 @@ public abstract class HUI_ConsoleProcessor  {
     /// </summary>
     public HUI_ConsoleProcessor(HUI_Console console)
     {
+        filepath = Application.streamingAssetsPath;
         commands = loadCommands();
         this.console = console;
 
         commands.Add(new HUI_Command_Clear(this));
         commands.Add(new HUI_Command_Help(this));
+        commands.Add(new HUI_Command_FilePath(this));
     }
 
     /// <summary>
