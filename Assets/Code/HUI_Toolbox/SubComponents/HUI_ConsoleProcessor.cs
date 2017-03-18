@@ -8,22 +8,18 @@ using UnityEngine;
 public abstract class HUI_ConsoleProcessor  {
 
     public List<HUI_ConsoleCommand> commands;
-    public HUI_Console console;
-    public string filepath;
 
     /// <summary>
     /// Constructor, runs loadCommands.
     /// Adds help and clear
     /// </summary>
-    public HUI_ConsoleProcessor(HUI_Console console)
+    public HUI_ConsoleProcessor()
     {
-        filepath = Application.streamingAssetsPath;
         commands = loadCommands();
-        this.console = console;
 
-        commands.Add(new HUI_Command_Clear(this));
-        commands.Add(new HUI_Command_Help(this));
-        commands.Add(new HUI_Command_FilePath(this));
+        commands.Add(new HUI_Command_Clear());
+        commands.Add(new HUI_Command_Help());
+        commands.Add(new HUI_Command_FilePath());
     }
 
     /// <summary>
@@ -36,7 +32,7 @@ public abstract class HUI_ConsoleProcessor  {
     /// </summary>
     public void process()
     {
-        string[] args = console.content.Split(' ');
+        string[] args = HUI_Console.main.content.Split(' ');
 
         if (args.Length == 0 || args[0] == "")
             return;
@@ -50,7 +46,7 @@ public abstract class HUI_ConsoleProcessor  {
             }
         }
 
-        console.textBox.append("["+args[0]+"], not fonud.");
+        HUI_Console.main.textBox.append("["+args[0]+"], not fonud.");
     }
 
     /// <summary>
@@ -58,9 +54,6 @@ public abstract class HUI_ConsoleProcessor  {
     /// </summary>
     public void destroy()
     {
-        foreach (HUI_ConsoleCommand c in commands)
-        {
-            c.flush();
-        }
+        //Empty
     }
 }

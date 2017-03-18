@@ -42,6 +42,6 @@ public class HUI_TextBox  {
 
     public void destroy()
     {
-        GameObject.Destroy(root);
+        GameObject.Destroy(root.gameObject);
     }
 }

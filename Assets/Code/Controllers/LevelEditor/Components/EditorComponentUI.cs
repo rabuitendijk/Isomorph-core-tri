@@ -16,7 +16,6 @@ public class EditorComponentUI {
 
     RectTransform levelEditor;
     HUI_SelectorList selectorList;
-    HUI_InputField inputField;
     HUI_Console console;
     MonoEditorMouseTrap mouse;
     public bool beingEdited { get { return console.beingEdited; } }
@@ -29,7 +28,7 @@ public class EditorComponentUI {
 
         construct();
         selectorList = new HUI_SelectorList(levelEditor, AliasXMLLoader.main.objects, new Vector2(0f, .0f), new Vector2(.12f, 1f), Runner.main.ariel);
-        console = new HUI_Console(levelEditor, new Vector2(.5f, 0f), new Vector2(1f, .3f), Runner.main.ariel);
+        console = new HUI_Console(levelEditor, new Vector2(.5f, 0f), new Vector2(1f, .3f), Runner.main.ariel, new HUI_EditorProcessor());
     }
 
     /// <summary>
@@ -77,8 +76,7 @@ public class EditorComponentUI {
     {
         selectorList.destroy();
         console.destroy();
-        inputField.destroy();
-        GameObject.Destroy(levelEditor);
+        GameObject.Destroy(levelEditor.gameObject);
 
     }
 }

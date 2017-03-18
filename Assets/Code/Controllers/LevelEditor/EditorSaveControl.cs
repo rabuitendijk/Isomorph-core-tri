@@ -20,17 +20,17 @@ public class EditorSaveControl {
     {
         string xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
 
-        xml += "<XML_Level width=\""+LogicControl.main.width+"\" height=\""+LogicControl.main.height+"\" depth=\""+LogicControl.main.depth+"\">\n";
+        xml += "<Level_XML width=\""+LogicControl.main.width+"\" height=\""+LogicControl.main.height+"\" depth=\""+LogicControl.main.depth+"\">\n";
         xml += "<objects>\n";
 
         foreach (IsoObject o in objects)
         {
-            xml += "\t<IsoObject name=\"" + o.name + "\" x=\""+o.origin.x+"\" y=\""+o.origin.y+"\" z=\""+o.origin.z+"\">\n";
-            xml += "\t</IsoObject>\n";
+            xml += "\t<IsoObject_XML name=\"" + o.name + "\" x=\""+o.origin.x+"\" y=\""+o.origin.y+"\" z=\""+o.origin.z+"\">\n";
+            xml += "\t</IsoObject_XML>\n";
         }
 
         xml += "</objects>\n";
-        xml += "</XML_Level>";
+        xml += "</Level_XML>";
         File.WriteAllText(filename + ".xml", xml);
     }
 
@@ -38,6 +38,7 @@ public class EditorSaveControl {
     {
         IsoObject.removeOnCreate(onObjectCreate);
         IsoObject.removeOnDestroy(onObjectDestroy);
+        HUI_EditorSaveCommand.removeSave(save);
     }
 	
 }

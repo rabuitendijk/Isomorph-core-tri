@@ -26,6 +26,15 @@ public class EditorLogicControl : LogicControl
         Height = height;
     }
 
+    public EditorLogicControl(Level_XML xml, string filename) : this(xml.width, xml.depth, xml.height)
+    {
+        this.filename = filename;
+        foreach (IsoObject_XML o in xml.nodes)
+        {
+            new IsoObject(o.name, o.origin);
+        }
+    }
+
     /// <summary>
     /// Set a Tile in the grid corresponding with its coord
     /// </summary>

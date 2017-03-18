@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+using System.Xml;
+using System.Xml.Schema;
+using System.Xml.Serialization;
+
 /// <summary>
 /// version alpha-1
 /// 
@@ -11,7 +15,8 @@ using System;
 /// Robin Butiendijk
 /// Early Martch 2017
 /// </summary>
-public class IsoObject {
+public class IsoObject
+{
 
     public bool singular { get; protected set; }
     public List<Iso> coords { get; protected set; }
@@ -21,6 +26,8 @@ public class IsoObject {
     public List<Tile> tiles { get; protected set; }
 
     public Iso origin { get; protected set; }
+
+
 
     /// <summary>
     /// Costructor to derrive prototype from XML

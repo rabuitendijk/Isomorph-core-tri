@@ -4,19 +4,10 @@ using UnityEngine;
 
 public class HUI_Command_Clear : HUI_ConsoleCommand
 {
-    HUI_ConsoleProcessor processor;
 
-    public HUI_Command_Clear(HUI_ConsoleProcessor processor):base("clear")
+    public HUI_Command_Clear():base("clear")
     {
-        this.processor = processor;
-    }
-
-    /// <summary>
-    /// No flush needed
-    /// </summary>
-    public override void flush()
-    {
-        return;
+        //Empty
     }
 
     public override string help()
@@ -26,6 +17,6 @@ public class HUI_Command_Clear : HUI_ConsoleCommand
 
     public override void process(string[] args)
     {
-        processor.console.textBox.setText("");
+        HUI_Console.main.textBox.setText("");
     }
 }

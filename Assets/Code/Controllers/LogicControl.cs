@@ -15,11 +15,12 @@ public abstract class LogicControl {
     public int width { get { return Width; } }
     public int depth { get { return Depth; } }
     public int height { get { return Height; } }
-
+    public string filename { get; protected set; }
 
     public LogicControl()
     {
         main = this;
+        filename = "";
 
         Tile.registerOnCreate(onTileCreate);
         Tile.registerOnDestroy(onTileDestroy);

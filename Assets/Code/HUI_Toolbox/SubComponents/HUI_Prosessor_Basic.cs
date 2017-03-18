@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HUI_Prosessor_Basic : HUI_ConsoleProcessor
 {
-    public HUI_Prosessor_Basic(HUI_Console console): base(console)
+    public HUI_Prosessor_Basic()
     {
         //empty on purpose
     }

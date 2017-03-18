@@ -1,33 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<XML_Level width="16" height="16" depth="16">
+<Level_XML width="16" height="16" depth="16">
 <objects>
-	<IsoObject name="bigBlock" x="13" y="3" z="0">
-	</IsoObject>
-	<IsoObject name="bigBlock" x="9" y="7" z="0">
-	</IsoObject>
-	<IsoObject name="limestone_3" x="10" y="4" z="0">
-	</IsoObject>
-	<IsoObject name="limestone_3" x="9" y="4" z="0">
-	</IsoObject>
-	<IsoObject name="limestone_3" x="8" y="4" z="0">
-	</IsoObject>
-	<IsoObject name="tree" x="10" y="4" z="3">
-	</IsoObject>
-	<IsoObject name="tree" x="9" y="4" z="3">
-	</IsoObject>
-	<IsoObject name="tree" x="10" y="7" z="4">
-	</IsoObject>
-	<IsoObject name="tree" x="9" y="8" z="4">
-	</IsoObject>
-	<IsoObject name="half" x="8" y="0" z="0">
-	</IsoObject>
-	<IsoObject name="half" x="7" y="0" z="0">
-	</IsoObject>
-	<IsoObject name="half" x="6" y="0" z="0">
-	</IsoObject>
-	<IsoObject name="roseRock" x="5" y="6" z="0">
-	</IsoObject>
-	<IsoObject name="roseRock" x="2" y="5" z="0">
-	</IsoObject>
+	<IsoObject_XML name="limestone_1" x="13" y="7" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML name="limestone_1" x="9" y="11" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML name="limestone_3" x="14" y="2" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML name="limestone_3" x="13" y="3" z="0">
+	</IsoObject_XML>
 </objects>
-</XML_Level>
+</Level_XML>

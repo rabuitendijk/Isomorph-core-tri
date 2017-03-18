@@ -47,7 +47,7 @@ public abstract class GraphicsControl{
         Tile.removeOnDestroy(onTileDestroy);
 
         destructor();
-        GameObject.Destroy(tileFolder);
+        GameObject.Destroy(tileFolder.gameObject);
         tileFolder = null; ;
     }
 }

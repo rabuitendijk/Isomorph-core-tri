@@ -80,6 +80,9 @@
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\RegularContainers\ProcessingObject.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\SplicingScript.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasXMLLoader.cs" />
+    <Compile Include="Assets\Code\AssetLoading\LevelLoader\IsoObject_XML.cs" />
+    <Compile Include="Assets\Code\AssetLoading\LevelLoader\LevelLoader.cs" />
+    <Compile Include="Assets\Code\AssetLoading\LevelLoader\Level_XML.cs" />
     <Compile Include="Assets\Code\AssetLoading\Outdated\StreamingSpriteLoader.cs" />
     <Compile Include="Assets\Code\AssetLoading\XMLContainers\SplicingXMLObject.cs" />
     <Compile Include="Assets\Code\AssetLoading\XMLContainers\StreamingSpriteXMLCell.cs" />
@@ -98,6 +101,7 @@
     <Compile Include="Assets\Code\Controllers\LevelEditor\Components\EditorComponentMouseLayer.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\Components\EditorComponentMouseStack.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\Components\EditorComponentUI.cs" />
+    <Compile Include="Assets\Code\Controllers\LevelEditor\Components\HUI_EditorLoadCommand.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\Components\HUI_EditorProcessor.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\Components\HUI_EditorSaveCommand.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\EditorGraphicsControl.cs" />
@@ -144,8 +148,9 @@
     <None Include="Assets\StreamingAssets\Alias\Objects\stones.obj.xml" />
     <None Include="Assets\StreamingAssets\Alias\Objects\tree.obj.xml" />
     <None Include="Assets\StreamingAssets\Alias\Objects\unit.obj.xml" />
+    <None Include="Assets\StreamingAssets\Levels\test1.xml" />
+    <None Include="Assets\StreamingAssets\Levels\test2.xml" />
     <None Include="Assets\StreamingAssets\Levels\test3.xml" />
-    <None Include="Assets\StreamingAssets\Levels\test4.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\BigBlock.png.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\HalfCell.png.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\Limestone_1.png.xml" />

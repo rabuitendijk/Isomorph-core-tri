@@ -245,11 +245,8 @@ public class EditorGraphicsControl : GraphicsControl {
         GameObject.Destroy(selector);
         selector = null;
 
-        foreach (Transform t in folders)
-        {
-            GameObject.Destroy(t);
-        }
-        GameObject.Destroy(gld);
+       
+        GameObject.Destroy(gld.gameObject);
 
         EditorComponentMouseLayer.removeEnableLayer(enableLayer);
         EditorComponentMouseLayer.removeMoveLayer(moveLayer);

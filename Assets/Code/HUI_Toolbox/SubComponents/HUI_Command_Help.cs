@@ -5,19 +5,11 @@ using UnityEngine;
 
 public class HUI_Command_Help : HUI_ConsoleCommand
 {
-    HUI_ConsoleProcessor processor;
-    
-    /// <summary>
-    /// No flush needed
-    /// </summary>
-    public override void flush()
-    {
-        return;
-    }
 
-    public HUI_Command_Help(HUI_ConsoleProcessor processor): base("help")
+
+    public HUI_Command_Help(): base("help")
     {
-        this.processor = processor;
+        //Empty
     }
 
     public override string help()
@@ -28,11 +20,11 @@ public class HUI_Command_Help : HUI_ConsoleCommand
     public override void process(string[] args)
     {
         string ret = "\n<color=cyan>All help</color>\n";
-        foreach (HUI_ConsoleCommand c in processor.commands)
+        foreach (HUI_ConsoleCommand c in HUI_Console.main.processor.commands)
         {
             ret += "\t-\t["+c.name+"], "+c.help() + "\n";
         }
 
-        processor.console.textBox.append(ret);
+        HUI_Console.main.textBox.append(ret);
     }
 }

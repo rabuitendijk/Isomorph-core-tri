@@ -39,6 +39,6 @@ public class HUI_InputField {
 
     public void destroy()
     {
-        GameObject.Destroy(root);
+        GameObject.Destroy(root.gameObject);
     }
 }

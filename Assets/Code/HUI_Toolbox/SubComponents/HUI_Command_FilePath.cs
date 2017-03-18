@@ -5,25 +5,19 @@ using UnityEngine;
 
 public class HUI_Command_FilePath : HUI_ConsoleCommand
 {
-    HUI_ConsoleProcessor processor;
 
-    public HUI_Command_FilePath(HUI_ConsoleProcessor processor) : base("filepath")
+    public HUI_Command_FilePath() : base("filepath")
     {
-        this.processor = processor;
-    }
-
-    public override void flush()
-    {
-        //Not needed
+        //Empty
     }
 
     public override string help()
     {
-        return processor.filepath;
+        return HUI_Console.main.filepath;
     }
 
     public override void process(string[] args)
     {
-        processor.console.textBox.append(processor.filepath+"\n");
+        HUI_Console.main.textBox.append(HUI_Console.main.filepath+"\n");
     }
 }

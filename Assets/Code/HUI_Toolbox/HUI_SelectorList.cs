@@ -20,7 +20,7 @@ public class HUI_SelectorList  {
         HUI_NodeClick.registerOnClick(changeSelected);
 
         //Build rects
-        RectTransform root = HUI.buildUIObject("LeftBox", source, min, max, new Vector2(.5f, .5f));
+        root = HUI.buildUIObject("LeftBox", source, min, max, new Vector2(.5f, .5f));
         scrollList = HUI.buildUIObject("ScrollList", root, new Vector2(0f, .0f), new Vector2(1f, 1f), new Vector2(0f, 1f));
 
         //Root
@@ -53,7 +53,7 @@ public class HUI_SelectorList  {
 
     public void destroy()
     {
-        GameObject.Destroy(root);
+        GameObject.Destroy(root.gameObject);
         HUI_NodeClick.removeOnClick(changeSelected);
     }
 

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HUI_EditorProcessor : HUI_ConsoleProcessor
 {
-    public HUI_EditorProcessor(HUI_Console console) : base(console)
+    public HUI_EditorProcessor() 
     {
         //Empty
     } 
@@ -13,8 +13,8 @@ public class HUI_EditorProcessor : HUI_ConsoleProcessor
     protected override List<HUI_ConsoleCommand> loadCommands()
     {
         List<HUI_ConsoleCommand> ret = new List<HUI_ConsoleCommand>();
-        ret.Add(new HUI_EditorSaveCommand(this));
-
+        ret.Add(new HUI_EditorSaveCommand());
+        ret.Add(new HUI_EditorLoadCommand());
         return ret;
     }
 }

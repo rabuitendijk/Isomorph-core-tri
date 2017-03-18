@@ -31,6 +31,16 @@ public class BasicLogicControl : LogicControl {
         Height = height;
     }
 
+
+    public BasicLogicControl(Level_XML xml, string filename) : this(xml.width, xml.depth, xml.height)
+    {
+        this.filename = filename;
+        foreach(IsoObject_XML o in xml.nodes)
+        {
+            new IsoObject(o.name, o.origin);
+        }
+    }
+
     /// <summary>
     /// Set a Tile in the grid corresponding with its coord
     /// </summary>
@@ -190,6 +200,7 @@ public class BasicLogicControl : LogicControl {
             new IsoObject("half", new Iso(3,4,i));
         }
     }
+
 
     protected override void onTileCreate(Tile t)
     {

@@ -22,9 +22,4 @@ public abstract class HUI_ConsoleCommand {
     /// Get help
     /// </summary>
     public abstract string help();
-
-    /// <summary>
-    /// Fushes registery enteries and stuff
-    /// </summary>
-    public abstract void flush();
 }

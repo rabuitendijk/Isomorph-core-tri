@@ -15,6 +15,8 @@ public class Runner : MonoBehaviour {
     void Start()
     {
         main = this;
+        HUI_EditorLoadCommand.registerLoad(loadLevelInEditor);
+
 
         if (rebuildAliasses)
             new BuildAliasTextures();
@@ -46,10 +48,11 @@ public class Runner : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-        inputControl.update();
+        if (inputControl != null)
+            inputControl.update();
     }
 
-    public void flush()
+    void flush()
     {
         if (logicControl != null)
             logicControl.destroy();
@@ -57,6 +60,30 @@ public class Runner : MonoBehaviour {
             graphicsControl.destroy();
         if (inputControl != null)
             inputControl.destroy();
+
+        logicControl = null;
+        inputControl = null;
+        graphicsControl = null;
+    }
+
+    void loadLevelInEditor(string filename)
+    {
+        
+        Level_XML xml;
+
+        if (!LevelLoader.loadFile(filename, out xml))
+        {
+            Debug.Log("Runner, Somthing went wrong while loading a level.");
+            return;
+        }
+        //Debug.Log(xml.ToString());
+
+        flush();
+
+        graphicsControl = new EditorGraphicsControl();
+        inputControl = new EditorInputControl();
+        logicControl = new EditorLogicControl(xml, filename);
+
     }
 
 
