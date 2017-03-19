@@ -76,6 +76,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\BuildAliasTextures.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\Alias_Builder.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\Alias_Requests.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\Alias_SourceLoader.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\Alias_WriteAlias.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\SplicingBody_XML.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\SplicingObject_XML.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\SplicingSource.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\SplicingSource_XML.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\SplicingSpace_XML.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\RegularContainers\ProcessingImage.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\RegularContainers\ProcessingObject.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\SplicingScript.cs" />
@@ -148,9 +157,14 @@
     <None Include="Assets\StreamingAssets\Alias\Objects\stones.obj.xml" />
     <None Include="Assets\StreamingAssets\Alias\Objects\tree.obj.xml" />
     <None Include="Assets\StreamingAssets\Alias\Objects\unit.obj.xml" />
+    <None Include="Assets\StreamingAssets\Export_Images\0.xml" />
     <None Include="Assets\StreamingAssets\Levels\test1.xml" />
     <None Include="Assets\StreamingAssets\Levels\test2.xml" />
     <None Include="Assets\StreamingAssets\Levels\test3.xml" />
+    <None Include="Assets\StreamingAssets\Source_XML\BigBlock.xml" />
+    <None Include="Assets\StreamingAssets\Source_XML\HalfCell.xml" />
+    <None Include="Assets\StreamingAssets\Source_XML\Selector.xml" />
+    <None Include="Assets\StreamingAssets\Source_XML\UnitDefinition.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\BigBlock.png.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\HalfCell.png.xml" />
     <None Include="Assets\StreamingAssets\UnsplicedSource\Limestone_1.png.xml" />

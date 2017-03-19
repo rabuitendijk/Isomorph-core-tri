@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SplicingObject_XML boxform="true" width = "1" height = "1" depth = "1">
+<source>
+	<SplicingSource_XML source="HalfCell.png">
+	</SplicingSource_XML>
+</source>
+<body>
+	<SplicingBody_XML direction="N" link="false" source="HalfCell.png">
+	</SplicingBody_XML>
+	<SplicingBody_XML direction="E" link="true" source="N">
+	</SplicingBody_XML>
+	<SplicingBody_XML direction="S" link="true" source="N">
+	</SplicingBody_XML>
+	<SplicingBody_XML direction="W" link="true" source="N">
+	</SplicingBody_XML>
+</body>
+<space>
+
+</space>
+</SplicingObject_XML>
