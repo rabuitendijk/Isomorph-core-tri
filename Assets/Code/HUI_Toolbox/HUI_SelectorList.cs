@@ -36,7 +36,7 @@ public class HUI_SelectorList  {
         HUI_TextNode n;
         for (int i = 0; i < nodes.Count; i++)
         {
-            n = new HUI_TextNode(scrollList, AliasXMLLoader.main.objects.Values[i].name, font);
+            n = new HUI_TextNode(scrollList, Alias_Loader.main.objectsList.Values[i].name, font);
         }
     }
 

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<XMLObject name="tree">
-<coords>
-	<XMLCoord x="0" y="0" z="0" name = "tree">
-	</XMLCoord>
-	<XMLCoord x="0" y="0" z="1" name = "VOID">
-	</XMLCoord>
-</coords>
-</XMLObject>

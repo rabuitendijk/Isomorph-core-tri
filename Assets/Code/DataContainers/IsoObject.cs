@@ -27,28 +27,6 @@ public class IsoObject
 
     public Iso origin { get; protected set; }
 
-
-
-    /// <summary>
-    /// Costructor to derrive prototype from XML
-    /// </summary>
-    public static IsoObject prototype(XMLObject obj)
-    {
-        List<Iso> coords = new List<Iso>();
-        List<Sprite> sprites = new List<Sprite>();
-
-        foreach (XMLCoord x in obj.coords)
-        {
-            coords.Add(new Iso(x.x, x.y, x.z));
-            if (x.spriteName == "VOID")
-                sprites.Add(null);
-            else
-                sprites.Add(AliasXMLLoader.main.getSprite( x.spriteName ));
-        }
-
-        return new IsoObject(obj.name, coords, sprites);
-    }
-
     /// <summary>
     /// Costructor to derrive prototype from XML
     /// </summary>
@@ -74,7 +52,7 @@ public class IsoObject
     /// Offsets coordinats by origin.
     /// Shares sprite stringlist with prototype
     /// </summary>
-    public IsoObject(string prototype, Iso origin) : this(AliasXMLLoader.main.getObject(prototype), origin) { }
+    public IsoObject(string prototype, Iso origin) : this(Alias_Loader.main.getObject(prototype), origin) { }
 
     private IsoObject(IsoObject prototype, Iso origin):this(prototype.name, prototype.coords, prototype.sprites)
     {

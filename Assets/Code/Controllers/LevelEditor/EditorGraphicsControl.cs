@@ -29,7 +29,7 @@ public class EditorGraphicsControl : GraphicsControl {
         redMat = new Material(Shader.Find("Sprites/Default"));
         redMat.color = new Color(1f, 0f, 0f);
 
-        selector = newOb("Selector", new Iso(0, 0, 0, 1), AliasXMLLoader.main.getSprite("selector"), mat);
+        selector = newOb("Selector", new Iso(0, 0, 0, 1), Alias_Loader.main.getSprite("Selector[0_0_0]"), mat);
         selector.SetActive(false);
 
         //Create Folder per height

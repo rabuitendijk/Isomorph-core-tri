@@ -17,39 +17,39 @@
 	</StreamingSpriteXMLCell>
 	<StreamingSpriteXMLCell x = "0" y = "1" name = "HalfCell[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "1" name = "Selector[0_0_0]">
+	<StreamingSpriteXMLCell x = "1" y = "1" name = "Limestone_1[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "1" name = "UnitDefinition[0_0_0]">
+	<StreamingSpriteXMLCell x = "2" y = "1" name = "Limestone_2[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "1" disable = "1">
+	<StreamingSpriteXMLCell x = "3" y = "1" name = "Limestone_3[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "1" disable = "1">
+	<StreamingSpriteXMLCell x = "4" y = "1" name = "Limestone_3[0_0_2]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "1" disable = "1">
+	<StreamingSpriteXMLCell x = "5" y = "1" name = "Limestone_4[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "1" disable = "1">
+	<StreamingSpriteXMLCell x = "6" y = "1" name = "Limestone_4[0_0_2]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "2" disable = "1">
+	<StreamingSpriteXMLCell x = "0" y = "2" name = "RoseRock[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "2" disable = "1">
+	<StreamingSpriteXMLCell x = "1" y = "2" name = "RoughStones[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "2" disable = "1">
+	<StreamingSpriteXMLCell x = "2" y = "2" name = "Selector[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "2" disable = "1">
+	<StreamingSpriteXMLCell x = "3" y = "2" name = "SlabSelector[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "2" disable = "1">
+	<StreamingSpriteXMLCell x = "4" y = "2" name = "Stairs_N[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "2" disable = "1">
+	<StreamingSpriteXMLCell x = "5" y = "2" name = "Stairs_E[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "2" disable = "1">
+	<StreamingSpriteXMLCell x = "6" y = "2" name = "Stairs_S[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "3" disable = "1">
+	<StreamingSpriteXMLCell x = "0" y = "3" name = "Stairs_W[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "3" disable = "1">
+	<StreamingSpriteXMLCell x = "1" y = "3" name = "Stones[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "3" disable = "1">
+	<StreamingSpriteXMLCell x = "2" y = "3" name = "Tree[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "3" disable = "1">
+	<StreamingSpriteXMLCell x = "3" y = "3" name = "UnitDefinition[0_0_0]">
 	</StreamingSpriteXMLCell>
 	<StreamingSpriteXMLCell x = "4" y = "3" disable = "1">
 	</StreamingSpriteXMLCell>

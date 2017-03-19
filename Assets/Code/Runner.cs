@@ -14,17 +14,17 @@ public class Runner : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        Alias_Builder.build();
-        new Alias_Loader();
+        
+
 
         main = this;
         HUI_EditorLoadCommand.registerLoad(loadLevelInEditor);
 
 
         if (rebuildAliasses)
-            new BuildAliasTextures();
+            Alias_Builder.build();
 
-        new AliasXMLLoader();
+        new Alias_Loader();
 
 
         if (levelEditor)

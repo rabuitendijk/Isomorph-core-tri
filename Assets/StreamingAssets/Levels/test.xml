@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Level_XML width="16" height="16" depth="16">
+<objects>
+	<IsoObject_XML name="BigBlock" x="9" y="6" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML name="HalfCell" x="8" y="7" z="1">
+	</IsoObject_XML>
+	<IsoObject_XML name="HalfCell" x="8" y="6" z="1">
+	</IsoObject_XML>
+	<IsoObject_XML name="HalfCell" x="11" y="0" z="0">
+	</IsoObject_XML>
+</objects>
+</Level_XML>

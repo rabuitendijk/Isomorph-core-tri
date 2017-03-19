@@ -25,7 +25,7 @@ public class BasicGraphicsControl : GraphicsControl {
         redMat = new Material(Shader.Find("Sprites/Default"));
         redMat.color = new Color(1f, 0f, 0f);
 
-        selector = newOb("Selector", new Iso(0, 0, 0, 1), AliasXMLLoader.main.getSprite("selector"), mat);
+        selector = newOb("Selector", new Iso(0, 0, 0, 1), Alias_Loader.main.getSprite("selector"), mat);
         selector.SetActive(false);
     }
 

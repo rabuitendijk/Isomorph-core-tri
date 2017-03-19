@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinkerObject_XML name="Stairs" miplevels = "2">
+<directions>
+	<Direction_XML direction="N" linked = "false">
+	<coords>
+		<XMLCoord x="0" y="0" z="0" name = "Stairs_N[0_0_0]">
+		</XMLCoord>
+		<XMLCoord x="0" y="0" z="1" name = "VOID">
+		</XMLCoord>
+	</coords>
+	</Direction_XML>
+	<Direction_XML direction="E" linked = "false">
+	<coords>
+		<XMLCoord x="0" y="0" z="0" name = "Stairs_E[0_0_0]">
+		</XMLCoord>
+		<XMLCoord x="0" y="0" z="1" name = "VOID">
+		</XMLCoord>
+	</coords>
+	</Direction_XML>
+	<Direction_XML direction="S" linked = "false">
+	<coords>
+		<XMLCoord x="0" y="0" z="0" name = "Stairs_S[0_0_0]">
+		</XMLCoord>
+		<XMLCoord x="0" y="0" z="1" name = "VOID">
+		</XMLCoord>
+	</coords>
+	</Direction_XML>
+	<Direction_XML direction="W" linked = "false">
+	<coords>
+		<XMLCoord x="0" y="0" z="0" name = "Stairs_W[0_0_0]">
+		</XMLCoord>
+		<XMLCoord x="0" y="0" z="1" name = "VOID">
+		</XMLCoord>
+	</coords>
+	</Direction_XML>
+</directions>
+</LinkerObject_XML>
