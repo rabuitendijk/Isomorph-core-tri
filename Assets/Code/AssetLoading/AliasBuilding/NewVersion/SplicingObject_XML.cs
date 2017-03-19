@@ -136,4 +136,17 @@ public class SplicingObject_XML : IXmlSerializable
     {
         return "<SplicingObject_XML>(width = "+width+", height = "+height+", depth = "+depth+", boxform = "+boxform+", source = "+source.Count+", body = "+body.Count+", space = "+space.Count+")";
     }
+
+    public SplicingBody_XML getDirection(string dir)
+    {
+        foreach(SplicingBody_XML b in body)
+        {
+            if (dir == b.direction)
+                return b;
+
+        }
+
+        Debug.Log("SplicingObject_XML["+name+"]: Did not find direction: "+dir);
+        return null;
+    }
 }

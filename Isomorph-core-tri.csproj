@@ -77,15 +77,24 @@
   <ItemGroup>
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\BuildAliasTextures.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\Alias_Builder.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\Alias_Loader.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\Alias_ObjectLoader.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\Alias_Requests.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\Alias_SourceLoader.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\Alias_SpriteLoader.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\Alias_WriteAlias.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\Alias_WriteObjectXML.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\Direction_XML.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\LinkerObject_XML.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\ProcessingImage.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\SplicingBody_XML.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\SplicingObject_XML.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\SplicingSource.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\SplicingSource_XML.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\SplicingSpace_XML.cs" />
-    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\RegularContainers\ProcessingImage.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\StreamingSpriteXMLCell.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\StreamingSpriteXMLObject.cs" />
+    <Compile Include="Assets\Code\AssetLoading\AliasBuilding\NewVersion\XMLCoord.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\RegularContainers\ProcessingObject.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasBuilding\SplicingScript.cs" />
     <Compile Include="Assets\Code\AssetLoading\AliasXMLLoader.cs" />
@@ -94,9 +103,6 @@
     <Compile Include="Assets\Code\AssetLoading\LevelLoader\Level_XML.cs" />
     <Compile Include="Assets\Code\AssetLoading\Outdated\StreamingSpriteLoader.cs" />
     <Compile Include="Assets\Code\AssetLoading\XMLContainers\SplicingXMLObject.cs" />
-    <Compile Include="Assets\Code\AssetLoading\XMLContainers\StreamingSpriteXMLCell.cs" />
-    <Compile Include="Assets\Code\AssetLoading\XMLContainers\StreamingSpriteXMLObject.cs" />
-    <Compile Include="Assets\Code\AssetLoading\XMLContainers\XMLCoord.cs" />
     <Compile Include="Assets\Code\AssetLoading\XMLContainers\XMLObject.cs" />
     <Compile Include="Assets\Code\Controllers\Basic\BasicGraphicsControl.cs" />
     <Compile Include="Assets\Code\Controllers\Basic\BasicInputControl.cs" />
@@ -158,6 +164,10 @@
     <None Include="Assets\StreamingAssets\Alias\Objects\tree.obj.xml" />
     <None Include="Assets\StreamingAssets\Alias\Objects\unit.obj.xml" />
     <None Include="Assets\StreamingAssets\Export_Images\0.xml" />
+    <None Include="Assets\StreamingAssets\Export_Objects\BigBlock.xml" />
+    <None Include="Assets\StreamingAssets\Export_Objects\HalfCell.xml" />
+    <None Include="Assets\StreamingAssets\Export_Objects\Selector.xml" />
+    <None Include="Assets\StreamingAssets\Export_Objects\UnitDefinition.xml" />
     <None Include="Assets\StreamingAssets\Levels\test1.xml" />
     <None Include="Assets\StreamingAssets\Levels\test2.xml" />
     <None Include="Assets\StreamingAssets\Levels\test3.xml" />

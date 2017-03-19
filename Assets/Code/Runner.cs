@@ -15,6 +15,7 @@ public class Runner : MonoBehaviour {
     void Start()
     {
         Alias_Builder.build();
+        new Alias_Loader();
 
         main = this;
         HUI_EditorLoadCommand.registerLoad(loadLevelInEditor);

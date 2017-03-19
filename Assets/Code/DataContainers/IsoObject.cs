@@ -50,6 +50,26 @@ public class IsoObject
     }
 
     /// <summary>
+    /// Costructor to derrive prototype from XML
+    /// </summary>
+    public static IsoObject prototype(LinkerObject_XML obj)
+    {
+        List<Iso> coords = new List<Iso>();
+        List<Sprite> sprites = new List<Sprite>();
+
+        foreach (XMLCoord x in obj.directions[0].coords)
+        {
+            coords.Add(new Iso(x.x, x.y, x.z));
+            if (x.spriteName == "VOID")
+                sprites.Add(null);
+            else
+                sprites.Add(Alias_Loader.main.getSprite(x.spriteName));
+        }
+
+        return new IsoObject(obj.name, coords, sprites);
+    }
+
+    /// <summary>
     /// Copy constructor.
     /// Offsets coordinats by origin.
     /// Shares sprite stringlist with prototype

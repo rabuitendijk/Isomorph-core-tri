@@ -16,6 +16,7 @@ using System.Xml.Serialization;
 public class StreamingSpriteXMLObject : IXmlSerializable
 {
 	public int pixelsPerUnit {get; protected set;}
+    public int miplevels { get; protected set; }
 	public Vector2 pivotPoint;
 	public bool multiSprite {get; protected set;}
 	
@@ -39,6 +40,7 @@ public class StreamingSpriteXMLObject : IXmlSerializable
 		cellHeight = 32;
 		cellWidth = 32;
         offset = 0;
+        miplevels = -1;
 		
 		cells = new List<StreamingSpriteXMLCell>();
 	}
@@ -121,10 +123,14 @@ public class StreamingSpriteXMLObject : IXmlSerializable
 
                     case "offset":
                         offset = reader.ReadContentAsInt();
-                        break; 
+                        break;
+
+                    case "miplevels":
+                        miplevels = reader.ReadContentAsInt();
+                        break;
 
 
-					default:
+                default:
 						Debug.Log("Warning switch: "+reader.Name);
 						break;
 				}

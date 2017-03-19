@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinkerObject_XML name="Selector" miplevels = "2">
+<directions>
+	<Direction_XML direction="N" linked = "false">
+	<coords>
+		<XMLCoord x="0" y="0" z="0" name = "Selector[0_0_0]">
+		</XMLCoord>
+		<XMLCoord x="0" y="0" z="1" name = "VOID">
+		</XMLCoord>
+	</coords>
+	</Direction_XML>
+	<Direction_XML direction="E" linked = "true" source = "N">
+	</Direction_XML>
+	<Direction_XML direction="S" linked = "true" source = "N">
+	</Direction_XML>
+	<Direction_XML direction="W" linked = "true" source = "N">
+	</Direction_XML>
+</directions>
+</LinkerObject_XML>
