@@ -13,7 +13,7 @@ using UnityEngine;
 /// </summary>
 public class EditorGraphicsControl : GraphicsControl {
 
-    Material mat, redMat;
+    Material mat, ghostMat;
     List<Transform> folders = new List<Transform>();
     GLDrawLoop gld;
     GLInstruction gliGrid, gliStruct;
@@ -22,15 +22,12 @@ public class EditorGraphicsControl : GraphicsControl {
     /// <summary>
     /// Constructor that initialises references and materials,
     /// </summary>
-    public EditorGraphicsControl() : base()
+    public EditorGraphicsControl() : base(new IsoObjectGhost("Selector", new Iso(0,0,0)))
     {
 
         mat = new Material(Shader.Find("Sprites/Default"));
-        redMat = new Material(Shader.Find("Sprites/Default"));
-        redMat.color = new Color(1f, 0f, 0f);
-
-        selector = newOb("Selector", new Iso(0, 0, 0, 1), Alias_Loader.main.getSprite("Selector[0_0_0]"), mat);
-        selector.SetActive(false);
+        ghostMat = new Material(Shader.Find("Sprites/Default"));
+        ghostMat.color = new Color(1f, 1f, 1f, .6f);
 
         //Create Folder per height
         GameObject temp;
@@ -45,6 +42,12 @@ public class EditorGraphicsControl : GraphicsControl {
 
         EditorComponentMouseLayer.registerEnableLayer(enableLayer);
         EditorComponentMouseLayer.registerMoveLayer(moveLayer);
+
+        IsoObjectGhost.registerOnCreate(onGhostCreate);
+        IsoObjectGhost.registerOnDestroy(onGhostDestroy);
+        IsoObjectGhost.registerOnRotate(onGhostRotate);
+        IsoObjectGhost.registerOnTranslate(onGhostTranlate);
+        EditorComponentUI.registerOnChangeSelected(onHoverChangeSelected);
     }
 
 
@@ -195,8 +198,72 @@ public class EditorGraphicsControl : GraphicsControl {
     {
         t.graphic = null;
     }
- 
-    
+
+
+    protected void onGhostCreate(IsoObjectGhost g)
+    {
+        for (int i = 0; i < g.coords.Count; i++)
+        {
+            if (g.isVisable[i])
+                g.graphic.Add(newOb(g.name, g.coords[i], g.directions[(int)g.direction][i], ghostMat));
+        }
+    }
+    protected void onGhostDestroy(IsoObjectGhost g)
+    {
+        foreach(GameObject ob in g.graphic)
+        {
+            GameObject.Destroy(ob);
+        }
+        g.graphic.Clear();
+    }
+    protected void onGhostRotate(IsoObjectGhost g)
+    {
+        if (g.graphic.Count == 0)
+            return;
+
+        int j = 0;
+
+        for (int i = 0; i < g.coords.Count; i++)
+        {
+            if (g.isVisable[i])
+            {
+                g.graphic[j].GetComponent<SpriteRenderer>().sprite = g.directions[(int)g.direction][i];
+                j++;
+            }
+        }
+    }
+    protected void onGhostTranlate(IsoObjectGhost g)
+    {
+        if (g.graphic.Count == 0)
+            return;
+
+        int j = 0;
+
+        for (int i = 0; i < g.coords.Count; i++)
+        {
+            if (g.isVisable[i])
+            {
+                g.graphic[j].transform.position = g.coords[i].toPos();
+                g.graphic[j].GetComponent<SpriteRenderer>().sortingOrder = g.coords[i].depth;
+                j++;
+            }
+        }
+    }
+
+    protected void onHoverChangeSelected(string name)
+    {
+        if (hover == null)
+        {
+            Debug.Log("Editor graphics contol: hover is null for some reason.");
+            return;
+        }
+
+        IsoObjectGhost g = new IsoObjectGhost(name, hover.getOrigin(), hover.getDirection());
+        
+        hover.destroy();
+        hover = g;
+    }
+
 
     /// <summary>
     /// Tile based sprite gameobject creator.
@@ -242,14 +309,17 @@ public class EditorGraphicsControl : GraphicsControl {
 
     protected override void destructor()
     {
-        GameObject.Destroy(selector);
-        selector = null;
-
        
         GameObject.Destroy(gld.gameObject);
 
         EditorComponentMouseLayer.removeEnableLayer(enableLayer);
         EditorComponentMouseLayer.removeMoveLayer(moveLayer);
+
+        IsoObjectGhost.removeOnCreate(onGhostCreate);
+        IsoObjectGhost.removeOnDestroy(onGhostDestroy);
+        IsoObjectGhost.removeOnRotate(onGhostRotate);
+        IsoObjectGhost.removeOnTranslate(onGhostTranlate);
+        EditorComponentUI.removeOnChangeSelected(onHoverChangeSelected);
         return;
     }
 }

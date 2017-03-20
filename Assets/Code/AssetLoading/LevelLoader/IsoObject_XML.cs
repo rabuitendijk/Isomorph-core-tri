@@ -12,10 +12,13 @@ public class IsoObject_XML : IXmlSerializable
 
     int x, y, z;
     public Iso origin { get { return new Iso(x, y, z); } }
+    string dir;
+    public Directions.dir direction  { get{ return Directions.getDir(dir); } }
 
     public IsoObject_XML()
     {
         name = "null";
+        dir = "null";
         x = -1;
         y = -1;
         z = -1;
@@ -58,6 +61,9 @@ public class IsoObject_XML : IXmlSerializable
                     name = reader.ReadContentAsString();
                     break;
 
+                case "direction":
+                    dir = reader.ReadContentAsString();
+                    break;
 
                 case "x":
                     x = reader.ReadContentAsInt();

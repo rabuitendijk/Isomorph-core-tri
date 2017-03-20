@@ -103,6 +103,7 @@
     <Compile Include="Assets\Code\Controllers\Basic\BasicLogicControl.cs" />
     <Compile Include="Assets\Code\Controllers\Basic\Components\BasicComponentCamera.cs" />
     <Compile Include="Assets\Code\Controllers\Basic\Components\BasicComponentMouse.cs" />
+    <Compile Include="Assets\Code\Controllers\Basic\Components\BasicMouseHoverObject.cs" />
     <Compile Include="Assets\Code\Controllers\GraphicsControl.cs" />
     <Compile Include="Assets\Code\Controllers\InputComponents\ComponentCamera.cs" />
     <Compile Include="Assets\Code\Controllers\InputComponents\ComponentMouse.cs" />
@@ -123,7 +124,11 @@
     <Compile Include="Assets\Code\Controllers\LogicControl.cs" />
     <Compile Include="Assets\Code\DataContainers\Iso.cs" />
     <Compile Include="Assets\Code\DataContainers\IsoObject.cs" />
+    <Compile Include="Assets\Code\DataContainers\IsoObjectBody.cs" />
+    <Compile Include="Assets\Code\DataContainers\IsoObjectGhost.cs" />
+    <Compile Include="Assets\Code\DataContainers\MouseHoverObject.cs" />
     <Compile Include="Assets\Code\DataContainers\Tile.cs" />
+    <Compile Include="Assets\Code\Directions.cs" />
     <Compile Include="Assets\Code\HUI_Toolbox\HUI.cs" />
     <Compile Include="Assets\Code\HUI_Toolbox\HUI_Console.cs" />
     <Compile Include="Assets\Code\HUI_Toolbox\HUI_InputField.cs" />
@@ -159,9 +164,6 @@
     <None Include="Assets\StreamingAssets\Export_Objects\Tree.xml" />
     <None Include="Assets\StreamingAssets\Export_Objects\UnitDefinition.xml" />
     <None Include="Assets\StreamingAssets\Levels\test.xml" />
-    <None Include="Assets\StreamingAssets\Levels\test1.xml" />
-    <None Include="Assets\StreamingAssets\Levels\test2.xml" />
-    <None Include="Assets\StreamingAssets\Levels\test3.xml" />
     <None Include="Assets\StreamingAssets\Source_XML\BigBlock.xml" />
     <None Include="Assets\StreamingAssets\Source_XML\HalfCell.xml" />
     <None Include="Assets\StreamingAssets\Source_XML\Limestone_1.xml" />

@@ -13,15 +13,16 @@ using UnityEngine;
 public abstract class GraphicsControl{
 
     public static GraphicsControl main;
-    public GameObject selector;
+    public MouseHoverObject hover;
 
     protected Transform tileFolder;
     /// <summary>
     /// Sets common variable and registers callbacks
     /// </summary>
-    public GraphicsControl()
+    public GraphicsControl(MouseHoverObject hover)
     {
         main = this;
+        this.hover = hover;
 
         tileFolder = new GameObject() { name = "TileFolder" }.transform;
 
@@ -46,6 +47,7 @@ public abstract class GraphicsControl{
         Tile.removeOnCreate(onTileCreate);
         Tile.removeOnDestroy(onTileDestroy);
 
+        hover.destroy();
         destructor();
         GameObject.Destroy(tileFolder.gameObject);
         tileFolder = null; ;

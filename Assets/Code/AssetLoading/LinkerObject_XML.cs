@@ -80,4 +80,17 @@ public class LinkerObject_XML : IXmlSerializable{
         }
     }
 
+    public Direction_XML getDirection(string dir)
+    {
+        foreach (Direction_XML d in directions)
+        {
+            if (dir == d.direction)
+                return d;
+
+        }
+
+        Debug.Log("LinkerObject_XML[" + name + "]: Did not find direction: " + dir);
+        return null;
+    }
+
 }

@@ -39,11 +39,31 @@ public class EditorInputControl : InputControl {
 
             if (Input.GetKeyDown(KeyCode.P))
                 switchMouseMode();
+
+            rotate();
         }
 
 
         Tile t;
         componentMouse.update(out t);
+    }
+
+    void rotate()
+    {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            GraphicsControl.main.hover.rotate((Directions.dir)(((int)GraphicsControl.main.hover.getDirection()+1)%4));
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            int temp = (int)GraphicsControl.main.hover.getDirection() - 1;
+            if (temp < 0)
+                temp = 4 + temp;
+
+            GraphicsControl.main.hover.rotate((Directions.dir)temp);
+            return;
+        }
     }
 
     void switchMouseMode()

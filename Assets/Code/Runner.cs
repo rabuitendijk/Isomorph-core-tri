@@ -14,7 +14,6 @@ public class Runner : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        
 
 
         main = this;

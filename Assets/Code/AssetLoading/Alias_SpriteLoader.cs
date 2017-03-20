@@ -81,13 +81,14 @@ public static class Alias_SpriteLoader{
                 imageTexture.LoadImage(imageBytes);
 
                 tex.SetPixels32(imageTexture.GetPixels32(), i);
-
             }
             else
             {
                 Debug.Log("Mip not found: " + filename + ".m" + i + ".png");
             }
         }
+
+        
 
         tex.Apply(false);
     }

@@ -18,15 +18,12 @@ public class BasicGraphicsControl : GraphicsControl {
     /// <summary>
     /// Constructor that initialises references and materials,
     /// </summary>
-    public BasicGraphicsControl() : base()
+    public BasicGraphicsControl() : base(new BasicMouseHoverObject())
     {
 
         mat = new Material(Shader.Find("Sprites/Default"));
         redMat = new Material(Shader.Find("Sprites/Default"));
         redMat.color = new Color(1f, 0f, 0f);
-
-        selector = newOb("Selector", new Iso(0, 0, 0, 1), Alias_Loader.main.getSprite("selector"), mat);
-        selector.SetActive(false);
     }
 
     protected override void onTileCreate(Tile t)
@@ -83,8 +80,6 @@ public class BasicGraphicsControl : GraphicsControl {
 
     protected override void destructor()
     {
-        GameObject.Destroy(selector);
-        selector = null;
         return;
     }
 

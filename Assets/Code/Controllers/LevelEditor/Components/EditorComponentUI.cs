@@ -28,6 +28,7 @@ public class EditorComponentUI {
 
         construct();
         selectorList = new HUI_SelectorList(levelEditor, Alias_Loader.main.objectsList, new Vector2(0f, .0f), new Vector2(.12f, 1f), Runner.main.ariel);
+        selectorList.registerOnChangeSelected(changeSelected);
         console = new HUI_Console(levelEditor, new Vector2(.5f, 0f), new Vector2(1f, .3f), Runner.main.ariel, new HUI_EditorProcessor());
     }
 
@@ -62,6 +63,12 @@ public class EditorComponentUI {
 
     }
 
+    static Action<string> onChangeSelected;
+    public static void registerOnChangeSelected(Action<string> funct) { onChangeSelected += funct; }
+    public static void removeOnChangeSelected(Action<string> funct) { onChangeSelected -= funct; }
+
+    void changeSelected(string name) { if (onChangeSelected != null) { onChangeSelected(name); } }//Push outward
+
     public void registerOnClick(Action<string> funct){ mouse.registerOnClick(funct); }
     public void removeOnClick(Action<string> funct) { mouse.removeOnClick(funct); }
     public string getSelectedObject()
@@ -74,6 +81,7 @@ public class EditorComponentUI {
     /// </summary>
     public void destructor()
     {
+        selectorList.removeOnChangeSelected(changeSelected);
         selectorList.destroy();
         console.destroy();
         GameObject.Destroy(levelEditor.gameObject);

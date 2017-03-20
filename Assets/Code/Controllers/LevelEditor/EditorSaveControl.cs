@@ -25,7 +25,7 @@ public class EditorSaveControl {
 
         foreach (IsoObject o in objects)
         {
-            xml += "\t<IsoObject_XML name=\"" + o.name + "\" x=\""+o.origin.x+"\" y=\""+o.origin.y+"\" z=\""+o.origin.z+"\">\n";
+            xml += "\t<IsoObject_XML direction=\""+o.direction+"\" name=\"" + o.name + "\" x=\""+o.origin.x+"\" y=\""+o.origin.y+"\" z=\""+o.origin.z+"\">\n";
             xml += "\t</IsoObject_XML>\n";
         }
 

@@ -9,8 +9,8 @@ public class Alias_Loader {
     public static Alias_Loader main;
 
     Dictionary<string, Sprite> sprites;
-    Dictionary<string, IsoObject> prototypes;
-    public SortedList<string, IsoObject> objectsList { get; protected set; }
+    Dictionary<string, IsoObjectBody> prototypes;
+    public SortedList<string, IsoObjectBody> objectsList { get; protected set; }
 
     public Alias_Loader()
     {
@@ -18,7 +18,7 @@ public class Alias_Loader {
         alias_folder = Application.streamingAssetsPath + "/Export_Images";
         object_folder = Application.streamingAssetsPath + "/Export_Objects";
 
-        objectsList = new SortedList<string, IsoObject>();
+        objectsList = new SortedList<string, IsoObjectBody>();
 
         sprites = Alias_SpriteLoader.load(alias_folder);
         prototypes = Alias_ObjectLoader.load(object_folder, objectsList);
@@ -47,9 +47,9 @@ public class Alias_Loader {
     /// <summary>
     /// Trys to get IsoObject or returns null
     /// </summary>
-    public IsoObject getObject(string name)
+    public IsoObjectBody getObject(string name)
     {
-        IsoObject ob;
+        IsoObjectBody ob;
         if (prototypes.TryGetValue(name, out ob))
         {
             return ob;

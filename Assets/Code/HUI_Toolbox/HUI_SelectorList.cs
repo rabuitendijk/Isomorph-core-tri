@@ -1,5 +1,6 @@
 ﻿
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,7 +12,7 @@ public class HUI_SelectorList  {
     HUI_TextNode textNode;
     Font font;
 
-    public HUI_SelectorList(RectTransform source, SortedList<string, IsoObject> nodes, Vector2 min, Vector2 max, Font font)
+    public HUI_SelectorList(RectTransform source, SortedList<string, IsoObjectBody> nodes, Vector2 min, Vector2 max, Font font)
     {
         selected = "VOID";
         this.source = source;
@@ -49,6 +50,9 @@ public class HUI_SelectorList  {
 
         textNode = node;
         node.image.color = HUI_TextNode.selectedColor;
+
+        if (onChangeSelected != null)   //If needed notify outside world
+            onChangeSelected(node.name);
     }
 
     public void destroy()
@@ -57,5 +61,8 @@ public class HUI_SelectorList  {
         HUI_NodeClick.removeOnClick(changeSelected);
     }
 
+    Action<string> onChangeSelected;
+    public void registerOnChangeSelected(Action<string> funct) { onChangeSelected += funct; }
+    public void removeOnChangeSelected(Action<string> funct) { onChangeSelected -= funct; }
 
 }

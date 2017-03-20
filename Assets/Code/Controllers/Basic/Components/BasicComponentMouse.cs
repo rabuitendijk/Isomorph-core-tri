@@ -34,7 +34,7 @@ public class BasicComponentMouse : ComponentMouse {
     /// </summary>
     void swapSelectedMaterial(Tile current = null)
     {
-        GraphicsControl.main.selector.SetActive(false);
+        GraphicsControl.main.hover.hide();
 
         //clear selection
         if (lastObject != null)
@@ -63,9 +63,8 @@ public class BasicComponentMouse : ComponentMouse {
 
             if (lastObject.tiles.Count < 3)
             {
-                GraphicsControl.main.selector.SetActive(true);
-                GraphicsControl.main.selector.gameObject.transform.position = lastObject.origin.toPos();
-                GraphicsControl.main.selector.GetComponent<SpriteRenderer>().sortingOrder = lastObject.origin.depth + 1;
+                GraphicsControl.main.hover.unhide();
+                GraphicsControl.main.hover.translate(lastObject.origin);
             }
             return;
         }

@@ -23,12 +23,12 @@ public class EditorComponentMouseStack : ComponentMouse {
 
         if (catchHitFloor(out selected))
         {
-            GraphicsControl.main.selector.SetActive(true);
-            Iso.moveTo(selected, GraphicsControl.main.selector);
+            GraphicsControl.main.hover.unhide();
+            GraphicsControl.main.hover.translate(selected);
             return true;
         }
 
-        GraphicsControl.main.selector.SetActive(false);
+        GraphicsControl.main.hover.hide();
         return false;
 
     }
@@ -151,7 +151,7 @@ public class EditorComponentMouseStack : ComponentMouse {
         {
             if (selected != null)
             {
-                new IsoObject(name, selected);
+                new IsoObject(name, selected, GraphicsControl.main.hover.getDirection());
             }
             else
                 Debug.Log("No tile selected.");

@@ -31,7 +31,7 @@ public class EditorLogicControl : LogicControl
         this.filename = filename;
         foreach (IsoObject_XML o in xml.nodes)
         {
-            new IsoObject(o.name, o.origin);
+            new IsoObject(o.name, o.origin, o.direction);
         }
     }
 
