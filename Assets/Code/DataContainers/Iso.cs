@@ -25,6 +25,8 @@ public class Iso{
     public int depth { get { return Depth; } }
     int depthModifier = 0;
 
+    protected Iso() { }
+
     /// <summary>
     /// Constructor from isometric coordinates
     /// </summary>
@@ -65,7 +67,7 @@ public class Iso{
 
     public Vector3 toPos()
     {
-        return new Vector3(WX, WY, 0);
+        return new Vector3(WX, WY, LogicControl.main.height-z+2*x+2*y);
     }
 
     /// <summary>

@@ -127,6 +127,7 @@
     <Compile Include="Assets\Code\DataContainers\IsoObjectBody.cs" />
     <Compile Include="Assets\Code\DataContainers\IsoObjectGhost.cs" />
     <Compile Include="Assets\Code\DataContainers\MouseHoverObject.cs" />
+    <Compile Include="Assets\Code\DataContainers\ProjIso.cs" />
     <Compile Include="Assets\Code\DataContainers\Tile.cs" />
     <Compile Include="Assets\Code\Directions.cs" />
     <Compile Include="Assets\Code\HUI_Toolbox\HUI.cs" />
@@ -148,6 +149,9 @@
     <Compile Include="Assets\Code\Runner.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Shaders\Iso-CheckEffect.shader" />
+    <None Include="Assets\Shaders\Iso-Effect.shader" />
+    <None Include="Assets\Shaders\Iso-MarkEffect.shader" />
     <None Include="Assets\StreamingAssets\Export_Images\0.xml" />
     <None Include="Assets\StreamingAssets\Export_Objects\BigBlock.xml" />
     <None Include="Assets\StreamingAssets\Export_Objects\HalfCell.xml" />

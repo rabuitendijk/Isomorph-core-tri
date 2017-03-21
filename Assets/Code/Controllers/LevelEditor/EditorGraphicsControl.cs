@@ -25,7 +25,7 @@ public class EditorGraphicsControl : GraphicsControl {
     public EditorGraphicsControl() : base(new IsoObjectGhost("Selector", new Iso(0,0,0)))
     {
 
-        mat = new Material(Shader.Find("Sprites/Default"));
+        mat = new Material(Shader.Find("Iso/CheckEffect"));
         ghostMat = new Material(Shader.Find("Sprites/Default"));
         ghostMat.color = new Color(1f, 1f, 1f, .6f);
 
@@ -279,7 +279,7 @@ public class EditorGraphicsControl : GraphicsControl {
 
         SpriteRenderer sr = ret.AddComponent<SpriteRenderer>() as SpriteRenderer;
         sr.sprite = t.sprite;
-        sr.material = mat;
+        sr.sharedMaterial = mat;
         sr.sortingLayerName = "DepthSort";
         sr.sortingOrder = t.coord.depth;
 
@@ -300,7 +300,7 @@ public class EditorGraphicsControl : GraphicsControl {
 
         SpriteRenderer sr = ret.AddComponent<SpriteRenderer>() as SpriteRenderer;
         sr.sprite = sprite;
-        sr.material = mat;
+        sr.sharedMaterial = mat;
         sr.sortingLayerName = "DepthSort";
         sr.sortingOrder = i.depth;
 
