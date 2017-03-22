@@ -2,26 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Alias_Loader {
-    public static string alias_folder { get; protected set; }
+public class Atlas_Loader {
+    public static string Atlas_folder { get; protected set; }
     public static string object_folder { get; protected set; }
 
-    public static Alias_Loader main;
+    public static Atlas_Loader main;
 
     Dictionary<string, Sprite> sprites;
     Dictionary<string, IsoObjectBody> prototypes;
     public SortedList<string, IsoObjectBody> objectsList { get; protected set; }
 
-    public Alias_Loader()
+    public Atlas_Loader()
     {
         main = this;
-        alias_folder = Application.streamingAssetsPath + "/Export_Images";
+        Atlas_folder = Application.streamingAssetsPath + "/Export_Images";
         object_folder = Application.streamingAssetsPath + "/Export_Objects";
 
         objectsList = new SortedList<string, IsoObjectBody>();
 
-        sprites = Alias_SpriteLoader.load(alias_folder);
-        prototypes = Alias_ObjectLoader.load(object_folder, objectsList);
+        sprites = Atlas_SpriteLoader.load(Atlas_folder);
+        prototypes = Atlas_ObjectLoader.load(object_folder, objectsList);
 
         Resources.UnloadUnusedAssets();
     }

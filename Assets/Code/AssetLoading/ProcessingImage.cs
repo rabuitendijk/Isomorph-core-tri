@@ -5,7 +5,7 @@ using UnityEngine;
 /// <summary>
 /// aplha-1
 /// 
-/// Temp datacarrier for moving data to object texture alias.
+/// Temp datacarrier for moving data to object texture Atlas.
 /// 
 /// Robin Apollo Buitendijk
 /// Early March 2017

@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StreamingSpriteXMLObject miplevels="2" multiSprite = "1" rows = "7" columns = "7" pixelsPerUnit="256" cellHeight="256" cellWidth="256" offset="16">
 <cells>
-	<StreamingSpriteXMLCell x = "0" y = "0" name = "BigBlock[0_0_0]">
+	<StreamingSpriteXMLCell x = "0" y = "0" name = "BigBlock[0_0_2]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "0" name = "BigBlock[0_0_2]">
+	<StreamingSpriteXMLCell x = "1" y = "0" name = "BigBlock[0_1_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "0" name = "BigBlock[0_1_0]">
+	<StreamingSpriteXMLCell x = "2" y = "0" name = "BigBlock[0_1_2]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "0" name = "BigBlock[0_1_2]">
+	<StreamingSpriteXMLCell x = "3" y = "0" name = "BigBlock[1_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "0" name = "BigBlock[1_0_0]">
+	<StreamingSpriteXMLCell x = "4" y = "0" name = "BigBlock[1_0_2]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "0" name = "BigBlock[1_0_2]">
+	<StreamingSpriteXMLCell x = "5" y = "0" name = "BigBlock[1_1_0]">
 	</StreamingSpriteXMLCell>
 	<StreamingSpriteXMLCell x = "6" y = "0" name = "BigBlock[1_1_2]">
 	</StreamingSpriteXMLCell>

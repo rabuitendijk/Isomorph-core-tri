@@ -112,7 +112,7 @@ public class GLDrawLoop : MonoBehaviour
         lineMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
         // Turn backface culling off
         lineMaterial.SetInt("_Cull", (int)UnityEngine.Rendering.CullMode.Off);
-        // Turn off depth writes
+        // Turn off length writes
         lineMaterial.SetInt("_ZWrite", 0);
         //lineMaterial.SetInt("ZTest", 2);
 

@@ -9,14 +9,14 @@ using System.Xml.Serialization;
 /// <summary>
 /// Get requests
 /// </summary>
-public static class Alias_Requests  {
+public static class Atlas_Requests  {
 
     public static List<SplicingObject_XML> getRequests(string folder)
     {
         List<SplicingObject_XML> ret = new List<SplicingObject_XML>();
 
         RecersiveDirectoryCrawler(folder, ret);
-        Debug.Log("Alias_Requests: "+ret.Count+" definitions loaded.");
+        Debug.Log("Atlas_Requests: "+ret.Count+" definitions loaded.");
 
         return ret;
     }

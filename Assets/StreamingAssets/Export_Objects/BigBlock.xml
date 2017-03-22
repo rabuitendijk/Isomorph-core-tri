@@ -3,7 +3,7 @@
 <directions>
 	<Direction_XML direction="N" linked = "false">
 	<coords>
-		<XMLCoord x="0" y="0" z="0" name = "BigBlock[0_0_0]">
+		<XMLCoord x="0" y="0" z="0" name = "VOID">
 		</XMLCoord>
 		<XMLCoord x="0" y="0" z="1" name = "VOID">
 		</XMLCoord>
@@ -27,7 +27,7 @@
 		</XMLCoord>
 		<XMLCoord x="1" y="0" z="3" name = "VOID">
 		</XMLCoord>
-		<XMLCoord x="1" y="1" z="0" name = "VOID">
+		<XMLCoord x="1" y="1" z="0" name = "BigBlock[1_1_0]">
 		</XMLCoord>
 		<XMLCoord x="1" y="1" z="1" name = "VOID">
 		</XMLCoord>

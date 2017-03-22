@@ -11,7 +11,7 @@ public class SplicingObject_XML : IXmlSerializable
 
     public int width { get; protected set; }
     public int trueHeight { get; protected set; }
-    public int depth { get; protected set; }
+    public int length { get; protected set; }
     public int height { get; protected set; }
     public bool boxform { get; protected set; }
     public string name = "VOID"; 
@@ -25,7 +25,7 @@ public class SplicingObject_XML : IXmlSerializable
         width = -1;
         trueHeight = 1;
         height = -1;
-        depth = -1;
+        length = -1;
         boxform = true;
 
         space = new List<SplicingSpace_XML>();
@@ -115,8 +115,8 @@ public class SplicingObject_XML : IXmlSerializable
                     width = reader.ReadContentAsInt();
                     break;
 
-                case "depth":
-                    depth = reader.ReadContentAsInt();
+                case "length":
+                    length = reader.ReadContentAsInt();
                     break;
 
                 case "height":
@@ -134,7 +134,7 @@ public class SplicingObject_XML : IXmlSerializable
 
     public override string ToString()
     {
-        return "<SplicingObject_XML>(width = "+width+", height = "+height+", depth = "+depth+", boxform = "+boxform+", source = "+source.Count+", body = "+body.Count+", space = "+space.Count+")";
+        return "<SplicingObject_XML>(width = "+width+", height = "+height+", length = "+length+", boxform = "+boxform+", source = "+source.Count+", body = "+body.Count+", space = "+space.Count+")";
     }
 
     public SplicingBody_XML getDirection(string dir)

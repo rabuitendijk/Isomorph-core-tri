@@ -10,11 +10,12 @@ using UnityEngine;
 /// Early March 2017
 /// </summary>
 public abstract class LogicControl {
+    public static ulong isoObject_id = 0;
+
     public static LogicControl main;
-    protected int Width, Depth, Height;
-    public int width { get { return Width; } }
-    public int depth { get { return Depth; } }
-    public int height { get { return Height; } }
+    public int width { get; protected set; }
+    public int length { get; protected set; }
+    public int height { get; protected set; }
     public string filename { get; protected set; }
 
     public LogicControl()
@@ -59,6 +60,7 @@ public abstract class LogicControl {
 
     public void destroy()
     {
+        isoObject_id = 0;
         destructor();
 
         Tile.removeOnCreate(onTileCreate);

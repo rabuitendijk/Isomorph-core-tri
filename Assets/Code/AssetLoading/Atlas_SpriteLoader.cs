@@ -6,7 +6,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using UnityEngine;
 
-public static class Alias_SpriteLoader{
+public static class Atlas_SpriteLoader{
 
     public static int count=0;
 
@@ -19,15 +19,15 @@ public static class Alias_SpriteLoader{
         foreach (string f in subFiles)
         {
             if (f.ToLower().EndsWith(".xml"))
-                LoadAlias(f.Substring(0, f.Length-4), ret);
+                LoadAtlas(f.Substring(0, f.Length-4), ret);
         }
 
-        Debug.Log("Alias_SpriteLoader: " + count + ", sprites loaded.");
+        Debug.Log("Atlas_SpriteLoader: " + count + ", sprites loaded.");
 
         return ret;
     }
 
-    static void LoadAlias(string filename, Dictionary<string, Sprite> dict)
+    static void LoadAtlas(string filename, Dictionary<string, Sprite> dict)
     {
         StreamingSpriteXMLObject xml;
 
@@ -37,7 +37,7 @@ public static class Alias_SpriteLoader{
 
 
         if (!File.Exists(filename+".png")){
-            Debug.Log("Alias loader missing png: " + filename+".png");
+            Debug.Log("Atlas loader missing png: " + filename+".png");
             return;
         }
 
@@ -62,7 +62,7 @@ public static class Alias_SpriteLoader{
         */
 
 
-        processAlias(xml, imageTexture, dict);
+        processAtlas(xml, imageTexture, dict);
         
 
     }
@@ -94,7 +94,7 @@ public static class Alias_SpriteLoader{
     }
 
 
-    static void processAlias(StreamingSpriteXMLObject xml, Texture2D imageTexture, Dictionary<string, Sprite> dict)
+    static void processAtlas(StreamingSpriteXMLObject xml, Texture2D imageTexture, Dictionary<string, Sprite> dict)
     {
         Rect spriteCoordinates;
         StreamingSpriteXMLCell cell;
@@ -117,7 +117,7 @@ public static class Alias_SpriteLoader{
                 }
                 else
                 {
-                    Debug.Log("Cell not found. has the Alias builder version changed?");
+                    Debug.Log("Cell not found. has the Atlas builder version changed?");
                 }
 
             }

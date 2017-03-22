@@ -22,8 +22,6 @@ public class BasicGraphicsControl : GraphicsControl {
     {
 
         mat = new Material(Shader.Find("Sprites/Default"));
-        redMat = new Material(Shader.Find("Sprites/Default"));
-        redMat.color = new Color(1f, 0f, 0f);
     }
 
     protected override void onTileCreate(Tile t)
@@ -45,13 +43,13 @@ public class BasicGraphicsControl : GraphicsControl {
             return null;
 
         GameObject ret = new GameObject() { name = t.isoObject.name+ "(" + t.coord.x + ", " + t.coord.y + ", " + t.coord.z + ")" };
-        ret.transform.position = t.coord.toPos();
+        ret.transform.position = t.coord.position;
         ret.transform.parent = tileFolder;
 
         SpriteRenderer sr = ret.AddComponent<SpriteRenderer>() as SpriteRenderer;
         sr.sprite = t.sprite;
         sr.material = mat;
-        sr.sortingLayerName = "DepthSort";
+        sr.sortingLayerName = "lengthSort";
         sr.sortingOrder = t.coord.depth;
 
         return ret;
@@ -60,19 +58,19 @@ public class BasicGraphicsControl : GraphicsControl {
     /// <summary>
     /// Common sprtie gameobject creator.
     /// </summary>
-    GameObject newOb(string objName, Iso i, Sprite sprite, Material mat)
+    GameObject newOb(string objName, ProjIso i, Sprite sprite, Material mat)
     {
         if (sprite == null)
             return null;
 
         GameObject ret = new GameObject() { name = objName + "(" + i.x + ", " + i.y + ", " + i.z + ")" };
-        ret.transform.position = i.toPos();
+        ret.transform.position = i.position;
         ret.transform.parent = tileFolder;
 
         SpriteRenderer sr = ret.AddComponent<SpriteRenderer>() as SpriteRenderer;
         sr.sprite = sprite;
         sr.material = mat;
-        sr.sortingLayerName = "DepthSort";
+        sr.sortingLayerName = "lengthSort";
         sr.sortingOrder = i.depth;
 
         return ret;

@@ -1,10 +1,11 @@
 ﻿
 using System.Collections.Generic;
 using System.IO;
+using System;
 using UnityEngine;
 
 public class EditorSaveControl {
-    List<IsoObject> objects = new List<IsoObject>();
+    Dictionary<ulong, IsoObject> objects = new Dictionary<ulong, IsoObject>();
 
     public EditorSaveControl()
     {
@@ -13,19 +14,35 @@ public class EditorSaveControl {
         HUI_EditorSaveCommand.registerSave(save);
     }
 
-    void onObjectCreate(IsoObject o){objects.Add(o);}
-    void onObjectDestroy(IsoObject o) { objects.Remove(o); }
+    void onObjectCreate(IsoObject o){
+        try {
+            objects.Add(o.id, o);
+        }catch(Exception e)
+        {
+            Debug.Log(e);
+        }
+    }
+    void onObjectDestroy(IsoObject o) {
+        try
+        {
+            objects.Remove(o.id);
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e);
+        }
+    }
 
     public void save(string filename)
     {
         string xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
 
-        xml += "<Level_XML width=\""+LogicControl.main.width+"\" height=\""+LogicControl.main.height+"\" depth=\""+LogicControl.main.depth+"\">\n";
+        xml += "<Level_XML width=\""+LogicControl.main.width+"\" height=\""+LogicControl.main.height+"\" length=\""+LogicControl.main.length+"\">\n";
         xml += "<objects>\n";
 
-        foreach (IsoObject o in objects)
+        foreach (KeyValuePair<ulong, IsoObject> entry in objects)
         {
-            xml += "\t<IsoObject_XML direction=\""+o.direction+"\" name=\"" + o.name + "\" x=\""+o.origin.x+"\" y=\""+o.origin.y+"\" z=\""+o.origin.z+"\">\n";
+            xml += "\t<IsoObject_XML direction=\"" + entry.Value.direction + "\" name=\"" + entry.Value.name + "\" x=\"" + entry.Value.origin.x + "\" y=\"" + entry.Value.origin.y + "\" z=\"" + entry.Value.origin.z + "\">\n";
             xml += "\t</IsoObject_XML>\n";
         }
 

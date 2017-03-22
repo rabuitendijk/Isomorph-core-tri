@@ -44,9 +44,7 @@ public class EditorComponentMouseStack : ComponentMouse {
             return true;
 
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        float upper_x = (2f * pos.y - pos.x + 1f), upper_y = (2f * pos.y + pos.x + 1f);
-        Iso target = new Iso(pos.x, pos.y, 0, 1);
+        Iso target = new Iso(pos.x, pos.y, 0);
 
         if (LogicControl.main.inGrid(target) && !LogicControl.main.exists(target))
         {
@@ -66,16 +64,16 @@ public class EditorComponentMouseStack : ComponentMouse {
         Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
         float upper_z = LogicControl.main.height + 1, delta;
-        float upper_x = (2f * pos.y - pos.x - .5f * upper_z + 1f), upper_y = (2f * pos.y + pos.x - .5f * upper_z + 1f);
-        Iso target = new Iso(pos.x, pos.y, Mathf.FloorToInt(upper_z), 1);
-        target.addUnsafe(0, 0, -1); //Start correction
+        float upper_x = (-2f * pos.y - pos.x + .5f * upper_z), upper_y = (-2f * pos.y + pos.x + .5f * upper_z );
+        Iso target = new Iso(pos.x, pos.y, Mathf.FloorToInt(upper_z));
+        target.add(0, 0, -1); //Start correction
 
         i = new Iso(0,0,0);
         bool setFlag = false;
         while (target.z >= 0)
         {
             delta = nextCell(upper_x, upper_y, upper_z, target);
-            upper_z -= 2 * delta; upper_x += delta; upper_y += delta;
+            upper_z -= 2 * delta; upper_x -= delta; upper_y -= delta;
             if (LogicControl.main.inGrid(target))
             {
                 if (LogicControl.main.exists(target))
@@ -99,8 +97,8 @@ public class EditorComponentMouseStack : ComponentMouse {
     /// </summary>
     float nextCell(float ox, float oy, float oz, Iso coord)
     {
-        ox -= coord.x; ox = 1 - ox;
-        oy -= coord.y; oy = 1 - oy;
+        ox -= coord.x; //ox = 1 - ox;
+        oy -= coord.y; //oy = 1 - oy;
         oz -= coord.z; oz /= 2;
 
         if (oz <= ox)
@@ -109,22 +107,22 @@ public class EditorComponentMouseStack : ComponentMouse {
             {
                 //z transition
 
-                coord.addUnsafe(0, 0, -1);
+                coord.add(0, 0, -1);
                 return oz;
             }
             //y transtion
-            coord.addUnsafe(0, 1, 0);
+            coord.add(0, -1, 0);
             return oy;
         }
         else if (ox <= oy)
         {
             //x transtion
 
-            coord.addUnsafe(1, 0, 0);
+            coord.add(-1, 0, 0);
             return ox;
         }
         //y transition
-        coord.addUnsafe(0, 1, 0);
+        coord.add(0, -1, 0);
         return oy;
     }
 

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public static class Alias_Builder  {
+public static class Atlas_Builder  {
     static string xml_folder = Application.streamingAssetsPath+"/Source_XML";
     static string image_folder = Application.streamingAssetsPath + "/Source_Images";
     static string export_folder = Application.streamingAssetsPath + "/Export_Images";
@@ -10,9 +10,9 @@ public static class Alias_Builder  {
 
     public static void build()
     {
-        List<SplicingObject_XML> objects = Alias_Requests.getRequests(xml_folder);
-        Dictionary<string, SplicingSource> dir = Alias_SourceLoader.loadSource(image_folder, objects);
-        Alias_WriteAlias.write(export_folder, Alias_SourceLoader.entries);
-        Alias_WriteObjectXML.write(object_folder, objects, dir);
+        List<SplicingObject_XML> objects = Atlas_Requests.getRequests(xml_folder);
+        Dictionary<string, SplicingSource> dir = Atlas_SourceLoader.loadSource(image_folder, objects);
+        Atlas_WriteAtlas.write(export_folder, Atlas_SourceLoader.entries);
+        Atlas_WriteObjectXML.write(object_folder, objects, dir);
     }
 }

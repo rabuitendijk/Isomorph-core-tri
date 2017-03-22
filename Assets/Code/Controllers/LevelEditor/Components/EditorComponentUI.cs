@@ -27,7 +27,7 @@ public class EditorComponentUI {
     {
 
         construct();
-        selectorList = new HUI_SelectorList(levelEditor, Alias_Loader.main.objectsList, new Vector2(0f, .0f), new Vector2(.12f, 1f), Runner.main.ariel);
+        selectorList = new HUI_SelectorList(levelEditor, Atlas_Loader.main.objectsList, new Vector2(0f, .0f), new Vector2(.12f, 1f), Runner.main.ariel);
         selectorList.registerOnChangeSelected(changeSelected);
         console = new HUI_Console(levelEditor, new Vector2(.5f, 0f), new Vector2(1f, .3f), Runner.main.ariel, new HUI_EditorProcessor());
     }

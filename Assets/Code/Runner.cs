@@ -5,7 +5,7 @@ public class Runner : MonoBehaviour {
     public static Runner main;
 
     public Font ariel; 
-    public bool rebuildAliasses = false;
+    public bool rebuildAtlasses = false;
     public bool levelEditor = false;
 
     InputControl inputControl;
@@ -20,10 +20,10 @@ public class Runner : MonoBehaviour {
         HUI_EditorLoadCommand.registerLoad(loadLevelInEditor);
 
 
-        if (rebuildAliasses)
-            Alias_Builder.build();
+        if (rebuildAtlasses)
+            Atlas_Builder.build();
 
-        new Alias_Loader();
+        new Atlas_Loader();
 
 
         if (levelEditor)

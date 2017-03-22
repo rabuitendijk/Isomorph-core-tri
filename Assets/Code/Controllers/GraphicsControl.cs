@@ -12,6 +12,8 @@ using UnityEngine;
 /// </summary>
 public abstract class GraphicsControl{
 
+    public static ulong proj_id = 0;
+
     public static GraphicsControl main;
     public MouseHoverObject hover;
 
@@ -44,6 +46,7 @@ public abstract class GraphicsControl{
     /// </summary>
     public void destroy()
     {
+        proj_id = 0;
         Tile.removeOnCreate(onTileCreate);
         Tile.removeOnDestroy(onTileDestroy);
 

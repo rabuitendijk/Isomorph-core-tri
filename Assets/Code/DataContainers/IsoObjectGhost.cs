@@ -6,13 +6,13 @@ using System;
 public class IsoObjectGhost : IsoObjectBody, MouseHoverObject {
 
     public List<GameObject> graphic { get; protected set; }
-
+    public List<ProjIso> proj_coords { get; protected set; }
     /// <summary>
     /// Copy constructor.
     /// Offsets coordinats by origin.
     /// Shares sprite stringlist with prototype
     /// </summary>
-    public IsoObjectGhost(string prototype, Iso origin, Directions.dir direction = Directions.dir.N) : this(Alias_Loader.main.getObject(prototype), origin, direction) { }
+    public IsoObjectGhost(string prototype, Iso origin, Directions.dir direction = Directions.dir.N) : this(Atlas_Loader.main.getObject(prototype), origin, direction) { }
 
     private IsoObjectGhost(IsoObjectBody prototype, Iso origin, Directions.dir direction) : base(prototype.name, prototype.coords, prototype.directions, origin, direction)
     {
@@ -22,16 +22,24 @@ public class IsoObjectGhost : IsoObjectBody, MouseHoverObject {
             i.add(origin);
         }
 
+        proj_coords = new List<ProjIso>();
+        foreach(Iso c in coords)
+        {
+            proj_coords.Add(new ProjIso(c));
+        }
+
         if (onCreate != null)
             onCreate(this);
     }
+
+
 
     public void translate(Iso target)
     {
         Iso diff = new Iso(target.x - origin.x, target.y - origin.y, target.z - origin.z);
         origin.add(diff);
 
-        foreach (Iso i in coords)
+        foreach (Iso i in proj_coords)
         {
             i.add(diff);
         }

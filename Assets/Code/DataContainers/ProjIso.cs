@@ -4,33 +4,36 @@ using UnityEngine;
 
 /// <summary>
 /// An extended version of Iso that can be projected to the screen [and rotaded]
-/// contains depth information
+/// contains length information
 /// </summary>
 public class ProjIso : Iso {
 
     public static long next_id = 0;
 
-    public long id { get; protected set; }
+    int depthModifier = 0;
+    public int depth { get { return 2 * (2 * x + 2 * y + z) + depthModifier; } }
+    public Vector3 position { get { return new Vector3((-x + y) * 0.5f, (-x - y + z) * 0.25f, z + 2 * x + 2 * y); } }
 
-    public ProjIso()
+    
+
+
+
+    public ProjIso(int x, int y, int z, int depthModifier = 0): base(x,y,z){this.depthModifier = depthModifier;}
+
+    public ProjIso(Iso i, int depthModifier = 0) : base(i){this.depthModifier = depthModifier;}
+
+    /// <summary>
+    /// Moves this iso to other and recalculates
+    /// </summary>
+    public static void moveTo(ProjIso i, GameObject graphic)
     {
-        id = next_id++;
 
-        if (onCreate != null)
-            onCreate(this);
+        if (graphic == null)
+            return;
+
+        graphic.transform.position = i.position;
+        graphic.GetComponent<SpriteRenderer>().sortingOrder = i.depth;
     }
 
-    public void destroy()
-    {
-        if (onDestroy != null)
-            onDestroy(this);
-    }
-
-    Action<ProjIso> onCreate;
-    public void registerOnCreate(Action<ProjIso> funct) { onCreate += funct; }
-    public void removeOnCreate(Action<ProjIso> funct) { onCreate -= funct; }
-
-    Action<ProjIso> onDestroy;
-    public void registerOnDestroy(Action<ProjIso> funct) { onDestroy += funct; }
-    public void removeOnDestroy(Action<ProjIso> funct) { onDestroy -= funct; }
+   
 }

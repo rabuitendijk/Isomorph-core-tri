@@ -12,6 +12,7 @@ using UnityEngine;
 /// Late February 2017
 /// </summary>
 public class Tile {
+    ulong proj_id = 123456789;
 
     GameObject Graphic;
     public GameObject graphic
@@ -24,21 +25,26 @@ public class Tile {
         }
     }
 
-    Iso Coord;
-    public Iso coord { get { return Coord; } }
+    public ProjIso coord { get; protected set; }
 
     public Sprite sprite { get; protected set; }
     public IsoObject isoObject { get; protected set; }
 
-    public Tile (Iso coord, Sprite sprite = null, IsoObject isoObject = null)
+
+    public Tile(ProjIso coord, Sprite sprite = null, IsoObject isoObject = null)
     {
-        Coord = coord;
+        this.coord = coord;
         this.sprite = sprite;
         this.isoObject = isoObject;
+
+        if (sprite != null)
+            proj_id = GraphicsControl.proj_id++;
 
         //Create Tile with no assigned map so push to main Map
         onCreate(this);
     }
+
+    public Tile (Iso coord, Sprite sprite = null, IsoObject isoObject = null) : this(new ProjIso(coord), sprite, isoObject){}
 
     /// <summary>
     /// Destroy this tile

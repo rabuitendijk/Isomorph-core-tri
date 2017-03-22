@@ -4,7 +4,7 @@ using UnityEngine;
 using System.IO;
 using System;
 
-public class Alias_WriteObjectXML {
+public class Atlas_WriteObjectXML {
     public static int miplevels = 2;
 
 	public static void write(string folder, List<SplicingObject_XML> objects, Dictionary<string, SplicingSource> source)
@@ -56,7 +56,7 @@ public class Alias_WriteObjectXML {
                 if (source.TryGetValue(dir_ob.source, out source_ob))
                     xml+=writeDirection(source_ob);
                 else
-                    Debug.Log("Alias_WriteObjectXML: source ["+dir_ob.source+"] missing in directory.");
+                    Debug.Log("Atlas_WriteObjectXML: source ["+dir_ob.source+"] missing in directory.");
                 
             }
             xml += "\t</Direction_XML>\n";
@@ -74,7 +74,7 @@ public class Alias_WriteObjectXML {
 
         for (int i = 0; i < source.width; i++)
         {
-            for (int j = 0; j < source.depth; j++)
+            for (int j = 0; j < source.length; j++)
             {
                 for (int k = 0; k < source.height; k++)
                 {

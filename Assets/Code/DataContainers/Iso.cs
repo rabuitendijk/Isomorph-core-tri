@@ -13,113 +13,63 @@ using UnityEngine;
 public class Iso{
     public static float projH = Mathf.Sqrt(2) / Mathf.Sqrt(3); //[s2s3] assumed
 
-    int X, Y, Z;    //3d projection coordingas
-    public int x { get { return X; } }
-    public int y { get { return Y; } }
-    public int z { get { return Z; } }
-    float WX, WY;    //2d World coordinates 
-    public float wx { get { return WX; } }
-    public float wy { get { return WY; } }
-
-    int Depth;      //For drawing order
-    public int depth { get { return Depth; } }
-    int depthModifier = 0;
+    public int x { get; protected set; }
+    public int y { get; protected set; }
+    public int z { get; protected set; }
 
     protected Iso() { }
 
     /// <summary>
     /// Constructor from isometric coordinates
     /// </summary>
-    public Iso(int x, int y, int z, int depthModifier = 0)
+    public Iso(int x, int y, int z)
     {
-        X = x;
-        Y = y;
-        Z = z;
-        this.depthModifier = depthModifier;
-        calcWorldCoord();
-        calcDepth();
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
+
+    public Iso(Iso i){set(i);}
 
     /// <summary>
     /// Constructor from world coordinates
     /// (and isometric z)
     /// </summary>
-    public Iso(float x, float y, int z, int depthModifier = 0) : this(Mathf.FloorToInt(2f * y - x - .5f * z +1), Mathf.FloorToInt(2f * y + x - .5f * z +1), z, depthModifier) { }
+    public Iso(float x, float y, int z) : this(Mathf.FloorToInt(-2f * y - x + .5f * z ), Mathf.FloorToInt(-2f * y + x + .5f * z), z) { }
 
-
-    /// <summary>
-    /// Sets wx, wy trough reference to static class.
-    /// </summary>
-    private void calcWorldCoord()
+    public static Iso operator +(Iso lh, Iso rh)
     {
-        WX = (-x + y) * 0.5f;
-        WY = (x + y +z) * 0.25f;
+        Iso ret = new Iso(lh.x+rh.x, lh.y+rh.y, lh.z +rh.z);
+        return ret;
     }
 
-    /// <summary>
-    /// Sets the depth in order to determine drawing order
-    /// Need work, temp solution
-    /// </summary>
-    private void calcDepth()
+    public static Iso operator -(Iso lh, Iso rh)
     {
-        Depth = 20000-2*(2*X + 2*Y - Z)+depthModifier;
+        Iso ret = new Iso(lh.x - rh.x, lh.y - rh.y, lh.z - rh.z);
+        return ret;
     }
 
-    public Vector3 toPos()
+    public void add(Iso rh)
     {
-        return new Vector3(WX, WY, LogicControl.main.height-z+2*x+2*y);
+        x += rh.x;
+        y += rh.y;
+        z += rh.z;
     }
 
-    /// <summary>
-    /// Add contends of other vector to this one and reaclculates depth and world coords.
-    /// </summary>
-    public void add(Iso other)
+    public void add(int x, int y, int z)
     {
-        X += other.x;
-        Y += other.y;
-        Z += other.Z;
-        calcWorldCoord();
-        calcDepth();
-    }
-
-    /// <summary>
-    /// Add without updates
-    /// </summary>
-    public void addUnsafe(int x, int y, int z)
-    {
-        X += x;
-        Y += y;
-        Z += z;
-    }
-
-    /// <summary>
-    /// Moves this iso to other and recalculates
-    /// </summary>
-    public static void moveTo(Iso i, GameObject graphic)
-    {
-
-        if (graphic == null)
-            return;
-
-        graphic.transform.position = i.toPos();
-        graphic.GetComponent<SpriteRenderer>().sortingOrder = i.depth;
+        this.x += x;
+        this.y += y;
+        this.z += z;
     }
 
     public void set(Iso other)
     {
-        X = other.x;
-        Y = other.y;
-        Z = other.z;
-        calcWorldCoord();
-        calcDepth();
+        x = other.x;
+        y = other.y;
+        z = other.z;
     }
 
-    public void unsafeSet(Iso other)
-    {
-        X = other.x;
-        Y = other.y;
-        Z = other.z;
-    }
     public override string ToString()
     {
         return "Iso<"+x+", "+y+", "+z+">";

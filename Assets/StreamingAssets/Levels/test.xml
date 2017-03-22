@@ -1,77 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Level_XML width="16" height="16" depth="16">
+<Level_XML width="16" height="16" length="16">
 <objects>
-	<IsoObject_XML direction="N" name="Stairs" x="7" y="3" z="0">
+	<IsoObject_XML direction="N" name="UnitDefinition" x="8" y="8" z="0">
 	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="Stairs" x="6" y="3" z="0">
+	<IsoObject_XML direction="N" name="UnitDefinition" x="8" y="7" z="0">
 	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="Stairs" x="8" y="3" z="0">
+	<IsoObject_XML direction="N" name="UnitDefinition" x="7" y="8" z="0">
 	</IsoObject_XML>
-	<IsoObject_XML direction="W" name="Stairs" x="5" y="4" z="0">
+	<IsoObject_XML direction="N" name="UnitDefinition" x="8" y="8" z="2">
 	</IsoObject_XML>
-	<IsoObject_XML direction="W" name="Stairs" x="5" y="5" z="0">
+	<IsoObject_XML direction="N" name="UnitDefinition" x="9" y="6" z="0">
 	</IsoObject_XML>
-	<IsoObject_XML direction="W" name="Stairs" x="5" y="6" z="0">
+	<IsoObject_XML direction="N" name="UnitDefinition" x="9" y="7" z="2">
 	</IsoObject_XML>
-	<IsoObject_XML direction="E" name="Stairs" x="9" y="4" z="0">
+	<IsoObject_XML direction="N" name="UnitDefinition" x="7" y="9" z="2">
 	</IsoObject_XML>
-	<IsoObject_XML direction="E" name="Stairs" x="9" y="5" z="0">
+	<IsoObject_XML direction="N" name="UnitDefinition" x="6" y="9" z="0">
 	</IsoObject_XML>
-	<IsoObject_XML direction="E" name="Stairs" x="9" y="6" z="0">
+	<IsoObject_XML direction="N" name="UnitDefinition" x="10" y="9" z="2">
 	</IsoObject_XML>
-	<IsoObject_XML direction="S" name="Stairs" x="8" y="7" z="0">
+	<IsoObject_XML direction="N" name="UnitDefinition" x="9" y="10" z="2">
 	</IsoObject_XML>
-	<IsoObject_XML direction="S" name="Stairs" x="7" y="7" z="0">
+	<IsoObject_XML direction="N" name="UnitDefinition" x="10" y="10" z="4">
 	</IsoObject_XML>
-	<IsoObject_XML direction="S" name="Stairs" x="6" y="7" z="0">
+	<IsoObject_XML direction="N" name="Stones" x="12" y="1" z="0">
 	</IsoObject_XML>
-	<IsoObject_XML direction="S" name="BigBlock" x="12" y="1" z="0">
+	<IsoObject_XML direction="N" name="Stones" x="11" y="1" z="0">
 	</IsoObject_XML>
-	<IsoObject_XML direction="S" name="HalfCell" x="8" y="6" z="1">
+	<IsoObject_XML direction="N" name="Stones" x="10" y="1" z="0">
 	</IsoObject_XML>
-	<IsoObject_XML direction="S" name="HalfCell" x="8" y="5" z="1">
+	<IsoObject_XML direction="N" name="Stones" x="9" y="1" z="0">
 	</IsoObject_XML>
-	<IsoObject_XML direction="S" name="HalfCell" x="8" y="4" z="1">
+	<IsoObject_XML direction="N" name="BigBlock" x="5" y="4" z="0">
 	</IsoObject_XML>
-	<IsoObject_XML direction="S" name="HalfCell" x="7" y="6" z="1">
-	</IsoObject_XML>
-	<IsoObject_XML direction="S" name="HalfCell" x="7" y="5" z="1">
-	</IsoObject_XML>
-	<IsoObject_XML direction="S" name="HalfCell" x="7" y="4" z="1">
-	</IsoObject_XML>
-	<IsoObject_XML direction="S" name="HalfCell" x="6" y="6" z="1">
-	</IsoObject_XML>
-	<IsoObject_XML direction="S" name="HalfCell" x="6" y="5" z="1">
-	</IsoObject_XML>
-	<IsoObject_XML direction="S" name="HalfCell" x="6" y="4" z="1">
-	</IsoObject_XML>
-	<IsoObject_XML direction="S" name="Stairs" x="7" y="6" z="2">
-	</IsoObject_XML>
-	<IsoObject_XML direction="E" name="Stairs" x="8" y="5" z="2">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="Stairs" x="7" y="4" z="2">
-	</IsoObject_XML>
-	<IsoObject_XML direction="W" name="Stairs" x="6" y="5" z="2">
-	</IsoObject_XML>
-	<IsoObject_XML direction="W" name="HalfCell" x="7" y="5" z="3">
-	</IsoObject_XML>
-	<IsoObject_XML direction="W" name="HalfCell" x="5" y="3" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="W" name="HalfCell" x="9" y="3" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="W" name="HalfCell" x="9" y="7" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="W" name="HalfCell" x="5" y="7" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="W" name="HalfCell" x="6" y="4" z="2">
-	</IsoObject_XML>
-	<IsoObject_XML direction="W" name="HalfCell" x="8" y="4" z="2">
-	</IsoObject_XML>
-	<IsoObject_XML direction="W" name="HalfCell" x="6" y="6" z="2">
-	</IsoObject_XML>
-	<IsoObject_XML direction="W" name="HalfCell" x="8" y="6" z="2">
-	</IsoObject_XML>
-	<IsoObject_XML direction="W" name="HalfCell" x="7" y="5" z="4">
+	<IsoObject_XML direction="N" name="BigBlock" x="1" y="7" z="0">
 	</IsoObject_XML>
 </objects>
 </Level_XML>

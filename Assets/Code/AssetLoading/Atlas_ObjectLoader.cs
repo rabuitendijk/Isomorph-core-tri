@@ -6,7 +6,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
-public static class Alias_ObjectLoader  {
+public static class Atlas_ObjectLoader  {
     static int count = 0;
 
     public static Dictionary<string, IsoObjectBody> load(string folder, SortedList<string, IsoObjectBody> objectsList)
@@ -22,7 +22,7 @@ public static class Alias_ObjectLoader  {
                 loadObject(f, prototypes, objectsList);
         }
 
-        Debug.Log("Alias_ObjectLoader: "+count+", objects loaded.");
+        Debug.Log("Atlas_ObjectLoader: "+count+", objects loaded.");
         return prototypes;
     }
 

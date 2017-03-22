@@ -108,10 +108,10 @@ public class EditorGraphicsControl : GraphicsControl {
         GameObject temp = new GameObject() { name = "GLD" };
         gld = temp.AddComponent<GLDrawLoop>();
         List<Vector3> coords = new List<Vector3>();
-        coords.Add(new Vector3(0f, -.5f, 1f));
-        coords.Add(new Vector3(LogicControl.main.width*-.5f, LogicControl.main.width * .25f-.5f, 0));
-        coords.Add(new Vector3(0, (LogicControl.main.width + LogicControl.main.depth) * .25f-.5f, 0));
-        coords.Add(new Vector3(LogicControl.main.depth * .5f, LogicControl.main.depth * .25f-.5f, 0));
+        coords.Add(new ProjIso(0,0,0).position);
+        coords.Add(new ProjIso(0, LogicControl.main.length, 0).position);
+        coords.Add(new ProjIso(LogicControl.main.width, LogicControl.main.length, 0).position);
+        coords.Add(new ProjIso(LogicControl.main.width, 0, 0).position);
         gld.add(new GLInstruction(coords, Color.red));
     }
 
@@ -124,8 +124,8 @@ public class EditorGraphicsControl : GraphicsControl {
 
         coords.Add(new Vector3(0f,h*.25f -.5f, 1f));
         coords.Add(new Vector3(LogicControl.main.width * -.5f, (LogicControl.main.width+h) * .25f - .5f, 0));
-        coords.Add(new Vector3(0, (LogicControl.main.width + LogicControl.main.depth+h) * .25f - .5f, 0));
-        coords.Add(new Vector3(LogicControl.main.depth * .5f, (LogicControl.main.depth+h) * .25f - .5f, 0));
+        coords.Add(new Vector3(0, (LogicControl.main.width + LogicControl.main.length+h) * .25f - .5f, 0));
+        coords.Add(new Vector3(LogicControl.main.length * .5f, (LogicControl.main.length+h) * .25f - .5f, 0));
         gliStruct = new GLInstruction(coords, Color.blue);
     }
 
@@ -176,10 +176,10 @@ public class EditorGraphicsControl : GraphicsControl {
         for (int i = 1; i < LogicControl.main.width; i++)
         {
             coords.Add(new Vector3((-i) * .5f, (i + h) * .25f - .5f, 0));
-            coords.Add(new Vector3((-i+LogicControl.main.depth) * .5f, (i + LogicControl.main.depth + h) * .25f - .5f, 0));
+            coords.Add(new Vector3((-i+LogicControl.main.length) * .5f, (i + LogicControl.main.length + h) * .25f - .5f, 0));
         }
 
-        for (int j = 0; j < LogicControl.main.depth; j++)
+        for (int j = 0; j < LogicControl.main.length; j++)
         {
 
             coords.Add(new Vector3((j) * .5f, (j + h) * .25f - .5f, 0));
@@ -205,7 +205,7 @@ public class EditorGraphicsControl : GraphicsControl {
         for (int i = 0; i < g.coords.Count; i++)
         {
             if (g.isVisable[i])
-                g.graphic.Add(newOb(g.name, g.coords[i], g.directions[(int)g.direction][i], ghostMat));
+                g.graphic.Add(newOb(g.name, g.proj_coords[i], g.directions[(int)g.direction][i], ghostMat));
         }
     }
     protected void onGhostDestroy(IsoObjectGhost g)
@@ -243,8 +243,8 @@ public class EditorGraphicsControl : GraphicsControl {
         {
             if (g.isVisable[i])
             {
-                g.graphic[j].transform.position = g.coords[i].toPos();
-                g.graphic[j].GetComponent<SpriteRenderer>().sortingOrder = g.coords[i].depth;
+                g.graphic[j].transform.position = g.proj_coords[i].position;
+                g.graphic[j].GetComponent<SpriteRenderer>().sortingOrder = g.proj_coords[i].depth;
                 j++;
             }
         }
@@ -274,13 +274,13 @@ public class EditorGraphicsControl : GraphicsControl {
             return null;
 
         GameObject ret = new GameObject() { name = t.isoObject.name + "(" + t.coord.x + ", " + t.coord.y + ", " + t.coord.z + ")" };
-        ret.transform.position = t.coord.toPos();
+        ret.transform.position = t.coord.position;
         ret.transform.parent = folders[t.coord.z];
 
         SpriteRenderer sr = ret.AddComponent<SpriteRenderer>() as SpriteRenderer;
         sr.sprite = t.sprite;
         sr.sharedMaterial = mat;
-        sr.sortingLayerName = "DepthSort";
+        sr.sortingLayerName = "lengthSort";
         sr.sortingOrder = t.coord.depth;
 
         return ret;
@@ -289,19 +289,19 @@ public class EditorGraphicsControl : GraphicsControl {
     /// <summary>
     /// Common sprtie gameobject creator.
     /// </summary>
-    GameObject newOb(string objName, Iso i, Sprite sprite, Material mat)
+    GameObject newOb(string objName, ProjIso i, Sprite sprite, Material mat)
     {
         if (sprite == null)
             return null;
 
         GameObject ret = new GameObject() { name = objName + "(" + i.x + ", " + i.y + ", " + i.z + ")" };
-        ret.transform.position = i.toPos();
+        ret.transform.position = i.position;
         ret.transform.parent = tileFolder;
 
         SpriteRenderer sr = ret.AddComponent<SpriteRenderer>() as SpriteRenderer;
         sr.sprite = sprite;
         sr.sharedMaterial = mat;
-        sr.sortingLayerName = "DepthSort";
+        sr.sortingLayerName = "lengthSort";
         sr.sortingOrder = i.depth;
 
         return ret;

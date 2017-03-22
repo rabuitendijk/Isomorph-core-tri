@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public static class Alias_SourceLoader {
+public static class Atlas_SourceLoader {
 
     public static int mipcount = 2;
     public static int resolution = 256;
@@ -27,7 +27,7 @@ public static class Alias_SourceLoader {
             }
         }
 
-        Debug.Log("Alias_SourceLoader "+count+", slices loaded.");
+        Debug.Log("Atlas_SourceLoader "+count+", slices loaded.");
         return ret;
     }
 
@@ -39,7 +39,7 @@ public static class Alias_SourceLoader {
         //Attempt load unit sprite
         if (!File.Exists(folder + "/UnitDefinition.png"))
         {
-            Debug.Log("Alias_SourceLoader: UnitDefinition not found!!!, " + folder + "/UnitDefinition.png");
+            Debug.Log("Atlas_SourceLoader: UnitDefinition not found!!!, " + folder + "/UnitDefinition.png");
             return ret;
         }
 
@@ -54,7 +54,7 @@ public static class Alias_SourceLoader {
         {
             if (!File.Exists(folder + "/UnitDefinition.m" + i + ".png"))
             {
-                Debug.Log("Alias_SourceLoader: UnitDefinition not found!!!, " + folder + "/UnitDefinition.m" + i + ".png");
+                Debug.Log("Atlas_SourceLoader: UnitDefinition not found!!!, " + folder + "/UnitDefinition.m" + i + ".png");
                 return ret;
             }
 
@@ -80,7 +80,7 @@ public static class Alias_SourceLoader {
             return;
         }
 
-        SplicingSource ss = new SplicingSource(mipcount, ob.width, ob.depth, ob.trueHeight);
+        SplicingSource ss = new SplicingSource(mipcount, ob.width, ob.length, ob.trueHeight);
 
         ss.mips.Add(loadMip(0, filename, ob, unitDefinitions[0]));
         for (int i = 1; i < mipcount+1; i++)
@@ -98,7 +98,7 @@ public static class Alias_SourceLoader {
         if (!File.Exists(filename))
         {
             Debug.Log("Mip level not found: "+filename);
-            return new ProcessingImage[ob.width,ob.depth,ob.trueHeight];
+            return new ProcessingImage[ob.width,ob.length,ob.trueHeight];
         }
 
         byte[] imageBytes = File.ReadAllBytes(filename);
@@ -122,27 +122,27 @@ public static class Alias_SourceLoader {
     /// </summary>
     static ProcessingImage[,,] processTexture(Texture2D tex, SplicingObject_XML ob, Texture2D unit, int res, string filename)
     {
-        int expectedWidth = Mathf.RoundToInt(.5f * res * (ob.depth + ob.width));
-        int expectedHeight = Mathf.RoundToInt(.25f * res * (ob.depth + ob.width + 2 * ob.height));
+        int expectedWidth = Mathf.RoundToInt(.5f * res * (ob.length + ob.width));
+        int expectedHeight = Mathf.RoundToInt(.25f * res * (ob.length + ob.width + 2 * ob.height));
 
         int originX = Mathf.RoundToInt(.5f * res * (ob.width) - .5f * res);
-        int originY = 0;
+        int originY =  Mathf.RoundToInt(res * (ob.length + ob.width) *.25f - .5f*res);
 
         if (!(expectedHeight == tex.height) || !(expectedWidth == tex.width))
         {
             Debug.Log("SpriteSlicer: source image dimentions [" + ob.name + "] do not match expected dimentions. source<" + tex.width + ", " + tex.height + "> expected<" + expectedWidth + ", " + expectedHeight + ">.");
-            return new ProcessingImage[ob.width, ob.depth, ob.trueHeight];
+            return new ProcessingImage[ob.width, ob.length, ob.trueHeight];
         }
 
-        ProcessingImage[,,] ret = new ProcessingImage[ob.width, ob.depth, ob.trueHeight];
+        ProcessingImage[,,] ret = new ProcessingImage[ob.width, ob.length, ob.trueHeight];
 
         for (int i = 0; i < ob.width; i++)
         {
-            for (int j = 0; j < ob.depth; j++)
+            for (int j = 0; j < ob.length; j++)
             {
                 for (int k = 0; k < ob.trueHeight; k++)
                 {
-                    if (isVoid(i, j, k, ob.trueHeight))
+                    if (isVoid(i, j, k, ob.width, ob.length, ob.trueHeight))
                         ret[i, j, k] = null;
                     else
                         ret[i, j, k] = getImage(tex, new Iso(i,j,k), originX, originY, filename, res, unit);
@@ -160,7 +160,7 @@ public static class Alias_SourceLoader {
     static ProcessingImage getImage(Texture2D tex, Iso coord, int originX, int originY, string name, int size, Texture2D unit)
     {
         int x = originX + Mathf.RoundToInt(.5f * size * (-coord.x + coord.y));
-        int y = originY + Mathf.RoundToInt(.25f * size * (coord.x + coord.y + coord.z));
+        int y = originY + Mathf.RoundToInt(.25f * size * (-coord.x - coord.y + coord.z));
         ProcessingImage temp = new ProcessingImage(size, size, name + "[" + coord.x + "_" + coord.y + "_" + coord.z + "]", new Iso(coord.x, coord.y, coord.z * 2));
 
         for (int j = 0; j < (size); j++)
@@ -190,15 +190,15 @@ public static class Alias_SourceLoader {
     /// <summary>
     /// Second true height coord always added in voids
     /// </summary>
-    static bool isVoid(int i, int j, int k, int height)
+    static bool isVoid(int i, int j, int k, int width, int length, int height)
     {
 
 
         if (k % 2 == 1) //Offest height
             return true;  //Always add in offset
-        if (!(k == height - 2) && !(i == 0) && !(j == 0)) // If now sides or top, ?dont know why -2?
-            return true;  //Add
+        if ((k == height - 2) || (i == width-1) || (j == length-1)) // If now sides or top, ?dont know why -2?
+            return false;  //Add
 
-        return false;
+        return true;
     }
 }

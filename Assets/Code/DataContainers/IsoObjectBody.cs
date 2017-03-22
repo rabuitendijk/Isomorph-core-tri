@@ -94,7 +94,7 @@ public class IsoObjectBody {
                     if (x.spriteName == "VOID")
                         directions[i].Add(null);
                     else
-                        directions[i].Add(Alias_Loader.main.getSprite(x.spriteName));
+                        directions[i].Add(Atlas_Loader.main.getSprite(x.spriteName));
                 }
                 setcoords = true;
             }

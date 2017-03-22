@@ -14,18 +14,18 @@ using System;
 public class IsoObject : IsoObjectBody
 {
     public List<Tile> tiles { get; protected set; }
-
+    public ulong id = 123456789;
 
     /// <summary>
     /// Copy constructor.
     /// Offsets coordinats by origin.
     /// Shares sprite stringlist with prototype
     /// </summary>
-    public IsoObject(string prototype, Iso origin, Directions.dir direction=Directions.dir.N) : this(Alias_Loader.main.getObject(prototype), origin, direction) { }
+    public IsoObject(string prototype, Iso origin, Directions.dir direction=Directions.dir.N) : this(Atlas_Loader.main.getObject(prototype), origin, direction) { }
 
     private IsoObject(IsoObjectBody prototype, Iso origin, Directions.dir direction) : base(prototype.name, prototype.coords, prototype.directions, origin, direction)
     {
-
+        id = LogicControl.isoObject_id++;
         foreach (Iso i in coords)
         {
             i.add(origin);

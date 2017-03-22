@@ -18,15 +18,15 @@ public class EditorLogicControl : LogicControl
     /// Set action listeners
     /// Sets map as main Map
     /// </summary>
-    public EditorLogicControl(int width, int depth, int height) : this()
+    public EditorLogicControl(int width, int length, int height) : this()
     {
-        grid = new Tile[width, depth, height];
-        Width = width;
-        Depth = depth;
-        Height = height;
+        grid = new Tile[width, length, height];
+        this.width = width;
+        this.length = length;
+        this.height = height;
     }
 
-    public EditorLogicControl(Level_XML xml, string filename) : this(xml.width, xml.depth, xml.height)
+    public EditorLogicControl(Level_XML xml, string filename) : this(xml.width, xml.length, xml.height)
     {
         this.filename = filename;
         foreach (IsoObject_XML o in xml.nodes)
@@ -78,11 +78,11 @@ public class EditorLogicControl : LogicControl
     /// </summary>
     public override bool inGrid(Iso i)
     {
-        if (i.x < 0 || i.x >= Width)
+        if (i.x < 0 || i.x >= width)
             return false;
-        if (i.y < 0 || i.y >= Depth)
+        if (i.y < 0 || i.y >= length)
             return false;
-        if (i.z < 0 || i.z >= Height)
+        if (i.z < 0 || i.z >= height)
             return false;
         return true;
     }
@@ -108,7 +108,7 @@ public class EditorLogicControl : LogicControl
 
         for (int i = 0; i < width; i++)
         {
-            for (int j = 0; j < depth; j++)
+            for (int j = 0; j < length; j++)
             {
                 for (int k = 0; k < height; k++)
                 {

@@ -9,7 +9,7 @@ using System.Xml.Serialization;
 public class Level_XML : IXmlSerializable {
 
     public int width { get; protected set; }
-    public int depth { get; protected set; }
+    public int length { get; protected set; }
     public int height { get; protected set; }
 
     public List<IsoObject_XML> nodes;
@@ -18,7 +18,7 @@ public class Level_XML : IXmlSerializable {
     {
         width = -1;
         height = -1;
-        depth = -1;
+        length = -1;
         nodes = new List<IsoObject_XML>();
     }
 
@@ -81,8 +81,8 @@ public class Level_XML : IXmlSerializable {
                     height = reader.ReadContentAsInt();
                     break;
 
-                case "depth":
-                    depth = reader.ReadContentAsInt();
+                case "length":
+                    length = reader.ReadContentAsInt();
                     break;
 
                 default:
@@ -94,6 +94,6 @@ public class Level_XML : IXmlSerializable {
 
     public override string ToString()
     {
-        return "<Level_XML>(width=" + width + ", height=" + height + ", depth=" + depth + ", objects=" + nodes.Count + ")";
+        return "<Level_XML>(width=" + width + ", height=" + height + ", length=" + length + ", objects=" + nodes.Count + ")";
     }
 }

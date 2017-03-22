@@ -4,9 +4,9 @@ using System.IO;
 using System;
 using UnityEngine;
 
-public static class Alias_WriteAlias  {
+public static class Atlas_WriteAtlas  {
 
-    static int aliasSize = 2048;
+    static int AtlasSize = 2048;
     static int offset = 16;
     static int miplevels = 2;
 
@@ -14,8 +14,8 @@ public static class Alias_WriteAlias  {
 
 
     static int size = unitSize + offset* 2;
-    static int fitPerRow = Mathf.RoundToInt((aliasSize - aliasSize % size) / size);
-    static int fitPerAlias = fitPerRow* fitPerRow;
+    static int fitPerRow = Mathf.RoundToInt((AtlasSize - AtlasSize % size) / size);
+    static int fitPerAtlas = fitPerRow* fitPerRow;
 
 
     public static void write(string folder, List<SplicingSource> objects)
@@ -48,28 +48,28 @@ public static class Alias_WriteAlias  {
     }
 
     static int count = 0, number = 0;
-    static Texture2D currenctAlias;
+    static Texture2D currenctAtlas;
     static void build(int miplevel, string folder, List<SplicingSource> objects)
     {
 
         //Debug.Log("Splcing list contains " + images.Count + " objects.");
 
         count = 0; number = 0;
-        currenctAlias = new Texture2D((aliasSize >> miplevel), (aliasSize >> miplevel), TextureFormat.ARGB32, false);
-        List<ProcessingImage> inAlias = new List<ProcessingImage>();
+        currenctAtlas = new Texture2D((AtlasSize >> miplevel), (AtlasSize >> miplevel), TextureFormat.ARGB32, false);
+        List<ProcessingImage> inAtlas = new List<ProcessingImage>();
 
         foreach (SplicingSource ss in objects)
         {
             for (int i = 0; i < ss.width; i++)
             {
-                for (int j = 0; j < ss.depth; j++)
+                for (int j = 0; j < ss.length; j++)
                 {
                     for (int k = 0; k < ss.height; k++)
                     {
                         if (ss.mips[miplevel][i, j, k] != null)
                         {
                             //Debug.Log("mip = "+miplevel+", ["+i+", "+j+", "+k+"], "+ ss.mips[miplevel][i, j, k].name+", ["+ ss.mips[miplevel][i, j, k] .width+", "+ ss.mips[miplevel][i, j, k] .height+ "]");
-                            process(miplevel, folder, ss.mips[miplevel][i, j, k], inAlias);
+                            process(miplevel, folder, ss.mips[miplevel][i, j, k], inAtlas);
                         }
 
                     }
@@ -79,27 +79,27 @@ public static class Alias_WriteAlias  {
 
         }
 
-        writeXML(inAlias, folder);
-        exportAlias(currenctAlias, folder, miplevel);
+        writeXML(inAtlas, folder);
+        exportAtlas(currenctAtlas, folder, miplevel);
         
     }
 
-    static void process(int miplevel, string folder, ProcessingImage image, List<ProcessingImage> inAlias)
+    static void process(int miplevel, string folder, ProcessingImage image, List<ProcessingImage> inAtlas)
     {
-        if ( !(count<fitPerAlias))
+        if ( !(count<fitPerAtlas))
         {
-            writeXML(inAlias, folder);
-            exportAlias(currenctAlias, folder, miplevel);
+            writeXML(inAtlas, folder);
+            exportAtlas(currenctAtlas, folder, miplevel);
 
-            currenctAlias = new Texture2D((aliasSize >> miplevel), (aliasSize >> miplevel), TextureFormat.ARGB32, false);
+            currenctAtlas = new Texture2D((AtlasSize >> miplevel), (AtlasSize >> miplevel), TextureFormat.ARGB32, false);
 
             
             count = 0;
         }
 
-        inAlias.Add(image);
+        inAtlas.Add(image);
 
-        writeImage(image, currenctAlias, count, (size >> miplevel), (offset >> miplevel), (unitSize >> miplevel));
+        writeImage(image, currenctAtlas, count, (size >> miplevel), (offset >> miplevel), (unitSize >> miplevel));
         count++;
         
 
@@ -133,12 +133,12 @@ public static class Alias_WriteAlias  {
         }
     }
 
-    static void exportAlias(Texture2D alias, string folder, int miplevel)
+    static void exportAtlas(Texture2D Atlas, string folder, int miplevel)
     {
 
-        alias.Apply();
+        Atlas.Apply();
 
-        byte[] bytes = alias.EncodeToPNG();
+        byte[] bytes = Atlas.EncodeToPNG();
         if (miplevel == 0)
             File.WriteAllBytes(folder + "/" + number + ".png", bytes);
         else
@@ -169,7 +169,7 @@ public static class Alias_WriteAlias  {
         }
 
 
-        for (int i = c; i < fitPerAlias; i++)
+        for (int i = c; i < fitPerAtlas; i++)
         {
             cx = i % fitPerRow;
             cy = Mathf.RoundToInt((i - cx) / fitPerRow);

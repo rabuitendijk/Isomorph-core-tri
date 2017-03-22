@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SplicingObject_XML boxform="true" width = "1" height = "2" depth = "1">
+<SplicingObject_XML boxform="true" width = "1" height = "2" length = "1">
 <source>
 	<SplicingSource_XML source="RoughStones.png">
 	</SplicingSource_XML>
