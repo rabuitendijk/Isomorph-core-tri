@@ -19,11 +19,12 @@ public class Runner : MonoBehaviour {
         main = this;
         HUI_EditorLoadCommand.registerLoad(loadLevelInEditor);
 
+        
 
         if (rebuildAtlasses)
-            Atlas_Builder.build();
+            Atlas_Builder.build(128, 1, 8);
 
-        new Atlas_Loader();
+        new Atlas_Loader(128, 1);
 
 
         if (levelEditor)

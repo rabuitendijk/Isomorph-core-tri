@@ -7,8 +7,9 @@ using System;
 public class Atlas_WriteObjectXML {
     public static int miplevels = 2;
 
-	public static void write(string folder, List<SplicingObject_XML> objects, Dictionary<string, SplicingSource> source)
+	public static void write(string folder, List<SplicingObject_XML> objects, Dictionary<string, SplicingSource> source, int mipl)
     {
+        miplevels = mipl;
         makeDirectories(folder);
 
         foreach(SplicingObject_XML ob in objects)

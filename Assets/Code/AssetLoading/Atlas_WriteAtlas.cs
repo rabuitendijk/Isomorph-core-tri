@@ -18,8 +18,16 @@ public static class Atlas_WriteAtlas  {
     static int fitPerAtlas = fitPerRow* fitPerRow;
 
 
-    public static void write(string folder, List<SplicingSource> objects)
+    public static void write(string folder, List<SplicingSource> objects, int res, int mipl, int offs)
     {
+        offset = offs;
+        miplevels = mipl;
+        unitSize = res;
+
+        size = unitSize + offset * 2;
+        fitPerRow = Mathf.RoundToInt((AtlasSize - AtlasSize % size) / size);
+        fitPerAtlas = fitPerRow * fitPerRow;
+
         makeDirectories(folder);
 
         for (int i = 0; i < miplevels+1; i++)

@@ -121,11 +121,10 @@ public class EditorGraphicsControl : GraphicsControl {
     void setGLIStruct(int h)
     {
         List<Vector3> coords = new List<Vector3>();
-
-        coords.Add(new Vector3(0f,h*.25f -.5f, 1f));
-        coords.Add(new Vector3(LogicControl.main.width * -.5f, (LogicControl.main.width+h) * .25f - .5f, 0));
-        coords.Add(new Vector3(0, (LogicControl.main.width + LogicControl.main.length+h) * .25f - .5f, 0));
-        coords.Add(new Vector3(LogicControl.main.length * .5f, (LogicControl.main.length+h) * .25f - .5f, 0));
+        coords.Add(new ProjIso(0, 0, h).position);
+        coords.Add(new ProjIso(0, LogicControl.main.length, h).position);
+        coords.Add(new ProjIso(LogicControl.main.width, LogicControl.main.length, h).position);
+        coords.Add(new ProjIso(LogicControl.main.width, 0, h).position);
         gliStruct = new GLInstruction(coords, Color.blue);
     }
 
@@ -175,15 +174,14 @@ public class EditorGraphicsControl : GraphicsControl {
 
         for (int i = 1; i < LogicControl.main.width; i++)
         {
-            coords.Add(new Vector3((-i) * .5f, (i + h) * .25f - .5f, 0));
-            coords.Add(new Vector3((-i+LogicControl.main.length) * .5f, (i + LogicControl.main.length + h) * .25f - .5f, 0));
+            coords.Add(new ProjIso(i, 0, h).position);
+            coords.Add(new ProjIso(i, LogicControl.main.length, h).position);
         }
 
         for (int j = 0; j < LogicControl.main.length; j++)
         {
-
-            coords.Add(new Vector3((j) * .5f, (j + h) * .25f - .5f, 0));
-            coords.Add(new Vector3((j-LogicControl.main.width) * .5f, (LogicControl.main.width+j + h) * .25f - .5f, 0));
+            coords.Add(new ProjIso(0, j, h).position);
+            coords.Add(new ProjIso(LogicControl.main.width, j, h).position);
         }
 
         gliGrid = new GLInstruction(coords, Color.gray, false, false);

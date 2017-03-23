@@ -12,7 +12,7 @@ public class Atlas_Loader {
     Dictionary<string, IsoObjectBody> prototypes;
     public SortedList<string, IsoObjectBody> objectsList { get; protected set; }
 
-    public Atlas_Loader()
+    public Atlas_Loader(int resolution, int miplevels)
     {
         main = this;
         Atlas_folder = Application.streamingAssetsPath + "/Export_Images";

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinkerObject_XML name="HalfCell" miplevels = "2">
+<LinkerObject_XML name="HalfCell" miplevels = "1">
 <directions>
 	<Direction_XML direction="N" linked = "false">
 	<coords>

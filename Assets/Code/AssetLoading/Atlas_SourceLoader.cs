@@ -11,9 +11,12 @@ public static class Atlas_SourceLoader {
 
     public static List<SplicingSource> entries;
 
-	public static Dictionary<string, SplicingSource> loadSource(string folder, List<SplicingObject_XML> objects)
+	public static Dictionary<string, SplicingSource> loadSource(string folder, List<SplicingObject_XML> objects, int res, int miplevels)
     {
         //
+        mipcount = miplevels;
+        resolution = res;
+
         entries = new List<SplicingSource>();
         Dictionary<string, SplicingSource> ret = new Dictionary<string, SplicingSource>();
         List<Texture2D> unitDefinitions = loadUnitDefinitions(folder);
@@ -162,12 +165,12 @@ public static class Atlas_SourceLoader {
         int x = originX + Mathf.RoundToInt(.5f * size * (-coord.x + coord.y));
         int y = originY + Mathf.RoundToInt(.25f * size * (-coord.x - coord.y + coord.z));
         ProcessingImage temp = new ProcessingImage(size, size, name + "[" + coord.x + "_" + coord.y + "_" + coord.z + "]", new Iso(coord.x, coord.y, coord.z * 2));
-
+        Color pixel;
         for (int j = 0; j < (size); j++)
         {
             for (int k = 0; k < (size); k++)
             {
-
+                /*
                 if (unit.GetPixel(j, k).a > .5)
                 {
                     //Copy pixel
@@ -178,7 +181,10 @@ public static class Atlas_SourceLoader {
                     //Ignore pixel
                     temp.set(j, k, new Color(0f, 0f, 0f, 0f));
                 }
-
+                */
+                pixel = tex.GetPixel(x + j, y + k);
+                pixel.a = Mathf.Min(pixel.a, unit.GetPixel(j, k).a);
+                temp.set(j, k, pixel);
 
             }
         }

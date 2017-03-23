@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinkerObject_XML name="Limestone_2" miplevels = "2">
+<LinkerObject_XML name="Limestone_2" miplevels = "1">
 <directions>
 	<Direction_XML direction="N" linked = "false">
 	<coords>
