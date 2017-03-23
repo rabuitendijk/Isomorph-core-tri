@@ -4,6 +4,7 @@ using UnityEngine;
 
 public static class Directions  {
 
+    public static dir currentDirection = dir.N;
     public enum dir { N, E, S, W };
 
 	public static dir getDir(string s)
@@ -23,4 +24,6 @@ public static class Directions  {
                 return dir.N;
         }
     }
+
+
 }

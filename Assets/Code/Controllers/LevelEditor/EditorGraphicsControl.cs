@@ -15,6 +15,7 @@ public class EditorGraphicsControl : GraphicsControl {
 
     Material mat, ghostMat;
     List<Transform> folders = new List<Transform>();
+    Dictionary<ulong, Tile> projectionTable = new Dictionary<ulong, Tile>();
     GLDrawLoop gld;
     GLInstruction gliGrid, gliStruct;
     int height = 0;
@@ -187,14 +188,31 @@ public class EditorGraphicsControl : GraphicsControl {
         gliGrid = new GLInstruction(coords, Color.gray, false, false);
     }
 
+    public override void rotate(Directions.dir dir)
+    {
+        Directions.currentDirection = dir;
+        ProjIso i;
+
+        foreach (KeyValuePair<ulong, Tile> entry in projectionTable)
+        {
+            i  = entry.Value.coord.rotate(dir);
+            entry.Value.graphic.transform.position = i.position;
+            entry.Value.graphic.GetComponent<SpriteRenderer>().sortingOrder = i.depth;
+        }
+    }
+
     protected override void onTileCreate(Tile t)
     {
         t.graphic = newOb(t, mat);
+        if (t.sprite != null)
+            projectionTable.Add(t.proj_id, t);
     }
 
     protected override void onTileDestroy(Tile t)
     {
         t.graphic = null;
+        if (t.sprite != null)
+            projectionTable.Remove(t.proj_id);
     }
 
 

@@ -81,5 +81,9 @@ public class BasicGraphicsControl : GraphicsControl {
         return;
     }
 
+    public override void rotate(Directions.dir direction)
+    {
+        throw new NotImplementedException();
+    }
 }
 

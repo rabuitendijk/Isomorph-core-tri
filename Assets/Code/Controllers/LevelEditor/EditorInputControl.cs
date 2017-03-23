@@ -41,6 +41,7 @@ public class EditorInputControl : InputControl {
                 switchMouseMode();
 
             rotate();
+            mapRotate();
         }
 
 
@@ -62,6 +63,24 @@ public class EditorInputControl : InputControl {
                 temp = 4 + temp;
 
             GraphicsControl.main.hover.rotate((Directions.dir)temp);
+            return;
+        }
+    }
+
+    void mapRotate()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            GraphicsControl.main.rotate((Directions.dir)(((int)Directions.currentDirection + 1) % 4));
+            return;
+        }
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            int temp = ((int)Directions.currentDirection) - 1;
+            if (temp < 0)
+                temp = 4 + temp;
+
+            GraphicsControl.main.rotate((Directions.dir)temp);
             return;
         }
     }

@@ -12,7 +12,7 @@ using UnityEngine;
 /// Late February 2017
 /// </summary>
 public class Tile {
-    ulong proj_id = 123456789;
+    public ulong proj_id = 0;
 
     GameObject Graphic;
     public GameObject graphic

@@ -40,6 +40,7 @@ public abstract class GraphicsControl{
     /// Destroy inhereting object, automatically called in base.destroy();
     /// </summary>
     protected abstract void destructor();
+    public abstract void rotate(Directions.dir direction);
 
     /// <summary>
     /// Destroy the controller so that it can be overwritten in the runner

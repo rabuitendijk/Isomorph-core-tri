@@ -35,5 +35,21 @@ public class ProjIso : Iso {
         graphic.GetComponent<SpriteRenderer>().sortingOrder = i.depth;
     }
 
-   
+    public ProjIso rotate(Directions.dir dir)
+    {
+        switch(dir)
+        {
+            case Directions.dir.N:
+                return this;
+            case Directions.dir.E:
+                return new ProjIso(LogicControl.main.width - y-1, x, z);
+            case Directions.dir.S:
+                return new ProjIso(LogicControl.main.width - x-1, LogicControl.main.length - y-1, z);
+            case Directions.dir.W:
+                return new ProjIso(y, LogicControl.main.length - x-1, z);
+            default:
+                Debug.Log("ProjIso.rotate: default swidtch: "+dir);
+                return null;
+        }
+    }
 }
