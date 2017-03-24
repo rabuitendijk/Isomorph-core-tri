@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinkerObject_XML name="BigBlock" miplevels = "1">
+<LinkerObject_XML width="2" length="2" height="2" name="BigBlock" miplevels = "1">
 <directions>
 	<Direction_XML direction="N" linked = "false">
 	<coords>

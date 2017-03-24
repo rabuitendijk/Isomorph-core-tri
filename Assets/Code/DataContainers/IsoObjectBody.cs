@@ -15,6 +15,10 @@ public class IsoObjectBody {
     public string name { get; protected set; }
     public Iso origin { get; protected set; }
 
+    public int width { get; protected set; }
+    public int height { get; protected set; }
+    public int length { get; protected set; }
+
     /// <summary>
     /// Check is coords in map are occupied
     /// </summary>
@@ -49,6 +53,29 @@ public class IsoObjectBody {
         if (coords.Count == 1)
             singular = true;
 
+    }
+
+    //Proteced constructor
+    private IsoObjectBody(string name, List<Iso> coords, List<List<Sprite>> directions, int width, int length, int height)
+    {
+        this.coords = clone(coords);
+        this.directions = directions;
+        this.width = width;
+        this.length = length;
+        this.height = height;
+        isVisable = new List<bool>();
+
+        foreach (Sprite s in directions[(int)direction])
+        {
+            isVisable.Add((s != null));
+        }
+        this.name = name;
+
+        singular = false;
+        if (coords.Count == 1)
+            singular = true;
+
+        //Debug.Log(ToString());
     }
 
     /// <summary>
@@ -107,7 +134,7 @@ public class IsoObjectBody {
                 directions[i] = directions[(int)Directions.getDir(obj.directions[i].source)];
         }
 
-        return new IsoObjectBody(obj.name, coords, directions);
+        return new IsoObjectBody(obj.name, coords, directions, obj.width, obj.length, obj.height);
     }
 
     /// <summary>
@@ -116,6 +143,11 @@ public class IsoObjectBody {
     public virtual void destroy()
     {
         //empty
+    }
+
+    public override string ToString()
+    {
+        return "IsoObjectBody<" + name + ", [" + width + ", " + length + ", " + height + "]>";
     }
 
 }

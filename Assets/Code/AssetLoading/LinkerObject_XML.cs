@@ -12,11 +12,19 @@ public class LinkerObject_XML : IXmlSerializable{
     public int miplevels { get; protected set; }
     public List<Direction_XML> directions;
 
+    public int width { get; protected set; }
+    public int length { get; protected set; }
+    public int height { get; protected set; }
+
     public LinkerObject_XML()
     {
         name = "VOID";
         miplevels = -1;
         directions = new List<Direction_XML>();
+
+        width = -1;
+        length = -1;
+        height = -1;
     }
 
     public XmlSchema GetSchema()
@@ -71,6 +79,21 @@ public class LinkerObject_XML : IXmlSerializable{
 
                 case "name":
                     name = reader.ReadContentAsString();
+                    break;
+
+
+                case "length":
+                    length = reader.ReadContentAsInt();
+                    break;
+
+
+                case "width":
+                    width = reader.ReadContentAsInt();
+                    break;
+
+
+                case "height":
+                    height = reader.ReadContentAsInt();
                     break;
 
                 default:
