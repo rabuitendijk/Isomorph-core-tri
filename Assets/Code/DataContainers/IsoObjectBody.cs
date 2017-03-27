@@ -35,12 +35,15 @@ public class IsoObjectBody {
     }
 
     //Proteced constructor
-    protected IsoObjectBody(string name, List<Iso> coords, List<List<Sprite>> directions, Iso origin=null, Directions.dir direction = Directions.dir.N)
+    protected IsoObjectBody(string name, List<Iso> coords, List<List<Sprite>> directions, int width, int length, int height, Iso origin=null, Directions.dir direction = Directions.dir.N)
     {
         this.coords = clone(coords);
         this.directions = directions;
         this.origin = origin;
         this.direction = direction;
+        this.width = width;
+        this.length = length;
+        this.height = height;
         isVisable = new List<bool>();
 
         foreach (Sprite s in directions[(int)direction])
@@ -55,7 +58,7 @@ public class IsoObjectBody {
 
     }
 
-    //Proteced constructor
+    //Pivate constructor
     private IsoObjectBody(string name, List<Iso> coords, List<List<Sprite>> directions, int width, int length, int height)
     {
         this.coords = clone(coords);

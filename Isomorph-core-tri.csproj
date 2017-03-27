@@ -114,10 +114,12 @@
     <Compile Include="Assets\Code\Controllers\LevelEditor\Components\HUI_EditorLoadCommand.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\Components\HUI_EditorProcessor.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\Components\HUI_EditorSaveCommand.cs" />
-    <Compile Include="Assets\Code\Controllers\LevelEditor\EditorGraphicsControl.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\EditorInputControl.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\EditorLogicControl.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\EditorSaveControl.cs" />
+    <Compile Include="Assets\Code\Controllers\LevelEditor\Graphics\EditorComonentGLD.cs" />
+    <Compile Include="Assets\Code\Controllers\LevelEditor\Graphics\EditorComponentGhost.cs" />
+    <Compile Include="Assets\Code\Controllers\LevelEditor\Graphics\EditorGraphicsControl.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\MonoComponents\GLDrawLoop.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\MonoComponents\GLInstruction.cs" />
     <Compile Include="Assets\Code\Controllers\LevelEditor\MonoComponents\MonoEditorMouseTrap.cs" />

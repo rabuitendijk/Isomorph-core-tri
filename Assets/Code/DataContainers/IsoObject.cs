@@ -23,7 +23,7 @@ public class IsoObject : IsoObjectBody
     /// </summary>
     public IsoObject(string prototype, Iso origin, Directions.dir direction=Directions.dir.N) : this(Atlas_Loader.main.getObject(prototype), origin, direction) { }
 
-    private IsoObject(IsoObjectBody prototype, Iso origin, Directions.dir direction) : base(prototype.name, prototype.coords, prototype.directions, origin, direction)
+    private IsoObject(IsoObjectBody prototype, Iso origin, Directions.dir direction) : base(prototype.name, prototype.coords, prototype.directions, prototype.width, prototype.length, prototype.height, origin, direction)
     {
         id = LogicControl.isoObject_id++;
         foreach (Iso i in coords)
@@ -75,6 +75,15 @@ public class IsoObject : IsoObjectBody
         }
     }
 
+    public void setDirection(Directions.dir dir)
+    {
+        direction = dir;
+    }
+
+    public Sprite getSprite(int index)
+    {
+        return directions[(int)direction][index];
+    }
     static Action<IsoObject> onCreate;
     static Action<IsoObject> onDestroy;
     public static void registerOnCreate(Action<IsoObject> funct) { onCreate += funct; }

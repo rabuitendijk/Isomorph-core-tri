@@ -21,6 +21,7 @@ public class ProjIso : Iso {
     public ProjIso(int x, int y, int z, int depthModifier = 0): base(x,y,z){this.depthModifier = depthModifier;}
 
     public ProjIso(Iso i, int depthModifier = 0) : base(i){this.depthModifier = depthModifier;}
+    public ProjIso(ProjIso i) : base(i) { this.depthModifier = i.depthModifier; }
 
     /// <summary>
     /// Moves this iso to other and recalculates
@@ -37,7 +38,9 @@ public class ProjIso : Iso {
 
     public ProjIso rotate(Directions.dir dir)
     {
-        switch(dir)
+        //Debug.Log("ord");
+
+        switch (dir)
         {
             case Directions.dir.N:
                 return this;
@@ -51,5 +54,55 @@ public class ProjIso : Iso {
                 Debug.Log("ProjIso.rotate: default swidtch: "+dir);
                 return null;
         }
+    }
+
+    public ProjIso rotate(Directions.dir dir, IsoObject ob)
+    {
+
+        if (ob.width == 1 && ob.length == 1)
+            return rotate(dir);
+
+        //Debug.Log("special");
+        ProjIso ret = new ProjIso(this) ;
+        ret = ret - ob.origin;
+
+        //Sub rotation
+        switch (dir)
+        {
+            case Directions.dir.N:
+                break;
+            case Directions.dir.W:
+                ret =  new ProjIso(ob.width - ret.y - 1, ret.x, ret.z);
+                break;
+            case Directions.dir.S:
+                ret = new ProjIso(ob.width - ret.x - 1, ob.length - ret.y - 1, ret.z);
+                break;
+            case Directions.dir.E:
+                ret =  new ProjIso(ret.y, ob.length - ret.x - 1, ret.z);
+                break;
+            default:
+                Debug.Log("ProjIso.rotate: default swidtch: " + dir);
+                return null;
+        }
+        ret = ret + ob.origin;
+
+        return ret.rotate(dir);
+    }
+
+
+    public static ProjIso operator +(ProjIso lh, Iso rh)
+    {
+        lh.x += rh.x;
+        lh.y += rh.y;
+        lh.z += rh.z;
+        return lh;
+    }
+
+    public static ProjIso operator -(ProjIso lh, Iso rh)
+    {
+        lh.x -= rh.x;
+        lh.y -= rh.y;
+        lh.z -= rh.z;
+        return lh;
     }
 }
