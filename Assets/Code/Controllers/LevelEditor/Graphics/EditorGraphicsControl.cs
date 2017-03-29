@@ -54,7 +54,7 @@ public class EditorGraphicsControl : GraphicsControl {
         {
             for (int i = 0; i < entry.Value.coords.Count; i++)
             {
-                entry.Value.setDirection(dir);
+                //entry.Value.setDirection(dir);
                 if (entry.Value.getSprite(i) != null)
                 {
                     t = LogicControl.main.get(entry.Value.coords[i]);
@@ -62,7 +62,7 @@ public class EditorGraphicsControl : GraphicsControl {
                     p = t.coord.rotate(dir, entry.Value);
                     t.graphic.transform.position = p.position;
                     t.graphic.GetComponent<SpriteRenderer>().sortingOrder = p.depth;
-                    t.graphic.GetComponent<SpriteRenderer>().sprite = entry.Value.getSprite(i);
+                    t.graphic.GetComponent<SpriteRenderer>().sprite = entry.Value.getSprite(i, Directions.subtract(entry.Value.direction, dir));
                 }
             }
 

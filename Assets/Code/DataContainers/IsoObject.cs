@@ -84,6 +84,12 @@ public class IsoObject : IsoObjectBody
     {
         return directions[(int)direction][index];
     }
+
+    public Sprite getSprite(int index, Directions.dir dir)
+    {
+        return directions[(int)dir][index];
+    }
+
     static Action<IsoObject> onCreate;
     static Action<IsoObject> onDestroy;
     public static void registerOnCreate(Action<IsoObject> funct) { onCreate += funct; }
