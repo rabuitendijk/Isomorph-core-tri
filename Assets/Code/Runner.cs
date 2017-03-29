@@ -11,6 +11,9 @@ public class Runner : MonoBehaviour {
     InputControl inputControl;
     GraphicsControl graphicsControl;
     LogicControl logicControl;
+    SaveControl saveControl;
+    UIControl uiControl;
+
     // Use this for initialization
     void Start()
     {
@@ -32,16 +35,20 @@ public class Runner : MonoBehaviour {
             Debug.Log("Editor mode loaded.");
 
             logicControl = new EditorLogicControl(16, 16, 16);
-            graphicsControl = new EditorGraphicsControl();
+            saveControl = new EditorSaveControl();
             inputControl = new EditorInputControl();
+            graphicsControl = new EditorGraphicsControl();
+            uiControl = new EditorUIControl();
+
+            saveControl.delayedConstruction();
+            inputControl.delayedConstruction();
+            graphicsControl.delayedConstruction();
+            logicControl.delayedConstruction();
+            uiControl.delayedConstruction();
         }
         else
         {
-            logicControl = new BasicLogicControl(16, 16, 16);
-            graphicsControl = new BasicGraphicsControl();
-            inputControl = new BasicInputControl();
-
-            logicControl.makeLevel("Simple");
+            Debug.Log("TODO");
         }
 
         
@@ -63,10 +70,16 @@ public class Runner : MonoBehaviour {
             graphicsControl.destroy();
         if (inputControl != null)
             inputControl.destroy();
+        if (saveControl != null)
+            saveControl.destroy();
+        if (uiControl != null)
+            uiControl.destroy();
 
         logicControl = null;
         inputControl = null;
         graphicsControl = null;
+        saveControl = null;
+        uiControl = null;
     }
 
     void loadLevelInEditor(string filename)
@@ -83,10 +96,17 @@ public class Runner : MonoBehaviour {
 
         flush();
 
+        logicControl = new EditorLogicControl(xml, filename);
+        saveControl = new EditorSaveControl();
         graphicsControl = new EditorGraphicsControl();
         inputControl = new EditorInputControl();
-        logicControl = new EditorLogicControl(xml, filename);
+        uiControl = new EditorUIControl();
 
+        saveControl.delayedConstruction();
+        inputControl.delayedConstruction();
+        graphicsControl.delayedConstruction();
+        logicControl.delayedConstruction();
+        uiControl.delayedConstruction();
     }
 
 

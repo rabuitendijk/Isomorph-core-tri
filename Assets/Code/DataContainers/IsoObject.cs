@@ -25,7 +25,7 @@ public class IsoObject : IsoObjectBody
 
     private IsoObject(IsoObjectBody prototype, Iso origin, Directions.dir direction) : base(prototype.name, prototype.coords, prototype.directions, prototype.width, prototype.length, prototype.height, origin, direction)
     {
-        id = LogicControl.isoObject_id++;
+        id = SaveControl.isoObject_id++;
         foreach (Iso i in coords)
         {
             i.add(origin);

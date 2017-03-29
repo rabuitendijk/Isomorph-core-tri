@@ -12,7 +12,6 @@ using UnityEngine;
 /// Late February 2017
 /// </summary>
 public class Tile {
-    public ulong proj_id = 0;
 
     GameObject Graphic;
     public GameObject graphic
@@ -36,9 +35,6 @@ public class Tile {
         this.coord = coord;
         this.sprite = sprite;
         this.isoObject = isoObject;
-
-        if (sprite != null)
-            proj_id = GraphicsControl.proj_id++;
 
         //Create Tile with no assigned map so push to main Map
         onCreate(this);

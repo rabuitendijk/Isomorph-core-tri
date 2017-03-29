@@ -23,5 +23,11 @@
 	</IsoObject_XML>
 	<IsoObject_XML direction="S" name="Stairs" x="3" y="7" z="0">
 	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="UnitDefinition" x="10" y="3" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="UnitDefinition" x="10" y="5" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="BigBlock" x="12" y="0" z="0">
+	</IsoObject_XML>
 </objects>
 </Level_XML>
