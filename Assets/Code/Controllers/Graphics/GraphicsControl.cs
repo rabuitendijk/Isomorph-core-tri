@@ -29,6 +29,7 @@ public abstract class GraphicsControl{
         Tile.registerOnCreate(onTileCreate);
         Tile.registerOnDestroy(onTileDestroy);
 
+        Directions.currentDirection = Directions.dir.N;
     }
 
     public abstract void delayedConstruction();

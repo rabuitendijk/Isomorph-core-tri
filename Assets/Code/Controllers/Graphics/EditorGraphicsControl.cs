@@ -104,14 +104,14 @@ public class EditorGraphicsControl : GraphicsControl {
             return null;
 
         GameObject ret = new GameObject() { name = t.isoObject.name + "(" + t.coord.x + ", " + t.coord.y + ", " + t.coord.z + ")" };
-        ret.transform.position = t.coord.position;
+        ret.transform.position = t.coord.rotate(Directions.currentDirection, t.isoObject).position;
         ret.transform.parent = folders[t.coord.z];
 
         SpriteRenderer sr = ret.AddComponent<SpriteRenderer>() as SpriteRenderer;
-        sr.sprite = t.sprite;
+        sr.sprite = t.sprite; //TODO
         sr.sharedMaterial = mat;
         sr.sortingLayerName = "lengthSort";
-        sr.sortingOrder = t.coord.depth;
+        sr.sortingOrder = t.coord.rotate(Directions.currentDirection, t.isoObject).depth;
 
         return ret;
     }

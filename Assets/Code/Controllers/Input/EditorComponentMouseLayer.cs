@@ -52,20 +52,11 @@ public class EditorComponentMouseLayer : ComponentMouse
     /// </summary>
     bool catchHitFloor(out Iso i)
     {
-        
+        i = Directions.mouseToFloor(layer);
 
-        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        float upper_x = (2f * pos.y - pos.x - .5f * layer + 1f), upper_y = (2f * pos.y + pos.x - .5f * layer + 1f);
-        Iso target = new Iso(pos.x, pos.y, Mathf.FloorToInt(layer));
-
-        if (LogicControl.main.inGrid(target))
-        {
-            i = target;
-            return true;
-        }
-        i = null;
-        return false;
+        if (i == null)
+            return false;
+        return true;
     }
 
     public override void onClick(string mode)

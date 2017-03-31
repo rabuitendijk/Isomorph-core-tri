@@ -71,8 +71,8 @@ public class EditorComponentGhost
         {
             if (g.isVisable[i])
             {
-                g.graphic[j].transform.position = g.proj_coords[i].position;
-                g.graphic[j].GetComponent<SpriteRenderer>().sortingOrder = g.proj_coords[i].depth;
+                g.graphic[j].transform.position = g.proj_coords[i].rotate(Directions.currentDirection, g).position;
+                g.graphic[j].GetComponent<SpriteRenderer>().sortingOrder = g.proj_coords[i].rotate(Directions.currentDirection, g).depth;
                 j++;
             }
         }

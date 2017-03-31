@@ -26,21 +26,21 @@ public class Tile {
 
     public ProjIso coord { get; protected set; }
 
-    public Sprite sprite { get; protected set; }
+    public Sprite sprite { get { return isoObject.getSprite(index, Directions.subtract(isoObject.direction, Directions.currentDirection)); } }
     public IsoObject isoObject { get; protected set; }
+    public int index { get; protected set; }
 
-
-    public Tile(ProjIso coord, Sprite sprite = null, IsoObject isoObject = null)
+    public Tile(ProjIso coord, int index, IsoObject isoObject = null)
     {
         this.coord = coord;
-        this.sprite = sprite;
+        this.index = index;
         this.isoObject = isoObject;
 
         //Create Tile with no assigned map so push to main Map
         onCreate(this);
     }
 
-    public Tile (Iso coord, Sprite sprite = null, IsoObject isoObject = null) : this(new ProjIso(coord), sprite, isoObject){}
+    public Tile (Iso coord, int index, IsoObject isoObject = null) : this(new ProjIso(coord), index, isoObject){}
 
     /// <summary>
     /// Destroy this tile

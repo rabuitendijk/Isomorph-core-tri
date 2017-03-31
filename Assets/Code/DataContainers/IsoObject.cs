@@ -51,7 +51,7 @@ public class IsoObject : IsoObjectBody
 
         for (int i=0; i<coords.Count; i++)
         {
-            tiles.Add(new Tile(coords[i], directions[(int)direction][i], this));
+            tiles.Add(new Tile(coords[i], i, this));
         }
         //Debug.Log("Construction did run.");
 

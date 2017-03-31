@@ -52,4 +52,26 @@ public static class Directions  {
 
         return (dir)i;
     }
+
+    public static Iso mouseToFloor(int z)
+    {
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Iso i = null;
+        Iso target;
+
+        if (currentDirection == dir.E)
+        {
+            pos += new Vector3(-LogicControl.main.length*.5f, (LogicControl.main.length)*.25f, 0f);
+            target = new Iso(Mathf.FloorToInt(2f * pos.y - pos.x), Mathf.FloorToInt(-2f * pos.y - pos.x), z);
+        }
+        else
+            target = new Iso(pos.x, pos.y, z);
+
+        if (LogicControl.main.inGrid(target))
+        {
+            i = target;
+            return i;
+        }
+        return i;
+    }
 }

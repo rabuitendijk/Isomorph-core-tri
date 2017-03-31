@@ -45,18 +45,18 @@ public class ProjIso : Iso {
             case Directions.dir.N:
                 return this;
             case Directions.dir.E:
-                return new ProjIso(LogicControl.main.width - y-1, x, z);
+                return new ProjIso(y, LogicControl.main.length - x - 1, z);
             case Directions.dir.S:
                 return new ProjIso(LogicControl.main.width - x-1, LogicControl.main.length - y-1, z);
             case Directions.dir.W:
-                return new ProjIso(y, LogicControl.main.length - x-1, z);
+                return new ProjIso(LogicControl.main.width - y - 1, x, z);
             default:
                 Debug.Log("ProjIso.rotate: default swidtch: "+dir);
                 return null;
         }
     }
 
-    public ProjIso rotate(Directions.dir dir, IsoObject ob)
+    public ProjIso rotate(Directions.dir dir, IsoObjectBody ob)
     {
 
         if (ob.width == 1 && ob.length == 1)
@@ -72,13 +72,13 @@ public class ProjIso : Iso {
             case Directions.dir.N:
                 break;
             case Directions.dir.W:
-                ret =  new ProjIso(ob.width - ret.y - 1, ret.x, ret.z);
+                ret = new ProjIso(ret.y, ob.length - ret.x - 1, ret.z);
                 break;
             case Directions.dir.S:
                 ret = new ProjIso(ob.width - ret.x - 1, ob.length - ret.y - 1, ret.z);
                 break;
             case Directions.dir.E:
-                ret =  new ProjIso(ret.y, ob.length - ret.x - 1, ret.z);
+                ret = new ProjIso(ob.width - ret.y - 1, ret.x, ret.z);
                 break;
             default:
                 Debug.Log("ProjIso.rotate: default swidtch: " + dir);
