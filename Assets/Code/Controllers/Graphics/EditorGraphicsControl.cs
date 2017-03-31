@@ -67,7 +67,7 @@ public class EditorGraphicsControl : GraphicsControl {
                     p = t.coord.rotate(dir, entry.Value);
                     t.graphic.transform.position = p.position;
                     t.graphic.GetComponent<SpriteRenderer>().sortingOrder = p.depth;
-                    t.graphic.GetComponent<SpriteRenderer>().sprite = entry.Value.getSprite(i, Directions.subtract(entry.Value.direction, dir));
+                    t.graphic.GetComponent<SpriteRenderer>().sprite = entry.Value.getSprite(i, Directions.add(entry.Value.direction, dir));
                 }
             }
 

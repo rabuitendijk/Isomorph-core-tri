@@ -26,7 +26,7 @@ public class Tile {
 
     public ProjIso coord { get; protected set; }
 
-    public Sprite sprite { get { return isoObject.getSprite(index, Directions.subtract(isoObject.direction, Directions.currentDirection)); } }
+    public Sprite sprite { get { return isoObject.getSprite(index, Directions.add(isoObject.direction, Directions.currentDirection)); } }
     public IsoObject isoObject { get; protected set; }
     public int index { get; protected set; }
 
