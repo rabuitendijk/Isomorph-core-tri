@@ -10,6 +10,7 @@ public class EditorComponentGhost
     Material ghostMat;
     EditorGraphicsControl main;
     Transform tileFolder;
+    IsoObjectGhost g;
 
     public EditorComponentGhost(EditorGraphicsControl main, Transform tileFolder)
     {
@@ -35,6 +36,8 @@ public class EditorComponentGhost
             if (g.isVisable[i])
                 g.graphic.Add(newOb(g.name, g.proj_coords[i], g.directions[(int)g.direction][i], ghostMat));
         }
+
+        this.g = g;
     }
     protected void onGhostDestroy(IsoObjectGhost g)
     {
@@ -44,6 +47,7 @@ public class EditorComponentGhost
         }
         g.graphic.Clear();
     }
+
     protected void onGhostRotate(IsoObjectGhost g)
     {
         if (g.graphic.Count == 0)
@@ -55,11 +59,35 @@ public class EditorComponentGhost
         {
             if (g.isVisable[i])
             {
-                g.graphic[j].GetComponent<SpriteRenderer>().sprite = g.directions[(int)g.direction][i];
+                g.graphic[j].GetComponent<SpriteRenderer>().sprite = g.directions[(int)Directions.add(Directions.currentDirection, g.direction)][i];
                 j++;
             }
         }
     }
+
+    /// <summary>
+    /// Called on active ghost when map is rotated
+    /// </summary>
+    public void onGhostRotate()
+    {
+        if (g == null)
+            return;
+
+        if (g.graphic.Count == 0)
+            return;
+
+        int j = 0;
+
+        for (int i = 0; i < g.coords.Count; i++)
+        {
+            if (g.isVisable[i])
+            {
+                g.graphic[j].GetComponent<SpriteRenderer>().sprite = g.directions[(int)Directions.add(Directions.currentDirection, g.direction)][i];
+                j++;
+            }
+        }
+    }
+
     protected void onGhostTranlate(IsoObjectGhost g)
     {
         if (g.graphic.Count == 0)

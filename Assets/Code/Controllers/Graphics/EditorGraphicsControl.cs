@@ -72,6 +72,8 @@ public class EditorGraphicsControl : GraphicsControl {
             }
 
         }
+
+        ghost.onGhostRotate();
     }
 
     protected override void onTileCreate(Tile t)

@@ -54,7 +54,7 @@ public class EditorComponentMouseLayer : ComponentMouse
     {
         i = Directions.mouseToFloor(layer);
 
-        if (i == null)
+        if (i == null || !LogicControl.main.inGrid(i))
             return false;
         return true;
     }
