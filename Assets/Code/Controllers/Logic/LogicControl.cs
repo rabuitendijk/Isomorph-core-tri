@@ -9,7 +9,7 @@ using UnityEngine;
 /// Robin Apollo Buitendijk
 /// Early March 2017
 /// </summary>
-public abstract class LogicControl {
+public abstract class LogicControl : Controller{
 
     public static LogicControl main;
     public int width { get; protected set; }

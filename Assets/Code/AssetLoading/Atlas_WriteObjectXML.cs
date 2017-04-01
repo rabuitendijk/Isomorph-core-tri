@@ -39,7 +39,7 @@ public class Atlas_WriteObjectXML {
         string xml;
 
         xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
-        xml += "<LinkerObject_XML width=\""+ob.width+"\" length=\""+ob.length+"\" height=\""+ob.height+"\" name=\"" + ob.name + "\" miplevels = \""+miplevels+"\">\n";
+        xml += "<LinkerObject_XML width=\""+ob.width+"\" length=\""+ob.length+"\" height=\""+ob.height+"\" name=\"" + ob.name + "\" is_light = \""+(ob.is_light? "true":"false")+"\" light_radius = \""+ob.light_radius+"\" miplevels = \"" + miplevels+"\">\n";
         xml += "<directions>\n";
         
         string[] dirs = { "N", "E", "S", "W"};

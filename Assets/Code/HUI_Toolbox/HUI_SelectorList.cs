@@ -7,16 +7,16 @@ using UnityEngine.UI;
 public class HUI_SelectorList  {
 
 	public string selected { get; protected set; }
-    RectTransform source, root;
+    RectTransform root;
     public RectTransform scrollList { get; protected set; }
     HUI_TextNode textNode;
-    Font font;
+    //Font font;
 
     public HUI_SelectorList(RectTransform source, SortedList<string, IsoObjectBody> nodes, Vector2 min, Vector2 max, Font font)
     {
         selected = "VOID";
-        this.source = source;
-        this.font = font;
+        //this.source = source;
+        //this.font = font;
 
         HUI_NodeClick.registerOnClick(changeSelected);
 
@@ -34,10 +34,10 @@ public class HUI_SelectorList  {
         HUI.addVerticalLayoutGroup(scrollList, new RectOffset(2, 2, 2, 2), 2);
         HUI.addContentSizeFitter(scrollList);
 
-        HUI_TextNode n;
+        //HUI_TextNode n;
         for (int i = 0; i < nodes.Count; i++)
         {
-            n = new HUI_TextNode(scrollList, Atlas_Loader.main.objectsList.Values[i].name, font);
+            new HUI_TextNode(scrollList, Atlas_Loader.main.objectsList.Values[i].name, font);
         }
     }
 

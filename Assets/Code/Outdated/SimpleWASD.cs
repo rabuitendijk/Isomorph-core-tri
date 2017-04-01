@@ -46,9 +46,6 @@ public class SimpleWASD : MonoBehaviour {
 		if (Input.GetKey("left"))
 			transform.position += new Vector3(-Time.deltaTime * speed / zoom, 0, 0);
 
-		if (Input.GetKey(KeyCode.R))
-			Application.LoadLevel(Application.loadedLevel);
-
 
 		if (Input.GetAxis ("Mouse ScrollWheel") > 0)
 			snapIn ();

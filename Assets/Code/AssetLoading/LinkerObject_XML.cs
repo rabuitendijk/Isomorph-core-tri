@@ -15,6 +15,9 @@ public class LinkerObject_XML : IXmlSerializable{
     public int width { get; protected set; }
     public int length { get; protected set; }
     public int height { get; protected set; }
+	
+	public bool is_light { get; protected set; }
+	public int light_radius {get; protected set;}
 
     public LinkerObject_XML()
     {
@@ -25,6 +28,9 @@ public class LinkerObject_XML : IXmlSerializable{
         width = -1;
         length = -1;
         height = -1;
+		
+		is_light = false;
+		light_radius = 8;
     }
 
     public XmlSchema GetSchema()
@@ -94,6 +100,14 @@ public class LinkerObject_XML : IXmlSerializable{
 
                 case "height":
                     height = reader.ReadContentAsInt();
+                    break;
+					
+				case "is_light":
+                    is_light = reader.ReadContentAsBoolean();
+                    break;
+					
+				case "light_radius":
+                    light_radius = reader.ReadContentAsInt();
                     break;
 
                 default:

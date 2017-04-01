@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class HUI_TextBox  {
 
-    RectTransform source, root;
+    RectTransform  root;
     Scrollbar scrollbar;
     Text text;
     RectTransform textRect;
 
     public HUI_TextBox(RectTransform source, Vector2 min, Vector2 max, Font font)
     {
-        this.source = source;
+        //this.source = source;
 
         root = HUI.buildUIObject("TextBox", source, min, max, new Vector2(.5f, .5f));
         HUI.addImage(root, new Color(.3f, .3f, .3f, .3f));

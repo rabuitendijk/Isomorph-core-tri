@@ -10,7 +10,7 @@ using UnityEngine;
 /// Robin Apollo Buitendijk
 /// Early March 2017
 /// </summary>
-public abstract class GraphicsControl{
+public abstract class GraphicsControl : Controller{
 
     public static GraphicsControl main;
     public MouseHoverObject hover;
@@ -32,7 +32,7 @@ public abstract class GraphicsControl{
         Directions.currentDirection = Directions.dir.N;
     }
 
-    public abstract void delayedConstruction();
+    public abstract void delayedConstruction(); 
 
     protected abstract void onTileCreate(Tile t);
     protected abstract void onTileDestroy(Tile t);

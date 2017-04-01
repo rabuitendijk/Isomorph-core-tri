@@ -34,7 +34,7 @@ public class Runner : MonoBehaviour {
         {
             Debug.Log("Editor mode loaded.");
 
-            logicControl = new EditorLogicControl(16, 16, 16);
+            logicControl = new EditorLogicControl(24, 24, 16);
             saveControl = new EditorSaveControl();
             inputControl = new EditorInputControl();
             graphicsControl = new EditorGraphicsControl();

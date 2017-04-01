@@ -14,6 +14,8 @@ public class IsoObjectBody {
     public Directions.dir direction { get; protected set; }
     public string name { get; protected set; }
     public Iso origin { get; protected set; }
+    public bool is_light { get; protected set; }
+    public int light_radius { get; protected set; }
 
     public int width { get; protected set; }
     public int height { get; protected set; }
@@ -35,22 +37,24 @@ public class IsoObjectBody {
     }
 
     //Proteced constructor
-    protected IsoObjectBody(string name, List<Iso> coords, List<List<Sprite>> directions, int width, int length, int height, Iso origin=null, Directions.dir direction = Directions.dir.N)
+    protected IsoObjectBody(IsoObjectBody prototype, Iso origin=null, Directions.dir direction = Directions.dir.N)
     {
-        this.coords = clone(coords);
-        this.directions = directions;
+        coords = clone(prototype.coords);
+        directions = prototype.directions;
         this.origin = origin;
         this.direction = direction;
-        this.width = width;
-        this.length = length;
-        this.height = height;
+        width = prototype.width;
+        length = prototype.length;
+        height = prototype.height;
+        is_light = prototype.is_light;
+        light_radius = prototype.light_radius;
         isVisable = new List<bool>();
 
         foreach (Sprite s in directions[(int)direction])
         {
             isVisable.Add((s != null));
         }
-        this.name = name;
+        name = prototype.name;
 
         singular = false;
         if (coords.Count == 1)
@@ -59,13 +63,15 @@ public class IsoObjectBody {
     }
 
     //Pivate constructor
-    private IsoObjectBody(string name, List<Iso> coords, List<List<Sprite>> directions, int width, int length, int height)
+    private IsoObjectBody(string name, List<Iso> coords, List<List<Sprite>> directions, int width, int length, int height, bool is_light, int light_radius)
     {
         this.coords = clone(coords);
         this.directions = directions;
         this.width = width;
         this.length = length;
         this.height = height;
+        this.is_light = is_light;
+        this.light_radius = light_radius;
         isVisable = new List<bool>();
 
         foreach (Sprite s in directions[(int)direction])
@@ -137,7 +143,7 @@ public class IsoObjectBody {
                 directions[i] = directions[(int)Directions.getDir(obj.directions[i].source)];
         }
 
-        return new IsoObjectBody(obj.name, coords, directions, obj.width, obj.length, obj.height);
+        return new IsoObjectBody(obj.name, coords, directions, obj.width, obj.length, obj.height, obj.is_light, obj.light_radius);
     }
 
     /// <summary>

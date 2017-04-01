@@ -19,7 +19,7 @@ public class HUI_Console  {
 
     public string filepath;
 
-    RectTransform source, root;
+    RectTransform root;
     HUI_InputField inputField;
 
     public string content { get { return inputField.content; } }
@@ -36,7 +36,7 @@ public class HUI_Console  {
         main = this;
         filepath = Application.streamingAssetsPath;
 
-        this.source = source;
+        //this.source = source;
         root = HUI.buildUIObject("Console", source, min, max, new Vector2(.5f, .5f));
 
         textBox = new HUI_TextBox(root, new Vector2(0f, .06f), new Vector2(1f, 1f), font);

@@ -14,6 +14,8 @@ public class SplicingObject_XML : IXmlSerializable
     public int length { get; protected set; }
     public int height { get; protected set; }
     public bool boxform { get; protected set; }
+	public bool is_light { get; protected set; }
+	public int light_radius {get; protected set;}
     public string name = "VOID"; 
 
     public List<SplicingSpace_XML> space { get; protected set; }
@@ -27,6 +29,8 @@ public class SplicingObject_XML : IXmlSerializable
         height = -1;
         length = -1;
         boxform = true;
+		is_light = false;
+		light_radius = 8;
 
         space = new List<SplicingSpace_XML>();
         source = new List<SplicingSource_XML>();
@@ -109,6 +113,14 @@ public class SplicingObject_XML : IXmlSerializable
             {
                 case "boxform":
                     boxform = reader.ReadContentAsBoolean();
+                    break;
+					
+				case "is_light":
+                    is_light = reader.ReadContentAsBoolean();
+                    break;
+					
+				case "light_radius":
+                    light_radius = reader.ReadContentAsInt();
                     break;
 
                 case "width":

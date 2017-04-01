@@ -14,7 +14,7 @@ public class IsoObjectGhost : IsoObjectBody, MouseHoverObject {
     /// </summary>
     public IsoObjectGhost(string prototype, Iso origin, Directions.dir direction = Directions.dir.N) : this(Atlas_Loader.main.getObject(prototype), origin, direction) { }
 
-    private IsoObjectGhost(IsoObjectBody prototype, Iso origin, Directions.dir direction) : base(prototype.name, prototype.coords, prototype.directions, prototype.width, prototype.length, prototype.height, origin, direction)
+    private IsoObjectGhost(IsoObjectBody prototype, Iso origin, Directions.dir direction) : base(prototype, origin, direction)
     {
         graphic = new List<GameObject>();
         foreach (Iso i in coords)

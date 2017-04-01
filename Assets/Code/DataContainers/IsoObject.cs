@@ -23,7 +23,7 @@ public class IsoObject : IsoObjectBody
     /// </summary>
     public IsoObject(string prototype, Iso origin, Directions.dir direction=Directions.dir.N) : this(Atlas_Loader.main.getObject(prototype), origin, direction) { }
 
-    private IsoObject(IsoObjectBody prototype, Iso origin, Directions.dir direction) : base(prototype.name, prototype.coords, prototype.directions, prototype.width, prototype.length, prototype.height, origin, direction)
+    private IsoObject(IsoObjectBody prototype, Iso origin, Directions.dir direction) : base(prototype, origin, direction)
     {
         id = SaveControl.isoObject_id++;
         foreach (Iso i in coords)

@@ -8,13 +8,13 @@ public class HUI_TextNode  {
 
     int height = 16;
     public Image image { get; protected set; }
-    Text text;
+    //Text text;
     public string name { get; protected set; }
-    RectTransform source, root;
+    RectTransform root;
 
     public HUI_TextNode(RectTransform source, string name, Font font)
     {
-        this.source = source;
+        //this.source = source;
         this.name = name;
 
         root = HUI.buildUIObject("ListNode", source);
@@ -25,7 +25,7 @@ public class HUI_TextNode  {
         HUI_NodeClick click = root.gameObject.AddComponent<HUI_NodeClick>();
         click.node = this;
 
-        text = HUI.addTextChild(root, Color.black, font, 32, new Vector2(.05f, 0f), new Vector2(1f, 1f), name, true);
+        HUI.addTextChild(root, Color.black, font, 32, new Vector2(.05f, 0f), new Vector2(1f, 1f), name, true);
     }
 
 

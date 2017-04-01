@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public abstract class UIControl {
+public abstract class UIControl : Controller {
     public static UIControl main;
     protected UIControl()
     {

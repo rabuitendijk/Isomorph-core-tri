@@ -60,7 +60,6 @@ public class EditorInputControl : InputControl {
         }
 
 
-        Tile t;
         componentMouse.update();
     }
 

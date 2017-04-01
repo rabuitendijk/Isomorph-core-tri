@@ -10,7 +10,7 @@ using UnityEngine;
 /// Robin Apollo Buitendijk
 /// Early March 2017
 /// </summary>
-public abstract class InputControl {
+public abstract class InputControl : Controller {
 
     public static InputControl main;
 
