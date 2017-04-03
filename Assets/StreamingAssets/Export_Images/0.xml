@@ -17,23 +17,23 @@
 	</StreamingSpriteXMLCell>
 	<StreamingSpriteXMLCell x = "7" y = "0" name = "HalfCell[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "8" y = "0" name = "Limestone_1[0_0_0]">
+	<StreamingSpriteXMLCell x = "8" y = "0" name = "Selector[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "9" y = "0" name = "Limestone_2[0_0_0]">
+	<StreamingSpriteXMLCell x = "9" y = "0" name = "Limestone_1[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "10" y = "0" name = "Limestone_3[0_0_0]">
+	<StreamingSpriteXMLCell x = "10" y = "0" name = "Limestone_2[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "11" y = "0" name = "Limestone_3[0_0_2]">
+	<StreamingSpriteXMLCell x = "11" y = "0" name = "Limestone_3[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "12" y = "0" name = "Limestone_4[0_0_0]">
+	<StreamingSpriteXMLCell x = "12" y = "0" name = "Limestone_3[0_0_2]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "13" y = "0" name = "Limestone_4[0_0_2]">
+	<StreamingSpriteXMLCell x = "13" y = "0" name = "Limestone_4[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "1" name = "RoseRock[0_0_0]">
+	<StreamingSpriteXMLCell x = "0" y = "1" name = "Limestone_4[0_0_2]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "1" name = "RoughStones[0_0_0]">
+	<StreamingSpriteXMLCell x = "1" y = "1" name = "RoseRock[0_0_0]">
 	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "1" name = "Selector[0_0_0]">
+	<StreamingSpriteXMLCell x = "2" y = "1" name = "RoughStones[0_0_0]">
 	</StreamingSpriteXMLCell>
 	<StreamingSpriteXMLCell x = "3" y = "1" name = "SlabSelector[0_0_0]">
 	</StreamingSpriteXMLCell>

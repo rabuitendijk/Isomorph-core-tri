@@ -25,7 +25,7 @@ public static class Atlas_SourceLoader {
         {
             foreach (SplicingSource_XML s in ob.source)
             {
-                if (!ret.ContainsKey(ob.name))
+                if (!ret.ContainsKey(s.source))
                     loadSource(folder + "/" + s.source, s.source, ob, ret, unitDefinitions);
             }
         }

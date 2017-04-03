@@ -15,6 +15,7 @@ public class IsoObject : IsoObjectBody
 {
     public List<Tile> tiles { get; protected set; }
     public ulong id = 123456789;
+    public Iso_Light light { get; protected set; }
 
     /// <summary>
     /// Copy constructor.
@@ -32,6 +33,8 @@ public class IsoObject : IsoObjectBody
         }
 
         safeTileConstruction();
+        if (is_light)
+            light = new Iso_Light(this, light_radius);
     }
 
 
@@ -61,20 +64,6 @@ public class IsoObject : IsoObjectBody
         return true;
     }
 
-    /// <summary>
-    /// Destroy this object
-    /// </summary>
-    public override void destroy()
-    {
-        if (onDestroy != null)
-            onDestroy(this);
-
-        foreach (Tile t in tiles)
-        {
-            t.destroy();
-        }
-    }
-
     public void setDirection(Directions.dir dir)
     {
         direction = dir;
@@ -98,4 +87,21 @@ public class IsoObject : IsoObjectBody
     public static void removeOnDestroy(Action<IsoObject> funct) { onDestroy -= funct; }
 
 
+    /// <summary>
+    /// Destroy this object
+    /// </summary>
+    public override void destroy()
+    {
+
+        if (onDestroy != null)
+            onDestroy(this);
+
+        if (light != null)
+            light.destroy();
+        light = null;
+        foreach (Tile t in tiles)
+        {
+            t.destroy();
+        }
+    }
 }

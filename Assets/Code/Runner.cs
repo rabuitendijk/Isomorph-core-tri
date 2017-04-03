@@ -13,6 +13,7 @@ public class Runner : MonoBehaviour {
     LogicControl logicControl;
     SaveControl saveControl;
     UIControl uiControl;
+    LightingControl lightingControl;
 
     // Use this for initialization
     void Start()
@@ -39,12 +40,14 @@ public class Runner : MonoBehaviour {
             inputControl = new EditorInputControl();
             graphicsControl = new EditorGraphicsControl();
             uiControl = new EditorUIControl();
+            lightingControl = new EditorLightingControl();
 
             saveControl.delayedConstruction();
             inputControl.delayedConstruction();
             graphicsControl.delayedConstruction();
             logicControl.delayedConstruction();
             uiControl.delayedConstruction();
+            lightingControl.delayedConstruction();
         }
         else
         {
@@ -74,6 +77,8 @@ public class Runner : MonoBehaviour {
             saveControl.destroy();
         if (uiControl != null)
             uiControl.destroy();
+        if (lightingControl != null)
+            lightingControl.destroy();
 
         logicControl = null;
         inputControl = null;
@@ -101,12 +106,14 @@ public class Runner : MonoBehaviour {
         graphicsControl = new EditorGraphicsControl();
         inputControl = new EditorInputControl();
         uiControl = new EditorUIControl();
+        lightingControl = new EditorLightingControl();
 
         saveControl.delayedConstruction();
         inputControl.delayedConstruction();
         graphicsControl.delayedConstruction();
         logicControl.delayedConstruction();
         uiControl.delayedConstruction();
+        lightingControl.delayedConstruction();
     }
 
 
