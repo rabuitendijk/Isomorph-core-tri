@@ -12,10 +12,7 @@ public abstract class LightingControl : Controller
         light_id = 0;
     }
 
-    public void delayedConstruction()
-    {
-        //Empty
-    }
+    public abstract void delayedConstruction();
 
     protected static Action onLightingProcessed;
 

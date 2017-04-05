@@ -9,7 +9,8 @@ using UnityEngine;
 public class Thread_IsoObject  {
     //public ulong id { get; protected set; }
     public int hash { get; protected set; }
-    public ushort value = 0;
+    public int value = 0;
+    public int level = -1;
     public Iso origin { get; protected set; }
     public Dictionary<ulong, Thread_Light> coverdBy = new Dictionary<ulong, Thread_Light>();
     List<Iso> sprites = new List<Iso>();

@@ -48,6 +48,7 @@ public class Runner : MonoBehaviour {
             logicControl.delayedConstruction();
             uiControl.delayedConstruction();
             lightingControl.delayedConstruction();
+
         }
         else
         {
@@ -63,6 +64,8 @@ public class Runner : MonoBehaviour {
     {
         if (inputControl != null)
             inputControl.update();
+        if (lightingControl != null)
+            lightingControl.update();
     }
 
     void flush()

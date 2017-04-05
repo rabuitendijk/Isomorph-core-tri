@@ -10,6 +10,8 @@ public class EditorLightingControl : LightingControl
     Dictionary<ulong, Iso_Light> lights_added = new Dictionary<ulong, Iso_Light>();
     Dictionary<ulong, Iso_Light> lights_removed = new Dictionary<ulong, Iso_Light>();
 
+    LightingThread thread;
+
     public EditorLightingControl() : base()
     {
 
@@ -17,6 +19,8 @@ public class EditorLightingControl : LightingControl
         IsoObject.registerOnDestroy(onIsoObjectDestroy);
         Iso_Light.registerOnCreate(onIso_LightCreate);
         Iso_Light.registerOnDestroy(onIso_LightDestroy);
+
+        thread = new LightingThread(16);
     }
 
     void onIsoObjectCreate(IsoObject i)
@@ -52,11 +56,53 @@ public class EditorLightingControl : LightingControl
     public override void update()
     {
         //
+        if (!thread.running)
+        {
+            //Assume it shoul always be running
+            if (thread.hasjobs)
+            {
+                execute_jobs(thread.jobs);
+                thread.hasjobs = false;
+            }
+            
+            if (objects_added.Count != 0 || objects_removed.Count != 0 || lights_added.Count != 0 || lights_removed.Count != 0)
+            {
+                thread.runOnThread(objects_added, objects_removed, lights_added, lights_removed);
+                objects_added = new Dictionary<ulong, IsoObject>();
+                objects_removed = new Dictionary<ulong, IsoObject>();
+                lights_added = new Dictionary<ulong, Iso_Light>();
+                lights_removed = new Dictionary<ulong, Iso_Light>();
+            } 
+        }
     }
 
     public override void runOnMainThread()
     {
-        throw new NotImplementedException();
+        thread.runOnMain(objects_added, objects_removed, lights_added, lights_removed);
+        objects_added = new Dictionary<ulong, IsoObject>();
+        objects_removed = new Dictionary<ulong, IsoObject>();
+        lights_added = new Dictionary<ulong, Iso_Light>();
+        lights_removed = new Dictionary<ulong, Iso_Light>();
+
+        execute_jobs(thread.jobs);
+    }
+
+    void execute_jobs(List<Thread_Job> jobs)
+    {
+        Tile t;
+        foreach (Thread_Job j in jobs)
+        {
+            if (LogicControl.main.exists(j.coord))
+            {
+                t = LogicControl.main.get(j.coord);
+
+                for(int i=0; i<t.isoObject.coords.Count; i++)
+                {
+                    if (t.isoObject.getSprite(i) != null)
+                        LogicControl.main.get(t.isoObject.coords[i]).graphic.GetComponent<SpriteRenderer>().color = j.color;
+                }
+            }
+        }
     }
 
     protected override void destructor()
@@ -67,5 +113,8 @@ public class EditorLightingControl : LightingControl
         Iso_Light.removeOnDestroy(onIso_LightDestroy);
     }
 
-   
+    public override void delayedConstruction()
+    {
+        runOnMainThread();
+    }
 }

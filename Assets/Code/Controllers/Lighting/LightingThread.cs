@@ -1,10 +1,11 @@
 ﻿
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading;
 
 public class LightingThread  {
 
-    public bool running = false;
+    public bool running = false, hasjobs = false;
     public List<Thread_Job> jobs;
     int quantisation; //Number of shading levels
 
@@ -24,6 +25,7 @@ public class LightingThread  {
     Dictionary<ulong, Thread_Light> create;
     Dictionary<ulong, Thread_Light> destroy;
     Dictionary<ulong, Thread_Light> recalculate;
+    Dictionary<int, Thread_IsoObject> level_altered;
 
     int layer;
 
@@ -41,8 +43,12 @@ public class LightingThread  {
         this.objects_removed = objects_removed;
         this.lights_added = lights_added;
         this.lights_removed = lights_removed;
+        Debug.Log("Starting thread");
 
         //TODO
+        Thread myTread = new Thread (thread_process);
+        myTread.Start();
+        //return jobs;
     }
 
     public void runOnMain(Dictionary<ulong, IsoObject> objects_added, Dictionary<ulong, IsoObject> objects_removed, Dictionary<ulong, Iso_Light> lights_added, Dictionary<ulong, Iso_Light> lights_removed)
@@ -53,7 +59,30 @@ public class LightingThread  {
         this.lights_added = lights_added;
         this.lights_removed = lights_removed;
 
+        main_process();
+        //return jobs;
+    }
+
+    /// <summary>
+    /// Threaded version
+    /// </summary>
+    void thread_process()
+    {
         process();
+        calculate_changes();
+        running = false;
+        hasjobs = true;
+        Debug.Log("Returning thread");
+    }
+
+    /// <summary>
+    /// Main startup version
+    /// </summary>
+    void main_process()
+    {
+        process();
+        calculate_changes_all();
+        running = false;
     }
 
     void process()
@@ -61,8 +90,10 @@ public class LightingThread  {
         jobs = new List<Thread_Job>();
         convert();
 
-
-        running = false;
+        destroy_lights();
+        add_lights();
+        recalculate_lights();
+        
     }
 
     /// <summary>
@@ -73,10 +104,12 @@ public class LightingThread  {
         create = new Dictionary<ulong, Thread_Light>();
         destroy = new Dictionary<ulong, Thread_Light>();
         recalculate = new Dictionary<ulong, Thread_Light>();
+        level_altered = new Dictionary<int, Thread_IsoObject>();
 
         foreach (KeyValuePair<ulong, IsoObject> entry in objects_added)
         {
             set(entry.Value);
+            //Lightfield recalculation
         }
 
         foreach (KeyValuePair<ulong, IsoObject> entry in objects_removed)
@@ -156,6 +189,90 @@ public class LightingThread  {
         grid[i.x, i.y, i.z] = value;
     }
 
+    /// <summary>
+    /// Remove light contribution
+    /// </summary>
+    void destroy_lights()
+    {
+        int value;
+        foreach (KeyValuePair<ulong, Thread_Light> entry in destroy)
+        {
+            foreach (KeyValuePair<int, Thread_IsoObject> ob in entry.Value.coverage)
+            {
+                entry.Value.coverage_value.TryGetValue(ob.Key, out value);
+                alterValue(ob.Value, -value);
+            }
+            //Dismiss content
+            entry.Value.coverage = null;
+            entry.Value.coverage_value = null;
+
+            lights.Remove(entry.Key);
+        }
+
+    }
+
+    void add_lights()
+    {
+        foreach (KeyValuePair<ulong, Thread_Light> entry in create)
+        {
+            //Build light
+        }
+    }
+
+
+    void recalculate_lights()
+    {
+        int value;
+        foreach (KeyValuePair<ulong, Thread_Light> entry in recalculate)
+        {
+            //Cleanup
+            foreach (KeyValuePair<int, Thread_IsoObject> ob in entry.Value.coverage)
+            {
+                entry.Value.coverage_value.TryGetValue(ob.Key, out value);
+                alterValue(ob.Value, -value);
+            }
+            //Dismiss content
+            entry.Value.coverage = new Dictionary<int, Thread_IsoObject>();
+            entry.Value.coverage_value = new Dictionary<int, int>();
+
+            //Build light
+        }
+    }
+
+    /// <summary>
+    /// Processes the final job list
+    /// </summary>
+    void calculate_changes()
+    {
+        int level;
+        float c;
+        foreach (KeyValuePair<int, Thread_IsoObject> entry in level_altered)
+        {
+            level = entry.Value.value / quantisation;
+            if (level != entry.Value.level)
+            {
+                c = level * 1f / quantisation;
+                jobs.Add(new Thread_Job(entry.Value.origin, new Color(c,c,c)));
+            }
+
+        }
+    }
+
+    void calculate_changes_all()
+    {
+        int level;
+        float c;
+        foreach (KeyValuePair<int, Thread_IsoObject> entry in objects)
+        {
+            level = entry.Value.value / quantisation;
+            if (level != entry.Value.level)
+            {
+                c = level * 1f / quantisation;
+                jobs.Add(new Thread_Job(entry.Value.origin, new Color(c, c, c)));
+            }
+
+        }
+    }
 
     /// <summary>
     /// The hashing code
@@ -163,5 +280,12 @@ public class LightingThread  {
     int hashBox(Iso i)
     {
         return (i.z * layer) + (i.y * LogicControl.main.width) + i.x;
+    }
+
+    void alterValue(Thread_IsoObject ob, int value)
+    {
+        ob.value += value;
+        if (!level_altered.ContainsKey(ob.hash))
+            level_altered.Add(ob.hash, ob);
     }
 }
