@@ -74,6 +74,13 @@ public class EditorLightingControl : LightingControl
                 lights_removed = new Dictionary<ulong, Iso_Light>();
             } 
         }
+
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            while (print_queue.Count > 0)
+                Debug.Log(print_queue.Dequeue());
+        }
+
     }
 
     public override void runOnMainThread()

@@ -113,6 +113,7 @@
     <Compile Include="Assets\Code\Controllers\Input\EditorInputControl.cs" />
     <Compile Include="Assets\Code\Controllers\Input\InputControl.cs" />
     <Compile Include="Assets\Code\Controllers\Lighting\EditorLightingControl.cs" />
+    <Compile Include="Assets\Code\Controllers\Lighting\Flood_Light.cs" />
     <Compile Include="Assets\Code\Controllers\Lighting\LightingControl.cs" />
     <Compile Include="Assets\Code\Controllers\Lighting\LightingThread.cs" />
     <Compile Include="Assets\Code\Controllers\Lighting\Thread_IsoObject.cs" />
@@ -176,6 +177,8 @@
     <None Include="Assets\StreamingAssets\Export_Objects\Stones.xml" />
     <None Include="Assets\StreamingAssets\Export_Objects\Tree.xml" />
     <None Include="Assets\StreamingAssets\Export_Objects\UnitDefinition.xml" />
+    <None Include="Assets\StreamingAssets\Levels\l.xml" />
+    <None Include="Assets\StreamingAssets\Levels\l2.xml" />
     <None Include="Assets\StreamingAssets\Levels\test.xml" />
     <None Include="Assets\StreamingAssets\Source_XML\BigBlock.xml" />
     <None Include="Assets\StreamingAssets\Source_XML\HalfCell.xml" />

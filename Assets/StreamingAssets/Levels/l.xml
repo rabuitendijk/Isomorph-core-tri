@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Level_XML width="24" height="16" length="24">
+<objects>
+	<IsoObject_XML direction="N" name="HalfCell" x="10" y="9" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="10" y="8" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="11" y="8" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="12" y="8" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="13" y="8" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="13" y="9" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="11" y="9" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="12" y="9" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="10" y="10" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="10" y="11" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="11" y="10" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="11" y="11" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="12" y="10" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="12" y="11" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="13" y="10" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="13" y="11" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="14" y="8" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="14" y="9" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="14" y="10" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="14" y="11" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="14" y="12" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="9" y="8" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="9" y="9" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="9" y="10" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="9" y="11" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="9" y="12" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="10" y="12" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="11" y="12" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="12" y="12" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="13" y="12" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="14" y="13" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="13" y="13" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="12" y="13" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="11" y="13" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="10" y="13" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="9" y="13" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="8" y="13" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="8" y="12" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="8" y="11" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="8" y="10" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="8" y="9" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="8" y="8" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="7" y="8" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="7" y="9" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="7" y="10" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="7" y="11" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="7" y="12" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="7" y="13" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="7" y="14" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="8" y="14" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="9" y="14" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="10" y="14" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="11" y="14" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="12" y="14" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="13" y="14" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="14" y="14" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="14" y="15" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="13" y="15" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="12" y="15" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="11" y="15" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="10" y="15" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="9" y="15" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="8" y="15" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="7" y="15" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="6" y="8" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="6" y="9" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="6" y="10" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="6" y="11" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="6" y="12" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="6" y="13" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="6" y="14" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="6" y="15" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="6" y="16" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="7" y="16" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="8" y="16" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="9" y="16" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="10" y="16" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="11" y="16" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="12" y="16" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="13" y="16" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="14" y="16" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="6" y="7" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="7" y="7" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="8" y="7" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="9" y="7" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="10" y="7" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="11" y="7" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="12" y="7" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="13" y="7" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="14" y="7" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="15" y="7" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="15" y="8" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="15" y="9" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="15" y="10" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="15" y="11" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="15" y="12" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="15" y="13" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="15" y="14" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="15" y="15" z="0">
+	</IsoObject_XML>
+	<IsoObject_XML direction="N" name="HalfCell" x="15" y="16" z="0">
+	</IsoObject_XML>
+</objects>
+</Level_XML>

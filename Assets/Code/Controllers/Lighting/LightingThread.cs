@@ -8,6 +8,7 @@ public class LightingThread  {
     public bool running = false, hasjobs = false;
     public List<Thread_Job> jobs;
     int quantisation; //Number of shading levels
+    int width, height, length;
 
     //Input for controller
     Dictionary<ulong, IsoObject> objects_added;
@@ -17,6 +18,7 @@ public class LightingThread  {
 
     //Threaded interpitation of map
     bool[,,] grid;
+    int[,,] values;
     Dictionary<int, Thread_IsoObject> objects = new Dictionary<int, Thread_IsoObject>();            //Maps coordinates to Threads objects
     Dictionary<ulong, Thread_IsoObject> objects_map = new Dictionary<ulong, Thread_IsoObject>();    //Maps IsoObject id to thread object
     Dictionary<ulong, Thread_Light> lights = new Dictionary<ulong, Thread_Light>();                 //Maps thread lights to IsoLight 
@@ -28,12 +30,17 @@ public class LightingThread  {
     Dictionary<int, Thread_IsoObject> level_altered;
 
     int layer;
+    int ambiant_value = 60;
 
     public LightingThread(int quantisation)
     {
         this.quantisation = quantisation;
-        grid = new bool[LogicControl.main.width, LogicControl.main.length, LogicControl.main.height];
-        layer = LogicControl.main.width * LogicControl.main.height;
+        width = LogicControl.main.width;
+        length = LogicControl.main.length;
+        height = LogicControl.main.height;
+        grid = new bool[width, length, height];
+        values = new int[width, length, height];
+        layer = width * height;
     }
 
     public void runOnThread(Dictionary<ulong, IsoObject> objects_added, Dictionary<ulong, IsoObject> objects_removed, Dictionary<ulong, Iso_Light> lights_added, Dictionary<ulong, Iso_Light> lights_removed)
@@ -43,7 +50,7 @@ public class LightingThread  {
         this.objects_removed = objects_removed;
         this.lights_added = lights_added;
         this.lights_removed = lights_removed;
-        Debug.Log("Starting thread");
+        Log("Starting thread");
 
         //TODO
         Thread myTread = new Thread (thread_process);
@@ -72,7 +79,7 @@ public class LightingThread  {
         calculate_changes();
         running = false;
         hasjobs = true;
-        Debug.Log("Returning thread");
+        Log("Returning thread");
     }
 
     /// <summary>
@@ -81,7 +88,7 @@ public class LightingThread  {
     void main_process()
     {
         process();
-        calculate_changes_all();
+        calculate_changes();
         running = false;
     }
 
@@ -101,6 +108,8 @@ public class LightingThread  {
     /// </summary>
     void convert()
     {
+        //Log("Reached convert");
+
         create = new Dictionary<ulong, Thread_Light>();
         destroy = new Dictionary<ulong, Thread_Light>();
         recalculate = new Dictionary<ulong, Thread_Light>();
@@ -108,8 +117,19 @@ public class LightingThread  {
 
         foreach (KeyValuePair<ulong, IsoObject> entry in objects_added)
         {
-            set(entry.Value);
+            Thread_IsoObject ob = set(entry.Value);
+            
+            if (!level_altered.ContainsKey(ob.hash))
+                level_altered.Add(ob.hash, ob);
+
             //Lightfield recalculation
+            foreach (KeyValuePair<ulong, Thread_Light> light  in lights)
+            {
+                if (inBouds(ob.origin, light.Value.radius, light.Value.coord))
+                    if (!recalculate.ContainsKey(light.Key))
+                        recalculate.Add(light.Key, light.Value);
+            }
+
         }
 
         foreach (KeyValuePair<ulong, IsoObject> entry in objects_removed)
@@ -128,7 +148,7 @@ public class LightingThread  {
             Thread_Light l;
             if (!lights.TryGetValue(entry.Key, out l))
             {
-                Debug.Log("Lighting tread, Light id not in map when removing.");
+                Log("Lighting tread, Light id not in map when removing.");
                 return;
             }
 
@@ -145,7 +165,7 @@ public class LightingThread  {
     /// <summary>
     /// Sets new Thread IsoObject
     /// </summary>
-    void set(IsoObject o)
+    Thread_IsoObject set(IsoObject o)
     {
         foreach(Iso i in o.coords)
         {
@@ -154,6 +174,8 @@ public class LightingThread  {
         Thread_IsoObject ob = new Thread_IsoObject(o, hashBox(o.origin));
         objects.Add(ob.hash, ob);
         objects_map.Add(o.id, ob);
+
+        return ob;
     }
 
     /// <summary>
@@ -168,7 +190,7 @@ public class LightingThread  {
         Thread_IsoObject ob;
         if (!objects_map.TryGetValue(o.id, out ob))
         {
-            Debug.Log("Lighting tread, remove isoobject, key does not exist in map.");
+            Log("Lighting tread, remove isoobject, key does not exist in map.");
             return;
         }
 
@@ -180,7 +202,7 @@ public class LightingThread  {
         foreach (KeyValuePair<ulong, Thread_Light> entry in ob.coverdBy)
         {
             if (!recalculate.ContainsKey(entry.Key))
-                recalculate.Add(entry.Key, entry.Value);
+               recalculate.Add(entry.Key, entry.Value);
         }
     }
 
@@ -194,12 +216,14 @@ public class LightingThread  {
     /// </summary>
     void destroy_lights()
     {
+        //Log("destroy: "+destroy.Count.ToString());
         int value;
         foreach (KeyValuePair<ulong, Thread_Light> entry in destroy)
         {
             foreach (KeyValuePair<int, Thread_IsoObject> ob in entry.Value.coverage)
             {
                 entry.Value.coverage_value.TryGetValue(ob.Key, out value);
+                ob.Value.coverdBy.Remove(entry.Key);
                 alterValue(ob.Value, -value);
             }
             //Dismiss content
@@ -213,29 +237,40 @@ public class LightingThread  {
 
     void add_lights()
     {
+        //Log("add: " + create.Count.ToString());
         foreach (KeyValuePair<ulong, Thread_Light> entry in create)
         {
+            lights.Add(entry.Key, entry.Value);
             //Build light
+
+            new Flood_Light(entry.Value, grid, width, length, height, level_altered, objects);
         }
     }
 
 
     void recalculate_lights()
     {
+        //Log("recalculate: " + recalculate.Count.ToString());
         int value;
         foreach (KeyValuePair<ulong, Thread_Light> entry in recalculate)
         {
-            //Cleanup
-            foreach (KeyValuePair<int, Thread_IsoObject> ob in entry.Value.coverage)
+            //Log("Recalculate count "+recalculate.Count.ToString());
+            if (lights.ContainsKey(entry.Key))  //If light has been destroyed by by object destruction
             {
-                entry.Value.coverage_value.TryGetValue(ob.Key, out value);
-                alterValue(ob.Value, -value);
-            }
-            //Dismiss content
-            entry.Value.coverage = new Dictionary<int, Thread_IsoObject>();
-            entry.Value.coverage_value = new Dictionary<int, int>();
+                //Cleanup
+                foreach (KeyValuePair<int, Thread_IsoObject> ob in entry.Value.coverage)
+                {
+                    entry.Value.coverage_value.TryGetValue(ob.Key, out value);
+                    ob.Value.coverdBy.Remove(entry.Key);
+                    alterValue(ob.Value, -value);
+                }
+                //Dismiss content
+                entry.Value.coverage = new Dictionary<int, Thread_IsoObject>();
+                entry.Value.coverage_value = new Dictionary<int, int>();
 
-            //Build light
+                //Build light
+                new Flood_Light(entry.Value, grid, width, length, height, level_altered, objects);
+            }
         }
     }
 
@@ -248,7 +283,7 @@ public class LightingThread  {
         float c;
         foreach (KeyValuePair<int, Thread_IsoObject> entry in level_altered)
         {
-            level = entry.Value.value / quantisation;
+            level = (getValue(entry.Value.origin)+entry.Value.value + ambiant_value) / (255 / quantisation);
             if (level != entry.Value.level)
             {
                 c = level * 1f / quantisation;
@@ -258,20 +293,9 @@ public class LightingThread  {
         }
     }
 
-    void calculate_changes_all()
+    int getValue(Iso i)
     {
-        int level;
-        float c;
-        foreach (KeyValuePair<int, Thread_IsoObject> entry in objects)
-        {
-            level = entry.Value.value / quantisation;
-            if (level != entry.Value.level)
-            {
-                c = level * 1f / quantisation;
-                jobs.Add(new Thread_Job(entry.Value.origin, new Color(c, c, c)));
-            }
-
-        }
+        return values[i.x, i.y, i.z];
     }
 
     /// <summary>
@@ -279,13 +303,39 @@ public class LightingThread  {
     /// </summary>
     int hashBox(Iso i)
     {
-        return (i.z * layer) + (i.y * LogicControl.main.width) + i.x;
+        return (i.z * layer) + (i.y * width) + i.x;
     }
 
+    /// <summary>
+    /// Alter light value and register object for recalculation
+    /// </summary>
     void alterValue(Thread_IsoObject ob, int value)
     {
         ob.value += value;
         if (!level_altered.ContainsKey(ob.hash))
             level_altered.Add(ob.hash, ob);
+    }
+
+    /// <summary>
+    /// Check if pion is in bouds of light
+    /// </summary>
+    bool inBouds(Iso origin, int radius, Iso target)
+    {
+        if (target.x < origin.x - radius || target.x > origin.x + radius)
+            return false;
+
+        if (target.y < origin.y - radius || target.y > origin.y + radius)
+            return false;
+
+        if (target.z < origin.z - radius || target.z > origin.z + radius)
+            return false;
+
+        return true;
+    }
+
+    void Log(string m)
+    {
+        //LightingControl.main.print_queue.Enqueue(m);
+        Debug.Log(m);
     }
 }
