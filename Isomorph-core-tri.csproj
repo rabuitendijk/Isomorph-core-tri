@@ -114,6 +114,7 @@
     <Compile Include="Assets\Code\Controllers\Input\InputControl.cs" />
     <Compile Include="Assets\Code\Controllers\Lighting\EditorLightingControl.cs" />
     <Compile Include="Assets\Code\Controllers\Lighting\Flood_Light.cs" />
+    <Compile Include="Assets\Code\Controllers\Lighting\Flood_Light_v2.cs" />
     <Compile Include="Assets\Code\Controllers\Lighting\LightingControl.cs" />
     <Compile Include="Assets\Code\Controllers\Lighting\LightingThread.cs" />
     <Compile Include="Assets\Code\Controllers\Lighting\Thread_IsoObject.cs" />

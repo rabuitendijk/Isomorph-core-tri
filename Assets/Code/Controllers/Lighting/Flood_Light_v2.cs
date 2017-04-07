@@ -2,16 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// Flood based lighting calculation
-/// </summary>
-public class Flood_Light  {
+public class Flood_Light_v2 {
+
 
     Queue<Iso> targets = new Queue<Iso>();
     Dictionary<int, Thread_IsoObject> level_altered;
     Dictionary<int, Thread_IsoObject> objects;
 
-    int radius, count=0;
+    int radius, count = 0;
     int[,,] grid;
     int width, length, height;
     int ux, lx, uy, ly, uz, lz; //Bouds
@@ -21,9 +19,9 @@ public class Flood_Light  {
     float p; //propegation constant
     int layer, w;
 
-    public Flood_Light(Thread_Light light, bool[,,] map, int width, int length, int height, Dictionary<int, Thread_IsoObject> level_altered, Dictionary<int, Thread_IsoObject> objects)
+    public Flood_Light_v2(Thread_Light light, bool[,,] map, int width, int length, int height, Dictionary<int, Thread_IsoObject> level_altered, Dictionary<int, Thread_IsoObject> objects)
     {
-        
+
         this.light = light;
         this.map = map;
         this.objects = objects;
@@ -32,7 +30,7 @@ public class Flood_Light  {
         radius = light.radius;
         origin = light.coord;
 
-        p = Mathf.Pow(20f/255f, 1f/radius);
+        p = Mathf.Pow(255f/10f, 1f / radius);
         layer = width * length;
         w = width;
 
@@ -52,7 +50,7 @@ public class Flood_Light  {
         Iso t;
 
 
-        process(origin, 255);
+        process(origin, 10);
         //Dry run
         t = targets.Dequeue();
         v = (int)(get(t) * p);
@@ -67,34 +65,63 @@ public class Flood_Light  {
         while (targets.Count > 0) //Main loop
         {
             t = targets.Dequeue();
-            v = (int)(get(t)*p);
+            v = (int)(get(t) * p);
             count++;
-            if (v > 10  && !check(t))//Skip too dim tiles adn occpied tiles
+            if (check(t))
+                v = (100+ v);
+            if (v < 255)//Skip too dim tiles adn occpied tiles
             {
-                
+
                 process(new Iso(t.x + 1, t.y, t.z), v);//+x
                 process(new Iso(t.x - 1, t.y, t.z), v);//-x
-                process(new Iso(t.x, t.y +1, t.z), v);//+y
-                process(new Iso(t.x , t.y -1, t.z), v);//-y
-                process(new Iso(t.x, t.y, t.z+1), v);//Up
-                process(new Iso(t.x , t.y, t.z-1), v);//Down
+                process(new Iso(t.x, t.y + 1, t.z), v);//+y
+                process(new Iso(t.x, t.y - 1, t.z), v);//-y
+                process(new Iso(t.x, t.y, t.z + 1), v);//Up
+                process(new Iso(t.x, t.y, t.z - 1), v);//Down
             }
 
         }
-        //Log(ToString());
-    } 
+        Log(ToString());
+        reverseValues();
+    }
 
     void process(Iso i, int v)
     {
         if (!inGrid(i))
             return;
-        if (get(i) != 0) //Do not recalculate already lit objects
-            return;
+        int c = get(i);
+        if (c == 0 || c > v) //Only proceed if this write is lighter or object has not been written to
+        {
 
-        targets.Enqueue(i);
-        set(i, v);
+            targets.Enqueue(i);
+            set(i, v);
+        }
+    }
 
-        
+    void reverseValues()
+    {
+        //Loop trough all cells
+
+        Iso pos; 
+
+        for (int i= lx; i<= ux; i++)
+        {
+            for (int j = ly; j <= uy; j++)
+            {
+                for (int k = lz; k <= uz; k++)
+                {
+                    pos = new Iso(i, j, k);
+                    if (get(pos) != 0) //Lit tile register
+                    {
+                        register(pos, 255-get(pos));
+                    }
+                }
+            }
+        }
+    }
+
+    void register(Iso i, int v)
+    {
         //Register into light if isoobject is present
         Thread_IsoObject ob;
         if (objects.TryGetValue(hashBox(i), out ob)) //Check if isoobject is here
@@ -116,8 +143,6 @@ public class Flood_Light  {
 
         }
     }
-
-
 
     /// <summary>
     /// Builds boundry box
@@ -187,6 +212,6 @@ public class Flood_Light  {
 
     public override string ToString()
     {
-        return "Flood_light<size["+width+","+height+","+length+"], hasdat["+layer+","+w+"], targets "+targets.Count+", bounds["+lx+","+ux+","+ly+","+uy+","+lz+","+uz+"] count["+count+"/"+width*height*length+"]>";
+        return "Flood_light<size[" + width + "," + height + "," + length + "], hasdat[" + layer + "," + w + "], targets " + targets.Count + ", bounds[" + lx + "," + ux + "," + ly + "," + uy + "," + lz + "," + uz + "] count[" + count + "/" + width * height * length + "]>";
     }
 }

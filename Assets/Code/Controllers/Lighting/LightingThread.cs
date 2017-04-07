@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
+using System;
 
 public class LightingThread  {
 
@@ -30,7 +31,7 @@ public class LightingThread  {
     Dictionary<int, Thread_IsoObject> level_altered;
 
     int layer;
-    int ambiant_value = 60;
+    int ambiant_value = 0;
 
     public LightingThread(int quantisation)
     {
@@ -40,7 +41,7 @@ public class LightingThread  {
         height = LogicControl.main.height;
         grid = new bool[width, length, height];
         values = new int[width, length, height];
-        layer = width * height;
+        layer = width * length;
     }
 
     public void runOnThread(Dictionary<ulong, IsoObject> objects_added, Dictionary<ulong, IsoObject> objects_removed, Dictionary<ulong, Iso_Light> lights_added, Dictionary<ulong, Iso_Light> lights_removed)
@@ -75,11 +76,17 @@ public class LightingThread  {
     /// </summary>
     void thread_process()
     {
-        process();
-        calculate_changes();
-        running = false;
-        hasjobs = true;
-        Log("Returning thread");
+        try {
+            process();
+            calculate_changes();
+            running = false;
+            hasjobs = true;
+            Log("Returning thread");
+        }
+        catch (Exception e)
+        {
+            Log("Lighting engine broke: "+e.ToString());
+        }
     }
 
     /// <summary>
@@ -243,7 +250,7 @@ public class LightingThread  {
             lights.Add(entry.Key, entry.Value);
             //Build light
 
-            new Flood_Light(entry.Value, grid, width, length, height, level_altered, objects);
+            new Flood_Light_v2(entry.Value, grid, width, length, height, level_altered, objects);
         }
     }
 
@@ -269,7 +276,7 @@ public class LightingThread  {
                 entry.Value.coverage_value = new Dictionary<int, int>();
 
                 //Build light
-                new Flood_Light(entry.Value, grid, width, length, height, level_altered, objects);
+                new Flood_Light_v2(entry.Value, grid, width, length, height, level_altered, objects);
             }
         }
     }
