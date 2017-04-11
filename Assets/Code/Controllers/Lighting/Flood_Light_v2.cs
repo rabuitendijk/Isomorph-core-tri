@@ -81,7 +81,7 @@ public class Flood_Light_v2 {
             }
 
         }
-        Log(ToString());
+        //Log(ToString());
         reverseValues();
     }
 
