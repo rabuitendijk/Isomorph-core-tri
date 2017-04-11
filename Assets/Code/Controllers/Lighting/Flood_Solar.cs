@@ -3,38 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Flood_Solar {
+    Lighting_Data data;
     int[,,] levels;
-    bool[,,] field;
-    int width, height, length, layer;
+    //int width, height, length, 
+    //int layer;
     //int radius;
     int count=0;
 
-    Dictionary<int, Thread_IsoObject> level_altered;
-    Dictionary<int, Thread_IsoObject> objects;
+    //Dictionary<int, Thread_IsoObject> level_altered;
+    //Dictionary<int, Thread_IsoObject> objects;
 
 
     float p; //propegation constant
 
-    public Flood_Solar(int[,,] levels, bool[,,] field, int width, int length, int height, Dictionary<int, Thread_IsoObject> objects, int radius)
+    public Flood_Solar(Lighting_Data data, int radius)
     {
-        this.levels = levels;
-        this.field = field;
-        this.width = width;
-        this.length = length;
-        this.height = height;
+        this.data = data;
+        levels = data.solar_field;
 
-        this.objects = objects;
+        //this.objects = objects;
         //this.radius = radius;
 
-        layer = width * length;
+        //layer = width * length;
         p = Mathf.Pow(255f / 10f, 1f / radius);
     }
 
-    public void flood(Thread_Solar_Job job, Dictionary<int, Thread_IsoObject> level_altered)
+    public void flood(Thread_Solar_Job job)
     {
         count = 0;
         //Todo
-        this.level_altered = level_altered;
+        //this.level_altered = level_altered;
         Queue<Iso> targets = new Queue<Iso>();
         
 
@@ -54,7 +52,7 @@ public class Flood_Solar {
         {
             for (int j = job.ly; j <= job.uy; j++)
             {
-                for (int k = height - 1; k >= 0; k--)
+                for (int k = data.height - 1; k >= 0; k--)
                 {
 
                     if (levels[i,j,k] == 0)
@@ -114,7 +112,7 @@ public class Flood_Solar {
             t = targets.Dequeue();
             v = (int)(get(t) * p);
             count++;
-            if (!check(t))
+            if (!data.check(t))
             {
                 if (v < 255)//Skip too dim tiles adn occpied tiles
                 {
@@ -137,7 +135,7 @@ public class Flood_Solar {
         {
             for (int j = job.ly; j <= job.uy; j++)
             {
-                for (int k = height - 1; k >= 0; k--)
+                for (int k = data.height - 1; k >= 0; k--)
                 {
                     v = levels[i, j, k];
                     if (v != 0) //dead cells do not get added lighting
@@ -154,13 +152,13 @@ public class Flood_Solar {
     /// </summary>
     void rain(int x, int y)
     {
-        int hash;
+        //int hash;
         bool raining = true;
-        Thread_IsoObject ob;
-        for (int k = height - 1; k >= 0; k--)
+        //Thread_IsoObject ob;
+        for (int k = data.height - 1; k >= 0; k--)
         {
 
-            if (field[x, y, k]) //When an object is encouterd, stop setting light values to lit [1]
+            if (data.check(x, y, k)) //When an object is encouterd, stop setting light values to lit [1]
                 raining = false;
 
             if (raining)
@@ -168,12 +166,7 @@ public class Flood_Solar {
             else
                 levels[x, y, k] = 0;
 
-            hash = hashBox(x, y, k);
-            if (objects.TryGetValue(hash, out ob))  //If object exists
-            {
-                if (!level_altered.ContainsKey(hash))   //Register all for alterations
-                    level_altered.Add(hash, ob);
-            }
+            data.alter_level_on_coord(new Iso(x,y,k));
 
         }
     }
@@ -194,11 +187,11 @@ public class Flood_Solar {
     bool inGrid(Iso i)
     {
 
-        if (i.x < 0 || i.x >= width)
+        if (i.x < 0 || i.x >= data.width)
             return false;
-        if (i.y < 0 || i.y >= length)
+        if (i.y < 0 || i.y >= data.length)
             return false;
-        if (i.z < 0 || i.z >= height)
+        if (i.z < 0 || i.z >= data.height)
             return false;
         return true;
         
@@ -206,7 +199,7 @@ public class Flood_Solar {
 
     bool inGrid(Iso i, Thread_Solar_Job job)
     {
-        if (i.z < 0 || i.z >= height)
+        if (i.z < 0 || i.z >= data.height)
             return false;
         return job.inBounds(i);
     }
@@ -216,23 +209,10 @@ public class Flood_Solar {
         return levels[i.x, i.y, i.z];
     }
 
-    bool check(Iso i)
-    {
-        return field[i.x, i.y, i.z];
-    }
-
-    /// <summary>
-    /// The hashing code
-    /// </summary>
-    int hashBox(int x, int y, int z)
-    {
-        return (z * layer) + (y * width) + x;
-    }
-
 
     int hashBox(Iso i)
     {
-        return (i.z * layer) + (i.y * width) + i.x;
+        return (i.z * data.tiles_per_layer) + (i.y * data.width) + i.x;
     }
 
     public override string ToString()

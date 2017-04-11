@@ -117,6 +117,8 @@
     <Compile Include="Assets\Code\Controllers\Lighting\Flood_Solar.cs" />
     <Compile Include="Assets\Code\Controllers\Lighting\LightingControl.cs" />
     <Compile Include="Assets\Code\Controllers\Lighting\LightingThread.cs" />
+    <Compile Include="Assets\Code\Controllers\Lighting\Lighting_Bucket.cs" />
+    <Compile Include="Assets\Code\Controllers\Lighting\Lighting_Data.cs" />
     <Compile Include="Assets\Code\Controllers\Lighting\Thread_IsoObject.cs" />
     <Compile Include="Assets\Code\Controllers\Lighting\Thread_Job.cs" />
     <Compile Include="Assets\Code\Controllers\Lighting\Thread_Light.cs" />

@@ -5,11 +5,12 @@ using System.Threading;
 using System;
 
 public class LightingThread  {
+    Lighting_Data data;
 
     public bool running = false, hasjobs = false;
     public List<Thread_Job> jobs;
     int quantisation; //Number of shading levels
-    int width, height, length;
+    //int width, height, length;
 
     //Input for controller
     Dictionary<ulong, IsoObject> objects_added;
@@ -18,8 +19,8 @@ public class LightingThread  {
     Dictionary<ulong, Iso_Light> lights_removed;
 
     //Threaded interpitation of map
-    bool[,,] grid;
-    int[,,] values;
+    //bool[,,] grid;
+    //int[,,] values;
     Dictionary<int, Thread_IsoObject> objects = new Dictionary<int, Thread_IsoObject>();            //Maps coordinates to Threads objects
     Dictionary<ulong, Thread_IsoObject> objects_map = new Dictionary<ulong, Thread_IsoObject>();    //Maps IsoObject id to thread object
     Dictionary<ulong, Thread_Light> lights = new Dictionary<ulong, Thread_Light>();                 //Maps thread lights to IsoLight 
@@ -28,12 +29,12 @@ public class LightingThread  {
     Dictionary<ulong, Thread_Light> create;
     Dictionary<ulong, Thread_Light> destroy;
     Dictionary<ulong, Thread_Light> recalculate;
-    Dictionary<int, Thread_IsoObject> level_altered;
+    //Dictionary<int, Thread_IsoObject> level_altered;
     List<Thread_Solar_Job> solar_jobs;
 
     Flood_Solar solar;
 
-    int layer;
+    //int layer;
     int ambiant_value = 0;
     int solar_radius = 1;
     float solar_influence = .7f;
@@ -41,14 +42,13 @@ public class LightingThread  {
     public LightingThread(int quantisation)
     {
         this.quantisation = quantisation;
-        width = LogicControl.main.width;
-        length = LogicControl.main.length;
-        height = LogicControl.main.height;
-        grid = new bool[width, length, height];
-        values = new int[width, length, height];
-        layer = width * length;
+        //width = LogicControl.main.width;
+        //length = LogicControl.main.length;
+        //height = LogicControl.main.height;
 
-        solar = new Flood_Solar(values, grid, width, length, height, objects, solar_radius);
+        data = new Lighting_Data(LogicControl.main.width, LogicControl.main.length, LogicControl.main.height);
+        //layer = data.width * data.length;
+        solar = new Flood_Solar(data, solar_radius);
     }
 
     public void runOnThread(Dictionary<ulong, IsoObject> objects_added, Dictionary<ulong, IsoObject> objects_removed, Dictionary<ulong, Iso_Light> lights_added, Dictionary<ulong, Iso_Light> lights_removed)
@@ -112,7 +112,7 @@ public class LightingThread  {
 
         solar_jobs = new List<Thread_Solar_Job>();
         if (full_solar_recalculation)
-            solar_jobs.Add(new Thread_Solar_Job(width, length));
+            solar_jobs.Add(new Thread_Solar_Job(data.width, data.length));
 
         convert();
         
@@ -132,15 +132,14 @@ public class LightingThread  {
         create = new Dictionary<ulong, Thread_Light>();
         destroy = new Dictionary<ulong, Thread_Light>();
         recalculate = new Dictionary<ulong, Thread_Light>();
-        level_altered = new Dictionary<int, Thread_IsoObject>();
-
+        //level_altered = new Dictionary<int, Thread_IsoObject>();
+        data.flush();
 
         foreach (KeyValuePair<ulong, IsoObject> entry in objects_added)
         {
             Thread_IsoObject ob = set(entry.Value);
-            
-            if (!level_altered.ContainsKey(ob.hash))
-                level_altered.Add(ob.hash, ob);
+
+            data.add_to_level_altered(ob);
 
             //Lightfield recalculation
             foreach (KeyValuePair<ulong, Thread_Light> light  in lights)
@@ -149,13 +148,13 @@ public class LightingThread  {
                     if (!recalculate.ContainsKey(light.Key))
                         recalculate.Add(light.Key, light.Value);
             }
-            solar_jobs.Add(new Thread_Solar_Job(ob.origin, solar_radius, width, length));
+            solar_jobs.Add(new Thread_Solar_Job(ob.origin, solar_radius, data.width, data.length));
         }
 
         foreach (KeyValuePair<ulong, IsoObject> entry in objects_removed)
         {
             remove(entry.Value);
-            solar_jobs.Add(new Thread_Solar_Job(entry.Value.origin, solar_radius, width, length));
+            solar_jobs.Add(new Thread_Solar_Job(entry.Value.origin, solar_radius, data.width, data.length));
         }
 
         foreach (KeyValuePair<ulong, Iso_Light> entry in lights_added)
@@ -188,13 +187,10 @@ public class LightingThread  {
     /// </summary>
     Thread_IsoObject set(IsoObject o)
     {
-        foreach(Iso i in o.coords)
-        {
-            set(i, true);
-        }
         Thread_IsoObject ob = new Thread_IsoObject(o, hashBox(o.origin));
         objects.Add(ob.hash, ob);
         objects_map.Add(o.id, ob);
+        data.add_to_field(ob);
 
         return ob;
     }
@@ -204,10 +200,7 @@ public class LightingThread  {
     /// </summary>
     void remove(IsoObject o)
     {
-        foreach(Iso i in o.coords)
-        {
-            set(i, false);
-        }
+        
         Thread_IsoObject ob;
         if (!objects_map.TryGetValue(o.id, out ob))
         {
@@ -218,18 +211,10 @@ public class LightingThread  {
         //Remove mapping
         objects_map.Remove(o.id);
         objects.Remove(ob.hash);
+        data.remove_from_field(ob);
 
         //Add lights to be redrawn
-        foreach (KeyValuePair<ulong, Thread_Light> entry in ob.coverdBy)
-        {
-            if (!recalculate.ContainsKey(entry.Key))
-               recalculate.Add(entry.Key, entry.Value);
-        }
-    }
-
-    void set(Iso i, bool value)
-    {
-        grid[i.x, i.y, i.z] = value;
+        data.add_recalculates(ob, recalculate);
     }
 
     /// <summary>
@@ -238,18 +223,9 @@ public class LightingThread  {
     void destroy_lights()
     {
         //Log("destroy: "+destroy.Count.ToString());
-        int value;
         foreach (KeyValuePair<ulong, Thread_Light> entry in destroy)
         {
-            foreach (KeyValuePair<int, Thread_IsoObject> ob in entry.Value.coverage)
-            {
-                entry.Value.coverage_value.TryGetValue(ob.Key, out value);
-                ob.Value.coverdBy.Remove(entry.Key);
-                alterValue(ob.Value, -value);
-            }
-            //Dismiss content
-            entry.Value.coverage = null;
-            entry.Value.coverage_value = null;
+            data.remove_coverage(entry.Value);
 
             lights.Remove(entry.Key);
         }
@@ -264,7 +240,7 @@ public class LightingThread  {
             lights.Add(entry.Key, entry.Value);
             //Build light
 
-            new Flood_Light_v2(entry.Value, grid, width, length, height, level_altered, objects);
+            new Flood_Light_v2(entry.Value, data);
         }
     }
 
@@ -272,25 +248,15 @@ public class LightingThread  {
     void recalculate_lights()
     {
         //Log("recalculate: " + recalculate.Count.ToString());
-        int value;
         foreach (KeyValuePair<ulong, Thread_Light> entry in recalculate)
         {
             //Log("Recalculate count "+recalculate.Count.ToString());
             if (lights.ContainsKey(entry.Key))  //If light has been destroyed by by object destruction
             {
-                //Cleanup
-                foreach (KeyValuePair<int, Thread_IsoObject> ob in entry.Value.coverage)
-                {
-                    entry.Value.coverage_value.TryGetValue(ob.Key, out value);
-                    ob.Value.coverdBy.Remove(entry.Key);
-                    alterValue(ob.Value, -value);
-                }
-                //Dismiss content
-                entry.Value.coverage = new Dictionary<int, Thread_IsoObject>();
-                entry.Value.coverage_value = new Dictionary<int, int>();
+                data.remove_coverage(entry.Value);
 
                 //Build light
-                new Flood_Light_v2(entry.Value, grid, width, length, height, level_altered, objects);
+                new Flood_Light_v2(entry.Value, data);
             }
         }
     }
@@ -299,7 +265,7 @@ public class LightingThread  {
     {
         foreach(Thread_Solar_Job job in solar_jobs)
         {
-            solar.flood(job, level_altered);
+            solar.flood(job);
 
             if (job.full)   //Stop futher recalculation on full recalc
                 return;
@@ -313,9 +279,9 @@ public class LightingThread  {
     {
         int level;
         float c;
-        foreach (KeyValuePair<int, Thread_IsoObject> entry in level_altered)
+        foreach (KeyValuePair<ulong, Thread_IsoObject> entry in data.getLevelAltered())
         {
-            level = ((int)(solar_influence*getValue(entry.Value.origin))+entry.Value.value + ambiant_value) / (255 / quantisation);
+            level = (data.get_solar(entry.Value.origin, solar_influence)+data.object_coverage(entry.Value) + ambiant_value) / (255 / quantisation);
             if (level != entry.Value.level)
             {
                 c = level * 1f / quantisation;
@@ -325,28 +291,14 @@ public class LightingThread  {
         }
     }
 
-    int getValue(Iso i)
-    {
-        return values[i.x, i.y, i.z];
-    }
-
     /// <summary>
     /// The hashing code
     /// </summary>
     int hashBox(Iso i)
     {
-        return (i.z * layer) + (i.y * width) + i.x;
+        return (i.z * data.tiles_per_layer) + (i.y * data.width) + i.x;
     }
 
-    /// <summary>
-    /// Alter light value and register object for recalculation
-    /// </summary>
-    void alterValue(Thread_IsoObject ob, int value)
-    {
-        ob.value += value;
-        if (!level_altered.ContainsKey(ob.hash))
-            level_altered.Add(ob.hash, ob);
-    }
 
     /// <summary>
     /// Check if pion is in bouds of light

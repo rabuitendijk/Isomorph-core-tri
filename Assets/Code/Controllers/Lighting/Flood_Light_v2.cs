@@ -3,36 +3,36 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Flood_Light_v2 {
-
+    Lighting_Data data;
 
     Queue<Iso> targets = new Queue<Iso>();
-    Dictionary<int, Thread_IsoObject> level_altered;
-    Dictionary<int, Thread_IsoObject> objects;
+    //Dictionary<int, Thread_IsoObject> level_altered;
+    //Dictionary<int, Thread_IsoObject> objects;
 
     int radius, count = 0;
     int[,,] grid;
-    int width, length, height;
+    int w, l, h;
     int ux, lx, uy, ly, uz, lz; //Bouds
     Iso origin;
-    bool[,,] map;
+    //bool[,,] map;
     Thread_Light light;
     float p; //propegation constant
-    int layer, w;
 
-    public Flood_Light_v2(Thread_Light light, bool[,,] map, int width, int length, int height, Dictionary<int, Thread_IsoObject> level_altered, Dictionary<int, Thread_IsoObject> objects)
+
+
+    public Flood_Light_v2(Thread_Light light, Lighting_Data data)
     {
 
         this.light = light;
-        this.map = map;
-        this.objects = objects;
-        this.level_altered = level_altered;
+        //this.map = map;
+        //this.objects = objects;
+        //this.level_altered = level_altered;
+        this.data = data;
 
         radius = light.radius;
         origin = light.coord;
 
         p = Mathf.Pow(255f/10f, 1f / radius);
-        layer = width * length;
-        w = width;
 
 
         ux = light.coord.x + radius;
@@ -43,7 +43,7 @@ public class Flood_Light_v2 {
         lz = light.coord.z - radius;
 
         //Check if we are not ouside the normal map
-        boxin(width, length, height);
+        boxin();
 
 
         int v;
@@ -67,7 +67,7 @@ public class Flood_Light_v2 {
             t = targets.Dequeue();
             v = (int)(get(t) * p);
             count++;
-            if (check(t))
+            if (data.check(t))
                 v = (100+ v);
             if (v < 255)//Skip too dim tiles adn occpied tiles
             {
@@ -113,27 +113,28 @@ public class Flood_Light_v2 {
                     pos = new Iso(i, j, k);
                     if (get(pos) != 0) //Lit tile register
                     {
-                        register(pos, 255-get(pos));
+                        //register(pos, 255-get(pos));
+                        data.add_coverage(light, pos, 255 - get(pos));
                     }
                 }
             }
         }
     }
 
-    void register(Iso i, int v)
+    /*void register(Iso i, int v)
     {
         //Register into light if isoobject is present
         Thread_IsoObject ob;
-        if (objects.TryGetValue(hashBox(i), out ob)) //Check if isoobject is here
+        data.add_coverage(light, i, v);
+        if (data.tryGetObject(i, out ob)) //Check if isoobject is here
         {   //Register object changes
             ob.value += v;
-            if (!level_altered.ContainsKey(ob.hash))    //Register alterations
-            {
-                level_altered.Add(ob.hash, ob);
-            }
+            data.add_to_level_altered(ob);
+
 
             light.coverage.Add(ob.hash, ob);    //Register light coverage
             light.coverage_value.Add(ob.hash, v);
+            
 
             if (!ob.coverdBy.ContainsKey(light.id))
                 ob.coverdBy.Add(light.id, light);
@@ -142,37 +143,32 @@ public class Flood_Light_v2 {
 
 
         }
-    }
+    }*/
 
     /// <summary>
     /// Builds boundry box
     /// </summary>
-    void boxin(int width, int length, int height)
+    void boxin()
     {
         if (lx < 0)
             lx = 0;
-        if (ux >= width)
-            ux = width - 1;
+        if (ux >= data.width)
+            ux = data.width - 1;
         if (ly < 0)
             ly = 0;
-        if (uy >= length)
-            uy = length - 1;
+        if (uy >= data.length)
+            uy = data.length - 1;
         if (lz < 0)
             lz = 0;
-        if (uz >= height)
-            uz = height - 1;
+        if (uz >= data.height)
+            uz = data.height - 1;
 
-        this.width = ux - lx + 1;
-        this.length = uy - ly + 1;
-        this.height = uz - lz + 1;
-        grid = new int[this.width, this.length, this.height];
+        w = ux - lx + 1;
+        l = uy - ly + 1;
+        h = uz - lz + 1;
+        grid = new int[w, l, h];
 
 
-    }
-
-    bool check(Iso i)
-    {
-        return map[i.x, i.y, i.z];
     }
 
     void set(Iso i, int value)
@@ -199,10 +195,10 @@ public class Flood_Light_v2 {
     /// <summary>
     /// The hashing code
     /// </summary>
-    int hashBox(Iso i)
+    /*int hashBox(Iso i)
     {
         return (i.z * layer) + (i.y * w) + i.x;
-    }
+    }*/
 
     void Log(string m)
     {
@@ -212,6 +208,6 @@ public class Flood_Light_v2 {
 
     public override string ToString()
     {
-        return "Flood_light<size[" + width + "," + height + "," + length + "], hasdat[" + layer + "," + w + "], targets " + targets.Count + ", bounds[" + lx + "," + ux + "," + ly + "," + uy + "," + lz + "," + uz + "] count[" + count + "/" + width * height * length + "]>";
+        return "Flood_light<size[" + w + "," + h + "," + l + "],  targets " + targets.Count + ", bounds[" + lx + "," + ux + "," + ly + "," + uy + "," + lz + "," + uz + "] count[" + count + "/" + w * h * l + "]>";
     }
 }
