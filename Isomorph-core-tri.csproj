@@ -182,6 +182,7 @@
     <None Include="Assets\StreamingAssets\Export_Objects\Tree.xml" />
     <None Include="Assets\StreamingAssets\Export_Objects\UnitDefinition.xml" />
     <None Include="Assets\StreamingAssets\Levels\l.xml" />
+    <None Include="Assets\StreamingAssets\Levels\l1.xml" />
     <None Include="Assets\StreamingAssets\Levels\l2.xml" />
     <None Include="Assets\StreamingAssets\Levels\test.xml" />
     <None Include="Assets\StreamingAssets\Source_XML\BigBlock.xml" />

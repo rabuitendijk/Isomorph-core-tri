@@ -30,14 +30,20 @@ public class Lighting_Data  {
     /// <summary>
     /// Get the average light level of the object
     /// </summary>
-    public int object_coverage(Thread_IsoObject ob)
+    public int object_coverage(Thread_IsoObject ob, float s_ifl)
     {
         float v = 0;
+        int solar = 0;
         foreach(Iso i in ob.coords)
         {
             v += get_bucket_value(i);
+            if (get_solar(i) > solar)
+                solar = get_solar(i);
         }
         v /= ob.coords.Count;
+        v += (int)(solar* s_ifl);
+        if (v > 255)
+            v = 255;
 
         return (int)v;
     }
@@ -174,9 +180,9 @@ public class Lighting_Data  {
         return true;
     }
 
-    public int get_solar(Iso i,float v)
+    int get_solar(Iso i)
     {
-        return (int)(v * solar_field[i.x, i.y, i.z]);
+        return solar_field[i.x, i.y, i.z];
     }
 
     public Dictionary<ulong, Thread_IsoObject> getLevelAltered()

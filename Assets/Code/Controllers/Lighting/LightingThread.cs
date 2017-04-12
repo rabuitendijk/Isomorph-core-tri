@@ -10,7 +10,6 @@ public class LightingThread  {
     public bool running = false, hasjobs = false;
     public List<Thread_Job> jobs;
     int quantisation; //Number of shading levels
-    //int width, height, length;
 
     //Input for controller
     Dictionary<ulong, IsoObject> objects_added;
@@ -19,9 +18,6 @@ public class LightingThread  {
     Dictionary<ulong, Iso_Light> lights_removed;
 
     //Threaded interpitation of map
-    //bool[,,] grid;
-    //int[,,] values;
-    Dictionary<int, Thread_IsoObject> objects = new Dictionary<int, Thread_IsoObject>();            //Maps coordinates to Threads objects
     Dictionary<ulong, Thread_IsoObject> objects_map = new Dictionary<ulong, Thread_IsoObject>();    //Maps IsoObject id to thread object
     Dictionary<ulong, Thread_Light> lights = new Dictionary<ulong, Thread_Light>();                 //Maps thread lights to IsoLight 
 
@@ -29,25 +25,20 @@ public class LightingThread  {
     Dictionary<ulong, Thread_Light> create;
     Dictionary<ulong, Thread_Light> destroy;
     Dictionary<ulong, Thread_Light> recalculate;
-    //Dictionary<int, Thread_IsoObject> level_altered;
     List<Thread_Solar_Job> solar_jobs;
 
     Flood_Solar solar;
 
     //int layer;
     int ambiant_value = 0;
-    int solar_radius = 1;
-    float solar_influence = .7f;
+    int solar_radius = 5;
+    float solar_influence = .4f;
 
     public LightingThread(int quantisation)
     {
         this.quantisation = quantisation;
-        //width = LogicControl.main.width;
-        //length = LogicControl.main.length;
-        //height = LogicControl.main.height;
 
         data = new Lighting_Data(LogicControl.main.width, LogicControl.main.length, LogicControl.main.height);
-        //layer = data.width * data.length;
         solar = new Flood_Solar(data, solar_radius);
     }
 
@@ -58,7 +49,7 @@ public class LightingThread  {
         this.objects_removed = objects_removed;
         this.lights_added = lights_added;
         this.lights_removed = lights_removed;
-        Log("Starting thread");
+        //Log("Starting thread");
 
         //TODO
         Thread myTread = new Thread (thread_process);
@@ -88,7 +79,7 @@ public class LightingThread  {
             calculate_changes();
             running = false;
             hasjobs = true;
-            Log("Returning thread");
+            //Log("Returning thread");
         }
         catch (Exception e)
         {
@@ -132,7 +123,6 @@ public class LightingThread  {
         create = new Dictionary<ulong, Thread_Light>();
         destroy = new Dictionary<ulong, Thread_Light>();
         recalculate = new Dictionary<ulong, Thread_Light>();
-        //level_altered = new Dictionary<int, Thread_IsoObject>();
         data.flush();
 
         foreach (KeyValuePair<ulong, IsoObject> entry in objects_added)
@@ -187,8 +177,7 @@ public class LightingThread  {
     /// </summary>
     Thread_IsoObject set(IsoObject o)
     {
-        Thread_IsoObject ob = new Thread_IsoObject(o, hashBox(o.origin));
-        objects.Add(ob.hash, ob);
+        Thread_IsoObject ob = new Thread_IsoObject(o);
         objects_map.Add(o.id, ob);
         data.add_to_field(ob);
 
@@ -210,7 +199,6 @@ public class LightingThread  {
 
         //Remove mapping
         objects_map.Remove(o.id);
-        objects.Remove(ob.hash);
         data.remove_from_field(ob);
 
         //Add lights to be redrawn
@@ -278,10 +266,13 @@ public class LightingThread  {
     void calculate_changes()
     {
         int level;
-        float c;
+        float c, mu;
+
         foreach (KeyValuePair<ulong, Thread_IsoObject> entry in data.getLevelAltered())
         {
-            level = (data.get_solar(entry.Value.origin, solar_influence)+data.object_coverage(entry.Value) + ambiant_value) / (255 / quantisation);
+            level = (data.object_coverage(entry.Value, solar_influence) + ambiant_value);
+            mu = ((float)level* (float)quantisation) / (255f);
+            level = (int)mu;
             if (level != entry.Value.level)
             {
                 c = level * 1f / quantisation;

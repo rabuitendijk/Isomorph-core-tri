@@ -20,7 +20,7 @@ public class EditorLightingControl : LightingControl
         Iso_Light.registerOnCreate(onIso_LightCreate);
         Iso_Light.registerOnDestroy(onIso_LightDestroy);
 
-        thread = new LightingThread(16);
+        thread = new LightingThread(32);
     }
 
     void onIsoObjectCreate(IsoObject i)

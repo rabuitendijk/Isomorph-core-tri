@@ -6,15 +6,12 @@ public class Flood_Light_v2 {
     Lighting_Data data;
 
     Queue<Iso> targets = new Queue<Iso>();
-    //Dictionary<int, Thread_IsoObject> level_altered;
-    //Dictionary<int, Thread_IsoObject> objects;
 
     int radius, count = 0;
     int[,,] grid;
     int w, l, h;
     int ux, lx, uy, ly, uz, lz; //Bouds
     Iso origin;
-    //bool[,,] map;
     Thread_Light light;
     float p; //propegation constant
 
@@ -24,9 +21,6 @@ public class Flood_Light_v2 {
     {
 
         this.light = light;
-        //this.map = map;
-        //this.objects = objects;
-        //this.level_altered = level_altered;
         this.data = data;
 
         radius = light.radius;
@@ -113,37 +107,12 @@ public class Flood_Light_v2 {
                     pos = new Iso(i, j, k);
                     if (get(pos) != 0) //Lit tile register
                     {
-                        //register(pos, 255-get(pos));
                         data.add_coverage(light, pos, 255 - get(pos));
                     }
                 }
             }
         }
     }
-
-    /*void register(Iso i, int v)
-    {
-        //Register into light if isoobject is present
-        Thread_IsoObject ob;
-        data.add_coverage(light, i, v);
-        if (data.tryGetObject(i, out ob)) //Check if isoobject is here
-        {   //Register object changes
-            ob.value += v;
-            data.add_to_level_altered(ob);
-
-
-            light.coverage.Add(ob.hash, ob);    //Register light coverage
-            light.coverage_value.Add(ob.hash, v);
-            
-
-            if (!ob.coverdBy.ContainsKey(light.id))
-                ob.coverdBy.Add(light.id, light);
-            else
-                Log("Adding light to object already covered?");
-
-
-        }
-    }*/
 
     /// <summary>
     /// Builds boundry box
@@ -191,14 +160,6 @@ public class Flood_Light_v2 {
             return false;
         return true;
     }
-
-    /// <summary>
-    /// The hashing code
-    /// </summary>
-    /*int hashBox(Iso i)
-    {
-        return (i.z * layer) + (i.y * w) + i.x;
-    }*/
 
     void Log(string m)
     {
