@@ -3,17 +3,9 @@ Isomorph, Third iteration, Unity 5, Flat sprite based approach. Goals: proper so
 
 TO BE ADDED:
 
-	- Basic functionallity
-		* Allow translation of object independent of coordinate.
-
 	- XML based text importer, competable with microsoft excel xml export.
 		* Pass function based arguments "-skip -goto table1 14".
-		* Allow for dynamic number of conversation  lines in other languages.
-		
-	- Map rotation
-		* Input rotation filter
-		* Object based rotation and Projection of Projection filter.
-		* Override directional sprite.
+		* Allow for dynamic number of conversation  lines in other languages.		
 
 
 MAP EDITOR:
@@ -35,19 +27,13 @@ TRANSLATION:
 	- Add object interactebillity tags to XML.
 
 	
-LIGHTING
-
-	- Properly make a trough wall projection obejct type.
-		* Allow color sepecification.
-		
-	- Create treaded lighting calculation.
-
-	
 BUGS:
 
 	- Graphics giltches after zoom that dissappear after camera movement, might be because camera Transform does not snap to pixels.
 	
 	- BigBlock fisrt Iso in coords[] might be wandering.
+	
+	- In map editor the mouse hover gost sprite does not properly update its sprite when map rotatating.
 
 	
 IN LATER UPDATES:
@@ -55,12 +41,18 @@ IN LATER UPDATES:
 	- Seclective trasparenty to improve vision.
 
 	- VN like scenes, based on xml input
-		* Basic text display and charecter portraits
-		* Fading annimation and translation
-		* Scaling effects and transitions
-		
-	- Compatibillity for multiple heights of slab projection (at least [1] and [s2s3]).
+		* Basic text display and charecter portraits.
+		* Fading annimation and translation.
+		* Scaling effects and transitions.
 	
 	- Atlas type batching and draw batching to reduce draw calls.
 	
-	- True animation
+	- True animation.
+	
+	- Colored ligthing.
+	
+	- Lighting system tags.
+	
+	- Collision system tags.
+	
+	- Tight atlas packing using hex meshes.
