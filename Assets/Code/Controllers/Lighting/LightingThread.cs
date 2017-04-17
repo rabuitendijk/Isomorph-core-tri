@@ -10,6 +10,7 @@ public class LightingThread  {
     public bool running = false, hasjobs = false;
     public List<Thread_Job> jobs;
     int quantisation; //Number of shading levels
+    public bool yielding { get { return data.yielding; } }
 
     //Input for controller
     Dictionary<ulong, IsoObject> objects_added;
@@ -70,6 +71,15 @@ public class LightingThread  {
     }
 
     /// <summary>
+    /// Starts yielding to next solar state
+    /// </summary>
+    public void change_solar_value(float v)
+    {
+        solar_influence = v;
+        data.change_solar_level();
+    }
+
+    /// <summary>
     /// Threaded version
     /// </summary>
     void thread_process()
@@ -110,6 +120,7 @@ public class LightingThread  {
         destroy_lights();
         add_lights();
         recalculate_lights();
+        data.go_yield();
         process_solar_jobs();
     }
 

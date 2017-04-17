@@ -8,6 +8,8 @@ public class Lighting_Data  {
     public int length { get; protected set; }
     public int height { get; protected set; }
     public int tiles_per_layer { get; protected set; }
+    Thread_Yield yield;
+    public bool yielding { get { return !yield.fully_yielded; } }
 
     Thread_IsoObject[,,] objects_field;
     Lighting_Bucket[,,] buckets;
@@ -25,6 +27,7 @@ public class Lighting_Data  {
         buckets = new Lighting_Bucket[width, length, height];
         solar_field = new int[width, length, height];
 
+        yield = new Thread_Yield(this, 8);
     }
 
     /// <summary>
@@ -188,5 +191,18 @@ public class Lighting_Data  {
     public Dictionary<ulong, Thread_IsoObject> getLevelAltered()
     {
         return level_altered;
+    }
+
+    /// <summary>
+    /// Restart the yielding process
+    /// </summary>
+    public void change_solar_level()
+    {
+        yield.reset();
+    }
+
+    public void go_yield()
+    {
+        yield.yield();
     }
 }

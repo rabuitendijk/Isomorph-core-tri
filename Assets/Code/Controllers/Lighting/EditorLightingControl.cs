@@ -11,6 +11,7 @@ public class EditorLightingControl : LightingControl
     Dictionary<ulong, Iso_Light> lights_removed = new Dictionary<ulong, Iso_Light>();
 
     LightingThread thread;
+    float time = 0, x = 0;
 
     public EditorLightingControl() : base()
     {
@@ -72,13 +73,18 @@ public class EditorLightingControl : LightingControl
                 objects_removed = new Dictionary<ulong, IsoObject>();
                 lights_added = new Dictionary<ulong, Iso_Light>();
                 lights_removed = new Dictionary<ulong, Iso_Light>();
-            } 
+            } else if (thread.yielding) //If in the middle of comuting next solar state
+            {
+                thread.runOnThread(objects_added, objects_removed, lights_added, lights_removed);
+            }
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
+        time += Time.deltaTime;
+        if (time > 2)
         {
-            while (print_queue.Count > 0)
-                Debug.Log(print_queue.Dequeue());
+            x += .15f;
+            time = 0f;
+            thread.change_solar_value(.6f + .3f * Mathf.Sin(x));
         }
 
     }
