@@ -1,6 +1,47 @@
 # Isomorph-core-tri
 Isomorph, Third iteration, Unity 5, Flat sprite based approach. Goals: proper sorting algorithm, unit sprite slicing and clean sprite finishing.
 
+PLANNING:
+
+	- Build a controller mangager for switching between scenes.
+	- Build base controller for translation testing.
+	- Impliment a translational type, boundry boxes, depth updates and stuff.
+	- Implement unbound translation
+	
+	- Build collision controller
+		* return event stack based on collision box, velocity and direction. [static collision]
+		* process event stack to return new postion.
+		* add z-axis movement
+		* stairs
+		* test nonstatic translatible objects, depthchecks and stuff.
+		* impliment non-static collision
+	
+	- Update asset loading to v3
+		* many added tags for collision, lighting and color.
+		{
+			bool editor_only
+			float light_r
+			float light_g
+			float light_b
+			bool blocks_lighting
+			bool dir_lighting
+			bool no_collider
+			bool staircase
+		}
+		* concider true annimations in implementaion.
+		* Dense texture atlas.
+		* Translatable xml object type?
+	
+	- Update lighting to v2
+		* directional lingthing.
+		* flood update on rotation, by queue?
+		* lighting color.
+		* exclude by tag from field or directional lighting.
+		* stop light from going trough walls.
+		* sqrt based light level correction.
+		* get translatable light source.
+		* allow translatable object to draw light level from near tiles.
+
 TO BE ADDED:
 
 	- XML based text importer, competable with microsoft excel xml export.
