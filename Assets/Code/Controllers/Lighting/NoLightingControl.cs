@@ -8,6 +8,11 @@ using UnityEngine;
 /// </summary>
 public class NoLightingControl : LightingControl
 {
+    public NoLightingControl() : base()
+    {
+        return;
+    }
+
     public override void delayedConstruction()
     {
         return;

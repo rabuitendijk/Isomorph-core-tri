@@ -6,9 +6,9 @@ using UnityEngine;
 
 public class HUI_EditorLoadCommand : HUI_ConsoleCommand
 {
-    static Action<string> load;
-    public static void registerLoad(Action<string> funct) { load += funct; }
-    public static void removeLoad(Action<string> funct) { load -= funct; }
+    //static Action<string> load;
+    //public static void registerLoad(Action<string> funct) { load += funct; }
+    //public static void removeLoad(Action<string> funct) { load -= funct; }
 
     public HUI_EditorLoadCommand() : base("load")
     {
@@ -22,11 +22,11 @@ public class HUI_EditorLoadCommand : HUI_ConsoleCommand
 
     public override void process(string[] args)
     {
-        if (load == null)
+       /* if (load == null)
         {
             HUI_Console.main.textBox.append("<color=red><ERROR> no callback to load function.</color>\n");
             return;
-        }
+        }*/
 
         if (args.Length != 2 || args[1] == "")
         {
@@ -40,6 +40,6 @@ public class HUI_EditorLoadCommand : HUI_ConsoleCommand
             return;
         }
 
-        load(args[1]);
+        ControllerManager.main.setNextSwap(ControllerManager.Mode.editor, args[1]);
     }
 }
