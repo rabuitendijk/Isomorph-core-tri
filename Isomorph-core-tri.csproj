@@ -141,10 +141,13 @@
     <Compile Include="Assets\Code\Controllers\UI\MonoEditorMouseTrap.cs" />
     <Compile Include="Assets\Code\Controllers\UI\NoUIControl.cs" />
     <Compile Include="Assets\Code\Controllers\UI\UIControl.cs" />
+    <Compile Include="Assets\Code\DataContainers\DualList.cs" />
+    <Compile Include="Assets\Code\DataContainers\FloatingIso.cs" />
     <Compile Include="Assets\Code\DataContainers\Iso.cs" />
     <Compile Include="Assets\Code\DataContainers\IsoObject.cs" />
     <Compile Include="Assets\Code\DataContainers\IsoObjectBody.cs" />
     <Compile Include="Assets\Code\DataContainers\IsoObjectGhost.cs" />
+    <Compile Include="Assets\Code\DataContainers\IsoTranslatable.cs" />
     <Compile Include="Assets\Code\DataContainers\Iso_Light.cs" />
     <Compile Include="Assets\Code\DataContainers\MouseHoverObject.cs" />
     <Compile Include="Assets\Code\DataContainers\NoMouseHoverObject.cs" />

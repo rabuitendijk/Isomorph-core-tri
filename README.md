@@ -17,7 +17,7 @@ PLANNING:
 		* impliment non-static collision
 	
 	- Update asset loading to v3
-		* many added tags for collision, lighting and color.
+		* Many added tags for collision, lighting and color.
 		{
 			bool editor_only
 			float light_r
@@ -27,9 +27,11 @@ PLANNING:
 			bool dir_lighting
 			bool no_collider
 			bool staircase
+			string tileset
 		}
-		* concider true annimations in implementaion.
+		* Concider true annimations in implementaion.
 		* Dense texture atlas.
+		* Add save to spesific tileset feature
 		* Translatable xml object type?
 	
 	- Update lighting to v2
@@ -76,6 +78,7 @@ BUGS:
 	
 	- In map editor the mouse hover gost sprite does not properly update its sprite when map rotatating.
 
+	- Atlas padding is to large causing 14 instead of 15 tiles per row
 	
 IN LATER UPDATES:
 
