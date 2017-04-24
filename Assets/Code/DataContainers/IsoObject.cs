@@ -24,6 +24,9 @@ public class IsoObject : IsoObjectBody
     /// </summary>
     public IsoObject(string prototype, Iso origin, Directions.dir direction=Directions.dir.N) : this(Atlas_Loader.main.getObject(prototype), origin, direction) { }
 
+    /// <summary>
+    /// Constructor that acctally creates  the obejct
+    /// </summary>
     private IsoObject(IsoObjectBody prototype, Iso origin, Directions.dir direction) : base(prototype, origin, direction)
     {
         id = SaveControl.isoObject_id++;
@@ -64,16 +67,25 @@ public class IsoObject : IsoObjectBody
         return true;
     }
 
+    /// <summary>
+    /// Sets this objects direction
+    /// </summary>
     public void setDirection(Directions.dir dir)
     {
         direction = dir;
     }
 
+    /// <summary>
+    /// Get sprite at coords index for direction North
+    /// </summary>
     public Sprite getSprite(int index)
     {
         return directions[(int)direction][index];
     }
 
+    /// <summary>
+    /// Get sprite at coords index and given direction
+    /// </summary>
     public Sprite getSprite(int index, Directions.dir dir)
     {
         return directions[(int)dir][index];

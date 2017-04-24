@@ -11,6 +11,9 @@ public class Thread_Solar_Job  {
     public int w, l;
     public bool full { get; protected set; }
 
+    /// <summary>
+    /// Full coverage recalculation job
+    /// </summary>
     public Thread_Solar_Job(int width, int length)
     {
         lx = 0;
@@ -23,6 +26,9 @@ public class Thread_Solar_Job  {
         full = true;
     }
 
+    /// <summary>
+    /// Partial recalculation job
+    /// </summary>
     public Thread_Solar_Job(Iso coord, int radius, int width, int length)
     {
         ux = coord.x + radius;
@@ -34,7 +40,9 @@ public class Thread_Solar_Job  {
         full = false;
     }
 
-
+    /// <summary>
+    /// Sets the bounds of the job
+    /// </summary>
     void boxin(int width, int length)
     {
         if (lx < 0)
@@ -50,6 +58,9 @@ public class Thread_Solar_Job  {
         l = uy - ly + 1;
     }
 
+    /// <summary>
+    /// check if coord is in bounds
+    /// </summary>
     public bool inBounds(Iso i)
     {
         if (i.x < lx || i.x > ux)

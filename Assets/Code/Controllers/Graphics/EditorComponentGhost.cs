@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +12,9 @@ public class EditorComponentGhost
     Transform tileFolder;
     IsoObjectGhost g;
 
+    /// <summary>
+    /// Constructor
+    /// </summary>
     public EditorComponentGhost(EditorGraphicsControl main, Transform tileFolder)
     {
         this.main = main;
@@ -29,6 +32,9 @@ public class EditorComponentGhost
         EditorUIControl.registerOnChangeSelected(onHoverChangeSelected);
     }
 
+    /// <summary>
+    /// Responce to ghost create
+    /// </summary>
     protected void onGhostCreate(IsoObjectGhost g)
     {
         for (int i = 0; i < g.coords.Count; i++)
@@ -39,6 +45,10 @@ public class EditorComponentGhost
 
         this.g = g;
     }
+
+    /// <summary>
+    /// Responce to ghost destroy
+    /// </summary>
     protected void onGhostDestroy(IsoObjectGhost g)
     {
         foreach (GameObject ob in g.graphic)
@@ -48,6 +58,9 @@ public class EditorComponentGhost
         g.graphic.Clear();
     }
 
+    /// <summary>
+    /// Responce to ghost rotate
+    /// </summary>
     protected void onGhostRotate(IsoObjectGhost g)
     {
         if (g.graphic.Count == 0)
@@ -88,6 +101,9 @@ public class EditorComponentGhost
         }
     }
 
+    /// <summary>
+    /// Responce to ghost rotate
+    /// </summary>
     protected void onGhostTranlate(IsoObjectGhost g)
     {
         if (g.graphic.Count == 0)
@@ -106,6 +122,9 @@ public class EditorComponentGhost
         }
     }
 
+    /// <summary>
+    /// Called when hover object chages type
+    /// </summary>
     protected void onHoverChangeSelected(string name)
     {
         if (main.hover == null)
@@ -143,6 +162,9 @@ public class EditorComponentGhost
         return ret;
     }
 
+    /// <summary>
+    /// Destroy this object
+    /// </summary>
     public void destroy()
     {
         IsoObjectGhost.removeOnCreate(onGhostCreate);

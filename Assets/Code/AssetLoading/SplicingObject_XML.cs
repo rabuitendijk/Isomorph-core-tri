@@ -6,6 +6,9 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
+/// <summary>
+/// Root of source object xml
+/// </summary>
 public class SplicingObject_XML : IXmlSerializable
 {
 
@@ -22,6 +25,9 @@ public class SplicingObject_XML : IXmlSerializable
     public List<SplicingSource_XML> source { get; protected set; }
     public List<SplicingBody_XML> body { get; protected set; }
 
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public SplicingObject_XML()
     {
         width = -1;

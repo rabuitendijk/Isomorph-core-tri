@@ -6,12 +6,18 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
+/// <summary>
+/// Represents the an image at a given rotation
+/// </summary>
 public class Direction_XML : IXmlSerializable{
     public string direction { get; protected set; }
     public string source { get; protected set; }
     public bool linked { get; protected set; }
     public List<XMLCoord> coords;
 
+    /// <summary>
+    /// Default constructor
+    /// </summary>
     public Direction_XML()
     {
         direction = "VOID";

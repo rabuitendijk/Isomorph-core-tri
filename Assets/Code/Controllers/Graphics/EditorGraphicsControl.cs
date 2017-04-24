@@ -44,12 +44,18 @@ public class EditorGraphicsControl : GraphicsControl {
         IsoObject.registerOnDestroy(onIsoObjectDestroy);
     }
 
+    /// <summary>
+    /// Delayed constructor
+    /// </summary>
     public override void delayedConstruction()
     {
         gld.delayedConstruction();
     }
 
 
+    /// <summary>
+    /// Roatete the map to direction dir
+    /// </summary>
     public override void rotate(Directions.dir dir)
     {
         Directions.currentDirection = dir;
@@ -75,6 +81,7 @@ public class EditorGraphicsControl : GraphicsControl {
 
         ghost.onGhostRotate();
     }
+
 
     protected override void onTileCreate(Tile t)
     {
@@ -118,6 +125,9 @@ public class EditorGraphicsControl : GraphicsControl {
         return ret;
     }
 
+    /// <summary>
+    /// Destroy this object
+    /// </summary>
     protected override void destructor()
     {
         gld.destroy();

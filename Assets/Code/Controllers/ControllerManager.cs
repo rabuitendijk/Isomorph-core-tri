@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Manages all controllers and the transitions between them
+/// </summary>
 public class ControllerManager {
     public static ControllerManager main;
     public enum Mode { editor, movement_test}
@@ -17,12 +20,18 @@ public class ControllerManager {
     UIControl uiControl;
     LightingControl lightingControl;
 
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public ControllerManager()
     {
         main = this;
         editor_mode("VOID");
     }
 
+    /// <summary>
+    /// Swaps to given mode next update
+    /// </summary>
     public void setNextSwap(Mode mode, string level = "VOID")
     {
 
@@ -31,6 +40,9 @@ public class ControllerManager {
         next_level = level;
     }
 
+    /// <summary>
+    /// Runs once per frame
+    /// </summary>
     public void update()
     {
         if (Input.GetKeyDown(KeyCode.F1))
@@ -49,6 +61,9 @@ public class ControllerManager {
 
     }
 
+    /// <summary>
+    /// Switch case that controlls the target swap.
+    /// </summary>
     void swap()
     {
         flush();
@@ -71,7 +86,9 @@ public class ControllerManager {
         swap_on_update = false;
     }
 
-
+    /// <summary>
+    /// Destroys current controllers
+    /// </summary>
     void flush()
     {
         if (logicControl != null)
@@ -94,6 +111,9 @@ public class ControllerManager {
         uiControl = null;
     }
 
+    /// <summary>
+    /// Setup for movement test
+    /// </summary>
     void movement_test_mode()
     {
         Level_XML xml;
@@ -120,6 +140,9 @@ public class ControllerManager {
         lightingControl.delayedConstruction();
     }
 
+    /// <summary>
+    /// Setup for level editor mode
+    /// </summary>
     void editor_mode()
     {
         Debug.Log("Editor mode loaded.");
@@ -139,6 +162,9 @@ public class ControllerManager {
         lightingControl.delayedConstruction();
     }
 
+    /// <summary>
+    /// Setup for level editor mode from loaded level
+    /// </summary>
     void editor_mode(string filename)
     {
         if (filename == "VOID")

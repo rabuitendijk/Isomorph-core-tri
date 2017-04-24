@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// This runs the game
+/// </summary>
 public class Runner : MonoBehaviour {
     public static Runner main;
 

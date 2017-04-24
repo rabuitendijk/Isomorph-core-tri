@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// A list node containing text
+/// </summary>
 public class HUI_TextNode  {
     public static Color basicColor = new Color(1f, 1f, 1f, .5f), selectedColor = new Color(.5f, .5f, 1f, .8f);
 
@@ -12,6 +15,9 @@ public class HUI_TextNode  {
     public string name { get; protected set; }
     RectTransform root;
 
+    /// <summary>
+    /// Common constructor, imidiatly builds node.
+    /// </summary>
     public HUI_TextNode(RectTransform source, string name, Font font)
     {
         //this.source = source;

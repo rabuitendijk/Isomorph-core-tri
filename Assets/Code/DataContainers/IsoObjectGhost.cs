@@ -1,12 +1,16 @@
-﻿using System.Collections;
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/// <summary>
+/// The hover mouse object for the level editor
+/// </summary>
 public class IsoObjectGhost : IsoObjectBody, MouseHoverObject {
 
     public List<GameObject> graphic { get; protected set; }
     public List<ProjIso> proj_coords { get; protected set; }
+
     /// <summary>
     /// Copy constructor.
     /// Offsets coordinats by origin.
@@ -14,6 +18,9 @@ public class IsoObjectGhost : IsoObjectBody, MouseHoverObject {
     /// </summary>
     public IsoObjectGhost(string prototype, Iso origin, Directions.dir direction = Directions.dir.N) : this(Atlas_Loader.main.getObject(prototype), origin, direction) { }
 
+    /// <summary>
+    /// The actual constructor
+    /// </summary>
     private IsoObjectGhost(IsoObjectBody prototype, Iso origin, Directions.dir direction) : base(prototype, origin, direction)
     {
         graphic = new List<GameObject>();
@@ -33,7 +40,9 @@ public class IsoObjectGhost : IsoObjectBody, MouseHoverObject {
     }
 
 
-
+    /// <summary>
+    /// Translate to target position
+    /// </summary>
     public void translate(Iso target)
     {
         Iso diff = new Iso(target.x - origin.x, target.y - origin.y, target.z - origin.z);
@@ -48,6 +57,9 @@ public class IsoObjectGhost : IsoObjectBody, MouseHoverObject {
             onTranslate(this);
     }
 
+    /// <summary>
+    /// Rotate this object
+    /// </summary>
     public void rotate(Directions.dir new_direction)
     {
         direction = new_direction;
@@ -55,6 +67,9 @@ public class IsoObjectGhost : IsoObjectBody, MouseHoverObject {
             onRotate(this);
     }
 
+    /// <summary>
+    /// Hide this object
+    /// </summary>
     public void hide()
     {
         foreach (GameObject g in graphic)
@@ -63,6 +78,9 @@ public class IsoObjectGhost : IsoObjectBody, MouseHoverObject {
         }
     }
 
+    /// <summary>
+    /// Unhide this obejct
+    /// </summary>
     public void unhide()
     {
         foreach(GameObject g in graphic)
@@ -71,18 +89,26 @@ public class IsoObjectGhost : IsoObjectBody, MouseHoverObject {
         }
     }
 
-
+    /// <summary>
+    /// Destroy this obejct
+    /// </summary>
     public override void destroy()
     {
         if (onDestroy != null)
             onDestroy(this);
     }
 
+    /// <summary>
+    /// return origin
+    /// </summary>
     public Iso getOrigin()
     {
         return origin;
     }
 
+    /// <summary>
+    /// Get current direction
+    /// </summary>
     public Directions.dir getDirection()
     {
         return direction;

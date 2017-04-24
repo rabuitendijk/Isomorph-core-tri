@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Layer mode, 
+/// Layer mode, collides mouse with current height layer only
 /// </summary>
 public class EditorComponentMouseLayer : ComponentMouse
 {
@@ -21,7 +21,7 @@ public class EditorComponentMouseLayer : ComponentMouse
     EditorInputControl input;
 
     /// <summary>
-    /// 
+    /// Common constructor
     /// </summary>
     public EditorComponentMouseLayer(EditorInputControl input, int layer=0)
     {
@@ -32,6 +32,9 @@ public class EditorComponentMouseLayer : ComponentMouse
             enableLayer(true, layer);
     }
 
+    /// <summary>
+    /// Run once per frame
+    /// </summary>
     public override void update()
     {
         
@@ -59,6 +62,9 @@ public class EditorComponentMouseLayer : ComponentMouse
         return true;
     }
 
+    /// <summary>
+    /// Handles on click event
+    /// </summary>
     public override void onClick(string mode)
     {
         //Remove at righth mouse click

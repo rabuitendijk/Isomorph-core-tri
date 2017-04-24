@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// How do I get to the ui information???
+/// Stack mouse moude, mouse bounces off objects in map
 /// </summary>
 public class EditorComponentMouseStack : ComponentMouse {
 
@@ -12,11 +12,17 @@ public class EditorComponentMouseStack : ComponentMouse {
     IsoObject lastObject;
     EditorInputControl input;
 
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public EditorComponentMouseStack(EditorInputControl input)
     {
         this.input = input;
     }
 
+    /// <summary>
+    /// Run once per frame
+    /// </summary>
     public override void update()
     {
 
@@ -51,6 +57,9 @@ public class EditorComponentMouseStack : ComponentMouse {
         return false;
     }
 
+    /// <summary>
+    /// Handels click event
+    /// </summary>
     public override void onClick(string mode)
     {
         //Remove at righth mouse click

@@ -21,6 +21,9 @@ public class GLInstruction
 	
     public Color color { get; protected set; }
 	
+    /// <summary>
+    /// Common constructor
+    /// </summary>
 	public GLInstruction(List<Vector3> points, Color color, bool autoconnect=true, bool loop=true, bool relativeToCamera=false)
 	{
         this.color = color;

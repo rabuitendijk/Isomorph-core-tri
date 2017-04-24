@@ -6,9 +6,15 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
+/// <summary>
+/// Loads all [auto-generated] object xml files
+/// </summary>
 public static class Atlas_ObjectLoader  {
     static int count = 0;
 
+    /// <summary>
+    /// Loads all object xml files and retruns a dictionary containing them
+    /// </summary>
     public static Dictionary<string, IsoObjectBody> load(string folder, SortedList<string, IsoObjectBody> objectsList)
     {
         Dictionary<string, IsoObjectBody> prototypes = new Dictionary<string, IsoObjectBody>();
@@ -26,6 +32,9 @@ public static class Atlas_ObjectLoader  {
         return prototypes;
     }
 
+    /// <summary>
+    /// Attemps to load single object xml file
+    /// </summary>
     static void loadObject(string filename, Dictionary<string, IsoObjectBody> prototypes, SortedList<string, IsoObjectBody> objectsList)
     {
         LinkerObject_XML xml;

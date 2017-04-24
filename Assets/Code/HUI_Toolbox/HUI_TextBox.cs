@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// A scrollable box containing text
+/// </summary>
 public class HUI_TextBox  {
 
     RectTransform  root;
@@ -10,6 +13,9 @@ public class HUI_TextBox  {
     Text text;
     RectTransform textRect;
 
+    /// <summary>
+    /// Constructor build textbox imidiatly
+    /// </summary>
     public HUI_TextBox(RectTransform source, Vector2 min, Vector2 max, Font font)
     {
         //this.source = source;
@@ -29,17 +35,26 @@ public class HUI_TextBox  {
         root.gameObject.AddComponent<Mask>();
     }
 
+    /// <summary>
+    /// Sets text in textbox
+    /// </summary>
     public void setText(string text)
     {
         this.text.text = text;
     }
 
+    /// <summary>
+    /// Appends text in textbox
+    /// </summary>
     public void append(string text)
     {
         this.text.text += "\n" + text;
         //textRect.anchoredPosition = new Vector2(0f, 0f);
     }
 
+    /// <summary>
+    /// Destroy this obejct
+    /// </summary>
     public void destroy()
     {
         GameObject.Destroy(root.gameObject);

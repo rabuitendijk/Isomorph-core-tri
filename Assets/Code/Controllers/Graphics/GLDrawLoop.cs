@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
+/// <summary>
+/// The component that randers GL ininstructions.
+/// 
+/// </summary>
 public class GLDrawLoop : MonoBehaviour
 {
 	List<GLInstruction> instructions = new List<GLInstruction>();
@@ -32,6 +36,9 @@ public class GLDrawLoop : MonoBehaviour
 		
     }
 	
+    /// <summary>
+    /// The rendering loop for 1 instruction
+    /// </summary>
 	private void innerloop(GLInstruction j)
 	{
 		GL.PushMatrix();
@@ -76,16 +83,25 @@ public class GLDrawLoop : MonoBehaviour
 		GL.PopMatrix();
 	}
 
+    /// <summary>
+    /// Add an instruction
+    /// </summary>
 	public void add(GLInstruction i)
 	{
 		instructions.Add(i);
 	}
 	
+    /// <summary>
+    /// remonve an instruction
+    /// </summary>
 	public void remove(GLInstruction i)
 	{
 		instructions.Remove(i);
 	}
 	
+    /// <summary>
+    /// Remove all instructions
+    /// </summary>
 	public void clear()
 	{
 		instructions.Clear();

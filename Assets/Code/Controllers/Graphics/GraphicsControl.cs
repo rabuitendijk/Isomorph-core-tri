@@ -32,15 +32,28 @@ public abstract class GraphicsControl : Controller{
         Directions.currentDirection = Directions.dir.N;
     }
 
+    /// <summary>
+    /// To be run after all controller constructors have been run
+    /// </summary>
     public abstract void delayedConstruction(); 
 
+    /// <summary>
+    /// Concider removing
+    /// </summary>
     protected abstract void onTileCreate(Tile t);
+    /// <summary>
+    /// Concider removing
+    /// </summary>
     protected abstract void onTileDestroy(Tile t);
 
     /// <summary>
     /// Destroy inhereting object, automatically called in base.destroy();
     /// </summary>
     protected abstract void destructor();
+
+    /// <summary>
+    /// Rotate map to direction dir
+    /// </summary>
     public abstract void rotate(Directions.dir direction);
 
     /// <summary>

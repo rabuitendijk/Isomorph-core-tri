@@ -6,6 +6,9 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
+/// <summary>
+/// Body of generated object xml
+/// </summary>
 public class LinkerObject_XML : IXmlSerializable{
 
     public string name { get; protected set; }
@@ -19,6 +22,9 @@ public class LinkerObject_XML : IXmlSerializable{
 	public bool is_light { get; protected set; }
 	public int light_radius {get; protected set;}
 
+    /// <summary>
+    /// Default constructor
+    /// </summary>
     public LinkerObject_XML()
     {
         name = "VOID";

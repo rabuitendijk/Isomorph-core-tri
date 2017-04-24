@@ -1,8 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// console command that shows currect file path
+/// </summary>
 public class HUI_Command_FilePath : HUI_ConsoleCommand
 {
 

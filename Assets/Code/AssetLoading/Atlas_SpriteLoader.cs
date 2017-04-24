@@ -6,6 +6,9 @@ using System.Xml;
 using System.Xml.Serialization;
 using UnityEngine;
 
+/// <summary>
+/// Loads the sprites of the generated atlas
+/// </summary>
 public static class Atlas_SpriteLoader{
 
     public static int count=0;
@@ -27,6 +30,9 @@ public static class Atlas_SpriteLoader{
         return ret;
     }
 
+    /// <summary>
+    /// Loads a single atlas
+    /// </summary>
     static void LoadAtlas(string filename, Dictionary<string, Sprite> dict)
     {
         StreamingSpriteXMLObject xml;
@@ -67,6 +73,9 @@ public static class Atlas_SpriteLoader{
 
     }
 
+    /// <summary>
+    /// Override the mip levels of the loaded atlas
+    /// </summary>
     static void overrideMips(Texture2D tex, string filename, int miplevels)
     {
         byte[] imageBytes;
@@ -94,6 +103,9 @@ public static class Atlas_SpriteLoader{
     }
 
 
+    /// <summary>
+    /// Exstracts the sprites form the atlas
+    /// </summary>
     static void processAtlas(StreamingSpriteXMLObject xml, Texture2D imageTexture, Dictionary<string, Sprite> dict)
     {
         Rect spriteCoordinates;

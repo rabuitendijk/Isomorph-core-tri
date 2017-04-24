@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Common functionallity of a mouse hover object
+/// </summary>
 public interface MouseHoverObject  {
 
     void translate(Iso target);

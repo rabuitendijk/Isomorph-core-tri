@@ -6,6 +6,9 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
+/// <summary>
+/// Level loader representation of IsoObject
+/// </summary>
 public class IsoObject_XML : IXmlSerializable
 {
     public string name { get; protected set; }
@@ -15,6 +18,9 @@ public class IsoObject_XML : IXmlSerializable
     string dir;
     public Directions.dir direction  { get{ return Directions.getDir(dir); } }
 
+    /// <summary>
+    /// Default constructor
+    /// </summary>
     public IsoObject_XML()
     {
         name = "null";

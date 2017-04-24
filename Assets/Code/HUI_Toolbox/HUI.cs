@@ -20,6 +20,9 @@ static class HUI {
         return rect;
     }
 
+    /// <summary>
+    /// Build a ui object and set it to full scaling size, with given ancors min and max
+    /// </summary>
     public static RectTransform buildUIObject(string ob_name, Transform parent, Vector2 min, Vector2 max, Vector2 pivot)
     {
         GameObject ob = new GameObject() { name = ob_name };
@@ -45,7 +48,7 @@ static class HUI {
 
 
     /// <summary>
-    /// Set UI object to full scaling size
+    /// Set UI object to full scaling size, with given ancors min and max
     /// </summary>
     public static void setRectFull(RectTransform rect, Vector2 min, Vector2 max, Vector2 pivot)
     {
@@ -58,6 +61,9 @@ static class HUI {
         rect.offsetMin = new Vector2(0f, 0f);
     }
 
+    /// <summary>
+    /// Add an image to giver recttransform with color and sprite
+    /// </summary>
     public static Image addImage(RectTransform rect, Color color, Sprite sprite = null, bool sliced=true, bool filled=true, bool racastTarget=true)
     {
         Image i = rect.gameObject.AddComponent<Image>();
@@ -80,7 +86,9 @@ static class HUI {
         return i;
     }
 
-
+    /// <summary>
+    /// Add simple scrollrect component
+    /// </summary>
     public static ScrollRect addScrollRect(RectTransform rect, RectTransform target, bool horizontal = true, bool vertical = true, float scrollSensitivity = 15f)
     {
         ScrollRect sr = rect.gameObject.AddComponent<ScrollRect>() as ScrollRect;
@@ -92,6 +100,9 @@ static class HUI {
         return sr;
     }
 
+    /// <summary>
+    /// Add simple scrollrect component
+    /// </summary>
     public static ScrollRect addScrollRect(RectTransform rect, RectTransform target, RectTransform viewport, Scrollbar verticalScrollbar, bool horizontal = true, bool vertical = true, float scrollSensitivity = 15f)
     {
         ScrollRect sr = rect.gameObject.AddComponent<ScrollRect>() as ScrollRect;
@@ -105,6 +116,9 @@ static class HUI {
         return sr;
     }
 
+    /// <summary>
+    /// Add a child object containing a text component
+    /// </summary>
     public static Text addTextChild(RectTransform rect, Color textColor, Font font, string text = "", TextAnchor align = TextAnchor.MiddleLeft, bool raycastTarget = false)
     {
         RectTransform childRect = HUI.buildUIObject("TextChild", rect);
@@ -112,6 +126,9 @@ static class HUI {
         return addText(childRect, textColor, font, text, align, raycastTarget);
     }
 
+    /// <summary>
+    /// Add a child object containing a text component
+    /// </summary>
     public static Text addTextChild(RectTransform rect, Color textColor, Font font, Vector2 min, Vector2 max, string text = "", TextAnchor align = TextAnchor.MiddleLeft, bool raycastTarget=false)
     {
         RectTransform childRect = HUI.buildUIObject("TextChild", rect, min, max, new Vector2(.5f, .5f));
@@ -119,6 +136,9 @@ static class HUI {
         return addText(childRect, textColor, font, text, align, raycastTarget);
     }
 
+    /// <summary>
+    /// Add a child object containing a text component
+    /// </summary>
     public static Text addTextChild(RectTransform rect, Color textColor, Font font, int fontSize, Vector2 min, Vector2 max, string text = "", bool resizeTextForBestFit = false, TextAnchor align = TextAnchor.MiddleLeft, bool raycastTarget = false)
     {
         RectTransform childRect = HUI.buildUIObject("TextChild", rect, min, max, new Vector2(.5f, .5f));
@@ -126,6 +146,9 @@ static class HUI {
         return addText(childRect, textColor, font, fontSize, text, resizeTextForBestFit, align, raycastTarget);
     }
 
+    /// <summary>
+    /// Add a text component
+    /// </summary>
     public static Text addText(RectTransform rect, Color textColor, Font font, string txt = "", TextAnchor align = TextAnchor.MiddleLeft, bool raycastTarget = false)
     {
         Text text = rect.gameObject.AddComponent<Text>();
@@ -137,6 +160,9 @@ static class HUI {
         return text;
     }
 
+    /// <summary>
+    /// Add a text component
+    /// </summary>
     public static Text addText(RectTransform rect, Color textColor, Font font, int fontSize, string txt = "", bool resizeTextForBestFit = false, TextAnchor align = TextAnchor.MiddleLeft, bool raycastTarget = false)
     {
         Text text = rect.gameObject.AddComponent<Text>();
@@ -150,7 +176,9 @@ static class HUI {
         return text;
     }
 
-
+    /// <summary>
+    /// Add a vertical layout group
+    /// </summary>
     public static VerticalLayoutGroup addVerticalLayoutGroup(RectTransform rect, RectOffset padding, float spacing, TextAnchor align = TextAnchor.UpperLeft, bool ControlHeight = false, bool ControlWidth = true, bool ForceExpandHeight = false, bool ForceExpandWidth = true)
     {
         VerticalLayoutGroup vlg = rect.gameObject.AddComponent<VerticalLayoutGroup>();
@@ -165,6 +193,9 @@ static class HUI {
         return vlg;
     }
 
+    /// <summary>
+    /// Add a content sise fitter
+    /// </summary>
     public static ContentSizeFitter addContentSizeFitter(RectTransform rect, ContentSizeFitter.FitMode horzontal = ContentSizeFitter.FitMode.Unconstrained, ContentSizeFitter.FitMode vertical = ContentSizeFitter.FitMode.PreferredSize)
     {
         ContentSizeFitter csf = rect.gameObject.AddComponent<ContentSizeFitter>();
@@ -174,6 +205,9 @@ static class HUI {
         return csf;
     }
 
+    /// <summary>
+    /// Add an input field
+    /// </summary>
     public static InputField addInputField(RectTransform rect, Color textColor, Font font, string initialText = "", bool bestFit=false)
     {
         HUI.addImage(rect, new Color(.5f, .5f, .5f));
@@ -186,7 +220,9 @@ static class HUI {
         return i;
     }
 
-
+    /// <summary>
+    /// Add a gameobject with a scrollbar attached
+    /// </summary>
     public static Scrollbar addVerticalScrollbarChild(RectTransform rect)
     {
         RectTransform child = buildUIObject("Scrollbar", rect);
@@ -195,6 +231,9 @@ static class HUI {
         return addVerticalScrollbar(child);
     }
 
+    /// <summary>
+    /// Add a scrollbar component
+    /// </summary>
     public static Scrollbar addVerticalScrollbar(RectTransform rect)
     {
         addImage(rect, Color.gray);

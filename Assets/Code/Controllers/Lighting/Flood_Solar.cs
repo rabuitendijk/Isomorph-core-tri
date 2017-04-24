@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Computes the suns contribution
+/// </summary>
 public class Flood_Solar {
     Lighting_Data data;
 
@@ -11,6 +14,9 @@ public class Flood_Solar {
 
     int  p; //propegation constant
 
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public Flood_Solar(Lighting_Data data, int radius)
     {
         this.data = data;
@@ -20,6 +26,9 @@ public class Flood_Solar {
         p = (255 - 20) / radius;
     }
 
+    /// <summary>
+    /// Computes the sun contribution for parameters given in job
+    /// </summary>
     public void flood(Thread_Solar_Job job)
     {
         count = 0;
@@ -105,6 +114,9 @@ public class Flood_Solar {
         //Debug.Log(this);
     }
 
+    /// <summary>
+    /// Check if a tile sould be added to flood algorithm
+    /// </summary>
     void tilecheck(Iso i, Queue<Iso> targets, HashSet<int> set, Thread_Solar_Job job)
     {
         if (!inGrid(i))
@@ -135,7 +147,7 @@ public class Flood_Solar {
     }
 
     /// <summary>
-    /// Sets 
+    /// Rains down max light value sets the rest to min light value
     /// </summary>
     void rain(int x, int y)
     {
@@ -157,6 +169,9 @@ public class Flood_Solar {
         }
     }
 
+    /// <summary>
+    /// Process a single target tile
+    /// </summary>
     void process(Iso i, int v, Thread_Solar_Job job, Queue<Iso> targets)
     {
         if (!inGrid(i,job))
@@ -170,6 +185,9 @@ public class Flood_Solar {
         }
     }
 
+    /// <summary>
+    /// See if coord is in grid
+    /// </summary>
     bool inGrid(Iso i)
     {
 
@@ -183,6 +201,9 @@ public class Flood_Solar {
         
     }
 
+    /// <summary>
+    /// See if coord is in job
+    /// </summary>
     bool inGrid(Iso i, Thread_Solar_Job job)
     {
         if (i.z < 0 || i.z >= data.height)
@@ -190,12 +211,17 @@ public class Flood_Solar {
         return job.inBounds(i);
     }
 
+    /// <summary>
+    /// get light level at coord
+    /// </summary>
     int get(Iso i)
     {
         return levels[i.x, i.y, i.z];
     }
 
-
+    /// <summary>
+    /// Hashing algorithm for hash set
+    /// </summary>
     int hashBox(Iso i)
     {
         return (i.z * data.tiles_per_layer) + (i.y * data.width) + i.x;

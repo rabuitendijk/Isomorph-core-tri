@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Console command that prints all help for a processors list of commands.
+/// </summary>
 public class HUI_Command_Help : HUI_ConsoleCommand
 {
 

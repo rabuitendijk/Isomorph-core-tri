@@ -6,10 +6,16 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
+/// <summary>
+/// Contains link to a source image for source object xml.
+/// </summary>
 public class SplicingSource_XML : IXmlSerializable
 {
     public string source { get; protected set; }
 
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public SplicingSource_XML()
     {
         source = "VOID";

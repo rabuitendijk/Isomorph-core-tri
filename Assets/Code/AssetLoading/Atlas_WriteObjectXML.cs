@@ -4,9 +4,15 @@ using UnityEngine;
 using System.IO;
 using System;
 
+/// <summary>
+/// Writes object xml data 
+/// </summary>
 public class Atlas_WriteObjectXML {
     public static int miplevels = 2;
 
+    /// <summary>
+    /// Writes all object xml data
+    /// </summary>
 	public static void write(string folder, List<SplicingObject_XML> objects, Dictionary<string, SplicingSource> source, int mipl)
     {
         miplevels = mipl;
@@ -18,6 +24,9 @@ public class Atlas_WriteObjectXML {
         }
     }
 
+    /// <summary>
+    /// Force directory createin
+    /// </summary>
     static void makeDirectories(string folder)
     {
 
@@ -34,6 +43,9 @@ public class Atlas_WriteObjectXML {
         }
     }
 
+    /// <summary>
+    /// Write single xml file
+    /// </summary>
     static void writeXML(SplicingObject_XML ob, Dictionary<string, SplicingSource> source, string folder)
     {
         string xml;
@@ -69,6 +81,9 @@ public class Atlas_WriteObjectXML {
         
     }
 
+    /// <summary>
+    /// Write the direction component of the object
+    /// </summary>
     static string writeDirection(SplicingSource source)
     {
         string xml = "\t<coords>\n";

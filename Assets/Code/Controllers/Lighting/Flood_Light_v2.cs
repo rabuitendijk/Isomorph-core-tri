@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Spreads light contribution
+/// </summary>
 public class Flood_Light_v2 {
     Lighting_Data data;
 
@@ -16,7 +19,9 @@ public class Flood_Light_v2 {
     float p; //propegation constant
 
 
-
+    /// <summary>
+    /// Constructor computes light contribution and informs relevent objects
+    /// </summary>
     public Flood_Light_v2(Thread_Light light, Lighting_Data data)
     {
 
@@ -79,6 +84,9 @@ public class Flood_Light_v2 {
         reverseValues();
     }
 
+    /// <summary>
+    /// process a tile from the stack
+    /// </summary>
     void process(Iso i, int v)
     {
         if (!inGrid(i))
@@ -92,6 +100,9 @@ public class Flood_Light_v2 {
         }
     }
 
+    /// <summary>
+    /// Inverts the light values
+    /// </summary>
     void reverseValues()
     {
         //Loop trough all cells
@@ -140,16 +151,25 @@ public class Flood_Light_v2 {
 
     }
 
+    /// <summary>
+    /// Set cell to light value
+    /// </summary>
     void set(Iso i, int value)
     {
         grid[i.x - lx, i.y - ly, i.z - lz] = value;
     }
 
+    /// <summary>
+    /// get light value
+    /// </summary>
     int get(Iso i)
     {
         return grid[i.x - lx, i.y - ly, i.z - lz];
     }
 
+    /// <summary>
+    /// Check if conoordinate is in grid
+    /// </summary>
     bool inGrid(Iso i)
     {
         if (i.x < lx || i.x > ux)
@@ -161,6 +181,9 @@ public class Flood_Light_v2 {
         return true;
     }
 
+    /// <summary>
+    /// Old special print function
+    /// </summary>
     void Log(string m)
     {
         //LightingControl.main.print_queue.Enqueue(m);

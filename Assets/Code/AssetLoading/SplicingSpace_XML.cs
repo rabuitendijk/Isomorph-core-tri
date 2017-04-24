@@ -6,6 +6,10 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
+/// <summary>
+/// Represents a coordinate in box space of source object xml.
+/// Currently unused.
+/// </summary>
 public class SplicingSpace_XML : IXmlSerializable
 {
 
@@ -14,6 +18,10 @@ public class SplicingSpace_XML : IXmlSerializable
     public int z { get; protected set; }
     public Iso coord { get { return new Iso(x, y, z); } }
 
+
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public SplicingSpace_XML()
     {
         x = -1;

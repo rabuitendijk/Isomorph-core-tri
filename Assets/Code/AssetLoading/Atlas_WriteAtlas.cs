@@ -4,6 +4,9 @@ using System.IO;
 using System;
 using UnityEngine;
 
+/// <summary>
+/// Writes image data to the atlas
+/// </summary>
 public static class Atlas_WriteAtlas  {
 
     static int AtlasSize = 2048;
@@ -18,6 +21,9 @@ public static class Atlas_WriteAtlas  {
     static int fitPerAtlas = fitPerRow* fitPerRow;
 
 
+    /// <summary>
+    /// Writes all atlasses
+    /// </summary>
     public static void write(string folder, List<SplicingSource> objects, int res, int mipl, int offs)
     {
         offset = offs;
@@ -37,6 +43,9 @@ public static class Atlas_WriteAtlas  {
     }
 
 
+    /// <summary>
+    /// Forces creation of target directories
+    /// </summary>
     static void makeDirectories(string folder)
     {
        
@@ -57,6 +66,10 @@ public static class Atlas_WriteAtlas  {
 
     static int count = 0, number = 0;
     static Texture2D currenctAtlas;
+
+    /// <summary>
+    /// Build the atlasses
+    /// </summary>
     static void build(int miplevel, string folder, List<SplicingSource> objects)
     {
 
@@ -92,6 +105,9 @@ public static class Atlas_WriteAtlas  {
         
     }
 
+    /// <summary>
+    /// Proceeses a single image
+    /// </summary>
     static void process(int miplevel, string folder, ProcessingImage image, List<ProcessingImage> inAtlas)
     {
         if ( !(count<fitPerAtlas))
@@ -114,6 +130,9 @@ public static class Atlas_WriteAtlas  {
 
     }
 
+    /// <summary>
+    /// Writes a single image to the atlas
+    /// </summary>
     static void writeImage(ProcessingImage i, Texture2D tex, int count, int size, int offset, int unitSize)
     {
         int cx = count % fitPerRow;
@@ -141,6 +160,9 @@ public static class Atlas_WriteAtlas  {
         }
     }
 
+    /// <summary>
+    /// Saves the atlas
+    /// </summary>
     static void exportAtlas(Texture2D Atlas, string folder, int miplevel)
     {
 
@@ -154,6 +176,9 @@ public static class Atlas_WriteAtlas  {
         number++;
     }
 
+    /// <summary>
+    /// Writes accompeniing xml
+    /// </summary>
     static void writeXML(List<ProcessingImage> images, string folder)
     {
         string xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";

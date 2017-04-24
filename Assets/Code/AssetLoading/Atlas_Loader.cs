@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Loads the custom Atlasses
+/// </summary>
 public class Atlas_Loader {
     public static string Atlas_folder { get; protected set; }
     public static string object_folder { get; protected set; }
@@ -12,6 +15,9 @@ public class Atlas_Loader {
     Dictionary<string, IsoObjectBody> prototypes;
     public SortedList<string, IsoObjectBody> objectsList { get; protected set; }
 
+    /// <summary>
+    /// Constructor will load atlasses on build
+    /// </summary>
     public Atlas_Loader(int resolution, int miplevels)
     {
         main = this;

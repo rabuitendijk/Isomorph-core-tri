@@ -27,10 +27,12 @@ PLANNING:
 			bool dir_lighting
 			bool no_collider
 			bool staircase
+			bool block_view //For possible optimisation later
 			string tileset
 		}
 		* Concider true annimations in implementaion.
 		* Dense texture atlas.
+		* Move UnitDefinition to hidden folder
 		* Add save to spesific tileset feature
 		* Translatable xml object type?
 	

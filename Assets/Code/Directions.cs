@@ -2,11 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Static class containing information on and fucntions dealing with the current direction
+/// </summary>
 public static class Directions  {
 
     public static dir currentDirection = dir.N;
     public enum dir { N, E, S, W };
 
+    /// <summary>
+    /// String to dir
+    /// </summary>
 	public static dir getDir(string s)
     {
         switch (s)
@@ -25,11 +31,17 @@ public static class Directions  {
         }
     }
 
+    /// <summary>
+    /// Sum of 2 directions
+    /// </summary>
     public static dir add(dir d1, dir d2)
     {
         return (dir)(((int)d1 + (int)d2) % 4);
     }
 
+    /// <summary>
+    /// Subtraction of 2 directions
+    /// </summary>
     public static dir subtract(dir d1, dir d2)
     {
         int i = (int)d1 - (int)d2;
@@ -39,11 +51,17 @@ public static class Directions  {
         return (dir)i;
     }
 
+    /// <summary>
+    /// Increment direction by 1
+    /// </summary>
     public static dir increment(dir d1)
     {
         return (dir)(((int)d1 + 1) % 4);
     }
 
+    /// <summary>
+    /// Subtract 1 from teh given direction
+    /// </summary>
     public static dir decrement(dir d1)
     {
         int i = (int)d1 - 1;
@@ -135,6 +153,9 @@ public static class Directions  {
         return raycastClickHit(out  i, out hit, upper_n, upper_p, upper_z, -1, -1);
     }
 
+    /// <summary>
+    /// The functions that actually processes a mouse raycast after its location and direction have been determined
+    /// </summary>
     static bool raycastClickHit(out Iso i, out Tile hit, float upper_n, float upper_p, float upper_z, int dn, int dp)
     {
         Iso target = new Iso(Mathf.FloorToInt(upper_n), Mathf.FloorToInt(upper_p), Mathf.FloorToInt(upper_z));

@@ -6,6 +6,9 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
+/// <summary>
+/// Body of source object xml, contains link to source image
+/// </summary>
 public class SplicingBody_XML : IXmlSerializable
 {
 
@@ -13,6 +16,9 @@ public class SplicingBody_XML : IXmlSerializable
     public bool link { get; protected set; }
     public string source { get; protected set; }
 
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public SplicingBody_XML()
     {
         direction = "VOID";

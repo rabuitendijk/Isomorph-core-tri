@@ -7,7 +7,7 @@ using System.Xml;
 using System.Xml.Serialization;
 
 /// <summary>
-/// Get requests
+/// Get requests to add sprites to Atlas
 /// </summary>
 public static class Atlas_Requests  {
 
@@ -51,7 +51,9 @@ public static class Atlas_Requests  {
         }
     }
 
-
+    /// <summary>
+    /// Load single file
+    /// </summary>
     static void loadXML(string name, string filename, List<SplicingObject_XML> objects)
     {
         SplicingObject_XML xml;

@@ -22,6 +22,9 @@ public class XMLCoord : IXmlSerializable
     public string spriteName { get; protected set; }
     public bool hasSprite { get; protected set; }
 
+    /// <summary>
+    /// Default constructor
+    /// </summary>
     public XMLCoord()
     {
         spriteName = "VOID";

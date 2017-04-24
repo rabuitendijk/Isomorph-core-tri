@@ -4,22 +4,30 @@ using System.IO;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Load command for console in level editor
+/// </summary>
 public class HUI_EditorLoadCommand : HUI_ConsoleCommand
 {
-    //static Action<string> load;
-    //public static void registerLoad(Action<string> funct) { load += funct; }
-    //public static void removeLoad(Action<string> funct) { load -= funct; }
-
+    /// <summary>
+    /// Constructor does nothing
+    /// </summary>
     public HUI_EditorLoadCommand() : base("load")
     {
         //Empty
     }
 
+    /// <summary>
+    /// Prints help
+    /// </summary>
     public override string help()
     {
         return "<color=grey>filename</color>, loads level from filename.";
     }
 
+    /// <summary>
+    /// Pushes next swapstate to controller manager
+    /// </summary>
     public override void process(string[] args)
     {
        /* if (load == null)

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Root of the Atlas building scripts
+/// </summary>
 public static class Atlas_Builder  {
 
 
@@ -10,6 +13,9 @@ public static class Atlas_Builder  {
     static string export_folder = Application.streamingAssetsPath + "/Export_Images";
     static string object_folder = Application.streamingAssetsPath + "/Export_Objects";
 
+    /// <summary>
+    /// Build new Atlas
+    /// </summary>
     public static void build(int resolution, int miplevels, int texture_offset)
     {
         List<SplicingObject_XML> objects = Atlas_Requests.getRequests(xml_folder);

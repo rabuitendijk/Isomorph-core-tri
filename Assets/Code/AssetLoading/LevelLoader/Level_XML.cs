@@ -6,6 +6,9 @@ using System.Xml;
 using System.Xml.Schema;
 using System.Xml.Serialization;
 
+/// <summary>
+/// Represents a level in the levellouder
+/// </summary>
 public class Level_XML : IXmlSerializable {
 
     public int width { get; protected set; }
@@ -14,6 +17,9 @@ public class Level_XML : IXmlSerializable {
 
     public List<IsoObject_XML> nodes;
 
+    /// <summary>
+    /// Default constructor
+    /// </summary>
     public Level_XML()
     {
         width = -1;

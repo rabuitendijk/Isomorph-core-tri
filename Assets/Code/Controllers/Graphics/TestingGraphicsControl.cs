@@ -1,11 +1,17 @@
-﻿using System;
-using System.Collections;
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Stripped graphics control for movement tests
+/// </summary>
 public class TestingGraphicsControl : GraphicsControl
 {
     Material mat;
+
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public TestingGraphicsControl() : base(new NoMouseHoverObject())
     {
         mat = new Material(Shader.Find("Iso/CheckEffect"));
@@ -13,12 +19,12 @@ public class TestingGraphicsControl : GraphicsControl
 
     public override void delayedConstruction()
     {
-        return;
+        return; 
     }
 
     public override void rotate(Directions.dir direction)
     {
-        return;
+        return; //Disabled
     }
 
     protected override void destructor()

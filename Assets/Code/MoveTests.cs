@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Highly outdated movetest left in to copy some code fro later
+/// </summary>
 public class MoveTests : MonoBehaviour {
 
     public float mass = 1f;

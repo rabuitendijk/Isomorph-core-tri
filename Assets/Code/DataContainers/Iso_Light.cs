@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/// <summary>
+/// Represents a lightsource
+/// </summary>
 public class Iso_Light {
 
 	public ulong light_id { get; protected set; }
@@ -11,6 +14,9 @@ public class Iso_Light {
     public int radius { get; protected set; }
     public IsoObject source { get; protected set; }
 
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public Iso_Light(IsoObject source, int radius)
     {
         //this.coord = coord;
@@ -23,6 +29,9 @@ public class Iso_Light {
             onCreate(this);
     }
 
+    /// <summary>
+    /// Destroy this obejct
+    /// </summary>
     public void destroy()
     {
         if (onDestroy != null)

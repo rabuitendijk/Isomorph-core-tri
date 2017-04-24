@@ -20,7 +20,7 @@ public class EditorUIControl : UIControl{
     MonoEditorMouseTrap mouse;
 
     /// <summary>
-    /// Detects canvas and desired UI structure
+    /// Detects canvas and builds desired UI structure
     /// </summary>
     public EditorUIControl() : base()
     {
@@ -32,6 +32,9 @@ public class EditorUIControl : UIControl{
         mouse.registerOnClick(onMouseClick);
     }
 
+    /// <summary>
+    /// Delayed constructor
+    /// </summary>
     public override void delayedConstruction()
     {
         //Empty
@@ -72,6 +75,9 @@ public class EditorUIControl : UIControl{
     public static void registerOnChangeSelected(Action<string> funct) { onChangeSelected += funct; }
     public static void removeOnChangeSelected(Action<string> funct) { onChangeSelected -= funct; }
 
+    /// <summary>
+    /// Push change selected to listening functions
+    /// </summary>
     void changeSelected(string name) { if (onChangeSelected != null) { onChangeSelected(name); } }//Push outward
 
     /// <summary>
@@ -87,6 +93,9 @@ public class EditorUIControl : UIControl{
 
     }
 
+    /// <summary>
+    /// Returns if this object is absorbing all keyboard input
+    /// </summary>
     public override bool usesKeys()
     {
         return console.beingEdited;

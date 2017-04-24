@@ -25,6 +25,9 @@ public abstract class InputControl : Controller {
         UIControl.registerOnMouseClick(onClick);
     }
 
+    /// <summary>
+    /// Runs after all controller constructors have been ran
+    /// </summary>
     public abstract void delayedConstruction();
 
     /// <summary>

@@ -1,8 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Controller for disabled UI
+/// </summary>
 public class NoUIControl : UIControl
 {
     public NoUIControl() : base()

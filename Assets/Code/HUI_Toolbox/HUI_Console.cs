@@ -29,7 +29,7 @@ public class HUI_Console  {
     public HUI_TextBox textBox { get; protected set; }
 
     /// <summary>
-    /// Build the console
+    /// Constructor imidiatly builds the console
     /// </summary>
     public HUI_Console(RectTransform source, Vector2 min, Vector2 max, Font font, HUI_ConsoleProcessor processor=null)
     {
@@ -52,6 +52,9 @@ public class HUI_Console  {
         inputField.registerOnEndEdit(delegate { process(processor, inputField); });
     }
 
+    /// <summary>
+    /// Process commands on entry [of commands]
+    /// </summary>
     void process(HUI_ConsoleProcessor processor, HUI_InputField inputField)
     {
         processor.process();

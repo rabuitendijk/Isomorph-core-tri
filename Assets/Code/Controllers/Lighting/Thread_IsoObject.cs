@@ -12,11 +12,17 @@ public class Thread_IsoObject  {
     public Iso origin { get; protected set; }
     public List<Iso> coords = new List<Iso>();
 
+    /// <summary>
+    /// Privarte constructor
+    /// </summary>
     Thread_IsoObject(Iso origin)
     {
         this.origin = origin;
     }
 
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public Thread_IsoObject(IsoObject o) : this(o.origin)
     {
         id = o.id;

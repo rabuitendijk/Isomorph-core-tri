@@ -1,8 +1,10 @@
-﻿using System;
-using System.Collections;
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Lighting control for the editor
+/// </summary>
 public class EditorLightingControl : LightingControl
 {
     Dictionary<ulong, IsoObject> objects_added = new Dictionary<ulong, IsoObject>(); //Does anything need to be stored internally?
@@ -13,6 +15,9 @@ public class EditorLightingControl : LightingControl
     LightingThread thread;
     float time = 0, x = 0;
 
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public EditorLightingControl() : base()
     {
 
@@ -24,11 +29,17 @@ public class EditorLightingControl : LightingControl
         thread = new LightingThread(32);
     }
 
+    /// <summary>
+    /// Respond to Iso object creation
+    /// </summary>
     void onIsoObjectCreate(IsoObject i)
     {
         objects_added.Add(i.id, i);
     }
 
+    /// <summary>
+    /// Respond to Isoobject destruction
+    /// </summary>
     void onIsoObjectDestroy(IsoObject i)
     {
         if (objects_added.ContainsKey(i.id)) // if Added since last update remove from tread update list
@@ -38,12 +49,20 @@ public class EditorLightingControl : LightingControl
     }
 
 
+    /// <summary>
+    /// Respond to light creation
+    /// </summary>
+    /// <param name="i"></param>
     void onIso_LightCreate(Iso_Light i)
     {
         lights_added.Add(i.light_id, i);
         //Debug.Log("Added light");
     }
 
+    /// <summary>
+    /// Respond to light destruction
+    /// </summary>
+    /// <param name="i"></param>
     void onIso_LightDestroy(Iso_Light i)
     {
         if (lights_added.ContainsKey(i.light_id))
@@ -54,6 +73,9 @@ public class EditorLightingControl : LightingControl
     }
 
 
+    /// <summary>
+    /// Run once per frame
+    /// </summary>
     public override void update()
     {
         //
@@ -89,6 +111,9 @@ public class EditorLightingControl : LightingControl
 
     }
 
+    /// <summary>
+    /// Fros lighting calculations to be completed now
+    /// </summary>
     public override void runOnMainThread()
     {
         thread.runOnMain(objects_added, objects_removed, lights_added, lights_removed);
@@ -100,6 +125,9 @@ public class EditorLightingControl : LightingControl
         execute_jobs(thread.jobs);
     }
 
+    /// <summary>
+    /// Processes returnd joblist
+    /// </summary>
     void execute_jobs(List<Thread_Job> jobs)
     {
         Tile t;
@@ -118,6 +146,9 @@ public class EditorLightingControl : LightingControl
         }
     }
 
+    /// <summary>
+    /// Destroy this obejct
+    /// </summary>
     protected override void destructor()
     {
         IsoObject.removeOnCreate(onIsoObjectCreate);
@@ -126,6 +157,9 @@ public class EditorLightingControl : LightingControl
         Iso_Light.removeOnDestroy(onIso_LightDestroy);
     }
 
+    /// <summary>
+    /// Delayed constructor
+    /// </summary>
     public override void delayedConstruction()
     {
         runOnMainThread();

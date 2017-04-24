@@ -17,10 +17,19 @@ public class ProjIso : Iso {
     
 
 
-
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public ProjIso(int x, int y, int z, int depthModifier = 0): base(x,y,z){this.depthModifier = depthModifier;}
 
+    /// <summary>
+    /// Cast constructor
+    /// </summary>
     public ProjIso(Iso i, int depthModifier = 0) : base(i){this.depthModifier = depthModifier;}
+
+    /// <summary>
+    /// Copy constructor
+    /// </summary>
     public ProjIso(ProjIso i) : base(i) { this.depthModifier = i.depthModifier; }
 
     /// <summary>
@@ -36,6 +45,9 @@ public class ProjIso : Iso {
         graphic.GetComponent<SpriteRenderer>().sortingOrder = i.depth;
     }
 
+    /// <summary>
+    /// Return a rotated version of this coord
+    /// </summary>
     public ProjIso rotate(Directions.dir dir)
     {
         //Debug.Log("ord");
@@ -56,6 +68,9 @@ public class ProjIso : Iso {
         }
     }
 
+    /// <summary>
+    /// Return a rotated version of this coord accounting for sprite roatations
+    /// </summary>
     public ProjIso rotate(Directions.dir dir, IsoObjectBody ob)
     {
 
@@ -89,7 +104,9 @@ public class ProjIso : Iso {
         return ret.rotate(dir);
     }
 
-
+    /// <summary>
+    /// Return this, containing this+that
+    /// </summary>
     public static ProjIso operator +(ProjIso lh, Iso rh)
     {
         lh.x += rh.x;
@@ -98,6 +115,9 @@ public class ProjIso : Iso {
         return lh;
     }
 
+    /// <summary>
+    /// Return this, containing this-that
+    /// </summary>
     public static ProjIso operator -(ProjIso lh, Iso rh)
     {
         lh.x -= rh.x;

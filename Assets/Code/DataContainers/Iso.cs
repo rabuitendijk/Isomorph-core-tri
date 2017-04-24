@@ -29,6 +29,9 @@ public class Iso{
         this.z = z;
     }
 
+    /// <summary>
+    /// Copy constructor
+    /// </summary>
     public Iso(Iso i){set(i);}
 
     /// <summary>
@@ -37,18 +40,27 @@ public class Iso{
     /// </summary>
     public Iso(float x, float y, int z) : this(Mathf.FloorToInt(-2f * y - x + .5f * z ), Mathf.FloorToInt(-2f * y + x + .5f * z), z) { }
 
+    /// <summary>
+    /// returns new Iso containing sum
+    /// </summary>
     public static Iso operator +(Iso lh, Iso rh)
     {
         Iso ret = new Iso(lh.x+rh.x, lh.y+rh.y, lh.z +rh.z);
         return ret;
     }
 
+    /// <summary>
+    /// Returns new Iso containing lh-rh
+    /// </summary>
     public static Iso operator -(Iso lh, Iso rh)
     {
         Iso ret = new Iso(lh.x - rh.x, lh.y - rh.y, lh.z - rh.z);
         return ret;
     }
 
+    /// <summary>
+    /// Add rh to this vector
+    /// </summary>
     public void add(Iso rh)
     {
         x += rh.x;
@@ -56,6 +68,9 @@ public class Iso{
         z += rh.z;
     }
 
+    /// <summary>
+    /// add deltas to this vector
+    /// </summary>
     public void add(int x, int y, int z)
     {
         this.x += x;
@@ -63,6 +78,9 @@ public class Iso{
         this.z += z;
     }
 
+    /// <summary>
+    /// Set this vectors position to the other vectors position
+    /// </summary>
     public void set(Iso other)
     {
         x = other.x;

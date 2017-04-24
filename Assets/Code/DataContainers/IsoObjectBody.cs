@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Shard body of IsoObejcts
+/// Shared body of IsoObejcts, contains information from the xml object files
 /// </summary>
 public class IsoObjectBody {
 
@@ -36,7 +36,9 @@ public class IsoObjectBody {
         return false;
     }
 
-    //Proteced constructor
+    /// <summary>
+    /// Proteced constructor, called when an ingame IsoObject is created. Copies data.
+    /// </summary>
     protected IsoObjectBody(IsoObjectBody prototype, Iso origin=null, Directions.dir direction = Directions.dir.N)
     {
         coords = clone(prototype.coords);
@@ -62,7 +64,9 @@ public class IsoObjectBody {
 
     }
 
-    //Pivate constructor
+    /// <summary>
+    /// Pivate constructor, Called when a new prototype is created.
+    /// </summary>
     private IsoObjectBody(string name, List<Iso> coords, List<List<Sprite>> directions, int width, int length, int height, bool is_light, int light_radius)
     {
         this.coords = clone(coords);

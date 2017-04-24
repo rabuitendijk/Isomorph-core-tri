@@ -2,13 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Sparse logic control for movement systems testing
+/// </summary>
 public class TestingLogicControl : LogicControl
 {
 
     Tile[,,] grid;
     Level_XML xml;
 
-
+    /// <summary>
+    /// Run base constructor
+    /// </summary>
     TestingLogicControl() : base(){ }
 
     /// <summary>
@@ -24,12 +29,18 @@ public class TestingLogicControl : LogicControl
         this.height = height;
     }
 
+    /// <summary>
+    /// Constructor that builds level from file
+    /// </summary>
     public TestingLogicControl(Level_XML xml, string filename) : this(xml.width, xml.length, xml.height)
     {
         this.filename = filename;
         this.xml = xml;
     }
 
+    /// <summary>
+    /// Delayed constructor
+    /// </summary>
     public override void delayedConstruction()
     {
         if (xml != null)    //Level provided
@@ -57,6 +68,9 @@ public class TestingLogicControl : LogicControl
     }
 
 
+    /// <summary>
+    /// Sets tile in grid without checking if tile is present or coordinate is in bounds.
+    /// </summary>
     public void setUnprotected(Iso i, Tile t)
     {
         grid[i.x, i.y, i.z] = t;
@@ -95,21 +109,33 @@ public class TestingLogicControl : LogicControl
         return true;
     }
 
+    /// <summary>
+    /// To be removed.
+    /// </summary>
     public override void makeLevel(string name)
     {
         Debug.Log("Not implimented.");
     }
 
+    /// <summary>
+    /// Respond to tile creation
+    /// </summary>
     protected override void onTileCreate(Tile t)
     {
         set(t);
     }
 
+    /// <summary>
+    /// Respond to tile destruction
+    /// </summary>
     protected override void onTileDestroy(Tile t)
     {
         setUnprotected(t.coord, null);
     }
 
+    /// <summary>
+    /// Destroy this object
+    /// </summary>
     protected override void destructor()
     {
         //save.destroy();

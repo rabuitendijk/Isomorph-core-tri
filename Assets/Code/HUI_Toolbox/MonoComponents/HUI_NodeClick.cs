@@ -4,10 +4,16 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+/// <summary>
+/// Component that detect if this node has been clicked on
+/// </summary>
 public class HUI_NodeClick : MonoBehaviour, IPointerClickHandler{
 
     public HUI_TextNode node;
 
+    /// <summary>
+    /// Pushes click to all listening functions
+    /// </summary>
     public void OnPointerClick(PointerEventData eventData)
     {
         if (node != null)

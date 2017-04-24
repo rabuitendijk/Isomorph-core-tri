@@ -27,12 +27,18 @@ public class EditorLogicControl : LogicControl
         this.height = height;
     }
 
+    /// <summary>
+    /// Build logic control from level file
+    /// </summary>
     public EditorLogicControl(Level_XML xml, string filename) : this(xml.width, xml.length, xml.height)
     {
         this.filename = filename;
         this.xml = xml;
     }
 
+    /// <summary>
+    /// Delayed constructor
+    /// </summary>
     public override void delayedConstruction()
     {
         if (xml != null)    //Level provided
@@ -60,6 +66,9 @@ public class EditorLogicControl : LogicControl
     }
 
 
+    /// <summary>
+    /// Set without checking if coord is in grid
+    /// </summary>
     public void setUnprotected(Iso i, Tile t)
     {
         grid[i.x, i.y, i.z] = t;
@@ -98,21 +107,33 @@ public class EditorLogicControl : LogicControl
         return true;
     }
 
+    /// <summary>
+    /// TOBE removed
+    /// </summary>
     public override void makeLevel(string name)
     {
         Debug.Log("Not implimented.");
     }
 
+    /// <summary>
+    /// Respond to tile creation
+    /// </summary>
     protected override void onTileCreate(Tile t)
     {
         set(t);
     }
 
+    /// <summary>
+    /// Respond to tile destruction
+    /// </summary>
     protected override void onTileDestroy(Tile t)
     {
         setUnprotected(t.coord, null);
     }
 
+    /// <summary>
+    /// Destroy this object
+    /// </summary>
     protected override void destructor()
     {
         //save.destroy();

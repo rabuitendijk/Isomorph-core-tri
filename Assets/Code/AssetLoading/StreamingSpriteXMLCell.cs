@@ -9,6 +9,7 @@ using System.Xml.Serialization;
 /// <summary>
 /// version alpha-1
 /// Class for operation of .xml cell modifications
+/// Reprisents the data of a cell in Atlas texture
 /// 
 /// Robin Apollo Buitendijk
 /// Late February 2017
@@ -21,6 +22,9 @@ public class StreamingSpriteXMLCell : IXmlSerializable
 	public bool disable {get; protected set;}
 	public string name {get; protected set;}
 	
+    /// <summary>
+    /// Default constructor
+    /// </summary>
 	public StreamingSpriteXMLCell()
 	{
 		name = "NULL";

@@ -30,6 +30,9 @@ public class Tile {
     public IsoObject isoObject { get; protected set; }
     public int index { get; protected set; }
 
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public Tile(ProjIso coord, int index, IsoObject isoObject = null)
     {
         this.coord = coord;
@@ -40,6 +43,9 @@ public class Tile {
         onCreate(this);
     }
 
+    /// <summary>
+    /// Lazy constructor
+    /// </summary>
     public Tile (Iso coord, int index, IsoObject isoObject = null) : this(new ProjIso(coord), index, isoObject){}
 
     /// <summary>

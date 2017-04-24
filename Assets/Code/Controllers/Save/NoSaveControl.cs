@@ -1,8 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// A disabled version of the save sytem
+/// </summary>
 public class NoSaveControl : SaveControl
 {
     public NoSaveControl() : base()

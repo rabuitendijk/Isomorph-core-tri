@@ -4,8 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
 
+/// <summary>
+/// This absorbs all click not stopped by the UI
+/// </summary>
 public class MonoEditorMouseTrap : MonoBehaviour, IPointerClickHandler
 {
+
     public void OnPointerClick(PointerEventData eventData)
     {
         if (onClick == null)

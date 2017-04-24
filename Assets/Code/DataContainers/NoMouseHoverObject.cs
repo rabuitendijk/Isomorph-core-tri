@@ -3,6 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// There is no mouse hover
+/// </summary>
 public class NoMouseHoverObject : MouseHoverObject
 {
     public void destroy()

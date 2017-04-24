@@ -17,6 +17,9 @@ public abstract class LogicControl : Controller{
     public int height { get; protected set; }
     public string filename { get; protected set; }
 
+    /// <summary>
+    /// Common Constructor
+    /// </summary>
     public LogicControl()
     {
         main = this;
@@ -26,6 +29,9 @@ public abstract class LogicControl : Controller{
         Tile.registerOnDestroy(onTileDestroy);
     }
 
+    /// <summary>
+    /// Is run after controller constructors have been ran.
+    /// </summary>
     public abstract void delayedConstruction();
 
     protected abstract void onTileCreate(Tile t);
@@ -57,8 +63,14 @@ public abstract class LogicControl : Controller{
     /// </summary>
     public abstract void makeLevel(string name);
 
+    /// <summary>
+    /// Destroy inhereting object
+    /// </summary>
     protected abstract void destructor();
 
+    /// <summary>
+    /// Destroy this object
+    /// </summary>
     public void destroy()
     {
         destructor();

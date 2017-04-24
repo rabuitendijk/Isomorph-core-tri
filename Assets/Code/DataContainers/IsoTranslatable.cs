@@ -52,6 +52,9 @@ public class IsoTranslatable {
     public static void registerOnDestroy(Action<IsoTranslatable> funct) { onDestroy += funct; }
     public static void removeOnDestroy(Action<IsoTranslatable> funct) { onDestroy -= funct; }
 
+    /// <summary>
+    /// Destroy this obejct
+    /// </summary>
     public void destroy()
     {
         onDestroy(this);

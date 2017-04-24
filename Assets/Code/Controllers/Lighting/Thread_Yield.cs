@@ -2,18 +2,27 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Handles the process of yielding to the next solar state
+/// </summary>
 public class Thread_Yield {
 
     Lighting_Data data;
     int yield_count, i = 0, j = 0, k = 0;
     public bool fully_yielded { get; protected set; }
 
+    /// <summary>
+    /// Common constuctor
+    /// </summary>
 	public Thread_Yield(Lighting_Data data, int yield_count)
     {
         this.data = data;
         this.yield_count = yield_count;
     }
 
+    /// <summary>
+    /// Yield to next frame
+    /// </summary>
     public void yield()
     {
         if (fully_yielded)
@@ -62,6 +71,9 @@ public class Thread_Yield {
         fully_yielded = true;
     }
 
+    /// <summary>
+    /// Reset the yielding process
+    /// </summary>
     public void reset(int yield_count = -1)
     {
         if (yield_count != -1)

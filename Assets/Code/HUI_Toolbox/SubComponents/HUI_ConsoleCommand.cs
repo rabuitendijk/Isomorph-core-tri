@@ -8,6 +8,9 @@ using UnityEngine;
 public abstract class HUI_ConsoleCommand {
     public string name { get; protected set; }
 
+    /// <summary>
+    /// This constructor must be ran with the name of the inhereting command
+    /// </summary>
     public HUI_ConsoleCommand(string name)
     {
         this.name = name;

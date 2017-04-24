@@ -4,6 +4,9 @@ using UnityEngine;
 using System.Threading;
 using System;
 
+/// <summary>
+/// The multithreaded component of the lighting system
+/// </summary>
 public class LightingThread  {
     Lighting_Data data;
 
@@ -35,6 +38,9 @@ public class LightingThread  {
     int solar_radius = 5;
     float solar_influence = .4f;
 
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public LightingThread(int quantisation)
     {
         this.quantisation = quantisation;
@@ -43,6 +49,9 @@ public class LightingThread  {
         solar = new Flood_Solar(data, solar_radius);
     }
 
+    /// <summary>
+    /// Compute lighting threaded
+    /// </summary>
     public void runOnThread(Dictionary<ulong, IsoObject> objects_added, Dictionary<ulong, IsoObject> objects_removed, Dictionary<ulong, Iso_Light> lights_added, Dictionary<ulong, Iso_Light> lights_removed)
     {
         running = true;
@@ -58,6 +67,9 @@ public class LightingThread  {
         //return jobs;
     }
 
+    /// <summary>
+    /// Compute lighting now
+    /// </summary>
     public void runOnMain(Dictionary<ulong, IsoObject> objects_added, Dictionary<ulong, IsoObject> objects_removed, Dictionary<ulong, Iso_Light> lights_added, Dictionary<ulong, Iso_Light> lights_removed)
     {
         running = true;
@@ -107,6 +119,9 @@ public class LightingThread  {
         running = false;
     }
 
+    /// <summary>
+    /// Common lighting calculation setp
+    /// </summary>
     void process(bool full_solar_recalculation = false)
     {
         jobs = new List<Thread_Job>();
@@ -143,12 +158,13 @@ public class LightingThread  {
             data.add_to_level_altered(ob);
 
             //Lightfield recalculation
-            foreach (KeyValuePair<ulong, Thread_Light> light  in lights)
+            /*foreach (KeyValuePair<ulong, Thread_Light> light  in lights)
             {
                 if (inBouds(ob.origin, light.Value.radius, light.Value.coord))
                     if (!recalculate.ContainsKey(light.Key))
                         recalculate.Add(light.Key, light.Value);
-            }
+            }*/
+            data.add_recalculates(ob, recalculate);
             solar_jobs.Add(new Thread_Solar_Job(ob.origin, solar_radius, data.width, data.length));
         }
 
@@ -231,6 +247,9 @@ public class LightingThread  {
 
     }
 
+    /// <summary>
+    /// Add light to be calculated
+    /// </summary>
     void add_lights()
     {
         //Log("add: " + create.Count.ToString());
@@ -243,7 +262,9 @@ public class LightingThread  {
         }
     }
 
-
+    /// <summary>
+    /// Recalculate lights in recalculation table
+    /// </summary>
     void recalculate_lights()
     {
         //Log("recalculate: " + recalculate.Count.ToString());
@@ -260,6 +281,9 @@ public class LightingThread  {
         }
     }
 
+    /// <summary>
+    /// Process solar recaculation from solar job list
+    /// </summary>
     void process_solar_jobs()
     {
         foreach(Thread_Solar_Job job in solar_jobs)
@@ -301,24 +325,9 @@ public class LightingThread  {
         return (i.z * data.tiles_per_layer) + (i.y * data.width) + i.x;
     }
 
-
     /// <summary>
-    /// Check if pion is in bouds of light
+    /// Old logging function
     /// </summary>
-    bool inBouds(Iso origin, int radius, Iso target)
-    {
-        if (target.x < origin.x - radius || target.x > origin.x + radius)
-            return false;
-
-        if (target.y < origin.y - radius || target.y > origin.y + radius)
-            return false;
-
-        if (target.z < origin.z - radius || target.z > origin.z + radius)
-            return false;
-
-        return true;
-    }
-
     void Log(string m)
     {
         //LightingControl.main.print_queue.Enqueue(m);

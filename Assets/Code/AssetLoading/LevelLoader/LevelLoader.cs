@@ -6,8 +6,14 @@ using System;
 using System.Xml;
 using System.Xml.Serialization;
 
+/// <summary>
+/// Static class that loads a level file
+/// </summary>
 public static class LevelLoader {
 
+    /// <summary>
+    /// Attemps to load level into xml
+    /// </summary>
 	public static bool loadFile(string filename, out Level_XML xml)
     {
         xml = null;

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
+/// <summary>
+/// Loads source sprites and splices them
+/// </summary>
 public static class Atlas_SourceLoader {
 
     public static int mipcount = 2;
@@ -11,6 +14,9 @@ public static class Atlas_SourceLoader {
 
     public static List<SplicingSource> entries;
 
+    /// <summary>
+    /// Loads source sprites and splices them, returns dictionary that contains them
+    /// </summary>
 	public static Dictionary<string, SplicingSource> loadSource(string folder, List<SplicingObject_XML> objects, int res, int miplevels)
     {
         //
@@ -34,7 +40,9 @@ public static class Atlas_SourceLoader {
         return ret;
     }
 
-
+    /// <summary>
+    /// Load unit definitions for all mip levels
+    /// </summary>
     static List<Texture2D> loadUnitDefinitions(string folder)
     {
         List<Texture2D> ret = new List<Texture2D>();
@@ -74,6 +82,9 @@ public static class Atlas_SourceLoader {
 
     }
 
+    /// <summary>
+    /// Load sigular source file
+    /// </summary>
     static void loadSource(string filename, string name, SplicingObject_XML ob, Dictionary<string, SplicingSource> dir, List<Texture2D> unitDefinitions)
     {
 
@@ -96,6 +107,9 @@ public static class Atlas_SourceLoader {
         
     }
 
+    /// <summary>
+    /// Process singular source file
+    /// </summary>
     static ProcessingImage[,,] loadMip(int mipLevel, string filename, SplicingObject_XML ob, Texture2D unitDefinition)
     {
         if (!File.Exists(filename))
@@ -170,18 +184,6 @@ public static class Atlas_SourceLoader {
         {
             for (int k = 0; k < (size); k++)
             {
-                /*
-                if (unit.GetPixel(j, k).a > .5)
-                {
-                    //Copy pixel
-                    temp.set(j, k, tex.GetPixel(x + j, y + k));
-                }
-                else
-                {
-                    //Ignore pixel
-                    temp.set(j, k, new Color(0f, 0f, 0f, 0f));
-                }
-                */
                 pixel = tex.GetPixel(x + j, y + k);
                 pixel.a = Mathf.Min(pixel.a, unit.GetPixel(j, k).a);
                 temp.set(j, k, pixel);

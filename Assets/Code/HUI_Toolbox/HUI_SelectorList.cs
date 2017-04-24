@@ -4,6 +4,9 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// A list of nodes where one or no node can be selected
+/// </summary>
 public class HUI_SelectorList  {
 
 	public string selected { get; protected set; }
@@ -12,6 +15,9 @@ public class HUI_SelectorList  {
     HUI_TextNode textNode;
     //Font font;
 
+        /// <summary>
+        /// Constructor that build list imidiatly
+        /// </summary>
     public HUI_SelectorList(RectTransform source, SortedList<string, IsoObjectBody> nodes, Vector2 min, Vector2 max, Font font)
     {
         selected = "VOID";
@@ -41,6 +47,10 @@ public class HUI_SelectorList  {
         }
     }
 
+    /// <summary>
+    /// Change the appearance of the newly selceded node and cleas up the old selection.
+    /// </summary>
+    /// <param name="node"></param>
     private void changeSelected(HUI_TextNode node)
     {
         selected = node.name;
@@ -55,6 +65,9 @@ public class HUI_SelectorList  {
             onChangeSelected(node.name);
     }
 
+    /// <summary>
+    /// Destroy this object
+    /// </summary>
     public void destroy()
     {
         GameObject.Destroy(root.gameObject);

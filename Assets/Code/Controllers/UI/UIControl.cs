@@ -1,15 +1,25 @@
-﻿using System.Collections;
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/// <summary>
+/// Controller that build and handels interaction with the ui 
+/// </summary>
 public abstract class UIControl : Controller {
     public static UIControl main;
+
+    /// <summary>
+    /// Constructor set some universal parameters
+    /// </summary>
     protected UIControl()
     {
         main = this;
     }
 
+    /// <summary>
+    /// This functions runs after all controllers constructor has been ran.
+    /// </summary>
     public abstract void delayedConstruction();
 
     protected static Action<string> onMouseClick;
@@ -21,7 +31,14 @@ public abstract class UIControl : Controller {
     /// </summary>
     public abstract bool usesKeys();
 
+    /// <summary>
+    /// Destroy inhereting object
+    /// </summary>
     protected abstract void destructor();
+
+    /// <summary>
+    /// Destroy this object
+    /// </summary>
     public void destroy()
     {
         destructor();

@@ -19,6 +19,9 @@ public class ProcessingImage {
     public string name { get; private set; }
     public Iso coord { get; private set; }
 
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public ProcessingImage(int width, int height, string name)
     {
         Width = width;
@@ -28,16 +31,25 @@ public class ProcessingImage {
         data = new Color[width, height];
     }
 
+    /// <summary>
+    /// Overloaded constructor
+    /// </summary>
     public ProcessingImage(int width, int height, string name, Iso coord) : this(width, height, name)
     {
         this.coord = coord;
     }
 
+    /// <summary>
+    /// Gets color of pixes at coordinate
+    /// </summary>
     public Color get(int x, int y)
     {
         return data[x, y];
     }
 
+    /// <summary>
+    /// sets Color of pixel at cordinate
+    /// </summary>
     public void set(int x, int y, Color value)
     {
         data[x, y] = value;

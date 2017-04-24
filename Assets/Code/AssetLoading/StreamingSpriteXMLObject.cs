@@ -9,6 +9,7 @@ using System.Xml.Serialization;
 /// <summary>
 /// version aplha-1
 ///	Stores data from read sprite .xml file
+/// Contains names of all cells contained in this atlas
 ///
 /// Robin Apollo Buitendijk
 /// Late February 2017
@@ -29,7 +30,9 @@ public class StreamingSpriteXMLObject : IXmlSerializable
 	List<StreamingSpriteXMLCell> cells;
 	
 	
-	
+	/// <summary>
+    /// Default constructor
+    /// </summary>
 	public StreamingSpriteXMLObject()
 	{
 		pixelsPerUnit = 32;

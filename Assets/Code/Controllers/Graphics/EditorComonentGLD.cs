@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +12,9 @@ public class EditorComonentGLD {
     GLInstruction gliGrid, gliStruct;
     int height = 0;
 
-
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public EditorComonentGLD(List<Transform> folders)
     {
         this.folders = folders;
@@ -25,6 +27,9 @@ public class EditorComonentGLD {
         EditorComponentMouseLayer.registerMoveLayer(moveLayer);
     }
 
+    /// <summary>
+    /// Delayed constructor
+    /// </summary>
     public void delayedConstruction() {
         setGLD();
     }
@@ -147,6 +152,9 @@ public class EditorComonentGLD {
 
     }
 
+    /// <summary>
+    /// Makes a grid at given height
+    /// </summary>
     void setGLIGrid(int h)
     {
         List<Vector3> coords = new List<Vector3>();
@@ -166,6 +174,9 @@ public class EditorComonentGLD {
         gliGrid = new GLInstruction(coords, Color.gray, false, false);
     }
 
+    /// <summary>
+    /// Destroy this object
+    /// </summary>
     public void destroy()
     {
         gld.GetComponent<GLDrawLoop>().clear();

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Contains most data used in the lighting thread
+/// </summary>
 public class Lighting_Data  {
 
 	public int width { get; protected set; }
@@ -16,6 +19,9 @@ public class Lighting_Data  {
     public int[,,] solar_field { get; protected set; }
     Dictionary<ulong, Thread_IsoObject> level_altered;
 
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public Lighting_Data(int width, int length, int height)
     {
         this.width = width;
@@ -51,6 +57,9 @@ public class Lighting_Data  {
         return (int)v;
     }
 
+    /// <summary>
+    /// Recalculate lights convering object ob
+    /// </summary>
     public void add_recalculates(Thread_IsoObject ob, Dictionary<ulong, Thread_Light> recalculate)
     {
         foreach(Iso i in ob.coords)
@@ -59,6 +68,8 @@ public class Lighting_Data  {
                 buckets[i.x, i.y, i.z].add_recalculates(recalculate);
         }
     }
+
+
 
     /// <summary>
     /// Get the total light level of the bucked
@@ -188,6 +199,10 @@ public class Lighting_Data  {
         return solar_field[i.x, i.y, i.z];
     }
 
+    /// <summary>
+    /// returns level altered dictionairy
+    /// </summary>
+    /// <returns></returns>
     public Dictionary<ulong, Thread_IsoObject> getLevelAltered()
     {
         return level_altered;
@@ -201,6 +216,9 @@ public class Lighting_Data  {
         yield.reset();
     }
 
+    /// <summary>
+    /// Yield a frame
+    /// </summary>
     public void go_yield()
     {
         yield.yield();

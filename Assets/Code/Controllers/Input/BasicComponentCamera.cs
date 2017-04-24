@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Moves the camera and does zooming
+/// </summary>
 public class BasicComponentCamera : ComponentCamera {
 
 
@@ -11,12 +14,18 @@ public class BasicComponentCamera : ComponentCamera {
     float speed = 8;
     int pixelPerUnit = 32, zoom = 1;
 
+    /// <summary>
+    /// Common constructor
+    /// </summary>
     public BasicComponentCamera()
     {
         camera = Camera.main;
         cameraSnapMinimum();
     }
 
+    /// <summary>
+    /// Run once per frame
+    /// </summary>
     public override void update()
     {
         if (Input.GetKey("up"))
