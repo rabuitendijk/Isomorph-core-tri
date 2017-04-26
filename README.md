@@ -3,8 +3,19 @@ Isomorph, Third iteration, Unity 5, Flat sprite based approach. Goals: proper so
 
 PLANNING:
 
-	- Build a controller mangager for switching between scenes.
-	- Build base controller for translation testing.
+	-Add namespaces and nomeclature changes
+		*AtlasBuilder {Unify, xml} 
+			-AB_Object
+		*AtlasLoader
+			-AL_Oject
+		*Graphics_C
+		*Input_C
+		*Save_C
+		*UI_C
+		*Lighting_C
+		
+		*HUI
+	- Slight nodifications in how data is carried in IsoObjects
 	- Impliment a translational type, boundry boxes, depth updates and stuff.
 	- Implement unbound translation
 	
