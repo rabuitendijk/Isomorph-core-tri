@@ -1,28 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
-
-/// <summary>
-/// Console command that clear the console
-/// </summary>
-public class HUI_Command_Clear : HUI_ConsoleCommand
+﻿
+namespace H_UI
 {
-
-    public HUI_Command_Clear():base("clear")
-    {
-        //Empty
-    }
-
-    public override string help()
-    {
-        return "clears the console.";
-    }
-
     /// <summary>
-    /// Emptys texbox
+    /// Console command that clear the console
     /// </summary>
-    public override void process(string[] args)
+    public class HUI_Command_Clear : HUI_ConsoleCommand
     {
-        HUI_Console.main.textBox.setText("");
+
+        public HUI_Command_Clear() : base("clear")
+        {
+            //Empty
+        }
+
+        public override string help()
+        {
+            return "clears the console.";
+        }
+
+        /// <summary>
+        /// Emptys texbox
+        /// </summary>
+        public override void process(string[] args)
+        {
+            HUI_Console.main.textBox.setText("");
+        }
     }
+
 }

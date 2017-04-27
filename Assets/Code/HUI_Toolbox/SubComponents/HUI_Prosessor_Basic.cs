@@ -1,20 +1,22 @@
 ﻿
-using System;
+
 using System.Collections.Generic;
-using UnityEngine;
 
-/// <summary>
-/// A console prosessor with no added fuctionallity
-/// </summary>
-public class HUI_Prosessor_Basic : HUI_ConsoleProcessor
+namespace H_UI
 {
-    public HUI_Prosessor_Basic()
+    /// <summary>
+    /// A console prosessor with no added fuctionallity
+    /// </summary>
+    public class HUI_Prosessor_Basic : HUI_ConsoleProcessor
     {
-        //empty on purpose
-    }
+        public HUI_Prosessor_Basic()
+        {
+            //empty on purpose
+        }
 
-    protected override List<HUI_ConsoleCommand> loadCommands()
-    {
-        return new List<HUI_ConsoleCommand>();
+        protected override List<HUI_ConsoleCommand> loadCommands()
+        {
+            return new List<HUI_ConsoleCommand>();
+        }
     }
 }

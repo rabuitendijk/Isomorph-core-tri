@@ -1,5 +1,5 @@
-﻿
-using System.Collections.Generic;
+﻿using LogicControl = Logic_C.LogicControl;
+
 using UnityEngine;
 
 /// <summary>

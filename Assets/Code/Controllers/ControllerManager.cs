@@ -1,6 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using AssetHandeling_LevelLoader;
 using UnityEngine;
+using Graphics_C;
+using Input_C;
+using Logic_C;
+using Lighting_C;
+using Save_C;
+using UI_C;
 
 /// <summary>
 /// Manages all controllers and the transitions between them
@@ -116,7 +121,7 @@ public class ControllerManager {
     /// </summary>
     void movement_test_mode()
     {
-        Level_XML xml;
+        XMLO_LL_Level xml;
 
         if (!LevelLoader.loadFile("mv_t", out xml))
         {
@@ -173,7 +178,7 @@ public class ControllerManager {
             return;
         }
 
-        Level_XML xml;
+        XMLO_LL_Level xml;
 
         if (!LevelLoader.loadFile(filename, out xml))
         {

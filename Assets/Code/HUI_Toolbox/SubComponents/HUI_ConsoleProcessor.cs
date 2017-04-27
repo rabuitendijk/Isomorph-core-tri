@@ -1,59 +1,62 @@
 ﻿
 using System.Collections.Generic;
-using UnityEngine;
 
-/// <summary>
-/// Processes console commands
-/// </summary>
-public abstract class HUI_ConsoleProcessor  {
-
-    public List<HUI_ConsoleCommand> commands;
-
+namespace H_UI
+{
     /// <summary>
-    /// Constructor, runs loadCommands.
-    /// Adds help and clear
+    /// Processes console commands
     /// </summary>
-    public HUI_ConsoleProcessor()
+    public abstract class HUI_ConsoleProcessor
     {
-        commands = loadCommands();
 
-        commands.Add(new HUI_Command_Clear());
-        commands.Add(new HUI_Command_Help());
-        commands.Add(new HUI_Command_FilePath());
-    }
+        public List<HUI_ConsoleCommand> commands;
 
-    /// <summary>
-    /// Impelment the load commands to add new Console commands
-    /// </summary>
-    protected abstract List<HUI_ConsoleCommand> loadCommands();
-
-    /// <summary>
-    /// Processes the commands
-    /// </summary>
-    public void process()
-    {
-        string[] args = HUI_Console.main.content.Split(' ');
-
-        if (args.Length == 0 || args[0] == "")
-            return;
-
-        foreach (HUI_ConsoleCommand c in commands)
+        /// <summary>
+        /// Constructor, runs loadCommands.
+        /// Adds help and clear
+        /// </summary>
+        public HUI_ConsoleProcessor()
         {
-            if (args[0] == c.name)
-            {
-                c.process(args);
-                return;
-            }
+            commands = loadCommands();
+
+            commands.Add(new HUI_Command_Clear());
+            commands.Add(new HUI_Command_Help());
+            commands.Add(new HUI_Command_FilePath());
         }
 
-        HUI_Console.main.textBox.append("["+args[0]+"], not fonud.");
-    }
+        /// <summary>
+        /// Impelment the load commands to add new Console commands
+        /// </summary>
+        protected abstract List<HUI_ConsoleCommand> loadCommands();
 
-    /// <summary>
-    /// Destroy this object, flushes all registeries
-    /// </summary>
-    public void destroy()
-    {
-        //Empty
+        /// <summary>
+        /// Processes the commands
+        /// </summary>
+        public void process()
+        {
+            string[] args = HUI_Console.main.content.Split(' ');
+
+            if (args.Length == 0 || args[0] == "")
+                return;
+
+            foreach (HUI_ConsoleCommand c in commands)
+            {
+                if (args[0] == c.name)
+                {
+                    c.process(args);
+                    return;
+                }
+            }
+
+            HUI_Console.main.textBox.append("[" + args[0] + "], not fonud.");
+        }
+
+        /// <summary>
+        /// Destroy this object, flushes all registeries
+        /// </summary>
+        public void destroy()
+        {
+            //Empty
+        }
     }
 }

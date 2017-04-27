@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using AssetHandeling_AtlasLoader;
+
+using SaveControl = Save_C.SaveControl;
 
 /// <summary>
 /// version alpha-1

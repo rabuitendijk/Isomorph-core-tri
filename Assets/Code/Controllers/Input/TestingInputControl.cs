@@ -1,50 +1,53 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
-/// <summary>
-/// Sparce input controller for movement testing purposes
-/// </summary>
-public class TestingInputControl : InputControl
+
+
+namespace Input_C
 {
-    /// <summary>
-    /// Constructor
-    /// </summary>
-    public TestingInputControl() : base()
-    {
-        componentCamera = new BasicComponentCamera();
-    }
 
     /// <summary>
-    /// Delayed constructor
+    /// Sparce input controller for movement testing purposes
     /// </summary>
-    public override void delayedConstruction()
+    public class TestingInputControl : InputControl
     {
-        return;
-    }
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        public TestingInputControl() : base()
+        {
+            componentCamera = new BasicComponentCamera();
+        }
 
-    /// <summary>
-    /// Run once per frame
-    /// </summary>
-    public override void update()
-    {
-        componentCamera.update();
-    }
+        /// <summary>
+        /// Delayed constructor
+        /// </summary>
+        public override void delayedConstruction()
+        {
+            return;
+        }
 
-    /// <summary>
-    /// Destroy this obejct
-    /// </summary>
-    protected override void destructor()
-    {
-        return;
-    }
+        /// <summary>
+        /// Run once per frame
+        /// </summary>
+        public override void update()
+        {
+            componentCamera.update();
+        }
 
-    /// <summary>
-    /// React to click event
-    /// </summary>
-    protected override void onClick(string mode)
-    {
-        throw new NotImplementedException();
+        /// <summary>
+        /// Destroy this obejct
+        /// </summary>
+        protected override void destructor()
+        {
+            return;
+        }
+
+        /// <summary>
+        /// React to click event
+        /// </summary>
+        protected override void onClick(string mode)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,7 +1,6 @@
 ﻿
-using System.Collections.Generic;
-using UnityEngine;
 using System;
+using LightingControl = Lighting_C.LightingControl;
 
 /// <summary>
 /// Represents a lightsource

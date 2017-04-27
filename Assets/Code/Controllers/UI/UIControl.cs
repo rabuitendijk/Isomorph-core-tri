@@ -1,46 +1,48 @@
 ﻿
-using System.Collections.Generic;
-using UnityEngine;
 using System;
 
-/// <summary>
-/// Controller that build and handels interaction with the ui 
-/// </summary>
-public abstract class UIControl : Controller {
-    public static UIControl main;
-
+namespace UI_C
+{
     /// <summary>
-    /// Constructor set some universal parameters
+    /// Controller that build and handels interaction with the ui 
     /// </summary>
-    protected UIControl()
+    public abstract class UIControl : Controller
     {
-        main = this;
-    }
+        public static UIControl main;
 
-    /// <summary>
-    /// This functions runs after all controllers constructor has been ran.
-    /// </summary>
-    public abstract void delayedConstruction();
+        /// <summary>
+        /// Constructor set some universal parameters
+        /// </summary>
+        protected UIControl()
+        {
+            main = this;
+        }
 
-    protected static Action<string> onMouseClick;
-    public static void registerOnMouseClick(Action<string> funct) { onMouseClick += funct; }
-    public static void removeOnMouseClick(Action<string> funct) { onMouseClick -= funct; }
+        /// <summary>
+        /// This functions runs after all controllers constructor has been ran.
+        /// </summary>
+        public abstract void delayedConstruction();
 
-    /// <summary>
-    /// Check if keys are being absorbed
-    /// </summary>
-    public abstract bool usesKeys();
+        protected static Action<string> onMouseClick;
+        public static void registerOnMouseClick(Action<string> funct) { onMouseClick += funct; }
+        public static void removeOnMouseClick(Action<string> funct) { onMouseClick -= funct; }
 
-    /// <summary>
-    /// Destroy inhereting object
-    /// </summary>
-    protected abstract void destructor();
+        /// <summary>
+        /// Check if keys are being absorbed
+        /// </summary>
+        public abstract bool usesKeys();
 
-    /// <summary>
-    /// Destroy this object
-    /// </summary>
-    public void destroy()
-    {
-        destructor();
+        /// <summary>
+        /// Destroy inhereting object
+        /// </summary>
+        protected abstract void destructor();
+
+        /// <summary>
+        /// Destroy this object
+        /// </summary>
+        public void destroy()
+        {
+            destructor();
+        }
     }
 }

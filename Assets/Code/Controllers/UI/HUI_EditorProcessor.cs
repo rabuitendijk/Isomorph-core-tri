@@ -1,29 +1,31 @@
 ﻿
-using System;
-using System.Collections.Generic;
-using UnityEngine;
 
-/// <summary>
-/// Level editor console command processor
-/// </summary>
-public class HUI_EditorProcessor : HUI_ConsoleProcessor
+using System.Collections.Generic;
+using H_UI;
+namespace UI_C
 {
     /// <summary>
-    /// Constructor does nothing
+    /// Level editor console command processor
     /// </summary>
-    public HUI_EditorProcessor() 
+    public class HUI_EditorProcessor : HUI_ConsoleProcessor
     {
-        //Empty
-    } 
+        /// <summary>
+        /// Constructor does nothing
+        /// </summary>
+        public HUI_EditorProcessor()
+        {
+            //Empty
+        }
 
-    /// <summary>
-    /// Loads all needed commands
-    /// </summary>
-    protected override List<HUI_ConsoleCommand> loadCommands()
-    {
-        List<HUI_ConsoleCommand> ret = new List<HUI_ConsoleCommand>();
-        ret.Add(new HUI_EditorSaveCommand());
-        ret.Add(new HUI_EditorLoadCommand());
-        return ret;
+        /// <summary>
+        /// Loads all needed commands
+        /// </summary>
+        protected override List<HUI_ConsoleCommand> loadCommands()
+        {
+            List<HUI_ConsoleCommand> ret = new List<HUI_ConsoleCommand>();
+            ret.Add(new HUI_EditorSaveCommand());
+            ret.Add(new HUI_EditorLoadCommand());
+            return ret;
+        }
     }
 }

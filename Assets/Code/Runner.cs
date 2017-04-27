@@ -19,9 +19,9 @@ public class Runner : MonoBehaviour {
 
         main = this;
         if (rebuildAtlasses)
-            Atlas_Builder.build(128, 1, 8);
+            AssetHandeling_AtlasBuilder.Atlas_Builder.build(128, 1, 8);
 
-        new Atlas_Loader(128, 1);
+        new AssetHandeling_AtlasLoader.Atlas_Loader(128, 1);
         manager = new ControllerManager();
 
 

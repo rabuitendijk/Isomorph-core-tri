@@ -1,44 +1,45 @@
 ﻿
-using System.Collections.Generic;
-using UnityEngine;
-
-/// <summary>
-/// Controller that handels the matter of saving
-/// </summary>
-public abstract class SaveControl : Controller
+namespace Save_C
 {
-    public static SaveControl main;
-    public static ulong isoObject_id;
 
     /// <summary>
-    /// Common constructor, sets some universal parameters
+    /// Controller that handels the matter of saving
     /// </summary>
-    protected SaveControl()
+    public abstract class SaveControl : Controller
     {
-        isoObject_id = 0;
-        main = this;
-    }
+        public static SaveControl main;
+        public static ulong isoObject_id;
 
-    /// <summary>
-    /// This functions runs afer alll controller constructors have been ran
-    /// </summary>
-    public abstract void delayedConstruction();
+        /// <summary>
+        /// Common constructor, sets some universal parameters
+        /// </summary>
+        protected SaveControl()
+        {
+            isoObject_id = 0;
+            main = this;
+        }
 
-    /// <summary>
-    /// Destroy inhereting obejct
-    /// </summary>
-    protected abstract void destructor();
+        /// <summary>
+        /// This functions runs afer alll controller constructors have been ran
+        /// </summary>
+        public abstract void delayedConstruction();
 
-    /// <summary>
-    /// Save current level
-    /// </summary>
-    protected abstract void save(string filename);
+        /// <summary>
+        /// Destroy inhereting obejct
+        /// </summary>
+        protected abstract void destructor();
 
-    /// <summary>
-    /// Destroy this object
-    /// </summary>
-    public void destroy()
-    {
-        destructor();
+        /// <summary>
+        /// Save current level
+        /// </summary>
+        protected abstract void save(string filename);
+
+        /// <summary>
+        /// Destroy this object
+        /// </summary>
+        public void destroy()
+        {
+            destructor();
+        }
     }
 }

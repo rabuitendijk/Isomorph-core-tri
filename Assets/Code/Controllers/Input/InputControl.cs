@@ -1,56 +1,61 @@
 ﻿
-using System.Collections.Generic;
-using UnityEngine;
+using UIControl = UI_C.UIControl;
 
-/// <summary>
-/// version alpha-1
-/// 
-/// Accesor functions for input;
-/// 
-/// Robin Apollo Buitendijk
-/// Early March 2017
-/// </summary>
-public abstract class InputControl : Controller {
+namespace Input_C
+{
 
-    public static InputControl main;
 
-    protected ComponentCamera componentCamera;
-    protected ComponentMouse componentMouse;
     /// <summary>
-    /// Sets common variables and registers callbacks
+    /// version alpha-1
+    /// 
+    /// Accesor functions for input;
+    /// 
+    /// Robin Apollo Buitendijk
+    /// Early March 2017
     /// </summary>
-	public InputControl()
+    public abstract class InputControl : Controller
     {
-        main = this;
-        UIControl.registerOnMouseClick(onClick);
-    }
 
-    /// <summary>
-    /// Runs after all controller constructors have been ran
-    /// </summary>
-    public abstract void delayedConstruction();
+        public static InputControl main;
 
-    /// <summary>
-    /// Respond to the mouse clicks passing the ui
-    /// </summary>
-    protected abstract void onClick(string mode);
+        protected ComponentCamera componentCamera;
+        protected ComponentMouse componentMouse;
+        /// <summary>
+        /// Sets common variables and registers callbacks
+        /// </summary>
+        public InputControl()
+        {
+            main = this;
+            UIControl.registerOnMouseClick(onClick);
+        }
 
-    /// <summary>
-    /// Processes all mouse, keyboard and controller input
-    /// </summary>
-    public abstract void update();
+        /// <summary>
+        /// Runs after all controller constructors have been ran
+        /// </summary>
+        public abstract void delayedConstruction();
 
-    /// <summary>
-    /// Destroys inherentring object, automatically called by base.destroy();
-    /// </summary>
-    protected abstract void destructor();
+        /// <summary>
+        /// Respond to the mouse clicks passing the ui
+        /// </summary>
+        protected abstract void onClick(string mode);
 
-    /// <summary>
-    /// Deregisters callbacks and cleans up so that the input controller can be overwritten in the Runner.
-    /// </summary>
-    public void destroy()
-    {
-        UIControl.removeOnMouseClick(onClick);
-        destructor();
+        /// <summary>
+        /// Processes all mouse, keyboard and controller input
+        /// </summary>
+        public abstract void update();
+
+        /// <summary>
+        /// Destroys inherentring object, automatically called by base.destroy();
+        /// </summary>
+        protected abstract void destructor();
+
+        /// <summary>
+        /// Deregisters callbacks and cleans up so that the input controller can be overwritten in the Runner.
+        /// </summary>
+        public void destroy()
+        {
+            UIControl.removeOnMouseClick(onClick);
+            destructor();
+        }
     }
 }

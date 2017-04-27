@@ -1,7 +1,7 @@
 ﻿
-using System.Collections.Generic;
 using System;
 using UnityEngine;
+using ProjIso = Graphics_C.ProjIso;
 
 /// <summary>
 /// version aplha-2

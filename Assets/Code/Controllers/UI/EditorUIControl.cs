@@ -1,103 +1,113 @@
 ﻿
 using System;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+using H_UI;
+using AssetHandeling_AtlasLoader;
 
-/// <summary>
-/// version alpha-1
-/// 
-/// Editor component that manages its UI
-/// 
-/// Robin Apollo Butiendijk
-/// Early March 2017
-/// </summary>
-public class EditorUIControl : UIControl{
 
-    RectTransform levelEditor;
-    HUI_SelectorList selectorList;
-    HUI_Console console;
-    MonoEditorMouseTrap mouse;
+using GameObject = UnityEngine.GameObject;
+using Vector2 = UnityEngine.Vector2;
+using Debug = UnityEngine.Debug;
+using RectTransform = UnityEngine.RectTransform;
+using Color = UnityEngine.Color;
 
+namespace UI_C
+{
     /// <summary>
-    /// Detects canvas and builds desired UI structure
+    /// version alpha-1
+    /// 
+    /// Editor component that manages its UI
+    /// 
+    /// Robin Apollo Butiendijk
+    /// Early March 2017
     /// </summary>
-    public EditorUIControl() : base()
+    public class EditorUIControl : UIControl
     {
-        construct();
-        selectorList = new HUI_SelectorList(levelEditor, Atlas_Loader.main.objectsList, new Vector2(0f, .0f), new Vector2(.12f, 1f), Runner.main.ariel);
-        selectorList.registerOnChangeSelected(changeSelected);
-        console = new HUI_Console(levelEditor, new Vector2(.5f, 0f), new Vector2(1f, .3f), Runner.main.ariel, new HUI_EditorProcessor());
 
-        mouse.registerOnClick(onMouseClick);
-    }
+        RectTransform levelEditor;
+        HUI_SelectorList selectorList;
+        HUI_Console console;
+        MonoEditorMouseTrap mouse;
 
-    /// <summary>
-    /// Delayed constructor
-    /// </summary>
-    public override void delayedConstruction()
-    {
-        //Empty
-    }
-
-    /// <summary>
-    /// Get an inactive gameobject
-    /// </summary>
-    GameObject getObjectFromObject(GameObject parent, string name)
-    {
-        for (int i = 0; i < parent.transform.childCount; i++)
+        /// <summary>
+        /// Detects canvas and builds desired UI structure
+        /// </summary>
+        public EditorUIControl() : base()
         {
-            if (parent.transform.GetChild(i).name == name)
-                return parent.transform.GetChild(i).gameObject;
+            construct();
+            selectorList = new HUI_SelectorList(levelEditor, Atlas_Loader.main.objectsList, new Vector2(0f, .0f), new Vector2(.12f, 1f), Runner.main.ariel);
+            selectorList.registerOnChangeSelected(changeSelected);
+            console = new HUI_Console(levelEditor, new Vector2(.5f, 0f), new Vector2(1f, .3f), Runner.main.ariel, new HUI_EditorProcessor());
+
+            mouse.registerOnClick(onMouseClick);
         }
 
-        Debug.Log("getObjectFromObject ob not found: " + name);
-        return null;
-    }
+        /// <summary>
+        /// Delayed constructor
+        /// </summary>
+        public override void delayedConstruction()
+        {
+            //Empty
+        }
 
-    /// <summary>
-    /// Construct UI
-    /// </summary>
-    public void construct()
-    {
-        GameObject canvas = GameObject.Find("/Canvas");
+        /// <summary>
+        /// Get an inactive gameobject
+        /// </summary>
+        GameObject getObjectFromObject(GameObject parent, string name)
+        {
+            for (int i = 0; i < parent.transform.childCount; i++)
+            {
+                if (parent.transform.GetChild(i).name == name)
+                    return parent.transform.GetChild(i).gameObject;
+            }
 
-        //Build rects
-        levelEditor = HUI.buildUIObject("LevelEditor", canvas.transform);
+            Debug.Log("getObjectFromObject ob not found: " + name);
+            return null;
+        }
 
-        //Level Editor
-        HUI.addImage(levelEditor, new Color(1f, 1f, 1f, 0f));
-        mouse = levelEditor.gameObject.AddComponent<MonoEditorMouseTrap>();
+        /// <summary>
+        /// Construct UI
+        /// </summary>
+        public void construct()
+        {
+            GameObject canvas = GameObject.Find("/Canvas");
 
-    }
+            //Build rects
+            levelEditor = HUI.buildUIObject("LevelEditor", canvas.transform);
 
-    static Action<string> onChangeSelected;
-    public static void registerOnChangeSelected(Action<string> funct) { onChangeSelected += funct; }
-    public static void removeOnChangeSelected(Action<string> funct) { onChangeSelected -= funct; }
+            //Level Editor
+            HUI.addImage(levelEditor, new Color(1f, 1f, 1f, 0f));
+            mouse = levelEditor.gameObject.AddComponent<MonoEditorMouseTrap>();
 
-    /// <summary>
-    /// Push change selected to listening functions
-    /// </summary>
-    void changeSelected(string name) { if (onChangeSelected != null) { onChangeSelected(name); } }//Push outward
+        }
 
-    /// <summary>
-    /// Destroy this object
-    /// </summary>
-    protected override void destructor()
-    {
-        mouse.removeOnClick(onMouseClick);
-        selectorList.removeOnChangeSelected(changeSelected);
-        selectorList.destroy();
-        console.destroy();
-        GameObject.Destroy(levelEditor.gameObject);
+        static Action<string> onChangeSelected;
+        public static void registerOnChangeSelected(Action<string> funct) { onChangeSelected += funct; }
+        public static void removeOnChangeSelected(Action<string> funct) { onChangeSelected -= funct; }
 
-    }
+        /// <summary>
+        /// Push change selected to listening functions
+        /// </summary>
+        void changeSelected(string name) { if (onChangeSelected != null) { onChangeSelected(name); } }//Push outward
 
-    /// <summary>
-    /// Returns if this object is absorbing all keyboard input
-    /// </summary>
-    public override bool usesKeys()
-    {
-        return console.beingEdited;
+        /// <summary>
+        /// Destroy this object
+        /// </summary>
+        protected override void destructor()
+        {
+            mouse.removeOnClick(onMouseClick);
+            selectorList.removeOnChangeSelected(changeSelected);
+            selectorList.destroy();
+            console.destroy();
+            GameObject.Destroy(levelEditor.gameObject);
+
+        }
+
+        /// <summary>
+        /// Returns if this object is absorbing all keyboard input
+        /// </summary>
+        public override bool usesKeys()
+        {
+            return console.beingEdited;
+        }
     }
 }

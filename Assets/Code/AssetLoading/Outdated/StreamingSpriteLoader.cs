@@ -3,29 +3,30 @@ using System.Collections.Generic;
 using System;
 using System.IO;
 using System.Xml;
-using System.Xml.Schema;
 using System.Xml.Serialization;
+
+using AssetHandeling_AtlasLoader;
 
 /// <summary>
 /// version alpha-1
 /// Fully automated loader of sprites from StreamingAssets Folder.
 /// 
-/// Requires custom: StreamingSpriteXMLCell, StreamingSpriteXMLObject
+/// Requires custom: XMLO_AL_Sprite, XMLO_AL_Atlas
 ///
 /// Use filename.png.xml to edit propeties
 /// tags:
 /// <?xml version="1.0" encoding="utf-8"?>
 ///
-/// <StreamingSpriteXMLObject multiSprite="1" rows="4" columns="4" pixelsPerUnit="32" cellHeight="32" cellWidth="32">
+/// <XMLO_AL_Atlas multiSprite="1" rows="4" columns="4" pixelsPerUnit="32" cellHeight="32" cellWidth="32">
 ///	<cells>
-///		<StreamingSpriteXMLCell x="1" y="2" name="floor">
-///		</StreamingSpriteXMLCell>
-///		<StreamingSpriteXMLCell x="3" y="1" name="wall">
-///		</StreamingSpriteXMLCell>
-///		<StreamingSpriteXMLCell x="3" y="2" disable="1">
-///		</StreamingSpriteXMLCell>
+///		<XMLO_AL_Sprite x="1" y="2" name="floor">
+///		</XMLO_AL_Sprite>
+///		<XMLO_AL_Sprite x="3" y="1" name="wall">
+///		</XMLO_AL_Sprite>
+///		<XMLO_AL_Sprite x="3" y="2" disable="1">
+///		</XMLO_AL_Sprite>
 ///	</cells>
-/// </StreamingSpriteXMLObject>
+/// </XMLO_AL_Atlas>
 ///
 /// Robin Apollo Buitendijk
 /// Late February 2017
@@ -93,16 +94,16 @@ public class StreamingSpriteLoader
     /// Quills sprite loader, with modifications
     /// </summary>
 	void LoadSprite(string spriteName, string filePath) {
-		StreamingSpriteXMLObject xml;
+		XMLO_AL_Atlas xml;
 		
 		if (File.Exists(filePath+".xml"))
 		{
-			XmlSerializer serializer = new XmlSerializer( typeof(StreamingSpriteXMLObject));
+			XmlSerializer serializer = new XmlSerializer( typeof(XMLO_AL_Atlas));
 			XmlReader reader = XmlReader.Create(filePath+".xml");
-			xml = (StreamingSpriteXMLObject)serializer.Deserialize(reader);
+			xml = (XMLO_AL_Atlas)serializer.Deserialize(reader);
 		}
 		else
-			xml = new StreamingSpriteXMLObject();
+			xml = new XMLO_AL_Atlas();
 		
 		
 		byte[] imageBytes = File.ReadAllBytes( filePath );
@@ -128,10 +129,10 @@ public class StreamingSpriteLoader
 	/// <summary>
     /// Processes cases of multy sprite sheet
     /// </summary>
-	void processMultiSprite(StreamingSpriteXMLObject xml, Texture2D imageTexture, string spriteName)
+	void processMultiSprite(XMLO_AL_Atlas xml, Texture2D imageTexture, string spriteName)
 	{
 		Rect spriteCoordinates;
-		StreamingSpriteXMLCell cell;
+		XMLO_AL_Sprite cell;
 		string trueName;
 		
 		for	(int i=0; i<xml.columns; i++)

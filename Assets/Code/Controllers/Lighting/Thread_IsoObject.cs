@@ -1,37 +1,41 @@
 ﻿
 using System.Collections.Generic;
-using UnityEngine;
 
-/// <summary>
-/// Objects only lit at origin point.
-/// Will inform all sprites
-/// </summary>
-public class Thread_IsoObject  {
-    public ulong id { get; protected set; }
-    public int level = -1;
-    public Iso origin { get; protected set; }
-    public List<Iso> coords = new List<Iso>();
+namespace Lighting_C
+{
 
     /// <summary>
-    /// Privarte constructor
+    /// Objects only lit at origin point.
+    /// Will inform all sprites
     /// </summary>
-    Thread_IsoObject(Iso origin)
+    public class Thread_IsoObject
     {
-        this.origin = origin;
-    }
+        public ulong id { get; protected set; }
+        public int level = -1;
+        public Iso origin { get; protected set; }
+        public List<Iso> coords = new List<Iso>();
 
-    /// <summary>
-    /// Common constructor
-    /// </summary>
-    public Thread_IsoObject(IsoObject o) : this(o.origin)
-    {
-        id = o.id;
-
-        //Fetch sprites cells
-        for (int i=0; i< o.coords.Count; i++)
+        /// <summary>
+        /// Privarte constructor
+        /// </summary>
+        Thread_IsoObject(Iso origin)
         {
-            coords.Add(new Iso(o.coords[i]));
+            this.origin = origin;
         }
 
+        /// <summary>
+        /// Common constructor
+        /// </summary>
+        public Thread_IsoObject(IsoObject o) : this(o.origin)
+        {
+            id = o.id;
+
+            //Fetch sprites cells
+            for (int i = 0; i < o.coords.Count; i++)
+            {
+                coords.Add(new Iso(o.coords[i]));
+            }
+
+        }
     }
 }

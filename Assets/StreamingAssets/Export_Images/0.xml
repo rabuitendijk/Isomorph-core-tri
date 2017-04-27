@@ -1,397 +1,397 @@
 <?xml version="1.0" encoding="utf-8"?>
-<StreamingSpriteXMLObject miplevels="1" multiSprite = "1" rows = "14" columns = "14" pixelsPerUnit="128" cellHeight="128" cellWidth="128" offset="8">
+<XMLO_AL_Atlas miplevels="1" multiSprite = "1" rows = "14" columns = "14" pixelsPerUnit="128" cellHeight="128" cellWidth="128" offset="8">
 <cells>
-	<StreamingSpriteXMLCell x = "0" y = "0" name = "BigBlock[0_0_2]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "0" name = "BigBlock[0_1_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "0" name = "BigBlock[0_1_2]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "0" name = "BigBlock[1_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "0" name = "BigBlock[1_0_2]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "0" name = "BigBlock[1_1_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "0" name = "BigBlock[1_1_2]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "7" y = "0" name = "HalfCell[0_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "8" y = "0" name = "Selector[0_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "9" y = "0" name = "Limestone_1[0_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "10" y = "0" name = "Limestone_2[0_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "11" y = "0" name = "Limestone_3[0_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "12" y = "0" name = "Limestone_3[0_0_2]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "13" y = "0" name = "Limestone_4[0_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "1" name = "Limestone_4[0_0_2]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "1" name = "RoseRock[0_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "1" name = "RoughStones[0_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "1" name = "SlabSelector[0_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "1" name = "Stairs_N[0_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "1" name = "Stairs_E[0_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "1" name = "Stairs_S[0_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "7" y = "1" name = "Stairs_W[0_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "8" y = "1" name = "Stones[0_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "9" y = "1" name = "Tree[0_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "10" y = "1" name = "UnitDefinition[0_0_0]">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "11" y = "1" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "12" y = "1" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "13" y = "1" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "2" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "2" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "2" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "2" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "2" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "2" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "2" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "7" y = "2" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "8" y = "2" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "9" y = "2" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "10" y = "2" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "11" y = "2" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "12" y = "2" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "13" y = "2" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "3" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "3" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "3" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "3" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "3" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "3" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "3" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "7" y = "3" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "8" y = "3" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "9" y = "3" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "10" y = "3" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "11" y = "3" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "12" y = "3" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "13" y = "3" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "4" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "4" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "4" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "4" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "4" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "4" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "4" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "7" y = "4" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "8" y = "4" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "9" y = "4" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "10" y = "4" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "11" y = "4" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "12" y = "4" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "13" y = "4" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "5" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "5" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "5" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "5" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "5" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "5" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "5" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "7" y = "5" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "8" y = "5" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "9" y = "5" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "10" y = "5" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "11" y = "5" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "12" y = "5" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "13" y = "5" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "6" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "6" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "6" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "6" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "6" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "6" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "6" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "7" y = "6" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "8" y = "6" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "9" y = "6" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "10" y = "6" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "11" y = "6" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "12" y = "6" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "13" y = "6" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "7" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "7" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "7" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "7" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "7" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "7" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "7" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "7" y = "7" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "8" y = "7" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "9" y = "7" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "10" y = "7" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "11" y = "7" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "12" y = "7" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "13" y = "7" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "8" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "8" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "8" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "8" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "8" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "8" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "8" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "7" y = "8" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "8" y = "8" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "9" y = "8" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "10" y = "8" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "11" y = "8" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "12" y = "8" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "13" y = "8" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "9" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "9" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "9" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "9" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "9" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "9" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "9" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "7" y = "9" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "8" y = "9" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "9" y = "9" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "10" y = "9" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "11" y = "9" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "12" y = "9" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "13" y = "9" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "10" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "10" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "10" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "10" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "10" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "10" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "10" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "7" y = "10" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "8" y = "10" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "9" y = "10" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "10" y = "10" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "11" y = "10" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "12" y = "10" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "13" y = "10" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "11" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "11" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "11" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "11" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "11" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "11" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "11" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "7" y = "11" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "8" y = "11" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "9" y = "11" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "10" y = "11" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "11" y = "11" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "12" y = "11" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "13" y = "11" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "12" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "12" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "12" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "12" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "12" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "12" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "12" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "7" y = "12" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "8" y = "12" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "9" y = "12" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "10" y = "12" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "11" y = "12" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "12" y = "12" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "13" y = "12" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "0" y = "13" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "1" y = "13" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "2" y = "13" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "3" y = "13" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "4" y = "13" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "5" y = "13" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "6" y = "13" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "7" y = "13" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "8" y = "13" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "9" y = "13" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "10" y = "13" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "11" y = "13" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "12" y = "13" disable = "1">
-	</StreamingSpriteXMLCell>
-	<StreamingSpriteXMLCell x = "13" y = "13" disable = "1">
-	</StreamingSpriteXMLCell>
+	<XMLO_AL_Sprite x = "0" y = "0" name = "BigBlock[0_0_2]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "1" y = "0" name = "BigBlock[0_1_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "2" y = "0" name = "BigBlock[0_1_2]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "3" y = "0" name = "BigBlock[1_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "4" y = "0" name = "BigBlock[1_0_2]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "5" y = "0" name = "BigBlock[1_1_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "6" y = "0" name = "BigBlock[1_1_2]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "7" y = "0" name = "HalfCell[0_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "8" y = "0" name = "Selector[0_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "9" y = "0" name = "Limestone_1[0_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "10" y = "0" name = "Limestone_2[0_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "11" y = "0" name = "Limestone_3[0_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "12" y = "0" name = "Limestone_3[0_0_2]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "13" y = "0" name = "Limestone_4[0_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "0" y = "1" name = "Limestone_4[0_0_2]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "1" y = "1" name = "RoseRock[0_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "2" y = "1" name = "RoughStones[0_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "3" y = "1" name = "SlabSelector[0_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "4" y = "1" name = "Stairs_N[0_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "5" y = "1" name = "Stairs_E[0_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "6" y = "1" name = "Stairs_S[0_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "7" y = "1" name = "Stairs_W[0_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "8" y = "1" name = "Stones[0_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "9" y = "1" name = "Tree[0_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "10" y = "1" name = "UnitDefinition[0_0_0]">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "11" y = "1" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "12" y = "1" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "13" y = "1" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "0" y = "2" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "1" y = "2" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "2" y = "2" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "3" y = "2" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "4" y = "2" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "5" y = "2" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "6" y = "2" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "7" y = "2" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "8" y = "2" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "9" y = "2" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "10" y = "2" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "11" y = "2" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "12" y = "2" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "13" y = "2" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "0" y = "3" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "1" y = "3" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "2" y = "3" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "3" y = "3" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "4" y = "3" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "5" y = "3" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "6" y = "3" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "7" y = "3" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "8" y = "3" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "9" y = "3" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "10" y = "3" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "11" y = "3" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "12" y = "3" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "13" y = "3" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "0" y = "4" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "1" y = "4" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "2" y = "4" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "3" y = "4" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "4" y = "4" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "5" y = "4" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "6" y = "4" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "7" y = "4" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "8" y = "4" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "9" y = "4" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "10" y = "4" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "11" y = "4" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "12" y = "4" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "13" y = "4" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "0" y = "5" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "1" y = "5" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "2" y = "5" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "3" y = "5" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "4" y = "5" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "5" y = "5" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "6" y = "5" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "7" y = "5" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "8" y = "5" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "9" y = "5" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "10" y = "5" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "11" y = "5" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "12" y = "5" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "13" y = "5" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "0" y = "6" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "1" y = "6" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "2" y = "6" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "3" y = "6" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "4" y = "6" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "5" y = "6" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "6" y = "6" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "7" y = "6" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "8" y = "6" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "9" y = "6" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "10" y = "6" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "11" y = "6" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "12" y = "6" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "13" y = "6" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "0" y = "7" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "1" y = "7" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "2" y = "7" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "3" y = "7" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "4" y = "7" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "5" y = "7" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "6" y = "7" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "7" y = "7" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "8" y = "7" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "9" y = "7" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "10" y = "7" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "11" y = "7" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "12" y = "7" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "13" y = "7" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "0" y = "8" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "1" y = "8" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "2" y = "8" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "3" y = "8" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "4" y = "8" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "5" y = "8" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "6" y = "8" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "7" y = "8" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "8" y = "8" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "9" y = "8" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "10" y = "8" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "11" y = "8" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "12" y = "8" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "13" y = "8" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "0" y = "9" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "1" y = "9" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "2" y = "9" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "3" y = "9" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "4" y = "9" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "5" y = "9" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "6" y = "9" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "7" y = "9" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "8" y = "9" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "9" y = "9" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "10" y = "9" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "11" y = "9" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "12" y = "9" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "13" y = "9" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "0" y = "10" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "1" y = "10" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "2" y = "10" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "3" y = "10" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "4" y = "10" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "5" y = "10" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "6" y = "10" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "7" y = "10" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "8" y = "10" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "9" y = "10" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "10" y = "10" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "11" y = "10" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "12" y = "10" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "13" y = "10" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "0" y = "11" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "1" y = "11" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "2" y = "11" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "3" y = "11" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "4" y = "11" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "5" y = "11" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "6" y = "11" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "7" y = "11" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "8" y = "11" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "9" y = "11" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "10" y = "11" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "11" y = "11" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "12" y = "11" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "13" y = "11" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "0" y = "12" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "1" y = "12" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "2" y = "12" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "3" y = "12" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "4" y = "12" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "5" y = "12" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "6" y = "12" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "7" y = "12" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "8" y = "12" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "9" y = "12" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "10" y = "12" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "11" y = "12" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "12" y = "12" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "13" y = "12" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "0" y = "13" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "1" y = "13" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "2" y = "13" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "3" y = "13" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "4" y = "13" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "5" y = "13" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "6" y = "13" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "7" y = "13" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "8" y = "13" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "9" y = "13" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "10" y = "13" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "11" y = "13" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "12" y = "13" disable = "1">
+	</XMLO_AL_Sprite>
+	<XMLO_AL_Sprite x = "13" y = "13" disable = "1">
+	</XMLO_AL_Sprite>
 </cells>
-</StreamingSpriteXMLObject>
+</XMLO_AL_Atlas>

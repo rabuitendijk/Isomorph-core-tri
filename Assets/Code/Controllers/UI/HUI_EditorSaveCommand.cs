@@ -1,54 +1,56 @@
 ﻿using System;
 using System.IO;
-using System.Collections.Generic;
-using UnityEngine;
+using H_UI;
 
-/// <summary>
-/// Command for level editor console to save the level
-/// </summary>
-public class HUI_EditorSaveCommand : HUI_ConsoleCommand
+namespace UI_C
 {
-    static Action<string> save;
-    public static void registerSave(Action<string> funct) { save += funct; }
-    public static void removeSave(Action<string> funct) { save -= funct; }
-
     /// <summary>
-    /// Constructor is empty
+    /// Command for level editor console to save the level
     /// </summary>
-    public HUI_EditorSaveCommand() : base("save")
+    public class HUI_EditorSaveCommand : HUI_ConsoleCommand
     {
-        //Empty
-    }
+        static Action<string> save;
+        public static void registerSave(Action<string> funct) { save += funct; }
+        public static void removeSave(Action<string> funct) { save -= funct; }
 
-    /// <summary>
-    /// Prints help
-    /// </summary>
-    public override string help()
-    {
-        return "<color=grey>[filename]</color>, saves file to filename.xml.";
-    }
-
-    /// <summary>
-    /// Pushes save to all listening functions
-    /// </summary>
-    public override void process(string[] args)
-    {
-        if (save == null)
+        /// <summary>
+        /// Constructor is empty
+        /// </summary>
+        public HUI_EditorSaveCommand() : base("save")
         {
-            HUI_Console.main.textBox.append("<color=red><ERROR> no callback to save function.</color>\n");
-            return;
+            //Empty
         }
 
-        if (args.Length != 2 || args[1] == "")
+        /// <summary>
+        /// Prints help
+        /// </summary>
+        public override string help()
         {
-            HUI_Console.main.textBox.append("<color=red><ERROR> incorect number of arguments, expects: filename.</color>\n");
-            return;
+            return "<color=grey>[filename]</color>, saves file to filename.xml.";
         }
 
-        if (!Directory.Exists(HUI_Console.main.filepath + "/Levels"))
-            Directory.CreateDirectory(HUI_Console.main.filepath + "/Levels");
+        /// <summary>
+        /// Pushes save to all listening functions
+        /// </summary>
+        public override void process(string[] args)
+        {
+            if (save == null)
+            {
+                HUI_Console.main.textBox.append("<color=red><ERROR> no callback to save function.</color>\n");
+                return;
+            }
 
-        save(HUI_Console.main.filepath+"/Levels/"+args[1]);
-        HUI_Console.main.textBox.append("File saved to "+ HUI_Console.main.filepath + "/Levels/" + args[1] + ".xml\n");
+            if (args.Length != 2 || args[1] == "")
+            {
+                HUI_Console.main.textBox.append("<color=red><ERROR> incorect number of arguments, expects: filename.</color>\n");
+                return;
+            }
+
+            if (!Directory.Exists(HUI_Console.main.filepath + "/Levels"))
+                Directory.CreateDirectory(HUI_Console.main.filepath + "/Levels");
+
+            save(HUI_Console.main.filepath + "/Levels/" + args[1]);
+            HUI_Console.main.textBox.append("File saved to " + HUI_Console.main.filepath + "/Levels/" + args[1] + ".xml\n");
+        }
     }
 }

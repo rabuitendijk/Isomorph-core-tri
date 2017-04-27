@@ -1,6 +1,9 @@
 ﻿
+using LogicControl = Logic_C.LogicControl;
+
 using System.Collections.Generic;
 using UnityEngine;
+using AssetHandeling_AtlasLoader;
 
 /// <summary>
 /// Shared body of IsoObejcts, contains information from the xml object files
@@ -109,7 +112,7 @@ public class IsoObjectBody {
     /// <summary>
     /// Costructor to derrive prototype from XML
     /// </summary>
-    public static IsoObjectBody prototype(LinkerObject_XML obj)
+    public static IsoObjectBody prototype(XMLO_AL_IsoObejct obj)
     {
         List<Iso> coords = new List<Iso>();
         List<List<Sprite>> directions = new List<List<Sprite>>();
@@ -125,7 +128,7 @@ public class IsoObjectBody {
             if (!obj.directions[i].linked)
             {
                 directions[i] = new List<Sprite>();
-                foreach (XMLCoord x in obj.directions[i].coords)
+                foreach (XMLO_AL_Coord x in obj.directions[i].coords)
                 {
                     if (!setcoords)
                         coords.Add(new Iso(x.x, x.y, x.z));

@@ -1,29 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿
 
-/// <summary>
-/// A disabled version of the save sytem
-/// </summary>
-public class NoSaveControl : SaveControl
+namespace Save_C
 {
-    public NoSaveControl() : base()
-    {
-        return;
-    }
 
-    public override void delayedConstruction()
-    {
-        return;
-    }
 
-    protected override void destructor()
+    /// <summary>
+    /// A disabled version of the save sytem
+    /// </summary>
+    public class NoSaveControl : SaveControl
     {
-        return;
-    }
+        public NoSaveControl() : base()
+        {
+            return;
+        }
 
-    protected override void save(string filename)
-    {
-        return;
+        public override void delayedConstruction()
+        {
+            return;
+        }
+
+        protected override void destructor()
+        {
+            return;
+        }
+
+        protected override void save(string filename)
+        {
+            return;
+        }
     }
 }

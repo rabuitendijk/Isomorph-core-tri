@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinkerObject_XML width="1" length="1" height="1" name="Stairs" is_light = "false" light_radius = "8" miplevels = "1">
+<XMLO_AL_IsoObejct width="1" length="1" height="1" name="Stairs" is_light = "false" light_radius = "8" miplevels = "1">
 <directions>
-	<Direction_XML direction="N" linked = "false">
+	<XMLO_AL_Direction direction="N" linked = "false">
 	<coords>
-		<XMLCoord x="0" y="0" z="0" name = "Stairs_N[0_0_0]">
-		</XMLCoord>
-		<XMLCoord x="0" y="0" z="1" name = "VOID">
-		</XMLCoord>
+		<XMLO_AL_Coord x="0" y="0" z="0" name = "Stairs_N[0_0_0]">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="0" y="0" z="1" name = "VOID">
+		</XMLO_AL_Coord>
 	</coords>
-	</Direction_XML>
-	<Direction_XML direction="E" linked = "false">
+	</XMLO_AL_Direction>
+	<XMLO_AL_Direction direction="E" linked = "false">
 	<coords>
-		<XMLCoord x="0" y="0" z="0" name = "Stairs_E[0_0_0]">
-		</XMLCoord>
-		<XMLCoord x="0" y="0" z="1" name = "VOID">
-		</XMLCoord>
+		<XMLO_AL_Coord x="0" y="0" z="0" name = "Stairs_E[0_0_0]">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="0" y="0" z="1" name = "VOID">
+		</XMLO_AL_Coord>
 	</coords>
-	</Direction_XML>
-	<Direction_XML direction="S" linked = "false">
+	</XMLO_AL_Direction>
+	<XMLO_AL_Direction direction="S" linked = "false">
 	<coords>
-		<XMLCoord x="0" y="0" z="0" name = "Stairs_S[0_0_0]">
-		</XMLCoord>
-		<XMLCoord x="0" y="0" z="1" name = "VOID">
-		</XMLCoord>
+		<XMLO_AL_Coord x="0" y="0" z="0" name = "Stairs_S[0_0_0]">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="0" y="0" z="1" name = "VOID">
+		</XMLO_AL_Coord>
 	</coords>
-	</Direction_XML>
-	<Direction_XML direction="W" linked = "false">
+	</XMLO_AL_Direction>
+	<XMLO_AL_Direction direction="W" linked = "false">
 	<coords>
-		<XMLCoord x="0" y="0" z="0" name = "Stairs_W[0_0_0]">
-		</XMLCoord>
-		<XMLCoord x="0" y="0" z="1" name = "VOID">
-		</XMLCoord>
+		<XMLO_AL_Coord x="0" y="0" z="0" name = "Stairs_W[0_0_0]">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="0" y="0" z="1" name = "VOID">
+		</XMLO_AL_Coord>
 	</coords>
-	</Direction_XML>
+	</XMLO_AL_Direction>
 </directions>
-</LinkerObject_XML>
+</XMLO_AL_IsoObejct>

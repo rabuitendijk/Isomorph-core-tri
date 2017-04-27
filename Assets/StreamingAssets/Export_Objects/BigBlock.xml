@@ -1,47 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinkerObject_XML width="2" length="2" height="2" name="BigBlock" is_light = "false" light_radius = "8" miplevels = "1">
+<XMLO_AL_IsoObejct width="2" length="2" height="2" name="BigBlock" is_light = "false" light_radius = "8" miplevels = "1">
 <directions>
-	<Direction_XML direction="N" linked = "false">
+	<XMLO_AL_Direction direction="N" linked = "false">
 	<coords>
-		<XMLCoord x="0" y="0" z="0" name = "VOID">
-		</XMLCoord>
-		<XMLCoord x="0" y="0" z="1" name = "VOID">
-		</XMLCoord>
-		<XMLCoord x="0" y="0" z="2" name = "BigBlock[0_0_2]">
-		</XMLCoord>
-		<XMLCoord x="0" y="0" z="3" name = "VOID">
-		</XMLCoord>
-		<XMLCoord x="0" y="1" z="0" name = "BigBlock[0_1_0]">
-		</XMLCoord>
-		<XMLCoord x="0" y="1" z="1" name = "VOID">
-		</XMLCoord>
-		<XMLCoord x="0" y="1" z="2" name = "BigBlock[0_1_2]">
-		</XMLCoord>
-		<XMLCoord x="0" y="1" z="3" name = "VOID">
-		</XMLCoord>
-		<XMLCoord x="1" y="0" z="0" name = "BigBlock[1_0_0]">
-		</XMLCoord>
-		<XMLCoord x="1" y="0" z="1" name = "VOID">
-		</XMLCoord>
-		<XMLCoord x="1" y="0" z="2" name = "BigBlock[1_0_2]">
-		</XMLCoord>
-		<XMLCoord x="1" y="0" z="3" name = "VOID">
-		</XMLCoord>
-		<XMLCoord x="1" y="1" z="0" name = "BigBlock[1_1_0]">
-		</XMLCoord>
-		<XMLCoord x="1" y="1" z="1" name = "VOID">
-		</XMLCoord>
-		<XMLCoord x="1" y="1" z="2" name = "BigBlock[1_1_2]">
-		</XMLCoord>
-		<XMLCoord x="1" y="1" z="3" name = "VOID">
-		</XMLCoord>
+		<XMLO_AL_Coord x="0" y="0" z="0" name = "VOID">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="0" y="0" z="1" name = "VOID">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="0" y="0" z="2" name = "BigBlock[0_0_2]">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="0" y="0" z="3" name = "VOID">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="0" y="1" z="0" name = "BigBlock[0_1_0]">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="0" y="1" z="1" name = "VOID">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="0" y="1" z="2" name = "BigBlock[0_1_2]">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="0" y="1" z="3" name = "VOID">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="1" y="0" z="0" name = "BigBlock[1_0_0]">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="1" y="0" z="1" name = "VOID">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="1" y="0" z="2" name = "BigBlock[1_0_2]">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="1" y="0" z="3" name = "VOID">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="1" y="1" z="0" name = "BigBlock[1_1_0]">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="1" y="1" z="1" name = "VOID">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="1" y="1" z="2" name = "BigBlock[1_1_2]">
+		</XMLO_AL_Coord>
+		<XMLO_AL_Coord x="1" y="1" z="3" name = "VOID">
+		</XMLO_AL_Coord>
 	</coords>
-	</Direction_XML>
-	<Direction_XML direction="E" linked = "true" source = "N">
-	</Direction_XML>
-	<Direction_XML direction="S" linked = "true" source = "N">
-	</Direction_XML>
-	<Direction_XML direction="W" linked = "true" source = "N">
-	</Direction_XML>
+	</XMLO_AL_Direction>
+	<XMLO_AL_Direction direction="E" linked = "true" source = "N">
+	</XMLO_AL_Direction>
+	<XMLO_AL_Direction direction="S" linked = "true" source = "N">
+	</XMLO_AL_Direction>
+	<XMLO_AL_Direction direction="W" linked = "true" source = "N">
+	</XMLO_AL_Direction>
 </directions>
-</LinkerObject_XML>
+</XMLO_AL_IsoObejct>

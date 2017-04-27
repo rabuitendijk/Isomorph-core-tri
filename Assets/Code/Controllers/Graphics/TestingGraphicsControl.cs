@@ -1,65 +1,71 @@
 ﻿
-using System.Collections.Generic;
-using UnityEngine;
+using GameObject = UnityEngine.GameObject;
+using Material = UnityEngine.Material;
+using SpriteRenderer = UnityEngine.SpriteRenderer;
 
-/// <summary>
-/// Stripped graphics control for movement tests
-/// </summary>
-public class TestingGraphicsControl : GraphicsControl
+namespace Graphics_C
 {
-    Material mat;
+
 
     /// <summary>
-    /// Common constructor
+    /// Stripped graphics control for movement tests
     /// </summary>
-    public TestingGraphicsControl() : base(new NoMouseHoverObject())
+    public class TestingGraphicsControl : GraphicsControl
     {
-        mat = new Material(Shader.Find("Iso/CheckEffect"));
-    }
+        Material mat;
 
-    public override void delayedConstruction()
-    {
-        return; 
-    }
+        /// <summary>
+        /// Common constructor
+        /// </summary>
+        public TestingGraphicsControl() : base(new NoMouseHoverObject())
+        {
+            mat = new Material(UnityEngine.Shader.Find("Iso/CheckEffect"));
+        }
 
-    public override void rotate(Directions.dir direction)
-    {
-        return; //Disabled
-    }
+        public override void delayedConstruction()
+        {
+            return;
+        }
 
-    protected override void destructor()
-    {
-        return;
-    }
+        public override void rotate(Directions.dir direction)
+        {
+            return; //Disabled
+        }
 
-    protected override void onTileCreate(Tile t)
-    {
-        t.graphic = newOb(t, mat);
-    }
+        protected override void destructor()
+        {
+            return;
+        }
 
-    protected override void onTileDestroy(Tile t)
-    {
-        t.graphic = null;
-    }
+        protected override void onTileCreate(Tile t)
+        {
+            t.graphic = newOb(t, mat);
+        }
 
-    /// <summary>
-    /// Tile based sprite gameobject creator.
-    /// </summary>
-    GameObject newOb(Tile t, Material mat)
-    {
-        if (t.sprite == null)
-            return null;
+        protected override void onTileDestroy(Tile t)
+        {
+            t.graphic = null;
+        }
 
-        GameObject ret = new GameObject() { name = t.isoObject.name + "(" + t.coord.x + ", " + t.coord.y + ", " + t.coord.z + ")" };
-        ret.transform.position = t.coord.rotate(Directions.currentDirection, t.isoObject).position;
-        ret.transform.parent = tileFolder;
+        /// <summary>
+        /// Tile based sprite gameobject creator.
+        /// </summary>
+        GameObject newOb(Tile t, Material mat)
+        {
+            if (t.sprite == null)
+                return null;
 
-        SpriteRenderer sr = ret.AddComponent<SpriteRenderer>() as SpriteRenderer;
-        sr.sprite = t.sprite; //TODO
-        sr.sharedMaterial = mat;
-        sr.sortingLayerName = "lengthSort";
-        sr.sortingOrder = t.coord.rotate(Directions.currentDirection, t.isoObject).depth;
+            GameObject ret = new GameObject() { name = t.isoObject.name + "(" + t.coord.x + ", " + t.coord.y + ", " + t.coord.z + ")" };
+            ret.transform.position = t.coord.rotate(Directions.currentDirection, t.isoObject).position;
+            ret.transform.parent = tileFolder;
 
-        return ret;
+            SpriteRenderer sr = ret.AddComponent<SpriteRenderer>() as SpriteRenderer;
+            sr.sprite = t.sprite; //TODO
+            sr.sharedMaterial = mat;
+            sr.sortingLayerName = "lengthSort";
+            sr.sortingOrder = t.coord.rotate(Directions.currentDirection, t.isoObject).depth;
+
+            return ret;
+        }
     }
 }

@@ -1,279 +1,279 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Level_XML width="24" height="16" length="24">
+<XMLO_LL_Level width="24" height="16" length="24">
 <objects>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="1" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="2" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="3" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="4" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="5" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="6" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="8" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="7" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="9" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="10" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="11" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="12" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="13" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="14" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="15" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="16" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="17" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="18" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="19" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="20" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="21" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="22" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="0" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="1" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="2" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="3" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="4" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="5" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="6" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="7" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="8" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="9" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="10" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="11" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="12" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="13" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="14" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="15" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="16" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="17" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="18" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="19" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="20" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="21" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="22" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="23" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="1" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="2" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="3" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="4" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="5" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="6" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="7" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="8" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="9" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="10" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="11" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="12" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="13" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="14" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="15" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="16" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="17" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="18" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="20" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="19" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="21" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="22" y="23" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="1" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="2" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="3" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="4" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="5" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="6" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="7" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="8" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="9" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="10" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="11" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="12" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="13" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="14" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="15" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="16" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="17" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="18" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="19" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="20" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="21" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="0" y="22" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="5" y="5" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="6" y="5" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="7" y="5" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="8" y="5" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="9" y="5" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="10" y="5" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="11" y="5" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="12" y="5" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="7" y="8" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="8" y="8" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="9" y="8" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="9" y="9" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="9" y="10" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="8" y="11" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="9" y="11" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="7" y="11" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="6" y="11" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="4" y="11" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="4" y="12" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="4" y="13" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="4" y="14" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="4" y="15" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="5" y="15" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="7" y="15" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="6" y="15" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="7" y="14" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="7" y="13" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="6" y="13" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="6" y="12" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="12" y="8" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="13" y="9" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="14" y="10" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="15" y="11" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="12" y="10" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="13" y="11" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="14" y="8" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="14" y="7" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="15" y="7" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="HalfCell" x="16" y="8" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="BigBlock" x="17" y="3" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="RoughStones" x="4" y="15" z="1">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="RoughStones" x="15" y="17" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="RoughStones" x="14" y="17" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="RoughStones" x="12" y="17" z="0">
-	</IsoObject_XML>
-	<IsoObject_XML direction="N" name="RoughStones" x="12" y="15" z="0">
-	</IsoObject_XML>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="1" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="2" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="3" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="4" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="5" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="6" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="8" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="7" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="9" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="10" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="11" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="12" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="13" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="14" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="15" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="16" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="17" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="18" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="19" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="20" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="21" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="22" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="0" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="1" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="2" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="3" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="4" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="5" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="6" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="7" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="8" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="9" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="10" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="11" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="12" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="13" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="14" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="15" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="16" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="17" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="18" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="19" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="20" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="21" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="22" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="23" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="1" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="2" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="3" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="4" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="5" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="6" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="7" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="8" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="9" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="10" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="11" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="12" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="13" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="14" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="15" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="16" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="17" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="18" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="20" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="19" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="21" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="22" y="23" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="1" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="2" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="3" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="4" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="5" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="6" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="7" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="8" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="9" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="10" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="11" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="12" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="13" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="14" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="15" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="16" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="17" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="18" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="19" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="20" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="21" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="0" y="22" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="5" y="5" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="6" y="5" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="7" y="5" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="8" y="5" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="9" y="5" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="10" y="5" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="11" y="5" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="12" y="5" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="7" y="8" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="8" y="8" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="9" y="8" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="9" y="9" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="9" y="10" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="8" y="11" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="9" y="11" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="7" y="11" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="6" y="11" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="4" y="11" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="4" y="12" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="4" y="13" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="4" y="14" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="4" y="15" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="5" y="15" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="7" y="15" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="6" y="15" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="7" y="14" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="7" y="13" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="6" y="13" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="6" y="12" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="12" y="8" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="13" y="9" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="14" y="10" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="15" y="11" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="12" y="10" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="13" y="11" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="14" y="8" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="14" y="7" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="15" y="7" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="HalfCell" x="16" y="8" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="BigBlock" x="17" y="3" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="RoughStones" x="4" y="15" z="1">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="RoughStones" x="15" y="17" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="RoughStones" x="14" y="17" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="RoughStones" x="12" y="17" z="0">
+	</XMLO_LL_IsoObject>
+	<XMLO_LL_IsoObject direction="N" name="RoughStones" x="12" y="15" z="0">
+	</XMLO_LL_IsoObject>
 </objects>
-</Level_XML>
+</XMLO_LL_Level>

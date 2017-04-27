@@ -41,7 +41,7 @@ public class IsoTranslatable {
     /// <summary>
     /// Constructor
     /// </summary>
-    public IsoTranslatable(string prototype) : this(Atlas_Loader.main.getObject(prototype)) { }
+    public IsoTranslatable(string prototype) : this(AssetHandeling_AtlasLoader.Atlas_Loader.main.getObject(prototype)) { }
 
 
     static Action<IsoTranslatable> onCreate;

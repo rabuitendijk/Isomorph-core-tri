@@ -1,29 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿
 
-/// <summary>
-/// Controller for disabled UI
-/// </summary>
-public class NoUIControl : UIControl
+namespace UI_C
 {
-    public NoUIControl() : base()
-    {
-        return;
-    }
 
-    public override void delayedConstruction()
+    /// <summary>
+    /// Controller for disabled UI
+    /// </summary>
+    public class NoUIControl : UIControl
     {
-        return;
-    }
+        public NoUIControl() : base()
+        {
+            return;
+        }
 
-    public override bool usesKeys()
-    {
-        return false;
-    }
+        public override void delayedConstruction()
+        {
+            return;
+        }
 
-    protected override void destructor()
-    {
-        return;
+        public override bool usesKeys()
+        {
+            return false;
+        }
+
+        protected override void destructor()
+        {
+            return;
+        }
     }
 }

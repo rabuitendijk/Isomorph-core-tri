@@ -1,11 +1,14 @@
 ﻿
-using System.Collections.Generic;
-using UnityEngine;
 
-/// <summary>
-/// Controls translating and zooming
-/// </summary>
-public abstract class ComponentCamera{
+namespace Input_C
+{
 
-    public abstract void update();
+    /// <summary>
+    /// Controls translating and zooming
+    /// </summary>
+    public abstract class ComponentCamera
+    {
+
+        public abstract void update();
+    }
 }

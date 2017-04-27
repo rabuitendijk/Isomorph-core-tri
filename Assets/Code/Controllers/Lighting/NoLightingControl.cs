@@ -1,35 +1,37 @@
 ﻿
-using System;
-using System.Collections.Generic;
-using UnityEngine;
 
-/// <summary>
-/// For when no lighting is needed
-/// </summary>
-public class NoLightingControl : LightingControl
+
+namespace Lighting_C
 {
-    public NoLightingControl() : base()
+    /// <summary>
+    /// For when no lighting is needed
+    /// </summary>
+    public class NoLightingControl : LightingControl
     {
-        return;
+        public NoLightingControl() : base()
+        {
+            return;
+        }
+
+        public override void delayedConstruction()
+        {
+            return;
+        }
+
+        public override void runOnMainThread()
+        {
+            return;
+        }
+
+        public override void update()
+        {
+            return;
+        }
+
+        protected override void destructor()
+        {
+            return;
+        }
     }
 
-    public override void delayedConstruction()
-    {
-        return;
-    }
-
-    public override void runOnMainThread()
-    {
-        return;
-    }
-
-    public override void update()
-    {
-        return;
-    }
-
-    protected override void destructor()
-    {
-        return;
-    }
 }

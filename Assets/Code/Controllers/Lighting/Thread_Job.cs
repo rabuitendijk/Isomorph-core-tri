@@ -1,20 +1,24 @@
 ﻿
-using System.Collections.Generic;
-using UnityEngine;
+using Color = UnityEngine.Color;
 
-/// <summary>
-/// A job that is returned to the main thead to be applied
-/// </summary>
-public class Thread_Job {
-    public Iso coord { get; protected set; }
-    public Color color { get; protected set; }
-	
+namespace Lighting_C
+{
+
     /// <summary>
-    /// Common constructor
+    /// A job that is returned to the main thead to be applied
     /// </summary>
-    public Thread_Job(Iso coord, Color color)
+    public class Thread_Job
     {
-        this.coord = coord;
-        this.color = color;
-    } 
+        public Iso coord { get; protected set; }
+        public Color color { get; protected set; }
+
+        /// <summary>
+        /// Common constructor
+        /// </summary>
+        public Thread_Job(Iso coord, Color color)
+        {
+            this.coord = coord;
+            this.color = color;
+        }
+    }
 }
