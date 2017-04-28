@@ -10,20 +10,24 @@ using AssetHandeling_AtlasLoader;
 /// </summary>
 public class IsoObjectBody {
 
-    public bool singular { get; protected set; }
+
     public List<Iso> coords { get; protected set; }
-    public List<List<Sprite>> directions { get; protected set; } //N, E, S, W
-    public List<bool> isVisable { get; protected set; }
     public Directions.dir direction { get; protected set; }
-    public string name { get; protected set; }
     public Iso origin { get; protected set; }
-    public bool is_light { get; protected set; }
-    public int light_radius { get; protected set; }
 
-    public int width { get; protected set; }
-    public int height { get; protected set; }
-    public int length { get; protected set; }
+    public bool singular { get { return data.singular; } }
+    public List<List<Sprite>> directions { get { return data.directions; } } //N, E, S, W
+    public List<bool> isVisable { get { return data.isVisable; } }
+    public string name { get { return data.name; } }
+    public bool is_light { get { return data.is_light; } }
+    public int light_radius { get { return data.light_radius; } }
 
+    public int width { get { return data.width; } }
+    public int height { get { return data.height; } }
+    public int length { get { return data.length; } }
+
+
+    IsoObjectData data;
     /// <summary>
     /// Check is coords in map are occupied
     /// </summary>
@@ -44,69 +48,23 @@ public class IsoObjectBody {
     /// </summary>
     protected IsoObjectBody(IsoObjectBody prototype, Iso origin=null, Directions.dir direction = Directions.dir.N)
     {
-        coords = clone(prototype.coords);
-        directions = prototype.directions;
+        coords = prototype.data.coords;
         this.origin = origin;
         this.direction = direction;
-        width = prototype.width;
-        length = prototype.length;
-        height = prototype.height;
-        is_light = prototype.is_light;
-        light_radius = prototype.light_radius;
-        isVisable = new List<bool>();
-
-        foreach (Sprite s in directions[(int)direction])
-        {
-            isVisable.Add((s != null));
-        }
-        name = prototype.name;
-
-        singular = false;
-        if (coords.Count == 1)
-            singular = true;
-
+        this.data = prototype.data;
     }
 
     /// <summary>
     /// Pivate constructor, Called when a new prototype is created.
     /// </summary>
-    private IsoObjectBody(string name, List<Iso> coords, List<List<Sprite>> directions, int width, int length, int height, bool is_light, int light_radius)
+    private IsoObjectBody(IsoObjectData data)
     {
-        this.coords = clone(coords);
-        this.directions = directions;
-        this.width = width;
-        this.length = length;
-        this.height = height;
-        this.is_light = is_light;
-        this.light_radius = light_radius;
-        isVisable = new List<bool>();
+        this.data = data;
 
-        foreach (Sprite s in directions[(int)direction])
-        {
-            isVisable.Add((s != null));
-        }
-        this.name = name;
-
-        singular = false;
-        if (coords.Count == 1)
-            singular = true;
-
+        origin = new Iso(0, 0, 0);
+        direction = Directions.dir.N;
+        coords = data.coords;
         //Debug.Log(ToString());
-    }
-
-    /// <summary>
-    /// Clones a coordinate list to avoid changing original coordinates
-    /// </summary>
-    protected List<Iso> clone(List<Iso> list)
-    {
-        List<Iso> ret = new List<Iso>();
-
-        foreach (Iso i in list)
-        {
-            ret.Add(new Iso(i.x, i.y, i.z));
-        }
-
-        return ret;
     }
 
     /// <summary>
@@ -150,7 +108,8 @@ public class IsoObjectBody {
                 directions[i] = directions[(int)Directions.getDir(obj.directions[i].source)];
         }
 
-        return new IsoObjectBody(obj.name, coords, directions, obj.width, obj.length, obj.height, obj.is_light, obj.light_radius);
+
+        return new IsoObjectBody(new IsoObjectData(obj.name, coords, directions, obj.is_light, obj.light_radius, obj.width, obj.height, obj.length));
     }
 
     /// <summary>

@@ -148,6 +148,7 @@
     <Compile Include="Assets\Code\DataContainers\Iso.cs" />
     <Compile Include="Assets\Code\DataContainers\IsoObject.cs" />
     <Compile Include="Assets\Code\DataContainers\IsoObjectBody.cs" />
+    <Compile Include="Assets\Code\DataContainers\IsoObjectData.cs" />
     <Compile Include="Assets\Code\DataContainers\IsoTranslatable.cs" />
     <Compile Include="Assets\Code\DataContainers\Iso_Light.cs" />
     <Compile Include="Assets\Code\DataContainers\ProjIso.cs" />
